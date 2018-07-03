@@ -5,3 +5,5 @@
 *.opendb
 /ZekeGame/.vs/ZekeGame/v15/ipch/AutoPCH/8a2c309d99840ec
 /ZekeGame/.vs/ZekeGame/v15
+/ZekeGame/ZekeGame/Debug
+/ZekeGame/Debug
