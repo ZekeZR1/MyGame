@@ -2,6 +2,9 @@
 #include "Window.h"
 #include "GraphicsEngine.h"
 
+HWND g_hwnd = NULL;
+GraphicsEngine* g_graphicsEngine = NULL;
+
 LRESULT CALLBACK MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 	switch (msg)
@@ -55,11 +58,13 @@ void InitWindow(
 	);
 	ShowWindow(g_hwnd, nCmdShow);
 
-
+	//DirectX
+	g_graphicsEngine = new GraphicsEngine();
+	g_graphicsEngine->InitDirectX(g_hwnd);
 }
 
 
-bool DispachWindoMessage() {
+bool DispatchWindowMessage() {
 	MSG msg = { 0 };
 	while (WM_QUIT != msg.message)
 	{
