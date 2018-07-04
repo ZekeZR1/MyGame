@@ -1,8 +1,6 @@
 #include "stdafx.h"
 #include "GraphicsEngine.h"
 
-
-
 GraphicsEngine::GraphicsEngine()
 {
 }
@@ -55,6 +53,7 @@ void GraphicsEngine::Release()
 		m_pd3dDevice = NULL;
 	}
 }
+
 
 void GraphicsEngine::InitDirectX(HWND hwnd) {
 	DXGI_SWAP_CHAIN_DESC sd;

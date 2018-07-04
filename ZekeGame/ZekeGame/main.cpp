@@ -7,7 +7,7 @@ void GameUpdate() {
 	g_graphicsEngine->EndRender();
 }
 
-int WINAPI wWinMain(
+INT WINAPI wWinMain(
 	HINSTANCE hInstance,
 	HINSTANCE hPrevInstance,
 	LPWSTR lpCmdLine,
