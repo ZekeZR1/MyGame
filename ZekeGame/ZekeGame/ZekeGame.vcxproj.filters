@@ -26,7 +26,7 @@
     <ClCompile Include="Window.cpp">
       <Filter>ソース ファイル\window</Filter>
     </ClCompile>
-    <ClCompile Include="GraphicsEngine.cpp">
+    <ClCompile Include="graphics\GraphicsEngine.cpp">
       <Filter>ソース ファイル\graphics</Filter>
     </ClCompile>
   </ItemGroup>
@@ -37,7 +37,7 @@
     <ClInclude Include="Window.h">
       <Filter>ソース ファイル\window</Filter>
     </ClInclude>
-    <ClInclude Include="GraphicsEngine.h">
+    <ClInclude Include="graphics\GraphicsEngine.h">
       <Filter>ソース ファイル\graphics</Filter>
     </ClInclude>
   </ItemGroup>

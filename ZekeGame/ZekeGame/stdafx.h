@@ -8,7 +8,7 @@
 #include <d3d11.h>
 #include <algorithm>
 
-#include "GraphicsEngine.h"
+#include "graphics/GraphicsEngine.h"
 
 const float FRAME_BUFFER_W = 1280.0f;				
 const float FRAME_BUFFER_H = 720.0f;				
