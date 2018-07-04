@@ -6,7 +6,7 @@ GraphicsEngine* g_graphicsEngine = NULL;
 
 void ReleaseDirectX()
 {
-
+	delete g_graphicsEngine;
 }
 
 LRESULT CALLBACK MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)

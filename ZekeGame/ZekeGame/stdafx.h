@@ -1,8 +1,11 @@
 #pragma once
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <memory>
+#include <math.h>
+#include <D3Dcompiler.h>
 #include <Windows.h>
 #include <d3d11.h>
-#include <d3dcompiler.h>
 #include <algorithm>
 
 #include "GraphicsEngine.h"
