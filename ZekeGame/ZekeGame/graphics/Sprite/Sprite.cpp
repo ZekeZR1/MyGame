@@ -23,64 +23,52 @@ Sprite::~Sprite()
 		m_texture->Release();
 	}
 }
-//Sprite::Init関数の実装。
 void Sprite::Init(const wchar_t* texFilePath)
 {
 
-	//頂点バッファの初期化。
 	InitVertexBuffer(m_vertexBuffer);
-	//インデックスバッファの初期化。
 	InitIndexBuffer(m_indexBuffer);
-	//サンプラステートの初期化。
 	InitSamplerState(m_samplerState);
-	//エフェクトファイルのロード。気にしなくてよい。
 	m_effect.Load("Assets/shader/primitive.fx");
-	//テクスチャをロード。
 	DirectX::CreateDDSTextureFromFileEx(
-		g_graphicsEngine->GetD3DDevice(),				//D3Dデバイス。
-		texFilePath,				//読み込む画像データのファイルパス。
-		0,                          //今は気にしなくてよい。
-		D3D11_USAGE_DEFAULT,		//今は気にしなくてよい。
-		D3D11_BIND_SHADER_RESOURCE,	//今は気にしなくてよい。
-		0,							//今は気にしなくてよい。
-		0,							//今は気にしなくてよい。
-		false,						//今は気にしなくてよい。
-		nullptr,					//今は気にしなくてよい。
-		&m_texture					//読み込んだテクスチャに
-									//アクセスするためのインターフェースの格納先。
+		g_graphicsEngine->GetD3DDevice(),				
+		texFilePath,				
+		0,                          
+		D3D11_USAGE_DEFAULT,		
+		D3D11_BIND_SHADER_RESOURCE,	
+		0,							
+		0,				
+		false,						
+		nullptr,					
+		&m_texture					
 	);
 }
-//Sprite::Draw関数の実装。
 void Sprite::Draw()
 {
 	m_effect.BeginRender();
-	unsigned int vertexSize = sizeof(SVertex);	//頂点のサイズ。
+	unsigned int vertexSize = sizeof(SVertex);	
 	unsigned int offset = 0;
-	g_graphicsEngine->GetD3DDeviceContext()->IASetVertexBuffers(	//頂点バッファを設定。
-		0,					//StartSlot番号。今は0でいい。
-		1,					//バッファの数。今は1でいい。
-		&m_vertexBuffer,	//頂点バッファ。
-		&vertexSize,		//頂点のサイズ。
-		&offset				//気にしなくてよい。
+	g_graphicsEngine->GetD3DDeviceContext()->IASetVertexBuffers(	
+		0,					
+		1,				
+		&m_vertexBuffer,	
+		&vertexSize,		
+		&offset			
 	);
-	g_graphicsEngine->GetD3DDeviceContext()->IASetIndexBuffer(	//インデックスバッファを設定。
-		m_indexBuffer,			//インデックスバッファ。
-		DXGI_FORMAT_R32_UINT,	//インデックスのフォーマット。
-								//今回は32bitなので、DXGI_FORMAT_R32_UINTでいい。
-		0						//オフセット0でいい。
+	g_graphicsEngine->GetD3DDeviceContext()->IASetIndexBuffer(	
+		m_indexBuffer,			
+		DXGI_FORMAT_R32_UINT,	
+								
+		0					
 	);
 
-	//テクスチャを設定。
 	g_graphicsEngine->GetD3DDeviceContext()->PSSetShaderResources(0, 1, &m_texture);
-	//サンプラステートを設定。
 	g_graphicsEngine->GetD3DDeviceContext()->PSSetSamplers(0, 1, &m_samplerState);
 
-	//プリミティブのトポロジーは
-	//トライアングルストリップを設定する。
 	g_graphicsEngine->GetD3DDeviceContext()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-	g_graphicsEngine->GetD3DDeviceContext()->DrawIndexed(	//描画命令。
-		6,				//インデックス数。
-		0,				//開始インデックス番号。0でいい。
-		0				//開始頂点番号。0でいい。
+	g_graphicsEngine->GetD3DDeviceContext()->DrawIndexed(	
+		6,			
+		0,				
+		0				
 	);
 }

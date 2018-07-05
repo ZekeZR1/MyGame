@@ -36,15 +36,15 @@ void InitVertexBuffer(ID3D11Buffer*& vertexBuffer)
 void InitIndexBuffer(ID3D11Buffer*& indexBuffer)
 {
 	int index[6] = {
-		0,1,2,		//三角形一つ目
-		2,1,3		//三角形二つ目
+		0,1,2,		
+		2,1,3		
 	};
 	D3D11_BUFFER_DESC bd;
-	ZeroMemory(&bd, sizeof(bd));				//構造体を0で初期化する。
-	bd.Usage = D3D11_USAGE_DEFAULT;				//バッファーで想定されている読み込みおよび書き込みの方法。
-												//取りあえずはD3D11_USAGE_DEFAULTでよい。
-	bd.ByteWidth = sizeof(index);				//インデックスバッファのサイズ。
-	bd.BindFlags = D3D11_BIND_INDEX_BUFFER;		//これから作成するバッファがインデックスバッファであることを指定する。
+	ZeroMemory(&bd, sizeof(bd));				
+	bd.Usage = D3D11_USAGE_DEFAULT;				
+												
+	bd.ByteWidth = sizeof(index);				
+	bd.BindFlags = D3D11_BIND_INDEX_BUFFER;		
 
 	D3D11_SUBRESOURCE_DATA InitData;
 	ZeroMemory(&InitData, sizeof(InitData));
