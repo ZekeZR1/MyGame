@@ -23,9 +23,9 @@ void InitVertexBuffer(ID3D11Buffer*& vertexBuffer)
 	};
 	D3D11_BUFFER_DESC bd;
 	ZeroMemory(&bd, sizeof(bd));				
-	bd.Usage = D3D11_USAGE_DEFAULT;				//バッファーで想定されている読み込みおよび書き込みの方法。
-	bd.ByteWidth = sizeof(vertex);				//頂点バッファのサイズ。頂点のサイズ×頂点数となる。
-	bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;	//これから作成するバッファが頂点バッファであることを指定する。
+	bd.Usage = D3D11_USAGE_DEFAULT;				
+	bd.ByteWidth = sizeof(vertex);				
+	bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;	
 
 	D3D11_SUBRESOURCE_DATA InitData;
 	ZeroMemory(&InitData, sizeof(InitData));
