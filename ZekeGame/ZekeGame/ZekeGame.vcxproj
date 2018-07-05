@@ -127,12 +127,12 @@
     <ClCompile Include="graphics\GraphicsEngine.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="graphics\GraphicsEngine.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="Window.h" />
+    <ClInclude Include="window\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
