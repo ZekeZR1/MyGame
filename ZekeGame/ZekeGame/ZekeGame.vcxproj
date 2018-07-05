@@ -70,7 +70,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);$(ProjectDir)/bulletPhysics/src;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -90,9 +90,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>d3d11.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>DirectXTK.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;d3d11.lib;d3dcompiler.lib;%(AdditionalDependencies);xinput.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;LinearMath_Debug.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -125,12 +127,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="graphics\GraphicsEngine.cpp" />
+    <ClCompile Include="graphics\Sprite\Effect.cpp" />
+    <ClCompile Include="graphics\Sprite\SpBuffer.cpp" />
+    <ClCompile Include="graphics\Sprite\Sprite.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="math\kMath.cpp" />
+    <ClCompile Include="math\Matrix.cpp" />
+    <ClCompile Include="math\Vector.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="graphics\GraphicsEngine.h" />
+    <ClInclude Include="graphics\Sprite\Effect.h" />
+    <ClInclude Include="graphics\Sprite\SpBuffer.h" />
+    <ClInclude Include="graphics\Sprite\Sprite.h" />
+    <ClInclude Include="math\kMath.h" />
+    <ClInclude Include="math\Matrix.h" />
+    <ClInclude Include="math\Vector.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="window\Window.h" />
   </ItemGroup>

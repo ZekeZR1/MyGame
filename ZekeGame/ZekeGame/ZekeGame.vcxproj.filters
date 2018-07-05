@@ -15,6 +15,12 @@
     <Filter Include="ソース ファイル\graphics">
       <UniqueIdentifier>{f01c437f-c725-46ab-8e0d-b7ec86648b53}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\graphics\Sprite">
+      <UniqueIdentifier>{0a3906a6-a735-43d8-bfe5-e3c1d0c7208c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\math">
+      <UniqueIdentifier>{9f40258f-e323-44fd-a3bc-a35cb8cb790f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -23,22 +29,58 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="window\Window.cpp">
+      <Filter>ソース ファイル\window</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\Sprite\Sprite.cpp">
+      <Filter>ソース ファイル\graphics\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\Sprite\Effect.cpp">
+      <Filter>ソース ファイル\graphics\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\Sprite\SpBuffer.cpp">
+      <Filter>ソース ファイル\graphics\Sprite</Filter>
+    </ClCompile>
     <ClCompile Include="graphics\GraphicsEngine.cpp">
       <Filter>ソース ファイル\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="window\Window.cpp">
-      <Filter>ソース ファイル\window</Filter>
+    <ClCompile Include="math\Vector.cpp">
+      <Filter>ソース ファイル\math</Filter>
+    </ClCompile>
+    <ClCompile Include="math\kMath.cpp">
+      <Filter>ソース ファイル\math</Filter>
+    </ClCompile>
+    <ClCompile Include="math\Matrix.cpp">
+      <Filter>ソース ファイル\math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="window\Window.h">
+      <Filter>ソース ファイル\window</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\Sprite\Sprite.h">
+      <Filter>ソース ファイル\graphics\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\Sprite\Effect.h">
+      <Filter>ソース ファイル\graphics\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\Sprite\SpBuffer.h">
+      <Filter>ソース ファイル\graphics\Sprite</Filter>
+    </ClInclude>
     <ClInclude Include="graphics\GraphicsEngine.h">
       <Filter>ソース ファイル\graphics</Filter>
     </ClInclude>
-    <ClInclude Include="window\Window.h">
-      <Filter>ソース ファイル\window</Filter>
+    <ClInclude Include="math\Matrix.h">
+      <Filter>ソース ファイル\math</Filter>
+    </ClInclude>
+    <ClInclude Include="math\Vector.h">
+      <Filter>ソース ファイル\math</Filter>
+    </ClInclude>
+    <ClInclude Include="math\kMath.h">
+      <Filter>ソース ファイル\math</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

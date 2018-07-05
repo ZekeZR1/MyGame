@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Window.h"
+#include "window/Window.h"
 
 HWND g_hwnd = NULL;
 GraphicsEngine* g_graphicsEngine = NULL;

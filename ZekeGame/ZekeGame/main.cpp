@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Window.h"
+#include "window/Window.h"
 
 void GameUpdate() {
 	g_graphicsEngine->BegineRender();
@@ -13,7 +13,6 @@ INT WINAPI wWinMain(
 	LPWSTR lpCmdLine,
 	int nCmdShow) {
 	InitWindow(hInstance, hPrevInstance, lpCmdLine, nCmdShow, "Game");
-	
 	while (DispatchWindowMessage()) {
 		GameUpdate();
 	}
