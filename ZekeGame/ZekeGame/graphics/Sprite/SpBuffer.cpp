@@ -1,8 +1,11 @@
 #include "stdafx.h"
 #include "SpBuffer.h"
 
-void InitVertexBuffer(ID3D11Buffer*& vertexBuffer)
+void InitVertexBuffer(ID3D11Buffer*& vertexBuffer, float w, float h)
 {
+	float halfW = w * 0.5f;
+	float halfH = h * 0.5f;
+
 	SVertex vertex[4] = {
 		{
 			-0.5f,  -0.5f, 0.0f, 1.0f,

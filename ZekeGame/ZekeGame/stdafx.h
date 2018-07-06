@@ -25,6 +25,8 @@
 #include "graphics/GraphicsEngine.h"
 #include "math/Matrix.h"
 #include "math/kMath.h"
+#include "graphics/Sprite/Sprite.h"
+#include "graphics/Camera.h"
 
 const float FRAME_BUFFER_W = 1280.0f;				
 const float FRAME_BUFFER_H = 720.0f;				

@@ -128,6 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="graphics\Camera.cpp" />
     <ClCompile Include="graphics\GraphicsEngine.cpp" />
     <ClCompile Include="graphics\Sprite\Effect.cpp" />
     <ClCompile Include="graphics\Sprite\SpBuffer.cpp" />
@@ -140,6 +141,7 @@
     <ClCompile Include="window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="graphics\Camera.h" />
     <ClInclude Include="graphics\GraphicsEngine.h" />
     <ClInclude Include="graphics\Sprite\Effect.h" />
     <ClInclude Include="graphics\Sprite\SpBuffer.h" />

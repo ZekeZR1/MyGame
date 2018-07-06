@@ -1,6 +1,5 @@
 #pragma once
-
-extern void InitVertexBuffer(ID3D11Buffer*& vertexBuffer);
+extern void InitVertexBuffer(ID3D11Buffer*& vertexBuffer, float w, float h);
 extern void InitIndexBuffer(ID3D11Buffer*& indexBuffer);
 extern void InitSamplerState(ID3D11SamplerState*& samplerState);
 

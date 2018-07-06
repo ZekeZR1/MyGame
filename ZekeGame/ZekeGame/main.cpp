@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "window/Window.h"
+
 void GameUpdate() {
 	g_graphicsEngine->BegineRender();
 
