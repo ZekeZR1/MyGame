@@ -2,9 +2,8 @@
 #include "Sprite.h"
 #include "SpBuffer.h"
 
-
-Camera* g_camera2D = NULL;					//2Dカメラ。
-Camera* g_camera3D = NULL;					//3Dカメラ。
+//Camera* g_camera2D = NULL;					//2Dカメラ。
+//Camera* g_camera3D = NULL;					//3Dカメラ。
 
 Sprite::Sprite()
 {
@@ -74,7 +73,7 @@ void Sprite::Init(const wchar_t* texFilePath, float w, float h)
 	DirectX::CreateDDSTextureFromFileEx(
 		g_graphicsEngine->GetD3DDevice(),	
 		filePath,					
-		0,                      
+		0,
 		D3D11_USAGE_DEFAULT,	
 		D3D11_BIND_SHADER_RESOURCE,	
 		0,						
@@ -110,8 +109,9 @@ void Sprite::Draw()
 	ge->GetD3DDeviceContext()->PSSetSamplers(0, 1, &m_samplerState);
 	ConstantBuffer cb;
 	cb.WVP = m_world;
-	cb.WVP.Mul(cb.WVP, g_camera2D->GetViewMatrix());
-	cb.WVP.Mul(cb.WVP, g_camera2D->GetProjectionMatrix());
+	extern Camera* camera2d;
+	cb.WVP.Mul(cb.WVP, camera2d->GetViewMatrix());
+	cb.WVP.Mul(cb.WVP, camera2d->GetProjectionMatrix());
 	ge->GetD3DDeviceContext()->UpdateSubresource(m_cb, 0, NULL, &cb, 0, 0);
 	ge->GetD3DDeviceContext()->VSSetConstantBuffers(0, 1, &m_cb);
 	ge->GetD3DDeviceContext()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);

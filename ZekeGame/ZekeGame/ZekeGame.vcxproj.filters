@@ -15,14 +15,17 @@
     <Filter Include="ソース ファイル\graphics">
       <UniqueIdentifier>{f01c437f-c725-46ab-8e0d-b7ec86648b53}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\graphics\Sprite">
-      <UniqueIdentifier>{0a3906a6-a735-43d8-bfe5-e3c1d0c7208c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\math">
       <UniqueIdentifier>{9f40258f-e323-44fd-a3bc-a35cb8cb790f}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Assets">
       <UniqueIdentifier>{095baad6-e590-4e7d-acaa-0cb9a3cbc92d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\graphics\sprite">
+      <UniqueIdentifier>{0a3906a6-a735-43d8-bfe5-e3c1d0c7208c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Assets\sprite">
+      <UniqueIdentifier>{c748d000-c927-4210-b1cc-6b235fd1792f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -36,13 +39,13 @@
       <Filter>ソース ファイル\window</Filter>
     </ClCompile>
     <ClCompile Include="graphics\Sprite\Sprite.cpp">
-      <Filter>ソース ファイル\graphics\Sprite</Filter>
+      <Filter>ソース ファイル\graphics\sprite</Filter>
     </ClCompile>
     <ClCompile Include="graphics\Sprite\Effect.cpp">
-      <Filter>ソース ファイル\graphics\Sprite</Filter>
+      <Filter>ソース ファイル\graphics\sprite</Filter>
     </ClCompile>
     <ClCompile Include="graphics\Sprite\SpBuffer.cpp">
-      <Filter>ソース ファイル\graphics\Sprite</Filter>
+      <Filter>ソース ファイル\graphics\sprite</Filter>
     </ClCompile>
     <ClCompile Include="graphics\GraphicsEngine.cpp">
       <Filter>ソース ファイル\graphics</Filter>
@@ -68,13 +71,13 @@
       <Filter>ソース ファイル\window</Filter>
     </ClInclude>
     <ClInclude Include="graphics\Sprite\Sprite.h">
-      <Filter>ソース ファイル\graphics\Sprite</Filter>
+      <Filter>ソース ファイル\graphics\sprite</Filter>
     </ClInclude>
     <ClInclude Include="graphics\Sprite\Effect.h">
-      <Filter>ソース ファイル\graphics\Sprite</Filter>
+      <Filter>ソース ファイル\graphics\sprite</Filter>
     </ClInclude>
     <ClInclude Include="graphics\Sprite\SpBuffer.h">
-      <Filter>ソース ファイル\graphics\Sprite</Filter>
+      <Filter>ソース ファイル\graphics\sprite</Filter>
     </ClInclude>
     <ClInclude Include="graphics\GraphicsEngine.h">
       <Filter>ソース ファイル\graphics</Filter>
@@ -91,5 +94,10 @@
     <ClInclude Include="graphics\Camera.h">
       <Filter>ソース ファイル\graphics</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\mikyan.jpg">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
   </ItemGroup>
 </Project>

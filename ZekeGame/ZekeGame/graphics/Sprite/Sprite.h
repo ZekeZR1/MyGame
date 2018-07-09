@@ -26,7 +26,6 @@ public:
 	CVector2					m_size = CVector2::Zero();			
 	ID3D11Buffer*				m_cb = nullptr;							
 private:
-
 	void InitConstantBuffer();
 };
 

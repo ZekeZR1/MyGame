@@ -1,20 +1,14 @@
 #include "stdafx.h"
 #include "window/Window.h"
 
-HWND g_hwnd = NULL;
-GraphicsEngine* g_graphicsEngine = NULL;
-
-void ReleaseDirectX()
-{
-	delete g_graphicsEngine;
-}
+//HWND g_hwnd = NULL;
+//GraphicsEngine* g_graphicsEngine = NULL;
 
 LRESULT CALLBACK MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 	switch (msg)
 	{
 	case WM_DESTROY:
-		ReleaseDirectX();
 		PostQuitMessage(0);
 		break;
 	default:
