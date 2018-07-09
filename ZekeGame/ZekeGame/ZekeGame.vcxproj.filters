@@ -62,6 +62,24 @@
     <ClCompile Include="graphics\Camera.cpp">
       <Filter>ソース ファイル\graphics</Filter>
     </ClCompile>
+    <ClCompile Include="graphics\SkinModel.cpp">
+      <Filter>ソース ファイル\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\SkinModelDataManager.cpp">
+      <Filter>ソース ファイル\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\Skelton.cpp">
+      <Filter>ソース ファイル\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\Shader.cpp">
+      <Filter>ソース ファイル\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\ShaderResources.cpp">
+      <Filter>ソース ファイル\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\SkinModelEffect.cpp">
+      <Filter>ソース ファイル\graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -92,6 +110,27 @@
       <Filter>ソース ファイル\math</Filter>
     </ClInclude>
     <ClInclude Include="graphics\Camera.h">
+      <Filter>ソース ファイル\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\SkinModel.h">
+      <Filter>ソース ファイル\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\Skelton.h">
+      <Filter>ソース ファイル\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\SkinModelDataManager.h">
+      <Filter>ソース ファイル\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\Shader.h">
+      <Filter>ソース ファイル\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\ShaderResources.h">
+      <Filter>ソース ファイル\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\SkinModelEffect.h">
+      <Filter>ソース ファイル\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\SkinModelShaderConst.h">
       <Filter>ソース ファイル\graphics</Filter>
     </ClInclude>
   </ItemGroup>

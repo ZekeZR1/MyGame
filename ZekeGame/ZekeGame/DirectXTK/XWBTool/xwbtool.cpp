@@ -8,8 +8,12 @@
 // For a more full-featured builder, see XACT 3 and the XACTBLD tool in the legacy
 // DirectX SDK (June 2010) release.
 //
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
+// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+// PARTICULAR PURPOSE.
+//
 // Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
 //
 // http://go.microsoft.com/fwlink/?LinkId=248929
 //--------------------------------------------------------------------------------------
@@ -33,29 +37,15 @@
 #include <assert.h>
 
 #include <algorithm>
-#include <fstream>
 #include <list>
 #include <memory>
 #include <vector>
 
 #include "WAVFileReader.h"
 
-#ifdef __INTEL_COMPILER
-#pragma warning(disable : 161)
-// warning #161: unrecognized #pragma
-#endif
-
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
-
-#ifndef MAKEFOURCC
-#define MAKEFOURCC(ch0, ch1, ch2, ch3) \
-                (static_cast<uint32_t>(static_cast<uint8_t>(ch0)) \
-                | (static_cast<uint32_t>(static_cast<uint8_t>(ch1)) << 8) \
-                | (static_cast<uint32_t>(static_cast<uint8_t>(ch2)) << 16) \
-                | (static_cast<uint32_t>(static_cast<uint8_t>(ch3)) << 24))
-#endif /* defined(MAKEFOURCC) */
 
 #ifndef WAVE_FORMAT_XMA2
 #define WAVE_FORMAT_XMA2 0x166
@@ -99,13 +89,13 @@ namespace
 {
     struct handle_closer { void operator()(HANDLE h) { if (h) CloseHandle(h); } };
 
-    typedef std::unique_ptr<void, handle_closer> ScopedHandle;
+    typedef public std::unique_ptr<void, handle_closer> ScopedHandle;
 
-    inline HANDLE safe_handle(HANDLE h) { return (h == INVALID_HANDLE_VALUE) ? nullptr : h; }
+    inline HANDLE safe_handle(HANDLE h) { return (h == INVALID_HANDLE_VALUE) ? 0 : h; }
 
     struct find_closer { void operator()(HANDLE h) { assert(h != INVALID_HANDLE_VALUE); if (h) FindClose(h); } };
 
-    typedef std::unique_ptr<void, find_closer> ScopedFindHandle;
+    typedef public std::unique_ptr<void, find_closer> ScopedFindHandle;
 
 #define BLOCKALIGNPAD(a, b) \
     ((((a) + ((b) - 1)) / (b)) * (b))
@@ -139,7 +129,7 @@ namespace
 
     struct HEADER
     {
-        static const uint32_t SIGNATURE = MAKEFOURCC('W', 'B', 'N', 'D');
+        static const uint32_t SIGNATURE = 'DNBW';
         static const uint32_t VERSION = 44;
 
         enum SEGIDX
@@ -568,7 +558,7 @@ namespace
 
             if (wfx->cbSize != (sizeof(XMA2WAVEFORMATEX) - sizeof(WAVEFORMATEX)))
             {
-                wprintf(L"ERROR: XMA2 cbSize must be %zu (%u)", (sizeof(XMA2WAVEFORMATEX) - sizeof(WAVEFORMATEX)), wfx->cbSize);
+                wprintf(L"ERROR: XMA2 cbSize must be %Iu (%u)", (sizeof(XMA2WAVEFORMATEX) - sizeof(WAVEFORMATEX)), wfx->cbSize);
                 return false;
             }
             else
@@ -637,12 +627,12 @@ namespace
         case WAVE_FORMAT_EXTENSIBLE:
             if (wfx->cbSize < (sizeof(WAVEFORMATEXTENSIBLE) - sizeof(WAVEFORMATEX)))
             {
-                wprintf(L"ERROR: WAVEFORMATEXTENSIBLE cbSize must be at least %zu (%u)", (sizeof(WAVEFORMATEXTENSIBLE) - sizeof(WAVEFORMATEX)), wfx->cbSize);
+                wprintf(L"ERROR: WAVEFORMATEXTENSIBLE cbSize must be at least %Iu (%u)", (sizeof(WAVEFORMATEXTENSIBLE) - sizeof(WAVEFORMATEX)), wfx->cbSize);
                 return false;
             }
             else
             {
-                static const GUID s_wfexBase = { 0x00000000, 0x0000, 0x0010, { 0x80, 0x00, 0x00, 0xAA, 0x00, 0x38, 0x9B, 0x71 } };
+                static const GUID s_wfexBase = { 0x00000000, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xAA, 0x00, 0x38, 0x9B, 0x71 };
 
                 auto wfex = reinterpret_cast<const WAVEFORMATEXTENSIBLE*>(wfx);
 
@@ -797,7 +787,6 @@ enum OPTIONS
     OPT_NOCOMPACT,
     OPT_FRIENDLY_NAMES,
     OPT_NOLOGO,
-    OPT_FILELIST,
     OPT_MAX
 };
 
@@ -821,14 +810,17 @@ struct WaveFile
     MINIWAVEFORMAT miniFmt;
     std::unique_ptr<uint8_t[]> waveData;
 
-    WaveFile() noexcept :
-        data{},
-        conv(0),
-        miniFmt{}
-        {}
+    WaveFile() : conv(0) { memset(&data, 0, sizeof(data)); }
 
-    WaveFile(WaveFile&&) = default;
-    WaveFile& operator= (WaveFile&&) = default;
+    // VS 2013 does not perform impliclit creation of move construtors nor does it support =default,
+    // so we explictly add one here
+    WaveFile(WaveFile&& moveFrom) :
+        data(std::move(moveFrom.data)),
+        conv(std::move(moveFrom.conv)),
+        miniFmt(std::move(moveFrom.miniFmt)),
+        waveData(std::move(moveFrom.waveData))
+    {
+    }
 };
 
 namespace
@@ -861,7 +853,6 @@ const SValue g_pOptions [] =
     { L"nc",        OPT_NOCOMPACT },
     { L"f",         OPT_FRIENDLY_NAMES },
     { L"nologo",    OPT_NOLOGO },
-    { L"flist",     OPT_FILELIST },
     { nullptr,      0 }
 };
 
@@ -926,7 +917,7 @@ namespace
                     break;
             }
         }
-
+            
         // Process directories
         if (recursive)
         {
@@ -999,7 +990,6 @@ namespace
         wprintf(L"   -nc                 force creation of non-compact wavebank\n");
         wprintf(L"   -f                  include entry friendly names\n");
         wprintf(L"   -nologo             suppress copyright message\n");
-        wprintf(L"   -flist <filename>   use text file with a list of input files (one per line)\n");
     }
 
     const char* GetFormatTagName(WORD wFormatTag)
@@ -1071,8 +1061,8 @@ namespace
 int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
 {
     // Parameters and defaults
-    wchar_t szOutputFile[MAX_PATH] = {};
-    wchar_t szHeaderFile[MAX_PATH] = {};
+    wchar_t szOutputFile[MAX_PATH] = { 0 };
+    wchar_t szHeaderFile[MAX_PATH] = { 0 };
 
     ScopedHandle hFile;
 
@@ -1109,7 +1099,6 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
             {
             case OPT_OUTPUTFILE:
             case OPT_OUTPUTHEADER:
-            case OPT_FILELIST:
                 if (!*pValue)
                 {
                     if ((iArg + 1 >= argc))
@@ -1149,48 +1138,6 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
                     return 1;
                 }
                 break;
-
-            case OPT_FILELIST:
-                {
-                    std::wifstream inFile(pValue);
-                    if (!inFile)
-                    {
-                        wprintf(L"Error opening -flist file %ls\n", pValue);
-                        return 1;
-                    }
-                    wchar_t fname[1024] = {};
-                    for (;;)
-                    {
-                        inFile >> fname;
-                        if (!inFile)
-                            break;
-
-                        if (*fname == L'#')
-                        {
-                            // Comment
-                        }
-                        else if (*fname == L'-')
-                        {
-                            wprintf(L"Command-line arguments not supported in -flist file\n");
-                            return 1;
-                        }
-                        else if (wcspbrk(fname, L"?*") != nullptr)
-                        {
-                            wprintf(L"Wildcards not supported in -flist file\n");
-                            return 1;
-                        }
-                        else
-                        {
-                            SConversion conv;
-                            wcscpy_s(conv.szSrc, MAX_PATH, fname);
-                            conversion.push_back(conv);
-                        }
-
-                        inFile.ignore(1000, '\n');
-                    }
-                    inFile.close();
-                }
-                break;
             }
         }
         else if (wcspbrk(pArg, L"?*") != nullptr)
@@ -1226,7 +1173,7 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
     std::unique_ptr<uint8_t[]> entries;
     std::unique_ptr<char[]> entryNames;
     std::vector<WaveFile> waves;
-    MINIWAVEFORMAT compactFormat = {};
+    MINIWAVEFORMAT compactFormat = { 0 };
 
     bool xma = false;
 
@@ -1321,10 +1268,10 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
 
     if (waveOffset > UINT32_MAX)
     {
-        wprintf(L"ERROR: Audio wave data is too large to encode into wavebank (offset %llu)", waveOffset);
+        wprintf(L"ERROR: Audio wave data is too large to encode into wavebank (offset %I64u)", waveOffset);
         return 1;
     }
-    else if (waveOffset > (MAX_COMPACT_DATA_SEGMENT_SIZE * uint64_t(dwAlignment)))
+    else if (waveOffset > (MAX_COMPACT_DATA_SEGMENT_SIZE * dwAlignment))
     {
         compact = false;
         reason |= 0x4;
@@ -1343,7 +1290,7 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
         }
         if (reason & 0x4)
         {
-            wprintf(L"- Audio wave data is too large to encode in compact wavebank (%llu > %llu).\n", waveOffset, (MAX_COMPACT_DATA_SEGMENT_SIZE * uint64_t(dwAlignment)));
+            wprintf(L"- Audio wave data is too large to encode in compact wavebank (%I64u > %I64u).\n", waveOffset, uint64_t(MAX_COMPACT_DATA_SEGMENT_SIZE * dwAlignment));
         }
         return 1;
     }
@@ -1381,12 +1328,12 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
         case MINIWAVEFORMAT::TAG_ADPCM:
         {
             auto adpcmFmt = reinterpret_cast<const ADPCMEWAVEFORMAT*>(wfx);
-            duration = (uint64_t(it->data.audioBytes) / uint64_t(wfx->nBlockAlign)) * uint64_t(adpcmFmt->wSamplesPerBlock);
+            duration = (it->data.audioBytes / wfx->nBlockAlign) * adpcmFmt->wSamplesPerBlock;
             int partial = it->data.audioBytes % wfx->nBlockAlign;
             if (partial)
             {
                 if (partial >= (7 * wfx->nChannels))
-                    duration += (uint64_t(partial) * 2 / uint64_t(wfx->nChannels - 12));
+                    duration += (partial * 2 / wfx->nChannels - 12);
             }
         }
         break;
@@ -1400,7 +1347,7 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
             break;
 
         default: // MINIWAVEFORMAT::TAG_PCM
-            duration = (uint64_t(it->data.audioBytes) * 8) / (uint64_t(wfx->wBitsPerSample) * uint64_t(wfx->nChannels));
+            duration = (uint64_t(it->data.audioBytes) * 8) / uint64_t(wfx->wBitsPerSample * wfx->nChannels);
             break;
         }
 
@@ -1409,7 +1356,7 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
             auto entry = reinterpret_cast<ENTRYCOMPACT*>(entries.get() + count * sizeof(ENTRYCOMPACT));
             memset(entry, 0, sizeof(ENTRYCOMPACT));
 
-            assert(waveOffset <= (MAX_COMPACT_DATA_SEGMENT_SIZE * uint64_t(dwAlignment)));
+            assert(waveOffset <= (MAX_COMPACT_DATA_SEGMENT_SIZE * dwAlignment));
             entry->dwOffset = uint32_t(waveOffset / dwAlignment);
 
             assert(dwAlignment <= 2048);
@@ -1422,7 +1369,7 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
 
             if (duration > 268435455)
             {
-                wprintf(L"ERROR: Duration of audio too long to encode into wavebank (%llu > 2^28))\n", duration);
+                wprintf(L"ERROR: Duration of audio too long to encode into wavebank (%I64u > 2^28))\n", duration);
                 return 1;
             }
 
@@ -1461,7 +1408,7 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
     // Create wave bank
     assert(*szOutputFile != 0);
 
-    wprintf(L"writing %ls%ls wavebank %ls w/ %zu entries\n", (compact) ? L"compact " : L"", (dwOptions & (1 << OPT_STREAMING)) ? L"streaming" : L"in-memory", szOutputFile, waves.size());
+    wprintf(L"writing %ls%ls wavebank %ls w/ %Iu entries\n", (compact) ? L"compact " : L"", (dwOptions & (1 << OPT_STREAMING)) ? L"streaming" : L"in-memory", szOutputFile, waves.size());
     fflush(stdout);
 
     if (dwOptions & (1 << OPT_NOOVERWRITE))
@@ -1490,7 +1437,8 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
     }
 
     // Setup wave bank header
-    HEADER header = {};
+    HEADER header;
+    memset(&header, 0, sizeof(header));
     header.dwSignature = HEADER::SIGNATURE;
     header.dwHeaderVersion = HEADER::VERSION;
     header.dwVersion = XACT_CONTENT_VERSION;
@@ -1500,7 +1448,8 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
     // Write bank metadata
     assert((segmentOffset % 4) == 0);
 
-    BANKDATA data = {};
+    BANKDATA data;
+    memset(&data, 0, sizeof(data));
 
     data.dwEntryCount = uint32_t(waves.size());
     data.dwAlignment = dwAlignment;
@@ -1545,9 +1494,7 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
         return 1;
     }
 
-    DWORD bytesWritten;
-    if (!WriteFile(hFile.get(), &data, sizeof(data), &bytesWritten, nullptr)
-        || bytesWritten != sizeof(data))
+    if (!WriteFile(hFile.get(), &data, sizeof(data), nullptr, nullptr))
     {
         wprintf(L"ERROR: Failed writing bank data to %ls, %u\n", szOutputFile, GetLastError());
         return 1;
@@ -1567,8 +1514,7 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
     }
 
     uint32_t entryBytes = uint32_t(waves.size() * data.dwEntryMetaDataElementSize);
-    if (!WriteFile(hFile.get(), entries.get(), entryBytes, &bytesWritten, nullptr)
-        || bytesWritten != entryBytes)
+    if (!WriteFile(hFile.get(), entries.get(), entryBytes, nullptr, nullptr))
     {
         wprintf(L"ERROR: Failed writing entry metadata to %ls, %u\n", szOutputFile, GetLastError());
         return 1;
@@ -1596,12 +1542,12 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
         }
 
         uint32_t seekoffset = 0;
-        uint32_t windex = 0;
-        for (auto it = waves.begin(); it != waves.end(); ++it, ++windex)
+        uint32_t index = 0;
+        for (auto it = waves.begin(); it != waves.end(); ++it, ++index)
         {
             if (it->miniFmt.wFormatTag == MINIWAVEFORMAT::TAG_WMA)
             {
-                seekTables[windex] = seekoffset * sizeof(uint32_t);
+                seekTables[index] = seekoffset * sizeof(uint32_t);
 
                 uint32_t baseoffset = uint32_t(waves.size() + seekoffset);
                 seekTables[baseoffset] = it->data.seekCount;
@@ -1615,7 +1561,7 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
             }
             else if (it->miniFmt.wFormatTag == MINIWAVEFORMAT::TAG_XMA)
             {
-                seekTables[windex] = seekoffset * sizeof(uint32_t);
+                seekTables[index] = seekoffset * sizeof(uint32_t);
 
                 uint32_t baseoffset = uint32_t(waves.size() + seekoffset);
                 seekTables[baseoffset] = it->data.seekCount;
@@ -1629,14 +1575,13 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
             }
             else
             {
-                seekTables[windex] = uint32_t(-1);
+                seekTables[index] = uint32_t(-1);
             }
         }
 
         uint32_t seekLen = uint32_t(sizeof(uint32_t) * seekEntries);
 
-        if (!WriteFile(hFile.get(), seekTables.get(), seekLen, &bytesWritten, nullptr)
-            || bytesWritten != seekLen)
+        if (!WriteFile(hFile.get(), seekTables.get(), seekLen, nullptr, nullptr))
         {
             wprintf(L"ERROR: Failed writing seek tables to %ls, %u\n", szOutputFile, GetLastError());
             return 1;
@@ -1663,8 +1608,7 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
         }
 
         uint32_t entryNamesBytes = uint32_t(count * data.dwEntryNameElementSize);
-        if (!WriteFile(hFile.get(), entryNames.get(), entryNamesBytes, &bytesWritten, nullptr)
-            || bytesWritten != entryNamesBytes)
+        if (!WriteFile(hFile.get(), entryNames.get(), entryNamesBytes, nullptr, nullptr))
         {
             wprintf(L"ERROR: Failed writing friendly entry names to %ls, %u\n", szOutputFile, GetLastError());
             return 1;
@@ -1689,8 +1633,7 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
             return 1;
         }
 
-        if (!WriteFile(hFile.get(), it->data.startAudio, it->data.audioBytes, &bytesWritten, nullptr)
-            || bytesWritten != it->data.audioBytes)
+        if (!WriteFile(hFile.get(), it->data.startAudio, it->data.audioBytes, nullptr, nullptr))
         {
             wprintf(L"ERROR: Failed writing audio data to %ls, %u\n", szOutputFile, GetLastError());
             return 1;
@@ -1728,8 +1671,7 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
         return 1;
     }
 
-    if (!WriteFile(hFile.get(), &header, sizeof(header), &bytesWritten, nullptr)
-        || bytesWritten != sizeof(header))
+    if (!WriteFile(hFile.get(), &header, sizeof(header), nullptr, nullptr))
     {
         wprintf(L"ERROR: Failed committing output file %ls, HDR %u\n", szOutputFile, GetLastError());
         return 1;
@@ -1751,8 +1693,8 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
 
             fprintf_s(file, "#pragma once\n\nenum XACT_WAVEBANK_%ls\n{\n", wBankName);
 
-            size_t windex = 0;
-            for (auto it = waves.begin(); it != waves.end(); ++it, ++windex)
+            size_t index = 0;
+            for (auto it = waves.begin(); it != waves.end(); ++it, ++index)
             {
                 auto cit = conversion.cbegin();
                 advance(cit, it->conv);
@@ -1762,10 +1704,10 @@ int __cdecl wmain(_In_ int argc, _In_z_count_(argc) wchar_t* argv[])
 
                 FileNameToIdentifier(wEntryName, _MAX_FNAME);
 
-                fprintf_s(file, "    XACT_WAVEBANK_%ls_%ls = %zu,\n", wBankName, wEntryName, windex);
+                fprintf_s(file, "    XACT_WAVEBANK_%ls_%ls = %Iu,\n", wBankName, wEntryName, index);
             }
 
-            fprintf_s(file, "};\n\n#define XACT_WAVEBANK_%ls_ENTRY_COUNT %zu\n", wBankName, count);
+            fprintf_s(file, "};\n\n#define XACT_WAVEBANK_%ls_ENTRY_COUNT %Iu\n", wBankName, count);
 
             fclose(file);
         }

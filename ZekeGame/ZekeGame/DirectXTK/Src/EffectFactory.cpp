@@ -1,8 +1,12 @@
 //--------------------------------------------------------------------------------------
 // File: EffectFactory.cpp
 //
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
+// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+// PARTICULAR PURPOSE.
+//
 // Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
 //
 // http://go.microsoft.com/fwlink/?LinkId=248929
 //--------------------------------------------------------------------------------------
@@ -18,34 +22,36 @@
 using namespace DirectX;
 using Microsoft::WRL::ComPtr;
 
+#pragma warning(disable : 4351)
+
 // Internal EffectFactory implementation class. Only one of these helpers is allocated
 // per D3D device, even if there are multiple public facing EffectFactory instances.
 class EffectFactory::Impl
 {
 public:
     Impl(_In_ ID3D11Device* device)
-        : mPath{},
-        mDevice(device),
+      : mPath{},
+        device(device),
         mSharing(true),
         mUseNormalMapEffect(true),
         mForceSRGB(false)
     {}
 
-    std::shared_ptr<IEffect> CreateEffect(_In_ IEffectFactory* factory, _In_ const IEffectFactory::EffectInfo& info, _In_opt_ ID3D11DeviceContext* deviceContext);
-    void CreateTexture(_In_z_ const wchar_t* texture, _In_opt_ ID3D11DeviceContext* deviceContext, _Outptr_ ID3D11ShaderResourceView** textureView);
+    std::shared_ptr<IEffect> CreateEffect( _In_ IEffectFactory* factory, _In_ const IEffectFactory::EffectInfo& info, _In_opt_ ID3D11DeviceContext* deviceContext );
+    void CreateTexture( _In_z_ const wchar_t* texture, _In_opt_ ID3D11DeviceContext* deviceContext, _Outptr_ ID3D11ShaderResourceView** textureView );
 
     void ReleaseCache();
-    void SetSharing(bool enabled) { mSharing = enabled; }
-    void EnableNormalMapEffect(bool enabled) { mUseNormalMapEffect = enabled; }
+    void SetSharing( bool enabled ) { mSharing = enabled; }
+    void EnableNormalMapEffect( bool enabled ) { mUseNormalMapEffect = enabled; }
     void EnableForceSRGB(bool forceSRGB) { mForceSRGB = forceSRGB; }
 
     static SharedResourcePool<ID3D11Device*, Impl> instancePool;
 
     wchar_t mPath[MAX_PATH];
 
-    ComPtr<ID3D11Device> mDevice;
-
 private:
+    ComPtr<ID3D11Device> device;
+
     typedef std::map< std::wstring, std::shared_ptr<IEffect> > EffectCache;
     typedef std::map< std::wstring, ComPtr<ID3D11ShaderResourceView> > TextureCache;
 
@@ -82,7 +88,7 @@ std::shared_ptr<IEffect> EffectFactory::Impl::CreateEffect(IEffectFactory* facto
             }
         }
 
-        auto effect = std::make_shared<SkinnedEffect>(mDevice.Get());
+        auto effect = std::make_shared<SkinnedEffect>(device.Get());
 
         effect->EnableDefaultLighting();
 
@@ -127,8 +133,7 @@ std::shared_ptr<IEffect> EffectFactory::Impl::CreateEffect(IEffectFactory* facto
         if (mSharing && info.name && *info.name)
         {
             std::lock_guard<std::mutex> lock(mutex);
-            EffectCache::value_type v(info.name, effect);
-            mEffectCacheSkinning.insert(v);
+            mEffectCacheSkinning.insert(EffectCache::value_type(info.name, effect));
         }
 
         return effect;
@@ -145,7 +150,7 @@ std::shared_ptr<IEffect> EffectFactory::Impl::CreateEffect(IEffectFactory* facto
             }
         }
 
-        auto effect = std::make_shared<DualTextureEffect>(mDevice.Get());
+        auto effect = std::make_shared<DualTextureEffect>(device.Get());
 
         // Dual texture effect doesn't support lighting (usually it's lightmaps)
 
@@ -180,8 +185,7 @@ std::shared_ptr<IEffect> EffectFactory::Impl::CreateEffect(IEffectFactory* facto
         if (mSharing && info.name && *info.name)
         {
             std::lock_guard<std::mutex> lock(mutex);
-            EffectCache::value_type v(info.name, effect);
-            mEffectCacheDualTexture.insert(v);
+            mEffectCacheDualTexture.insert(EffectCache::value_type(info.name, effect));
         }
 
         return effect;
@@ -198,7 +202,7 @@ std::shared_ptr<IEffect> EffectFactory::Impl::CreateEffect(IEffectFactory* facto
             }
         }
 
-        auto effect = std::make_shared<NormalMapEffect>(mDevice.Get());
+        auto effect = std::make_shared<NormalMapEffect>(device.Get());
 
         effect->EnableDefaultLighting();
 
@@ -260,14 +264,13 @@ std::shared_ptr<IEffect> EffectFactory::Impl::CreateEffect(IEffectFactory* facto
 
         if (info.biasedVertexNormals)
         {
-            effect->SetBiasedVertexNormals(true);
+            effect->SetBiasedVertexNormalsAndTangents(true);
         }
 
         if (mSharing && info.name && *info.name)
         {
             std::lock_guard<std::mutex> lock(mutex);
-            EffectCache::value_type v(info.name, effect);
-            mEffectNormalMap.insert(v);
+            mEffectNormalMap.insert(EffectCache::value_type(info.name, effect));
         }
 
         return effect;
@@ -284,7 +287,7 @@ std::shared_ptr<IEffect> EffectFactory::Impl::CreateEffect(IEffectFactory* facto
             }
         }
 
-        auto effect = std::make_shared<BasicEffect>(mDevice.Get());
+        auto effect = std::make_shared<BasicEffect>(device.Get());
 
         effect->EnableDefaultLighting();
         effect->SetLightingEnabled(true);
@@ -336,8 +339,7 @@ std::shared_ptr<IEffect> EffectFactory::Impl::CreateEffect(IEffectFactory* facto
         if (mSharing && info.name && *info.name)
         {
             std::lock_guard<std::mutex> lock(mutex);
-            EffectCache::value_type v(info.name, effect);
-            mEffectCache.insert(v);
+            mEffectCache.insert(EffectCache::value_type(info.name, effect));
         }
 
         return effect;
@@ -367,6 +369,7 @@ void EffectFactory::Impl::CreateTexture(const wchar_t* name, ID3D11DeviceContext
         wchar_t fullName[MAX_PATH] = {};
         wcscpy_s(fullName, mPath);
         wcscat_s(fullName, name);
+		
 
         WIN32_FILE_ATTRIBUTE_DATA fileAttr = {};
         if (!GetFileAttributesExW(fullName, GetFileExInfoStandard, &fileAttr))
@@ -376,6 +379,9 @@ void EffectFactory::Impl::CreateTexture(const wchar_t* name, ID3D11DeviceContext
             if (!GetFileAttributesExW(fullName, GetFileExInfoStandard, &fileAttr))
             {
                 DebugTrace("EffectFactory could not find texture file '%ls'\n", name);
+				std::wstring errorMessage = L"テクスチャのロードに失敗しました。";
+				errorMessage += name;
+				MessageBox(nullptr, errorMessage.c_str(), L"error", MB_OK);
                 throw std::exception("CreateTexture");
             }
         }
@@ -386,7 +392,7 @@ void EffectFactory::Impl::CreateTexture(const wchar_t* name, ID3D11DeviceContext
         if (_wcsicmp(ext, L".dds") == 0)
         {
             HRESULT hr = CreateDDSTextureFromFileEx(
-                mDevice.Get(), fullName, 0,
+                device.Get(), fullName, 0,
                 D3D11_USAGE_DEFAULT, D3D11_BIND_SHADER_RESOURCE, 0, 0,
                 mForceSRGB, nullptr, textureView);
             if (FAILED(hr))
@@ -395,12 +401,12 @@ void EffectFactory::Impl::CreateTexture(const wchar_t* name, ID3D11DeviceContext
                 throw std::exception("CreateDDSTextureFromFile");
             }
         }
-    #if !defined(_XBOX_ONE) || !defined(_TITLE)
+#if !defined(_XBOX_ONE) || !defined(_TITLE)
         else if (deviceContext)
         {
             std::lock_guard<std::mutex> lock(mutex);
             HRESULT hr = CreateWICTextureFromFileEx(
-                mDevice.Get(), deviceContext, fullName, 0,
+                device.Get(), deviceContext, fullName, 0,
                 D3D11_USAGE_DEFAULT, D3D11_BIND_SHADER_RESOURCE, 0, 0,
                 mForceSRGB ? WIC_LOADER_FORCE_SRGB : WIC_LOADER_DEFAULT, nullptr, textureView);
             if (FAILED(hr))
@@ -409,11 +415,11 @@ void EffectFactory::Impl::CreateTexture(const wchar_t* name, ID3D11DeviceContext
                 throw std::exception("CreateWICTextureFromFile");
             }
         }
-    #endif
+#endif
         else
         {
             HRESULT hr = CreateWICTextureFromFileEx(
-                mDevice.Get(), fullName, 0,
+                device.Get(), fullName, 0,
                 D3D11_USAGE_DEFAULT, D3D11_BIND_SHADER_RESOURCE, 0, 0,
                 mForceSRGB ? WIC_LOADER_FORCE_SRGB : WIC_LOADER_DEFAULT, nullptr, textureView);
             if (FAILED(hr))
@@ -426,8 +432,7 @@ void EffectFactory::Impl::CreateTexture(const wchar_t* name, ID3D11DeviceContext
         if (mSharing && *name && it == mTextureCache.end())
         {
             std::lock_guard<std::mutex> lock(mutex);
-            TextureCache::value_type v(name, *textureView);
-            mTextureCache.insert(v);
+            mTextureCache.insert(TextureCache::value_type(name, *textureView));
         }
     }
 }
@@ -458,12 +463,12 @@ EffectFactory::~EffectFactory()
 }
 
 
-EffectFactory::EffectFactory(EffectFactory&& moveFrom) noexcept
+EffectFactory::EffectFactory(EffectFactory&& moveFrom)
     : pImpl(std::move(moveFrom.pImpl))
 {
 }
 
-EffectFactory& EffectFactory::operator= (EffectFactory&& moveFrom) noexcept
+EffectFactory& EffectFactory::operator= (EffectFactory&& moveFrom)
 {
     pImpl = std::move(moveFrom.pImpl);
     return *this;
@@ -493,12 +498,12 @@ void EffectFactory::SetSharing(bool enabled)
 
 void EffectFactory::EnableNormalMapEffect(bool enabled)
 {
-    pImpl->EnableNormalMapEffect(enabled);
+    pImpl->EnableNormalMapEffect( enabled );
 }
 
 void EffectFactory::EnableForceSRGB(bool forceSRGB)
 {
-    pImpl->EnableForceSRGB(forceSRGB);
+    pImpl->EnableForceSRGB( forceSRGB );
 }
 
 void EffectFactory::SetDirectory(_In_opt_z_ const wchar_t* path)
@@ -519,9 +524,4 @@ void EffectFactory::SetDirectory(_In_opt_z_ const wchar_t* path)
     }
     else
         *pImpl->mPath = 0;
-}
-
-ID3D11Device* EffectFactory::GetDevice() const
-{
-    return pImpl->mDevice.Get();
 }

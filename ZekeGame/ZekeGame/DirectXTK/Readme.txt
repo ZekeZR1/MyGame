@@ -4,18 +4,16 @@ DirectXTK - the DirectX Tool Kit for DirectX 11
 
 Copyright (c) Microsoft Corporation. All rights reserved.
 
-July 3, 2018
+April 24, 2017
 
 This package contains the "DirectX Tool Kit", a collection of helper classes for 
 writing Direct3D 11 C++ code for Universal Windows Platform (UWP) apps for Windows 10,
 Windows Store apps, Windows phone 8.1 applications, Xbox One exclusive apps,
-Windows 8.x Win32 desktop applications, Windows 7 Service Pack 1 applications, and
-Windows Vista Service Pack 2 Direct3D 11.0 applications.
+Windows 8.x Win32 desktop applications, Windows 7 applications, and
+Windows Vista Direct3D 11.0 applications.
 
-This code is designed to build with Visual Studio 2015 Update 3 or Visual Studio 2017.
-It is recommended that you make use of VS 2015 Update 3, Windows Tools 1.4.1, and the
-Windows 10 Anniversary Update SDK (14393) or VS 2017 (15.7 update) or later with the
-Windows 10 April 2018 Update SDK (17134).
+This code is designed to build with Visual Studio 2013 or 2015. It is recommended that you
+make use of VS 2013 Update 5 or VS 2015 Update 3 and Windows 7 Service Pack 1 or later.
 
 These components are designed to work without requiring any content from the DirectX SDK. For details,
 see "Where is the DirectX SDK?" <http://msdn.microsoft.com/en-us/library/ee663275.aspx>.
@@ -34,7 +32,6 @@ Inc\
     Keyboard.h - keyboard state tracking helper
     Model.h - draws meshes loaded from .CMO, .SDKMESH, or .VBO files
     Mouse.h - mouse helper
-    PostProcess.h - set of built-in shaders for common post-processing operations
     PrimitiveBatch.h - simple and efficient way to draw user primitives
     ScreenGrab.h - light-weight screen shot saver
     SimpleMath.h - simplified C++ wrapper for DirectXMath
@@ -78,85 +75,9 @@ Code of Conduct FAQ or contact opencode@microsoft.com with any additional questi
 https://opensource.microsoft.com/codeofconduct/
 
 
--------------
-RELEASE NOTES
--------------
-
-* The VS 2017 projects make use of /permissive- for improved C++ standard conformance. Use of a Windows 10 SDK prior to
-  the Fall Creators Update (16299) or an Xbox One XDK prior to June 2017 QFE 4 may result in failures due to problems
-  with the system headers. You can work around these by disabling this switch in the project files which is found
-  in the <ConformanceMode> elements.
-
-* The VS 2017 projects require the 15.5 update or later. For UWP and Win32 classic desktop projects with the 15.5
-  or 15.6 updates, you need to install the standalone Windows 10 SDK (17134) which is otherwise included in
-  the 15.7 update. Older VS 2017 updates will fail to load the projects due to use of the <ConformanceMode> element.
-  If using the 15.5 or 15.6 updates, you will see "warning D9002: ignoring unknown option '/Zc:__cplusplus'" because
-  this switch isn't supported until 15.7. It is safe to ignore this warning, or you can edit the project files
-  <AdditionalOptions> elements.
-
-
 ---------------
 RELEASE HISTORY
 ---------------
-
-July 3, 2018
-    ModelMeshPart DrawInstanced method added
-    Code and project cleanup
-
-May 31, 2018
-    VS 2017 updated for Windows 10 April 2018 Update SDK (17134)
-    Regenerated shaders using Windows 10 April 2018 Update SDK (17134)
-
-May 14, 2018
-    Updated for VS 2017 15.7 update warnings
-    Code and project cleanup
-    Retired VS 2013 projects
-
-April 23, 2018
-    AlignUp, AlignDown template functions in DirectXHelpers.h
-    Mouse support for cursor visibility
-    SimpleMath and VertexTypes updated with default copy and move ctors
-    SimpleMath updates to use constexpr
-    EffectFactory updated with GetDevice method
-    PostProcess updated with 'big triangle' optimization
-    Fix for CMO handling of skinning vertex data
-    Code and project file cleanup
-    xwbtool: Fixed Windows 7 compatibility issue
-
-February 7, 2018
-    Mouse fix for cursor behavior when using Remote Desktop for Win32
-    Updated for a few more VS 2017 warnings
-    Code cleanup
-
-December 13, 2017
-    PBREffect and DebugEffect added
-    NormalMapEffect no longer requires or uses explicit vertex tangents
-    *breaking change* NormalMapEffect::SetBiasedVertexNormalsAndTangents renamed to SetBiasedVertexNormals
-    PBREffect, DebugEffect, & NormalMapEffect all require Direct3D hardware feature level 10.0 or better
-    VertexType typedef added to GeometricPrimitive as alias for VertexPositionNormalTexture
-    Updated for VS 2017 15.5 update warnings
-    Code cleanup
-
-November 1, 2017
-    VS 2017 updated for Windows 10 Fall Creators Update SDK (16299)
-    Regenerated shaders using Windows 10 Fall Creators Update SDK (16299)
-
-September 22, 2017
-    Updated for VS 2017 15.3 update /permissive- changes
-    ScreenGrab updated to use non-sRGB metadata for PNG
-    Mouse use of WM_INPUT updated for Remote Desktop scenarios
-    Fix for CMO load issue when no materials are defined
-    xwbtool: added -flist option
-
-July 28, 2017
-    Fix for WIC writer when codec target format requires a palette
-    Code cleanup
-
-June 21, 2017
-    Post-processing support
-    SDKMESH loader fix when loading legacy files with all zero materials
-    DirectXTK for Audio: Minor fixes for environmental audio
-    Minor code cleanup
 
 April 24, 2017
     VS 2017 project updates

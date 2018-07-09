@@ -20,13 +20,18 @@
 
 
 #include "btBulletDynamicsCommon.h"
-#include "BulletCollision/CollisionDispatch\btGhostObject.h"
+#include "BulletCollision\CollisionDispatch\btGhostObject.h"
 
-#include "graphics/GraphicsEngine.h"
+#include "math/Vector.h"
 #include "math/Matrix.h"
-#include "math/kMath.h"
+#include "graphics/GraphicsEngine.h"
 #include "graphics/Sprite/Sprite.h"
+
+#include "graphics/SkinModel.h"
+#include "graphics/Skelton.h"
+
 #include "graphics/Camera.h"
 
 const float FRAME_BUFFER_W = 1280.0f;				
 const float FRAME_BUFFER_H = 720.0f;				
+static const int MAX_BONE = 512;	//!<ƒ{[ƒ“‚ÌÅ‘å”B

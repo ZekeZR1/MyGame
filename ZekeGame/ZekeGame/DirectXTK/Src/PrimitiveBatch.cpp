@@ -1,8 +1,12 @@
 //--------------------------------------------------------------------------------------
 // File: PrimitiveBatch.cpp
 //
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
+// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+// PARTICULAR PURPOSE.
+//
 // Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
 //
 // http://go.microsoft.com/fwlink/?LinkId=248929
 //--------------------------------------------------------------------------------------
@@ -64,45 +68,42 @@ private:
 };
 
 
-namespace
-{
-    // Helper for creating a D3D vertex or index buffer.
+// Helper for creating a D3D vertex or index buffer.
 #if defined(_XBOX_ONE) && defined(_TITLE)
-    void CreateBuffer(_In_ ID3D11DeviceX* device, size_t bufferSize, D3D11_BIND_FLAG bindFlag, _Out_ ID3D11Buffer** pBuffer)
-    {
-        D3D11_BUFFER_DESC desc = {};
+static void CreateBuffer(_In_ ID3D11DeviceX* device, size_t bufferSize, D3D11_BIND_FLAG bindFlag, _Out_ ID3D11Buffer** pBuffer)
+{
+    D3D11_BUFFER_DESC desc = {};
 
-        desc.ByteWidth = (UINT)bufferSize;
-        desc.BindFlags = bindFlag;
-        desc.Usage = D3D11_USAGE_DEFAULT;
-        desc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+    desc.ByteWidth = (UINT)bufferSize;
+    desc.BindFlags = bindFlag;
+    desc.Usage = D3D11_USAGE_DEFAULT;
+    desc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 
-        ThrowIfFailed(
-            device->CreatePlacementBuffer(&desc, nullptr, pBuffer)
-        );
+    ThrowIfFailed(
+        device->CreatePlacementBuffer(&desc, nullptr, pBuffer)
+    );
 
-        SetDebugObjectName(*pBuffer, "DirectXTK:PrimitiveBatch");
-    }
-#else
-    void CreateBuffer(_In_ ID3D11Device* device, size_t bufferSize, D3D11_BIND_FLAG bindFlag, _Out_ ID3D11Buffer** pBuffer)
-    {
-        D3D11_BUFFER_DESC desc = {};
-
-        desc.ByteWidth = static_cast<UINT>(bufferSize);
-        desc.BindFlags = bindFlag;
-        desc.Usage = D3D11_USAGE_DYNAMIC;
-        desc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
-
-        ThrowIfFailed(
-            device->CreateBuffer(&desc, nullptr, pBuffer)
-        );
-
-        _Analysis_assume_(*pBuffer != 0);
-
-        SetDebugObjectName(*pBuffer, "DirectXTK:PrimitiveBatch");
-    }
-#endif
+    SetDebugObjectName(*pBuffer, "DirectXTK:PrimitiveBatch");
 }
+#else
+static void CreateBuffer(_In_ ID3D11Device* device, size_t bufferSize, D3D11_BIND_FLAG bindFlag, _Out_ ID3D11Buffer** pBuffer)
+{
+    D3D11_BUFFER_DESC desc = {};
+
+    desc.ByteWidth = (UINT)bufferSize;
+    desc.BindFlags = bindFlag;
+    desc.Usage = D3D11_USAGE_DYNAMIC;
+    desc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+
+    ThrowIfFailed(
+        device->CreateBuffer(&desc, nullptr, pBuffer)
+    );
+
+    _Analysis_assume_(*pBuffer != 0);
+
+    SetDebugObjectName(*pBuffer, "DirectXTK:PrimitiveBatch");
+}
+#endif
 
 
 // Constructor.
@@ -116,14 +117,7 @@ PrimitiveBatchBase::Impl::Impl(_In_ ID3D11DeviceContext* deviceContext, size_t m
     mCurrentIndex(0),
     mCurrentVertex(0),
     mBaseIndex(0),
-    mBaseVertex(0),
-#if defined(_XBOX_ONE) && defined(_TITLE)
-    grfxMemoryIB(nullptr),
-    grfxMemoryVB(nullptr)
-#else
-    mMappedIndices{},
-    mMappedVertices{}
-#endif
+    mBaseVertex(0)
 {
     ComPtr<ID3D11Device> device;
     deviceContext->GetDevice(&device);
@@ -176,7 +170,7 @@ void PrimitiveBatchBase::Impl::Begin()
 
     // Bind the vertex buffer.
     auto vertexBuffer = mVertexBuffer.Get();
-    UINT vertexStride = static_cast<UINT>(mVertexSize);
+    UINT vertexStride = (UINT)mVertexSize;
     UINT vertexOffset = 0;
 
     mDeviceContext->IASetVertexBuffers(0, 1, &vertexBuffer, &vertexStride, &vertexOffset);
@@ -205,13 +199,11 @@ void PrimitiveBatchBase::Impl::End()
 }
 
 
-namespace
+// Can we combine adjacent primitives using this topology into a single draw call?
+static bool CanBatchPrimitives(D3D11_PRIMITIVE_TOPOLOGY topology)
 {
-    // Can we combine adjacent primitives using this topology into a single draw call?
-    bool CanBatchPrimitives(D3D11_PRIMITIVE_TOPOLOGY topology)
+    switch (topology)
     {
-        switch (topology)
-        {
         case D3D11_PRIMITIVE_TOPOLOGY_POINTLIST:
         case D3D11_PRIMITIVE_TOPOLOGY_LINELIST:
         case D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST:
@@ -221,27 +213,26 @@ namespace
         default:
             // Strips cannot.
             return false;
-        }
-
-        // We could also merge indexed strips by inserting degenerates,
-        // but that's not always a perf win, so let's keep things simple.
     }
+
+    // We could also merge indexed strips by inserting degenerates,
+    // but that's not always a perf win, so let's keep things simple.
+}
 
 
 #if !defined(_XBOX_ONE) || !defined(_TITLE)
-    // Helper for locking a vertex or index buffer.
-    void LockBuffer(_In_ ID3D11DeviceContext* deviceContext, _In_ ID3D11Buffer* buffer, size_t currentPosition, _Out_ size_t* basePosition, _Out_ D3D11_MAPPED_SUBRESOURCE* mappedResource)
-    {
-        D3D11_MAP mapType = (currentPosition == 0) ? D3D11_MAP_WRITE_DISCARD : D3D11_MAP_WRITE_NO_OVERWRITE;
+// Helper for locking a vertex or index buffer.
+static void LockBuffer(_In_ ID3D11DeviceContext* deviceContext, _In_ ID3D11Buffer* buffer, size_t currentPosition, _Out_ size_t* basePosition, _Out_ D3D11_MAPPED_SUBRESOURCE* mappedResource)
+{
+    D3D11_MAP mapType = (currentPosition == 0) ? D3D11_MAP_WRITE_DISCARD : D3D11_MAP_WRITE_NO_OVERWRITE;
 
-        ThrowIfFailed(
-            deviceContext->Map(buffer, 0, mapType, 0, mappedResource)
-        );
+    ThrowIfFailed(
+        deviceContext->Map(buffer, 0, mapType, 0, mappedResource)
+    );
 
-        *basePosition = currentPosition;
-    }
-#endif
+    *basePosition = currentPosition;
 }
+#endif
 
 
 // Adds new geometry to the batch.
@@ -292,7 +283,7 @@ void PrimitiveBatchBase::Impl::Draw(D3D11_PRIMITIVE_TOPOLOGY topology, bool isIn
     // Copy over the index data.
     if (isIndexed)
     {
-        assert(grfxMemoryIB != nullptr);
+        assert(grfxMemoryIB != 0);
         auto outputIndices = reinterpret_cast<uint16_t*>(grfxMemoryIB) + mCurrentIndex;
 
         for (size_t i = 0; i < indexCount; i++)
@@ -304,7 +295,7 @@ void PrimitiveBatchBase::Impl::Draw(D3D11_PRIMITIVE_TOPOLOGY topology, bool isIn
     }
 
     // Return the output vertex data location.
-    assert(grfxMemoryVB != nullptr);
+    assert(grfxMemoryVB != 0);
     *pMappedVertices = reinterpret_cast<uint8_t*>(grfxMemoryVB) + (mCurrentVertex * mVertexSize);
 
     mCurrentVertex += vertexCount;
@@ -332,18 +323,18 @@ void PrimitiveBatchBase::Impl::Draw(D3D11_PRIMITIVE_TOPOLOGY topology, bool isIn
     // Copy over the index data.
     if (isIndexed)
     {
-        auto outputIndices = static_cast<uint16_t*>(mMappedIndices.pData) + mCurrentIndex;
+        auto outputIndices = reinterpret_cast<uint16_t*>(mMappedIndices.pData) + mCurrentIndex;
         
         for (size_t i = 0; i < indexCount; i++)
         {
-            outputIndices[i] = static_cast<uint16_t>(indices[i] + mCurrentVertex - mBaseVertex);
+            outputIndices[i] = (uint16_t)(indices[i] + mCurrentVertex - mBaseVertex);
         }
  
         mCurrentIndex += indexCount;
     }
 
     // Return the output vertex data location.
-    *pMappedVertices = static_cast<uint8_t*>(mMappedVertices.pData) + (mCurrentVertex * mVertexSize);
+    *pMappedVertices = reinterpret_cast<uint8_t*>(mMappedVertices.pData) + (mCurrentVertex * mVertexSize);
 
     mCurrentVertex += vertexCount;
 #endif
@@ -385,12 +376,12 @@ void PrimitiveBatchBase::Impl::FlushBatch()
         // Draw indexed geometry.
         mDeviceContext->Unmap(mIndexBuffer.Get(), 0);
 
-        mDeviceContext->DrawIndexed(static_cast<UINT>(mCurrentIndex - mBaseIndex), static_cast<UINT>(mBaseIndex), static_cast<UINT>(mBaseVertex));
+        mDeviceContext->DrawIndexed((UINT)(mCurrentIndex - mBaseIndex), (UINT)mBaseIndex, (UINT)mBaseVertex);
     }
     else
     {
         // Draw non-indexed geometry.
-        mDeviceContext->Draw(static_cast<UINT>(mCurrentVertex - mBaseVertex), static_cast<UINT>(mBaseVertex));
+        mDeviceContext->Draw((UINT)(mCurrentVertex - mBaseVertex), (UINT)mBaseVertex);
     }
 #endif
 
@@ -400,20 +391,20 @@ void PrimitiveBatchBase::Impl::FlushBatch()
 
 // Public constructor.
 PrimitiveBatchBase::PrimitiveBatchBase(_In_ ID3D11DeviceContext* deviceContext, size_t maxIndices, size_t maxVertices, size_t vertexSize)
-  : pImpl(std::make_unique<Impl>(deviceContext, maxIndices, maxVertices, vertexSize))
+  : pImpl(new Impl(deviceContext, maxIndices, maxVertices, vertexSize))
 {
 }
 
 
 // Move constructor.
-PrimitiveBatchBase::PrimitiveBatchBase(PrimitiveBatchBase&& moveFrom) noexcept
+PrimitiveBatchBase::PrimitiveBatchBase(PrimitiveBatchBase&& moveFrom)
   : pImpl(std::move(moveFrom.pImpl))
 {
 }
 
 
 // Move assignment.
-PrimitiveBatchBase& PrimitiveBatchBase::operator= (PrimitiveBatchBase&& moveFrom) noexcept
+PrimitiveBatchBase& PrimitiveBatchBase::operator= (PrimitiveBatchBase&& moveFrom)
 {
     pImpl = std::move(moveFrom.pImpl);
     return *this;

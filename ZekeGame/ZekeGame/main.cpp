@@ -7,7 +7,6 @@ GraphicsEngine* g_graphicsEngine = NULL;
 Camera* camera2d = NULL;
 Camera* camera3d = NULL;
 
-
 Sprite sprite;
 
 void ReleaseDirectX() {
@@ -30,11 +29,10 @@ void InitCamera()
 	camera3d->SetTarget({ 0.0f, 50.0f, 0.0f });			
 	camera3d->SetPosition({ 0.0f, 50.0f, 500.0f });	
 	camera3d->Update();
-
 }
 void GameUpdate() {
 	g_graphicsEngine->BegineRender();
-	sprite.Update(CVector3::Zero(), CQuaternion::Identity(), CVector3::One());
+	sprite.Update(CVector3::Zero(), CQuaternion::Identity(), { 300.0f,300.0f,300.0f });
 	sprite.Draw();
 	g_graphicsEngine->EndRender();
 }
@@ -46,7 +44,7 @@ INT WINAPI wWinMain(
 	int nCmdShow) {
 	InitWindow(hInstance, hPrevInstance, lpCmdLine, nCmdShow, "Game");
 	InitCamera();
-	sprite.Init(L"sprite/mikyan.dds", 240.0f, 240.0f);
+	sprite.Init(L"sprite/mikyan.dds", 1000.0f, 1000.0f);
 	while (DispatchWindowMessage()) {
 		GameUpdate();
 	}

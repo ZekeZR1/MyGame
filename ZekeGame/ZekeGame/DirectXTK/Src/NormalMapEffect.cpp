@@ -1,8 +1,12 @@
 //--------------------------------------------------------------------------------------
 // File: NormalMapEffect.cpp
 //
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
+// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+// PARTICULAR PURPOSE.
+//
 // Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
 //
 // http://go.microsoft.com/fwlink/?LinkId=248929
 //--------------------------------------------------------------------------------------
@@ -34,13 +38,13 @@ struct NormalMapEffectConstants
     XMMATRIX worldViewProj;
 };
 
-static_assert((sizeof(NormalMapEffectConstants) % 16) == 0, "CB size not padded correctly");
+static_assert( ( sizeof(NormalMapEffectConstants) % 16 ) == 0, "CB size not padded correctly" );
 
 
 // Traits type describes our characteristics to the EffectBase template.
 struct NormalMapEffectTraits
 {
-    using ConstantBufferType = NormalMapEffectConstants;
+    typedef NormalMapEffectConstants ConstantBufferType;
 
     static const int VertexShaderCount = 4;
     static const int PixelShaderCount = 4;
@@ -97,7 +101,6 @@ namespace
 }
 
 
-template<>
 const ShaderBytecode EffectBase<NormalMapEffectTraits>::VertexShaderBytecode[] =
 {    
     { NormalMapEffect_VSNormalPixelLightingTx,     sizeof(NormalMapEffect_VSNormalPixelLightingTx)     },
@@ -108,7 +111,6 @@ const ShaderBytecode EffectBase<NormalMapEffectTraits>::VertexShaderBytecode[] =
 };
 
 
-template<>
 const int EffectBase<NormalMapEffectTraits>::VertexShaderIndices[] =
 {    
     0,      // pixel lighting + texture
@@ -121,19 +123,18 @@ const int EffectBase<NormalMapEffectTraits>::VertexShaderIndices[] =
     1,      // pixel lighting + texture + vertex color, no specular
     1,      // pixel lighting + texture + vertex color, no fog or specular
 
-    2,      // pixel lighting (biased vertex normal) + texture
-    2,      // pixel lighting (biased vertex normal) + texture, no fog
-    3,      // pixel lighting (biased vertex normal) + texture + vertex color
-    3,      // pixel lighting (biased vertex normal) + texture + vertex color, no fog
+    2,      // pixel lighting (biased vertex normal/tangent) + texture
+    2,      // pixel lighting (biased vertex normal/tangent) + texture, no fog
+    3,      // pixel lighting (biased vertex normal/tangent) + texture + vertex color
+    3,      // pixel lighting (biased vertex normal/tangent) + texture + vertex color, no fog
 
-    2,      // pixel lighting (biased vertex normal) + texture, no specular
-    2,      // pixel lighting (biased vertex normal) + texture, no fog or specular
-    3,      // pixel lighting (biased vertex normal) + texture + vertex color, no specular
-    3,      // pixel lighting (biased vertex normal) + texture + vertex color, no fog or specular
+    2,      // pixel lighting (biased vertex normal/tangent) + texture, no specular
+    2,      // pixel lighting (biased vertex normal/tangent) + texture, no fog or specular
+    3,      // pixel lighting (biased vertex normal/tangent) + texture + vertex color, no specular
+    3,      // pixel lighting (biased vertex normal/tangent) + texture + vertex color, no fog or specular
 };
 
 
-template<>
 const ShaderBytecode EffectBase<NormalMapEffectTraits>::PixelShaderBytecode[] =
 {
     { NormalMapEffect_PSNormalPixelLightingTx,          sizeof(NormalMapEffect_PSNormalPixelLightingTx)          },
@@ -143,7 +144,6 @@ const ShaderBytecode EffectBase<NormalMapEffectTraits>::PixelShaderBytecode[] =
 };
 
 
-template<>
 const int EffectBase<NormalMapEffectTraits>::PixelShaderIndices[] =
 {    
     0,      // pixel lighting + texture
@@ -156,38 +156,32 @@ const int EffectBase<NormalMapEffectTraits>::PixelShaderIndices[] =
     2,      // pixel lighting + texture + vertex color, no specular
     3,      // pixel lighting + texture + vertex color, no fog or specular
 
-    0,      // pixel lighting (biased vertex normal) + texture
-    1,      // pixel lighting (biased vertex normal) + texture, no fog
-    0,      // pixel lighting (biased vertex normal) + texture + vertex color
-    1,      // pixel lighting (biased vertex normal) + texture + vertex color, no fog
+    0,      // pixel lighting (biased vertex normal/tangent) + texture
+    1,      // pixel lighting (biased vertex normal/tangent) + texture, no fog
+    0,      // pixel lighting (biased vertex normal/tangent) + texture + vertex color
+    1,      // pixel lighting (biased vertex normal/tangent) + texture + vertex color, no fog
 
-    2,      // pixel lighting (biased vertex normal) + texture, no specular
-    3,      // pixel lighting (biased vertex normal) + texture, no fog or specular
-    2,      // pixel lighting (biased vertex normal) + texture + vertex color, no specular
-    3,      // pixel lighting (biased vertex normal) + texture + vertex color, no fog or specular
+    2,      // pixel lighting (biased vertex normal/tangent) + texture, no specular
+    3,      // pixel lighting (biased vertex normal/tangent) + texture, no fog or specular
+    2,      // pixel lighting (biased vertex normal/tangent) + texture + vertex color, no specular
+    3,      // pixel lighting (biased vertex normal/tangent) + texture + vertex color, no fog or specular
 };
 
 
 // Global pool of per-device NormalMapEffect resources.
-template<>
 SharedResourcePool<ID3D11Device*, EffectBase<NormalMapEffectTraits>::DeviceResources> EffectBase<NormalMapEffectTraits>::deviceResourcesPool;
 
 
 // Constructor.
 NormalMapEffect::Impl::Impl(_In_ ID3D11Device* device)
-    : EffectBase(device),
+  : EffectBase(device),
     vertexColorEnabled(false),
     biasedVertexNormals(false)
 {
-    if (device->GetFeatureLevel() < D3D_FEATURE_LEVEL_10_0)
-    {
-        throw std::exception("NormalMapEffect requires Feature Level 10.0 or later");
-    }
-
-    static_assert(_countof(EffectBase<NormalMapEffectTraits>::VertexShaderIndices) == NormalMapEffectTraits::ShaderPermutationCount, "array/max mismatch");
-    static_assert(_countof(EffectBase<NormalMapEffectTraits>::VertexShaderBytecode) == NormalMapEffectTraits::VertexShaderCount, "array/max mismatch");
-    static_assert(_countof(EffectBase<NormalMapEffectTraits>::PixelShaderBytecode) == NormalMapEffectTraits::PixelShaderCount, "array/max mismatch");
-    static_assert(_countof(EffectBase<NormalMapEffectTraits>::PixelShaderIndices) == NormalMapEffectTraits::ShaderPermutationCount, "array/max mismatch");
+    static_assert( _countof(EffectBase<NormalMapEffectTraits>::VertexShaderIndices) == NormalMapEffectTraits::ShaderPermutationCount, "array/max mismatch" );
+    static_assert( _countof(EffectBase<NormalMapEffectTraits>::VertexShaderBytecode) == NormalMapEffectTraits::VertexShaderCount, "array/max mismatch" );
+    static_assert( _countof(EffectBase<NormalMapEffectTraits>::PixelShaderBytecode) == NormalMapEffectTraits::PixelShaderCount, "array/max mismatch" );
+    static_assert( _countof(EffectBase<NormalMapEffectTraits>::PixelShaderIndices) == NormalMapEffectTraits::ShaderPermutationCount, "array/max mismatch" );
 
     lights.InitializeConstants(constants.specularColorAndPower, constants.lightDirection, constants.lightDiffuseColor, constants.lightSpecularColor);
 }
@@ -217,7 +211,7 @@ int NormalMapEffect::Impl::GetCurrentShaderPermutation() const
 
     if (biasedVertexNormals)
     {
-        // Compressed normals need to be scaled and biased in the vertex shader.
+        // Compressed normals & tangents need to be scaled and biased in the vertex shader.
         permutation += 8;
     }
 
@@ -246,20 +240,20 @@ void NormalMapEffect::Impl::Apply(_In_ ID3D11DeviceContext* deviceContext)
 
 // Public constructor.
 NormalMapEffect::NormalMapEffect(_In_ ID3D11Device* device)
-  : pImpl(std::make_unique<Impl>(device))
+  : pImpl(new Impl(device))
 {
 }
 
 
 // Move constructor.
-NormalMapEffect::NormalMapEffect(NormalMapEffect&& moveFrom) noexcept
+NormalMapEffect::NormalMapEffect(NormalMapEffect&& moveFrom)
   : pImpl(std::move(moveFrom.pImpl))
 {
 }
 
 
 // Move assignment.
-NormalMapEffect& NormalMapEffect::operator= (NormalMapEffect&& moveFrom) noexcept
+NormalMapEffect& NormalMapEffect::operator= (NormalMapEffect&& moveFrom)
 {
     pImpl = std::move(moveFrom.pImpl);
     return *this;
@@ -393,9 +387,10 @@ void NormalMapEffect::SetLightingEnabled(bool value)
 }
 
 
-void NormalMapEffect::SetPerPixelLighting(bool)
+void NormalMapEffect::SetPerPixelLighting(bool value)
 {
     // Unsupported interface method.
+    (value);
 }
 
 
@@ -501,7 +496,7 @@ void NormalMapEffect::SetSpecularTexture(_In_opt_ ID3D11ShaderResourceView* valu
 
 
 // Normal compression settings.
-void NormalMapEffect::SetBiasedVertexNormals(bool value)
+void NormalMapEffect::SetBiasedVertexNormalsAndTangents(bool value)
 {
     pImpl->biasedVertexNormals = value;
 }

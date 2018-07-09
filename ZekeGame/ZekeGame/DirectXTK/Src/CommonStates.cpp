@@ -1,8 +1,12 @@
 //--------------------------------------------------------------------------------------
 // File: CommonStates.cpp
 //
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
+// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+// PARTICULAR PURPOSE.
+//
 // Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
 //
 // http://go.microsoft.com/fwlink/?LinkId=248929
 //--------------------------------------------------------------------------------------
@@ -92,11 +96,11 @@ HRESULT CommonStates::Impl::CreateDepthStencilState(bool enable, bool writeEnabl
 {
     D3D11_DEPTH_STENCIL_DESC desc = {};
 
-    desc.DepthEnable = enable ? TRUE : FALSE;
+    desc.DepthEnable = enable;
     desc.DepthWriteMask = writeEnable ? D3D11_DEPTH_WRITE_MASK_ALL : D3D11_DEPTH_WRITE_MASK_ZERO;
     desc.DepthFunc = D3D11_COMPARISON_LESS_EQUAL;
 
-    desc.StencilEnable = FALSE;
+    desc.StencilEnable = false;
     desc.StencilReadMask = D3D11_DEFAULT_STENCIL_READ_MASK;
     desc.StencilWriteMask = D3D11_DEFAULT_STENCIL_WRITE_MASK;
 
@@ -123,8 +127,8 @@ HRESULT CommonStates::Impl::CreateRasterizerState(D3D11_CULL_MODE cullMode, D3D1
 
     desc.CullMode = cullMode;
     desc.FillMode = fillMode;
-    desc.DepthClipEnable = TRUE;
-    desc.MultisampleEnable = TRUE;
+    desc.DepthClipEnable = true;
+    desc.MultisampleEnable = true;
 
     HRESULT hr = device->CreateRasterizerState(&desc, pResult);
 
@@ -172,14 +176,14 @@ CommonStates::CommonStates(_In_ ID3D11Device* device)
 
 
 // Move constructor.
-CommonStates::CommonStates(CommonStates&& moveFrom) noexcept
+CommonStates::CommonStates(CommonStates&& moveFrom)
   : pImpl(std::move(moveFrom.pImpl))
 {
 }
 
 
 // Move assignment.
-CommonStates& CommonStates::operator= (CommonStates&& moveFrom) noexcept
+CommonStates& CommonStates::operator= (CommonStates&& moveFrom)
 {
     pImpl = std::move(moveFrom.pImpl);
     return *this;

@@ -1,8 +1,12 @@
 //--------------------------------------------------------------------------------------
 // File: Model.cpp
 //
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
+// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+// PARTICULAR PURPOSE.
+//
 // Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
 //
 // http://go.microsoft.com/fwlink/?LinkId=248929
 //--------------------------------------------------------------------------------------
@@ -25,7 +29,7 @@ using namespace DirectX;
 // ModelMeshPart
 //--------------------------------------------------------------------------------------
 
-ModelMeshPart::ModelMeshPart() noexcept :
+ModelMeshPart::ModelMeshPart() :
     indexCount(0),
     startIndex(0),
     vertexOffset(0),
@@ -59,7 +63,7 @@ void ModelMeshPart::Draw(
     // Note that if indexFormat is DXGI_FORMAT_R32_UINT, this model mesh part requires a Feature Level 9.2 or greater device
     deviceContext->IASetIndexBuffer(indexBuffer.Get(), indexFormat, 0);
 
-    assert(ieffect != nullptr);
+    assert(ieffect != 0);
     ieffect->Apply(deviceContext);
 
     // Hook lets the caller replace our shaders or state settings with whatever else they see fit.
@@ -76,40 +80,6 @@ void ModelMeshPart::Draw(
 
 
 _Use_decl_annotations_
-void ModelMeshPart::DrawInstanced(
-    ID3D11DeviceContext* deviceContext,
-    IEffect* ieffect,
-    ID3D11InputLayout* iinputLayout,
-    uint32_t instanceCount, uint32_t startInstanceLocation,
-    std::function<void()> setCustomState) const
-{
-    deviceContext->IASetInputLayout(iinputLayout);
-
-    auto vb = vertexBuffer.Get();
-    UINT vbStride = vertexStride;
-    UINT vbOffset = 0;
-    deviceContext->IASetVertexBuffers(0, 1, &vb, &vbStride, &vbOffset);
-
-    // Note that if indexFormat is DXGI_FORMAT_R32_UINT, this model mesh part requires a Feature Level 9.2 or greater device
-    deviceContext->IASetIndexBuffer(indexBuffer.Get(), indexFormat, 0);
-
-    assert(ieffect != nullptr);
-    ieffect->Apply(deviceContext);
-
-    // Hook lets the caller replace our shaders or state settings with whatever else they see fit.
-    if (setCustomState)
-    {
-        setCustomState();
-    }
-
-    // Draw the primitive.
-    deviceContext->IASetPrimitiveTopology(primitiveType);
-
-    deviceContext->DrawIndexedInstanced(indexCount, instanceCount, startIndex, vertexOffset, startInstanceLocation);
-}
-
-
-_Use_decl_annotations_
 void ModelMeshPart::CreateInputLayout(ID3D11Device* d3dDevice, IEffect* ieffect, ID3D11InputLayout** iinputLayout) const
 {
     if (!vbDecl || vbDecl->empty())
@@ -118,16 +88,16 @@ void ModelMeshPart::CreateInputLayout(ID3D11Device* d3dDevice, IEffect* ieffect,
     void const* shaderByteCode;
     size_t byteCodeLength;
 
-    assert(ieffect != nullptr);
+    assert(ieffect != 0);
     ieffect->GetVertexShaderBytecode(&shaderByteCode, &byteCodeLength);
 
-    assert(d3dDevice != nullptr);
+    assert(d3dDevice != 0);
 
     ThrowIfFailed(
         d3dDevice->CreateInputLayout(vbDecl->data(),
-        static_cast<UINT>(vbDecl->size()),
-        shaderByteCode, byteCodeLength,
-        iinputLayout)
+            static_cast<UINT>(vbDecl->size()),
+            shaderByteCode, byteCodeLength,
+            iinputLayout)
     );
 
     _Analysis_assume_(*iinputLayout != 0);
@@ -140,7 +110,7 @@ void ModelMeshPart::ModifyEffect(ID3D11Device* d3dDevice, std::shared_ptr<IEffec
     if (!vbDecl || vbDecl->empty())
         throw std::exception("Model mesh part missing vertex buffer input elements data");
 
-    assert(ieffect != nullptr);
+    assert(ieffect != 0);
     this->effect = ieffect;
     this->isAlpha = isalpha;
 
@@ -149,13 +119,13 @@ void ModelMeshPart::ModifyEffect(ID3D11Device* d3dDevice, std::shared_ptr<IEffec
 
     effect->GetVertexShaderBytecode(&shaderByteCode, &byteCodeLength);
 
-    assert(d3dDevice != nullptr);
+    assert(d3dDevice != 0);
 
     ThrowIfFailed(
         d3dDevice->CreateInputLayout(vbDecl->data(),
-        static_cast<UINT>(vbDecl->size()),
-        shaderByteCode, byteCodeLength,
-        &inputLayout)
+            static_cast<UINT>(vbDecl->size()),
+            shaderByteCode, byteCodeLength,
+            &inputLayout)
     );
 }
 
@@ -164,7 +134,7 @@ void ModelMeshPart::ModifyEffect(ID3D11Device* d3dDevice, std::shared_ptr<IEffec
 // ModelMesh
 //--------------------------------------------------------------------------------------
 
-ModelMesh::ModelMesh() noexcept :
+ModelMesh::ModelMesh() :
     ccw(true),
     pmalpha(true)
 {
@@ -183,7 +153,7 @@ void ModelMesh::PrepareForRendering(
     bool alpha,
     bool wireframe) const
 {
-    assert(deviceContext != nullptr);
+    assert(deviceContext != 0);
 
     // Set the blend and depth stencil state.
     ID3D11BlendState* blendState;
@@ -216,7 +186,7 @@ void ModelMesh::PrepareForRendering(
         deviceContext->RSSetState(states.Wireframe());
     else
         deviceContext->RSSetState(ccw ? states.CullCounterClockwise() : states.CullClockwise());
-
+		
     // Set sampler state.
     ID3D11SamplerState* samplers[] =
     {
@@ -237,12 +207,12 @@ void XM_CALLCONV ModelMesh::Draw(
     bool alpha,
     std::function<void()> setCustomState) const
 {
-    assert(deviceContext != nullptr);
+    assert(deviceContext != 0);
 
     for (auto it = meshParts.cbegin(); it != meshParts.cend(); ++it)
     {
         auto part = (*it).get();
-        assert(part != nullptr);
+        assert(part != 0);
 
         if (part->isAlpha != alpha)
         {
@@ -277,30 +247,30 @@ void XM_CALLCONV Model::Draw(
     FXMMATRIX world,
     CXMMATRIX view,
     CXMMATRIX projection,
-    bool wireframe, std::function<void()> setCustomState) const
+    bool wireframe) const
 {
-    assert(deviceContext != nullptr);
+    assert(deviceContext != 0);
 
     // Draw opaque parts
     for (auto it = meshes.cbegin(); it != meshes.cend(); ++it)
     {
         auto mesh = it->get();
-        assert(mesh != nullptr);
+        assert(mesh != 0);
 
         mesh->PrepareForRendering(deviceContext, states, false, wireframe);
 
-        mesh->Draw(deviceContext, world, view, projection, false, setCustomState);
+        mesh->Draw(deviceContext, world, view, projection, false);
     }
 
     // Draw alpha parts
     for (auto it = meshes.cbegin(); it != meshes.cend(); ++it)
     {
         auto mesh = it->get();
-        assert(mesh != nullptr);
+        assert(mesh != 0);
 
         mesh->PrepareForRendering(deviceContext, states, true, wireframe);
 
-        mesh->Draw(deviceContext, world, view, projection, true, setCustomState);
+        mesh->Draw(deviceContext, world, view, projection, true);
     }
 }
 
@@ -313,17 +283,17 @@ void Model::UpdateEffects(_In_ std::function<void(IEffect*)> setEffect)
         for (auto mit = meshes.cbegin(); mit != meshes.cend(); ++mit)
         {
             auto mesh = mit->get();
-            assert(mesh != nullptr);
+            assert(mesh != 0);
 
             for (auto it = mesh->meshParts.cbegin(); it != mesh->meshParts.cend(); ++it)
             {
-                if ((*it)->effect)
+                if ((*it)->effect != 0)
                     mEffectCache.insert((*it)->effect.get());
             }
         }
     }
 
-    assert(setEffect != nullptr);
+    assert(setEffect != 0);
 
     for (auto it = mEffectCache.begin(); it != mEffectCache.end(); ++it)
     {

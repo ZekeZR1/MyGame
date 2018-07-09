@@ -2,7 +2,6 @@
 * text=auto
 
 # Explicitly declare code/VS files as CRLF
-*.cs eol=crlf
 *.cpp eol=crlf
 *.cmd eol=crlf
 *.h eol=crlf

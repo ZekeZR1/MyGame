@@ -1,18 +1,21 @@
 //--------------------------------------------------------------------------------------
 // File: Mouse.h
 //
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
+// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+// PARTICULAR PURPOSE.
+//
 // Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
 //
 // http://go.microsoft.com/fwlink/?LinkId=248929
-// http://go.microsoft.com/fwlink/?LinkID=615561
 //--------------------------------------------------------------------------------------
 
 #pragma once
 
 #include <memory>
 
-#if (defined(WINAPI_FAMILY) && (WINAPI_FAMILY == WINAPI_FAMILY_APP)) || (defined(_XBOX_ONE) && defined(_TITLE) && (_XDK_VER >= 0x42D907D1))
+#if defined(WINAPI_FAMILY) && (WINAPI_FAMILY == WINAPI_FAMILY_APP)
 namespace ABI { namespace Windows { namespace UI { namespace Core { struct ICoreWindow; } } } }
 #endif
 
@@ -22,9 +25,9 @@ namespace DirectX
     class Mouse
     {
     public:
-        Mouse() noexcept(false);
-        Mouse(Mouse&& moveFrom) noexcept;
-        Mouse& operator= (Mouse&& moveFrom) noexcept;
+        Mouse();
+        Mouse(Mouse&& moveFrom);
+        Mouse& operator= (Mouse&& moveFrom);
 
         Mouse(Mouse const&) = delete;
         Mouse& operator=(Mouse const&) = delete;
@@ -67,11 +70,11 @@ namespace DirectX
             ButtonState xButton1;
             ButtonState xButton2;
 
-            ButtonStateTracker() noexcept { Reset(); }
+            ButtonStateTracker() { Reset(); }
 
-            void __cdecl Update(const State& state);
+            void __cdecl Update( const State& state );
 
-            void __cdecl Reset() noexcept;
+            void __cdecl Reset();
 
             State __cdecl GetLastState() const { return lastState; }
 
@@ -91,26 +94,22 @@ namespace DirectX
         // Feature detection
         bool __cdecl IsConnected() const;
 
-        // Cursor visibility
-        bool __cdecl IsVisible() const;
-        void __cdecl SetVisible(bool visible);
-
-    #if !defined(WINAPI_FAMILY) || (WINAPI_FAMILY == WINAPI_FAMILY_DESKTOP_APP) && defined(WM_USER)
+#if !defined(WINAPI_FAMILY) || (WINAPI_FAMILY == WINAPI_FAMILY_DESKTOP_APP) && defined(WM_USER)
         void __cdecl SetWindow(HWND window);
         static void __cdecl ProcessMessage(UINT message, WPARAM wParam, LPARAM lParam);
-    #endif
+#endif
 
-    #if (defined(WINAPI_FAMILY) && (WINAPI_FAMILY == WINAPI_FAMILY_APP)) || (defined(_XBOX_ONE) && defined(_TITLE) && (_XDK_VER >= 0x42D907D1))
+#if defined(WINAPI_FAMILY) && (WINAPI_FAMILY == WINAPI_FAMILY_APP)
         void __cdecl SetWindow(ABI::Windows::UI::Core::ICoreWindow* window);
-    #ifdef __cplusplus_winrt
+#ifdef __cplusplus_winrt
         void __cdecl SetWindow(Windows::UI::Core::CoreWindow^ window)
         {
             // See https://msdn.microsoft.com/en-us/library/hh755802.aspx
             SetWindow(reinterpret_cast<ABI::Windows::UI::Core::ICoreWindow*>(window));
         }
-    #endif
+#endif
         static void __cdecl SetDpi(float dpi);
-    #endif
+#endif
 
         // Singleton
         static Mouse& __cdecl Get();

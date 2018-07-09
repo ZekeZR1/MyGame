@@ -1,8 +1,12 @@
 //--------------------------------------------------------------------------------------
 // File: PrimitiveBatch.h
 //
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
+// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+// PARTICULAR PURPOSE.
+//
 // Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
 //
 // http://go.microsoft.com/fwlink/?LinkId=248929
 //--------------------------------------------------------------------------------------
@@ -29,8 +33,8 @@ namespace DirectX
         {
         protected:
             PrimitiveBatchBase(_In_ ID3D11DeviceContext* deviceContext, size_t maxIndices, size_t maxVertices, size_t vertexSize);
-            PrimitiveBatchBase(PrimitiveBatchBase&& moveFrom) noexcept;
-            PrimitiveBatchBase& operator= (PrimitiveBatchBase&& moveFrom) noexcept;
+            PrimitiveBatchBase(PrimitiveBatchBase&& moveFrom);
+            PrimitiveBatchBase& operator= (PrimitiveBatchBase&& moveFrom);
 
             PrimitiveBatchBase(PrimitiveBatchBase const&) = delete;
             PrimitiveBatchBase& operator= (PrimitiveBatchBase const&) = delete;
@@ -63,14 +67,14 @@ namespace DirectX
 
     public:
         explicit PrimitiveBatch(_In_ ID3D11DeviceContext* deviceContext, size_t maxIndices = DefaultBatchSize * 3, size_t maxVertices = DefaultBatchSize)
-            : PrimitiveBatchBase(deviceContext, maxIndices, maxVertices, sizeof(TVertex))
+          : PrimitiveBatchBase(deviceContext, maxIndices, maxVertices, sizeof(TVertex))
         { }
 
-        PrimitiveBatch(PrimitiveBatch&& moveFrom) noexcept
-            : PrimitiveBatchBase(std::move(moveFrom))
+        PrimitiveBatch(PrimitiveBatch&& moveFrom)
+          : PrimitiveBatchBase(std::move(moveFrom))
         { }
 
-        PrimitiveBatch& operator= (PrimitiveBatch&& moveFrom) noexcept
+        PrimitiveBatch& operator= (PrimitiveBatch&& moveFrom)
         {
             PrimitiveBatchBase::operator=(std::move(moveFrom));
             return *this;

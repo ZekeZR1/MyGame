@@ -95,4 +95,44 @@ void GraphicsEngine::InitDirectX(HWND hwnd) {
 	m_pSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&pBackBuffer);
 	m_pd3dDevice->CreateRenderTargetView(pBackBuffer, NULL, &m_backBuffer);
 	pBackBuffer->Release();
+	{
+		D3D11_TEXTURE2D_DESC texDesc;
+		ZeroMemory(&texDesc, sizeof(texDesc));
+		texDesc.Width = (UINT)FRAME_BUFFER_W;
+		texDesc.Height = (UINT)FRAME_BUFFER_H;
+		texDesc.MipLevels = 1;
+		texDesc.ArraySize = 1;
+		texDesc.Format = DXGI_FORMAT_D32_FLOAT;
+		texDesc.SampleDesc.Count = 1;
+		texDesc.SampleDesc.Quality = 0;
+		texDesc.Usage = D3D11_USAGE_DEFAULT;
+		texDesc.BindFlags = D3D11_BIND_DEPTH_STENCIL;
+		texDesc.CPUAccessFlags = 0;
+		texDesc.MiscFlags = 0;
+		m_pd3dDevice->CreateTexture2D(&texDesc, NULL, &m_depthStencil);
+		//深度ステンシルビューを作成。
+		D3D11_DEPTH_STENCIL_VIEW_DESC descDSV;
+		ZeroMemory(&descDSV, sizeof(descDSV));
+		descDSV.Format = texDesc.Format;
+		descDSV.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
+		descDSV.Texture2D.MipSlice = 0;
+		m_pd3dDevice->CreateDepthStencilView(m_depthStencil, &descDSV, &m_depthStencilView);
+	}
+	D3D11_RASTERIZER_DESC desc = {};
+	desc.CullMode = D3D11_CULL_NONE;
+	desc.FillMode = D3D11_FILL_SOLID;
+	desc.DepthClipEnable = true;
+	desc.MultisampleEnable = true;
+
+	m_pd3dDevice->CreateRasterizerState(&desc, &m_rasterizerState);
+
+	D3D11_VIEWPORT viewport;
+	viewport.Width = FRAME_BUFFER_W;
+	viewport.Height = FRAME_BUFFER_H;
+	viewport.TopLeftX = 0;
+	viewport.TopLeftY = 0;
+	viewport.MinDepth = 0.0f;
+	viewport.MaxDepth = 1.0f;
+	m_pd3dDeviceContext->RSSetViewports(1, &viewport);
+	m_pd3dDeviceContext->RSSetState(m_rasterizerState);
 }

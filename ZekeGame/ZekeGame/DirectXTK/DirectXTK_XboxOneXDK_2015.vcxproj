@@ -29,7 +29,6 @@
     <ClInclude Include="Inc\Keyboard.h" />
     <ClInclude Include="Inc\Model.h" />
     <ClInclude Include="Inc\Mouse.h" />
-    <ClInclude Include="Inc\PostProcess.h" />
     <ClInclude Include="Inc\PrimitiveBatch.h" />
     <ClInclude Include="Inc\ScreenGrab.h" />
     <ClInclude Include="Inc\SimpleMath.h" />
@@ -64,14 +63,11 @@
     <ClCompile Include="Audio\WAVFileReader.cpp" />
     <ClCompile Include="Src\AlphaTestEffect.cpp" />
     <ClCompile Include="Src\BasicEffect.cpp" />
-    <ClCompile Include="Src\BasicPostProcess.cpp" />
     <ClCompile Include="Src\BinaryReader.cpp" />
     <ClCompile Include="Src\CommonStates.cpp" />
     <ClCompile Include="Src\DDSTextureLoader.cpp" />
-    <ClCompile Include="Src\DebugEffect.cpp" />
     <ClCompile Include="Src\DGSLEffect.cpp" />
     <ClCompile Include="Src\DGSLEffectFactory.cpp" />
-    <ClCompile Include="Src\DualPostProcess.cpp" />
     <ClCompile Include="Src\DualTextureEffect.cpp" />
     <ClCompile Include="Src\EffectCommon.cpp" />
     <ClCompile Include="Src\EffectFactory.cpp" />
@@ -87,7 +83,6 @@
     <ClCompile Include="Src\ModelLoadVBO.cpp" />
     <ClCompile Include="Src\Mouse.cpp" />
     <ClCompile Include="Src\NormalMapEffect.cpp" />
-    <ClCompile Include="Src\PBREffect.cpp" />
     <ClCompile Include="Src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Durango'">Create</PrecompiledHeader>
@@ -99,7 +94,6 @@
     <ClCompile Include="Src\SkinnedEffect.cpp" />
     <ClCompile Include="Src\SpriteBatch.cpp" />
     <ClCompile Include="Src\SpriteFont.cpp" />
-    <ClCompile Include="Src\ToneMapPostProcess.cpp" />
     <ClCompile Include="Src\VertexTypes.cpp" />
     <ClCompile Include="Src\WICTextureLoader.cpp" />
     <ClCompile Include="Src\XboxDDSTextureLoader.cpp" />
@@ -207,22 +201,6 @@
     <None Include="Src\Shaders\Compiled\XboxOneBasicEffect_VSBasicVertexLightingVc.pdb" />
     <None Include="Src\Shaders\Compiled\XboxOneBasicEffect_VSBasicVertexLightingVcBn.inc" />
     <None Include="Src\Shaders\Compiled\XboxOneBasicEffect_VSBasicVertexLightingVcBn.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneDebugEffect_PSHemiAmbient.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneDebugEffect_PSHemiAmbient.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneDebugEffect_PSRGBBiTangents.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneDebugEffect_PSRGBBiTangents.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneDebugEffect_PSRGBNormals.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneDebugEffect_PSRGBNormals.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneDebugEffect_PSRGBTangents.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneDebugEffect_PSRGBTangents.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneDebugEffect_VSDebug.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneDebugEffect_VSDebug.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneDebugEffect_VSDebugBn.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneDebugEffect_VSDebugBn.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneDebugEffect_VSDebugVc.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneDebugEffect_VSDebugVc.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneDebugEffect_VSDebugVcBn.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneDebugEffect_VSDebugVcBn.pdb" />
     <None Include="Src\Shaders\Compiled\XboxOneDGSLEffect_main.inc" />
     <None Include="Src\Shaders\Compiled\XboxOneDGSLEffect_main.pdb" />
     <None Include="Src\Shaders\Compiled\XboxOneDGSLEffect_main1Bones.inc" />
@@ -327,46 +305,6 @@
     <None Include="Src\Shaders\Compiled\XboxOneNormalMapEffect_VSNormalPixelLightingTxVc.pdb" />
     <None Include="Src\Shaders\Compiled\XboxOneNormalMapEffect_VSNormalPixelLightingTxVcBn.inc" />
     <None Include="Src\Shaders\Compiled\XboxOneNormalMapEffect_VSNormalPixelLightingTxVcBn.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOnePBREffect_PSConstant.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOnePBREffect_PSConstant.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOnePBREffect_PSTextured.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOnePBREffect_PSTextured.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOnePBREffect_PSTexturedEmissive.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOnePBREffect_PSTexturedEmissive.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOnePBREffect_PSTexturedEmissiveVelocity.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOnePBREffect_PSTexturedEmissiveVelocity.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOnePBREffect_PSTexturedVelocity.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOnePBREffect_PSTexturedVelocity.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOnePBREffect_VSConstant.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOnePBREffect_VSConstant.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOnePBREffect_VSConstantBn.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOnePBREffect_VSConstantBn.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOnePBREffect_VSConstantVelocity.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOnePBREffect_VSConstantVelocity.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOnePBREffect_VSConstantVelocityBn.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOnePBREffect_VSConstantVelocityBn.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_PSBloomBlur.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_PSBloomBlur.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_PSBloomCombine.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_PSBloomCombine.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_PSBloomExtract.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_PSBloomExtract.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_PSCopy.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_PSCopy.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_PSDownScale2x2.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_PSDownScale2x2.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_PSDownScale4x4.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_PSDownScale4x4.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_PSGaussianBlur5x5.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_PSGaussianBlur5x5.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_PSMerge.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_PSMerge.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_PSMonochrome.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_PSMonochrome.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_PSSepia.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_PSSepia.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_VSQuad.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOnePostProcess_VSQuad.pdb" />
     <None Include="Src\Shaders\Compiled\XboxOneSkinnedEffect_PSSkinnedPixelLighting.inc" />
     <None Include="Src\Shaders\Compiled\XboxOneSkinnedEffect_PSSkinnedPixelLighting.pdb" />
     <None Include="Src\Shaders\Compiled\XboxOneSkinnedEffect_PSSkinnedVertexLighting.inc" />
@@ -413,44 +351,9 @@
     <None Include="Src\Shaders\Compiled\XboxOneSpriteEffect_SpritePixelShader.pdb" />
     <None Include="Src\Shaders\Compiled\XboxOneSpriteEffect_SpriteVertexShader.inc" />
     <None Include="Src\Shaders\Compiled\XboxOneSpriteEffect_SpriteVertexShader.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSACESFilmic.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSACESFilmic.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSACESFilmic_SRGB.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSACESFilmic_SRGB.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSCopy.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSCopy.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSHDR10.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSHDR10.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSHDR10_ACESFilmic.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSHDR10_ACESFilmic.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSHDR10_ACESFilmic_SRGB.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSHDR10_ACESFilmic_SRGB.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSHDR10_Reinhard.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSHDR10_Reinhard.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSHDR10_Reinhard_SRGB.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSHDR10_Reinhard_SRGB.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSHDR10_Saturate.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSHDR10_Saturate.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSHDR10_Saturate_SRGB.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSHDR10_Saturate_SRGB.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSReinhard.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSReinhard.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSReinhard_SRGB.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSReinhard_SRGB.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSSaturate.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSSaturate.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSSaturate_SRGB.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PSSaturate_SRGB.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PS_SRGB.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_PS_SRGB.pdb" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_VSQuad.inc" />
-    <None Include="Src\Shaders\Compiled\XboxOneToneMap_VSQuad.pdb" />
     <None Include="Src\Shaders\CompileShaders.cmd" />
     <None Include="Src\Shaders\Lighting.fxh" />
-    <None Include="Src\Shaders\PBRCommon.fxh" />
-    <None Include="Src\Shaders\PixelPacking_Velocity.hlsli" />
     <None Include="Src\Shaders\Structures.fxh" />
-    <None Include="Src\Shaders\Utilities.fxh" />
     <None Include="Src\TeapotData.inc" />
   </ItemGroup>
   <ItemGroup>
@@ -490,24 +393,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Src\Shaders\NormalMapEffect.fx">
-      <FileType>Document</FileType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Src\Shaders\PostProcess.fx">
-      <FileType>Document</FileType>
-    </None>
-    <None Include="Src\Shaders\ToneMap.fx">
-      <FileType>Document</FileType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Src\Shaders\PBREffect.fx">
-      <FileType>Document</FileType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Src\Shaders\DebugEffect.fx">
       <FileType>Document</FileType>
     </None>
   </ItemGroup>
@@ -604,11 +489,10 @@
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalUsingDirectories />
-      <ForcedUsingFiles />
+      <AdditionalUsingDirectories>$(Console_SdkPackagesRoot);$(Console_SdkWindowsMetadataPath);%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
       <Optimization>MaxSpeed</Optimization>
       <PreprocessorDefinitions>NDEBUG;__WRL_NO_DEFAULT_LIB__;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <CompileAsWinRT>false</CompileAsWinRT>
@@ -630,11 +514,10 @@
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalUsingDirectories />
-      <ForcedUsingFiles />
+      <AdditionalUsingDirectories>$(Console_SdkPackagesRoot);$(Console_SdkWindowsMetadataPath);%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
       <Optimization>MaxSpeed</Optimization>
       <PreprocessorDefinitions>NDEBUG;__WRL_NO_DEFAULT_LIB__;_LIB;PROFILE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <CompileAsWinRT>false</CompileAsWinRT>
@@ -653,9 +536,8 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <MinimalRebuild>false</MinimalRebuild>
-      <AdditionalUsingDirectories />
-      <ForcedUsingFiles />
-      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <AdditionalUsingDirectories>$(Console_SdkPackagesRoot);$(Console_SdkWindowsMetadataPath);%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;__WRL_NO_DEFAULT_LIB__;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CompileAsWinRT>false</CompileAsWinRT>
@@ -667,6 +549,8 @@
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
   <Target Name="ATGEnsureShaders" BeforeTargets="PrepareForBuild">
-    <Exec Condition="!Exists('src/Shaders/Compiled/XboxOneSpriteEffect_SpriteVertexShader.inc')" WorkingDirectory="$(ProjectDir)src/Shaders" Command="CompileShaders xbox" />
+    <Exec Condition="!Exists('src/Shaders/Compiled/XboxOneSpriteEffect_SpriteVertexShader.inc')"
+        WorkingDirectory="$(ProjectDir)src/Shaders"
+        Command="CompileShaders xbox" />
   </Target>
 </Project>

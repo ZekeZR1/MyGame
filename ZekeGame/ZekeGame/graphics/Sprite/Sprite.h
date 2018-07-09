@@ -6,7 +6,7 @@ public:
 	Sprite();
 	~Sprite();
 
-	void Init(const wchar_t* texFilePath, float w, float h);
+	void Init(const wchar_t* texPath, float w, float h);
 	
 	void Update(const CVector3& trans, const CQuaternion& rot, const CVector3& scale, CVector2 pivot = { 0.5f, 0.5f });
 
