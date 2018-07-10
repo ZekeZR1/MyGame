@@ -3,7 +3,6 @@
 #include "graphics/SkinModelEffect.h"
 #include "graphics/Skelton.h"
 
-//g_skinModelDataManagerの実体。
 SkinModelDataManager g_skinModelDataManager;
 
 DirectX::Model* SkinModelDataManager::Load(const wchar_t* filePath, const Skeleton& skeleton)
@@ -18,7 +17,6 @@ DirectX::Model* SkinModelDataManager::Load(const wchar_t* filePath, const Skelet
 	{
 		int globalBoneID = skeleton.FindBoneID(boneName);
 		if (globalBoneID == -1) {
-			//ボーンが見つからなかった。
 			return;
 		}
 		localBoneIDtoGlobalBoneIDTbl.push_back(globalBoneID);
@@ -35,7 +33,7 @@ DirectX::Model* SkinModelDataManager::Load(const wchar_t* filePath, const Skelet
 		auto model = DirectX::Model::CreateFromCMO(	
 			g_graphicsEngine->GetD3DDevice(),			
 			filePath,								
-			effectFactory,							
+			effectFactory,					
 			false,										
 			false,
 			onFindBone

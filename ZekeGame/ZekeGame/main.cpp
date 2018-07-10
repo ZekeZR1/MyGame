@@ -6,8 +6,8 @@ HWND g_hwnd = NULL;
 GraphicsEngine* g_graphicsEngine = NULL;
 Camera* camera2d = NULL;
 Camera* camera3d = NULL;
-
-Sprite sprite;
+CVector3 modelPos = CVector3::Zero();
+SkinModel smodel;
 
 void ReleaseDirectX() {
 	delete g_graphicsEngine;
@@ -32,19 +32,20 @@ void InitCamera()
 }
 void GameUpdate() {
 	g_graphicsEngine->BegineRender();
-	sprite.Update(CVector3::Zero(), CQuaternion::Identity(), { 300.0f,300.0f,300.0f });
-	sprite.Draw();
+	modelPos.z++;
+	smodel.UpdateWorldMatrix(modelPos,CQuaternion::Identity(),CVector3::One());
+	smodel.Draw(camera3d->GetViewMatrix(),camera3d->GetProjectionMatrix());
 	g_graphicsEngine->EndRender();
 }
 
-INT WINAPI wWinMain(
+int WINAPI wWinMain(
 	HINSTANCE hInstance,
 	HINSTANCE hPrevInstance,
 	LPWSTR lpCmdLine,
 	int nCmdShow) {
 	InitWindow(hInstance, hPrevInstance, lpCmdLine, nCmdShow, "Game");
 	InitCamera();
-	sprite.Init(L"sprite/mikyan.dds", 1000.0f, 1000.0f);
+	smodel.Init(L"Assets/modelData/testbox.cmo");
 	while (DispatchWindowMessage()) {
 		GameUpdate();
 	}

@@ -27,6 +27,12 @@
     <Filter Include="ソース ファイル\Assets\sprite">
       <UniqueIdentifier>{c748d000-c927-4210-b1cc-6b235fd1792f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\gameObject">
+      <UniqueIdentifier>{26bf9613-8407-457d-a1ea-aafd6f7d4641}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Assets\modelData">
+      <UniqueIdentifier>{768c9265-731d-4ad8-8239-c74483875076}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -79,6 +85,9 @@
     </ClCompile>
     <ClCompile Include="graphics\SkinModelEffect.cpp">
       <Filter>ソース ファイル\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="gameObject\GameObject.cpp">
+      <Filter>ソース ファイル\gameObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -133,10 +142,21 @@
     <ClInclude Include="graphics\SkinModelShaderConst.h">
       <Filter>ソース ファイル\graphics</Filter>
     </ClInclude>
+    <ClInclude Include="gameObject\GameObject.h">
+      <Filter>ソース ファイル\gameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\mikyan.jpg">
       <Filter>ソース ファイル\Assets\sprite</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\test.png">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </ImageContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\testbox.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
   </ItemGroup>
 </Project>

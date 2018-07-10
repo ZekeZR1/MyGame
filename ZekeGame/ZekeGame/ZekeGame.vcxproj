@@ -107,6 +107,9 @@
       <GenerateMips>
       </GenerateMips>
     </ImageContentTask>
+    <MeshContentTask>
+      <ContentOutput>$(ProjectDir)\Assets\modelData\%(Filename).cmo</ContentOutput>
+    </MeshContentTask>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -137,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="gameObject\GameObject.cpp" />
     <ClCompile Include="graphics\Camera.cpp" />
     <ClCompile Include="graphics\GraphicsEngine.cpp" />
     <ClCompile Include="graphics\Shader.cpp" />
@@ -156,6 +160,7 @@
     <ClCompile Include="window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="gameObject\GameObject.h" />
     <ClInclude Include="graphics\Camera.h" />
     <ClInclude Include="graphics\GraphicsEngine.h" />
     <ClInclude Include="graphics\Shader.h" />
@@ -176,6 +181,12 @@
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\mikyan.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\testbox.FBX" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\modelData\test.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
