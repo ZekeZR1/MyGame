@@ -7,7 +7,7 @@
 */
 class ModelEffect : public DirectX::IEffect {
 protected:
-	std::wstring m_materialName;	//!<マテリアル名。
+	std::wstring m_materialName;	
 	Shader* m_pVSShader = nullptr;
 	Shader* m_pPSShader = nullptr;
 	Shader m_vsShader;

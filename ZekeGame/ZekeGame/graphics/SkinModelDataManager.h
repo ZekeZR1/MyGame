@@ -20,16 +20,11 @@ public:
 	*/
 	void Release();
 private:
-	//ファイルパスをキー、DirectXModelのインスタンスを値とするマップ。
-	//辞書みたいなものです。
 	std::map<
-		std::wstring,					//wstringがキー。 
-		std::unique_ptr<DirectX::Model>	//これが値。
+		std::wstring,					
+		std::unique_ptr<DirectX::Model>	
 	> m_directXModelMap;
 };
 
-//g_skinModelDataManagerのextern宣言。
-//extern宣言は実態ではないので注意！
-//コンパイラにどこかにあるから使ってねと教えるもの。
 extern SkinModelDataManager g_skinModelDataManager;
 

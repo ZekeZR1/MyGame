@@ -37,7 +37,6 @@ Skeleton::Skeleton()
 }
 Skeleton::~Skeleton()
 {
-	//‚¿‚á‚ñ‚Æƒƒ‚ƒŠ‚Í‰ğ•ú‚µ‚Ü‚µ‚å‚¤B
 	for (int boneNo = 0; boneNo < m_bones.size(); boneNo++) {
 		delete m_bones[boneNo];
 	}
