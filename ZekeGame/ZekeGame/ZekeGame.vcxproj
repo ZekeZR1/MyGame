@@ -141,6 +141,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="gameObject\GameObject.cpp" />
+    <ClCompile Include="graphics\animation\Animation.cpp" />
+    <ClCompile Include="graphics\animation\AnimationClip.cpp" />
+    <ClCompile Include="graphics\animation\AnimationPlayController.cpp" />
     <ClCompile Include="graphics\Camera.cpp" />
     <ClCompile Include="graphics\GraphicsEngine.cpp" />
     <ClCompile Include="graphics\Shader.cpp" />
@@ -152,6 +155,7 @@
     <ClCompile Include="graphics\Sprite\Effect.cpp" />
     <ClCompile Include="graphics\Sprite\SpBuffer.cpp" />
     <ClCompile Include="graphics\Sprite\Sprite.cpp" />
+    <ClCompile Include="HID\Pad.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="math\kMath.cpp" />
     <ClCompile Include="math\Matrix.cpp" />
@@ -161,6 +165,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gameObject\GameObject.h" />
+    <ClInclude Include="graphics\animation\Animation.h" />
+    <ClInclude Include="graphics\animation\AnimationClip.h" />
+    <ClInclude Include="graphics\animation\AnimationPlayController.h" />
     <ClInclude Include="graphics\Camera.h" />
     <ClInclude Include="graphics\GraphicsEngine.h" />
     <ClInclude Include="graphics\Shader.h" />
@@ -173,6 +180,7 @@
     <ClInclude Include="graphics\Sprite\Effect.h" />
     <ClInclude Include="graphics\Sprite\SpBuffer.h" />
     <ClInclude Include="graphics\Sprite\Sprite.h" />
+    <ClInclude Include="HID\Pad.h" />
     <ClInclude Include="math\kMath.h" />
     <ClInclude Include="math\Matrix.h" />
     <ClInclude Include="math\Vector.h" />

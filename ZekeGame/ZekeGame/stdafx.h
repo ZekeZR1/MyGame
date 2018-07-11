@@ -27,9 +27,13 @@
 #include "graphics/GraphicsEngine.h"
 #include "graphics/Sprite/Sprite.h"
 
+#include "HID/Pad.h"
+
 #include "graphics/SkinModel.h"
 #include "graphics/Skelton.h"
 
+#include "graphics/animation/Animation.h"
+#include "graphics/animation/AnimationClip.h"
 #include "graphics/Camera.h"
 
 const float FRAME_BUFFER_W = 1280.0f;				

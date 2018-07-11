@@ -8,6 +8,8 @@ Camera* camera2d = NULL;
 Camera* camera3d = NULL;
 CVector3 modelPos = CVector3::Zero();
 SkinModel smodel;
+Animation modelanimation;
+AnimationClip aniclip[1];
 
 void ReleaseDirectX() {
 	delete g_graphicsEngine;
@@ -31,9 +33,24 @@ void InitCamera()
 	camera3d->Update();
 }
 void GameUpdate() {
-	g_graphicsEngine->BegineRender();
-	modelPos.z++;
+	for (auto& pad : g_pad) {
+		pad.Update();
+	}
+	
+	if(g_pad[0].IsPress(enButtonRight)) {
+		modelPos.x--;
+	}
+	if(g_pad[0].IsPress(enButtonLeft)) {
+		modelPos.x++;
+	}
+	//modelPos.z++;
+	modelanimation.Play(0);
 	smodel.UpdateWorldMatrix(modelPos,CQuaternion::Identity(),CVector3::One());
+	modelanimation.Update(1.0f / 30.0f);
+}
+
+void Render() {
+	g_graphicsEngine->BegineRender();
 	smodel.Draw(camera3d->GetViewMatrix(),camera3d->GetProjectionMatrix());
 	g_graphicsEngine->EndRender();
 }
@@ -46,7 +63,15 @@ int WINAPI wWinMain(
 	InitWindow(hInstance, hPrevInstance, lpCmdLine, nCmdShow, "Game");
 	InitCamera();
 	smodel.Init(L"Assets/modelData/testbox.cmo");
+	aniclip[0].Load(L"Assets/modelData/testbox.tka");
+	aniclip[0].SetLoopFlag(true);
+	modelanimation.Init(
+		smodel,
+		aniclip,
+		1
+		);
 	while (DispatchWindowMessage()) {
 		GameUpdate();
+		Render();
 	}
 }

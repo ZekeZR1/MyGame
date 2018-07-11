@@ -33,6 +33,12 @@
     <Filter Include="ソース ファイル\Assets\modelData">
       <UniqueIdentifier>{768c9265-731d-4ad8-8239-c74483875076}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\graphics\animation">
+      <UniqueIdentifier>{8ec7a21e-ca96-41f1-bc2b-e59c61108f68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\HID">
+      <UniqueIdentifier>{409a5e0d-95b0-4779-ab11-0cf336c636dd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -89,6 +95,18 @@
     <ClCompile Include="gameObject\GameObject.cpp">
       <Filter>ソース ファイル\gameObject</Filter>
     </ClCompile>
+    <ClCompile Include="graphics\animation\AnimationPlayController.cpp">
+      <Filter>ソース ファイル\graphics\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\animation\Animation.cpp">
+      <Filter>ソース ファイル\graphics\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\animation\AnimationClip.cpp">
+      <Filter>ソース ファイル\graphics\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="HID\Pad.cpp">
+      <Filter>ソース ファイル\HID</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -144,6 +162,18 @@
     </ClInclude>
     <ClInclude Include="gameObject\GameObject.h">
       <Filter>ソース ファイル\gameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\animation\AnimationClip.h">
+      <Filter>ソース ファイル\graphics\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\animation\AnimationPlayController.h">
+      <Filter>ソース ファイル\graphics\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\animation\Animation.h">
+      <Filter>ソース ファイル\graphics\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="HID\Pad.h">
+      <Filter>ソース ファイル\HID</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
