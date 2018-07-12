@@ -36,6 +36,10 @@ void GameUpdate() {
 	for (auto& pad : g_pad) {
 		pad.Update();
 	}
+	camera2d->Update();
+	camera3d->Update();
+	g_physics.Update();
+
 	
 	if(g_pad[0].IsPress(enButtonRight)) {
 		modelPos.x--;

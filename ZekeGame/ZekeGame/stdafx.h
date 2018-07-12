@@ -27,6 +27,7 @@
 #include "graphics/GraphicsEngine.h"
 #include "graphics/Sprite/Sprite.h"
 
+#include "physics/Physics.h"
 #include "HID/Pad.h"
 
 #include "graphics/SkinModel.h"

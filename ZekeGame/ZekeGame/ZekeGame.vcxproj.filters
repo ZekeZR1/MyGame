@@ -39,6 +39,12 @@
     <Filter Include="ソース ファイル\HID">
       <UniqueIdentifier>{409a5e0d-95b0-4779-ab11-0cf336c636dd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\physics">
+      <UniqueIdentifier>{1ccac4be-b676-4b11-9f9f-7b044c5f69ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\character">
+      <UniqueIdentifier>{9e957c60-5ce9-4b51-80fd-041467d28e9c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -106,6 +112,24 @@
     </ClCompile>
     <ClCompile Include="HID\Pad.cpp">
       <Filter>ソース ファイル\HID</Filter>
+    </ClCompile>
+    <ClCompile Include="physics\Physics.cpp">
+      <Filter>ソース ファイル\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="physics\RigitBody.cpp">
+      <Filter>ソース ファイル\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="physics\MeshCollider.cpp">
+      <Filter>ソース ファイル\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="physics\PhysicsStaticObject.cpp">
+      <Filter>ソース ファイル\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="character\CharacterController.cpp">
+      <Filter>ソース ファイル\character</Filter>
+    </ClCompile>
+    <ClCompile Include="physics\CapsuleCollider.cpp">
+      <Filter>ソース ファイル\physics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +199,30 @@
     <ClInclude Include="HID\Pad.h">
       <Filter>ソース ファイル\HID</Filter>
     </ClInclude>
+    <ClInclude Include="physics\Physics.h">
+      <Filter>ソース ファイル\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="physics\RigitBody.h">
+      <Filter>ソース ファイル\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="physics\ICollider.h">
+      <Filter>ソース ファイル\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="physics\PhysicsStaticObject.h">
+      <Filter>ソース ファイル\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="physics\MeshCollider.h">
+      <Filter>ソース ファイル\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="character\CharacterController.h">
+      <Filter>ソース ファイル\character</Filter>
+    </ClInclude>
+    <ClInclude Include="physics\CollisionAttr.h">
+      <Filter>ソース ファイル\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="physics\CapsuleCollider.h">
+      <Filter>ソース ファイル\physics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\mikyan.jpg">
@@ -186,6 +234,9 @@
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\testbox.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\gameworld.FBX">
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
   </ItemGroup>

@@ -60,6 +60,13 @@ void InitWindow(
 	//DirectX
 	g_graphicsEngine = new GraphicsEngine();
 	g_graphicsEngine->InitDirectX(g_hwnd);
+	//Bullet
+	g_physics.Init();
+	//Pad
+	g_pad[0].Init(0);
+	g_pad[1].Init(1);
+	g_pad[2].Init(2);
+	g_pad[3].Init(3);
 }
 
 
