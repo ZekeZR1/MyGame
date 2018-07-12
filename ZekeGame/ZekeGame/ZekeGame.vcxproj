@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="character\CharacterController.cpp" />
     <ClCompile Include="gameObject\GameObject.cpp" />
     <ClCompile Include="graphics\animation\Animation.cpp" />
@@ -170,6 +171,7 @@
     <ClCompile Include="window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BackGround.h" />
     <ClInclude Include="character\CharacterController.h" />
     <ClInclude Include="gameObject\GameObject.h" />
     <ClInclude Include="graphics\animation\Animation.h" />
@@ -205,6 +207,7 @@
     <ImageContentTask Include="Assets\Sprite\mikyan.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\background.FBX" />
     <MeshContentTask Include="Assets\modelData\gameworld.FBX" />
     <MeshContentTask Include="Assets\modelData\testbox.FBX" />
   </ItemGroup>
