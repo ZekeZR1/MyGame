@@ -1,14 +1,16 @@
 #include "stdafx.h"
-#include "window/Window.h"
-#include "BackGround.h"
+#include "GameScene.h"
+
 //Global
+IScene* currentScene = nullptr;
 Camera* camera2d = NULL;
 Camera* camera3d = NULL;
+/*
 CVector3 modelPos = CVector3::Zero();
 SkinModel smodel;
-BackGround* bg;
 Animation modelanimation;
 AnimationClip aniclip[1];
+*/
 
 void ReleaseDirectX() {
 	delete g_graphicsEngine;
@@ -28,7 +30,7 @@ void InitCamera()
 
 	camera3d = new Camera;
 	camera3d->SetTarget({ 0.0f, 0.0f, 0.0f });			
-	camera3d->SetPosition({ -100.0f, 500.0f, 500.0f });	
+	camera3d->SetPosition({ 0.0f, 500.0f, 500.0f });	
 	camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Perspective);
 	camera3d->SetNear(0.1f);
 	camera3d->SetFar(10000.0f);
@@ -39,23 +41,18 @@ void GameUpdate() {
 		pad.Update();
 	}
 	
-	if(g_pad[0].IsPress(enButtonRight)) {
-		modelPos.x--;
-	}
-	if(g_pad[0].IsPress(enButtonLeft)) {
-		modelPos.x++;
-	}
+	currentScene->Update();
 	//modelPos.z++;
-	modelanimation.Play(0);
-	smodel.UpdateWorldMatrix(modelPos,CQuaternion::Identity(),CVector3::One());
-	modelanimation.Update(1.0f / 30.0f);
-	camera3d->Update();
+	//modelanimation.Play(0);
+	//smodel.UpdateWorldMatrix(modelPos,CQuaternion::Identity(),CVector3::One());
+	//modelanimation.Update(1.0f / 30.0f);
 }
 
 void Render() {
 	g_graphicsEngine->BegineRender();
-	smodel.Draw(camera3d->GetViewMatrix(),camera3d->GetProjectionMatrix());
-	bg->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
+	currentScene->Draw();
+	camera3d->Update();
+	//smodel.Draw(camera3d->GetViewMatrix(),camera3d->GetProjectionMatrix());
 	g_graphicsEngine->EndRender();
 }
 
@@ -66,7 +63,7 @@ int WINAPI wWinMain(
 	int nCmdShow) {
 	InitWindow(hInstance, hPrevInstance, lpCmdLine, nCmdShow, "Game");
 	InitCamera();
-	bg = new BackGround;
+	/*
 	smodel.Init(L"Assets/modelData/testbox.cmo");
 	aniclip[0].Load(L"Assets/modelData/testbox.tka");
 	aniclip[0].SetLoopFlag(true);
@@ -75,8 +72,9 @@ int WINAPI wWinMain(
 		aniclip,
 		1
 		);
+	*/
+	currentScene = new GameScene;
 	while (DispatchWindowMessage()) {
-		//bg.Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
 		GameUpdate();
 		Render();
 	}

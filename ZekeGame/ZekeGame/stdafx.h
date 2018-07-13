@@ -38,6 +38,8 @@
 #include "graphics/animation/AnimationClip.h"
 #include "graphics/Camera.h"
 
+#include "IScene.h"
+
 const float FRAME_BUFFER_W = 1280.0f;				
 const float FRAME_BUFFER_H = 720.0f;				
 static const int MAX_BONE = 512;	//!<ƒ{[ƒ“‚ÌÅ‘å”B

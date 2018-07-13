@@ -45,6 +45,9 @@
     <Filter Include="ソース ファイル\character">
       <UniqueIdentifier>{9e957c60-5ce9-4b51-80fd-041467d28e9c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\level">
+      <UniqueIdentifier>{c4f5651c-ea6c-461c-a3e9-045f31388b8f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -133,6 +136,18 @@
     </ClCompile>
     <ClCompile Include="BackGround.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="level\Level.cpp">
+      <Filter>ソース ファイル\level</Filter>
+    </ClCompile>
+    <ClCompile Include="level\MapChip.cpp">
+      <Filter>ソース ファイル\level</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -228,6 +243,21 @@
     </ClInclude>
     <ClInclude Include="BackGround.h">
       <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="IScene.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="level\Level.h">
+      <Filter>ソース ファイル\level</Filter>
+    </ClInclude>
+    <ClInclude Include="level\MapChip.h">
+      <Filter>ソース ファイル\level</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

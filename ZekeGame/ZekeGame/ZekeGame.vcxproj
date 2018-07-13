@@ -143,6 +143,7 @@
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="character\CharacterController.cpp" />
     <ClCompile Include="gameObject\GameObject.cpp" />
+    <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="graphics\animation\Animation.cpp" />
     <ClCompile Include="graphics\animation\AnimationClip.cpp" />
     <ClCompile Include="graphics\animation\AnimationPlayController.cpp" />
@@ -158,6 +159,8 @@
     <ClCompile Include="graphics\Sprite\SpBuffer.cpp" />
     <ClCompile Include="graphics\Sprite\Sprite.cpp" />
     <ClCompile Include="HID\Pad.cpp" />
+    <ClCompile Include="level\Level.cpp" />
+    <ClCompile Include="level\MapChip.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="math\kMath.cpp" />
     <ClCompile Include="math\Matrix.cpp" />
@@ -167,6 +170,7 @@
     <ClCompile Include="physics\Physics.cpp" />
     <ClCompile Include="physics\PhysicsStaticObject.cpp" />
     <ClCompile Include="physics\RigitBody.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="window\Window.cpp" />
   </ItemGroup>
@@ -174,6 +178,7 @@
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="character\CharacterController.h" />
     <ClInclude Include="gameObject\GameObject.h" />
+    <ClInclude Include="GameScene.h" />
     <ClInclude Include="graphics\animation\Animation.h" />
     <ClInclude Include="graphics\animation\AnimationClip.h" />
     <ClInclude Include="graphics\animation\AnimationPlayController.h" />
@@ -190,6 +195,9 @@
     <ClInclude Include="graphics\Sprite\SpBuffer.h" />
     <ClInclude Include="graphics\Sprite\Sprite.h" />
     <ClInclude Include="HID\Pad.h" />
+    <ClInclude Include="IScene.h" />
+    <ClInclude Include="level\Level.h" />
+    <ClInclude Include="level\MapChip.h" />
     <ClInclude Include="math\kMath.h" />
     <ClInclude Include="math\Matrix.h" />
     <ClInclude Include="math\Vector.h" />
@@ -200,6 +208,7 @@
     <ClInclude Include="physics\Physics.h" />
     <ClInclude Include="physics\PhysicsStaticObject.h" />
     <ClInclude Include="physics\RigitBody.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="window\Window.h" />
   </ItemGroup>
