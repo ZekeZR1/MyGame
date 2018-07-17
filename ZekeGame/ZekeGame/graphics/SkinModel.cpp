@@ -133,3 +133,29 @@ void SkinModel::Draw(CMatrix viewMatrix, CMatrix projMatrix)
 		projMatrix
 	);
 }
+
+void SkinModel::FindVertexPosition(std::function<void(CVector3* pos)> func) {
+	FindMesh([&](const auto& mesh) {
+		ID3D11DeviceContext* deviceContext = GraphicsEngine().GetD3DDeviceContext();
+		//頂点バッファを作成。
+		{
+			D3D11_MAPPED_SUBRESOURCE subresource;
+			HRESULT hr = deviceContext->Map(mesh->vertexBuffer.Get(), 0, D3D11_MAP_WRITE_NO_OVERWRITE, 0, &subresource);
+			if (FAILED(hr)) {
+				return;
+			}
+			D3D11_BUFFER_DESC bufferDesc;
+			mesh->vertexBuffer->GetDesc(&bufferDesc);
+			int vertexCount = bufferDesc.ByteWidth / mesh->vertexStride;
+			char* pData = reinterpret_cast<char*>(subresource.pData);
+			CVector3* pos;
+			for (int i = 0; i < vertexCount; i++) {
+				pos = reinterpret_cast<CVector3*>(pData);
+				func(pos);
+				pData += mesh->vertexStride;
+			}
+			//頂点バッファをアンロック
+			deviceContext->Unmap(mesh->vertexBuffer.Get(), 0);
+		}
+	});
+}

@@ -70,7 +70,7 @@ int WINAPI wWinMain(
 		1
 		);
 	*/
-	currentScene = new Title;
+	currentScene = new GameScene;
 	while (DispatchWindowMessage()) {
 		GameUpdate();
 		Render();

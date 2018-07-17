@@ -7,6 +7,7 @@ public:
 	BackGround();
 	~BackGround();
 	void Draw();
+	void ConvertMesh();
 private:
 	SkinModel smodel;
 	CQuaternion m_rot = CQuaternion::Identity()	;

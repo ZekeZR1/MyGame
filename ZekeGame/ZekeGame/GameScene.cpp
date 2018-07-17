@@ -47,3 +47,4 @@ void GameScene::Draw() {
 	bg->Draw();
 	m_player.Draw();
 }
+

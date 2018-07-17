@@ -14,7 +14,7 @@ Title::~Title()
 
 void Title::Update() {
 	if (g_pad[0].IsTrigger(enButtonA)) {
-		currentScene = new GameScene;
+		currentScene = new Title;
 		delete this;
 	}
 }
