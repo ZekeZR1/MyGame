@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "Camera.h"
 
+Camera* camera3d = NULL;
+Camera* camera2d = NULL;
+
 Camera::Camera() : 
 	m_near(1.1f),
 	m_far(1000.0f),

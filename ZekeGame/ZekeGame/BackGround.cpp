@@ -14,6 +14,5 @@ BackGround::~BackGround()
 }
 
 void BackGround::Draw() {
-	extern Camera* camera3d;
 	smodel.Draw(camera3d->GetViewMatrix() , camera3d->GetProjectionMatrix());
 }

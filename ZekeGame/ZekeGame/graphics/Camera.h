@@ -152,3 +152,6 @@ protected:
 	bool		m_isNeedUpdateProjectionMatrix;
 };
 
+extern Camera* camera3d;
+extern Camera* camera2d;
+

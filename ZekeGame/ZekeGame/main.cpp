@@ -1,10 +1,10 @@
 #include "stdafx.h"
 #include "GameScene.h"
-
+#include "Title.h"
 //Global
 IScene* currentScene = nullptr;
-Camera* camera2d = NULL;
-Camera* camera3d = NULL;
+//Camera* camera2d = NULL;
+//Camera* camera3d = NULL;
 /*
 CVector3 modelPos = CVector3::Zero();
 SkinModel smodel;
@@ -42,17 +42,14 @@ void GameUpdate() {
 	}
 	
 	currentScene->Update();
-	//modelPos.z++;
-	//modelanimation.Play(0);
-	//smodel.UpdateWorldMatrix(modelPos,CQuaternion::Identity(),CVector3::One());
-	//modelanimation.Update(1.0f / 30.0f);
+	
 }
 
 void Render() {
 	g_graphicsEngine->BegineRender();
 	currentScene->Draw();
 	camera3d->Update();
-	//smodel.Draw(camera3d->GetViewMatrix(),camera3d->GetProjectionMatrix());
+	camera2d->Update();
 	g_graphicsEngine->EndRender();
 }
 
@@ -73,7 +70,7 @@ int WINAPI wWinMain(
 		1
 		);
 	*/
-	currentScene = new GameScene;
+	currentScene = new Title;
 	while (DispatchWindowMessage()) {
 		GameUpdate();
 		Render();
