@@ -6,6 +6,7 @@ public:
 	Player();
 	~Player();
 	void Update();
+	void Turn();
 	void Draw();
 	void SetPosition(CVector3 pos) {
 		m_position = pos;
