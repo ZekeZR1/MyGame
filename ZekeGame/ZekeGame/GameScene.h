@@ -10,7 +10,7 @@ public:
 	~GameScene();
 	void Update() override;
 	void Draw() override;
-	Player m_player;
+	Player* m_player;
 private:
 	BackGround* bg;
 	CVector3 modelPos = CVector3::Zero();

@@ -24,9 +24,6 @@ void Player::Update() {
 	cameraRight.Normalize();
 	m_moveSpeed += cameraRight * 500.0f * g_pad[0].GetLStickXF();
 	m_moveSpeed.y -= 300.0f;
-	if (g_pad[0].IsPress(enButtonA)) {
-		m_moveSpeed.y += 500.0f;
-	}
 	m_position = m_charaCon.Execute(1.0f / 60.0f, m_moveSpeed);
 	m_model.UpdateWorldMatrix(m_position, m_rotation, CVector3::One());
 }

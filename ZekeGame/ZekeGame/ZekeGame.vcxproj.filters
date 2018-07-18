@@ -281,8 +281,5 @@
     <MeshContentTask Include="Assets\modelData\gameworld.FBX">
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\background.FBX">
-      <Filter>ソース ファイル\Assets\modelData</Filter>
-    </MeshContentTask>
   </ItemGroup>
 </Project>

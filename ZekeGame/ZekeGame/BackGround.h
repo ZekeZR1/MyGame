@@ -6,8 +6,9 @@ class BackGround
 public:
 	BackGround();
 	~BackGround();
+	void Update(CVector3 playerPos);
 	void Draw();
-	void ConvertMesh();
+	void ConvertMesh(CVector3 pos);
 private:
 	SkinModel smodel;
 	CQuaternion m_rot = CQuaternion::Identity()	;

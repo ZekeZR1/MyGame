@@ -218,7 +218,6 @@
     <ImageContentTask Include="Assets\Sprite\mikyan.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\background.FBX" />
     <MeshContentTask Include="Assets\modelData\gameworld.FBX" />
     <MeshContentTask Include="Assets\modelData\testbox.FBX" />
   </ItemGroup>
