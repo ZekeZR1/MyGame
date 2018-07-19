@@ -3,8 +3,7 @@
 #include "Title.h"
 //Global
 IScene* currentScene = nullptr;
-//Camera* camera2d = NULL;
-//Camera* camera3d = NULL;
+GameCamera* camera = nullptr;
 /*
 CVector3 modelPos = CVector3::Zero();
 SkinModel smodel;
@@ -14,42 +13,19 @@ AnimationClip aniclip[1];
 
 void ReleaseDirectX() {
 	delete g_graphicsEngine;
-	delete camera2d;
-	delete camera3d;
+	delete camera;
 }
 
-void InitCamera()
-{
-	camera2d = new Camera;
-	camera2d->SetTarget(CVector3::Zero());
-	camera2d->SetPosition({ 0.0f, 0.0f, -10.0f });
-	camera2d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Ortho);	
-	camera2d->SetNear(0.1f);
-	camera2d->SetFar(1000.0f);
-	camera2d->Update();
-
-	camera3d = new Camera;
-	camera3d->SetTarget({ 0.0f, 20.0f, 0.0f });			
-	camera3d->SetPosition({ 0.0f, 350.0f, 300.0f });	
-	camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Perspective);
-	camera3d->SetNear(0.1f);
-	camera3d->SetFar(10000.0f);
-	camera3d->Update();
-}
 void GameUpdate() {
 	for (auto& pad : g_pad) {
 		pad.Update();
 	}
-	
 	currentScene->Update();
-	
 }
 
 void Render() {
 	g_graphicsEngine->BegineRender();
 	currentScene->Draw();
-	camera3d->Update();
-	camera2d->Update();
 	g_graphicsEngine->EndRender();
 }
 
@@ -59,7 +35,6 @@ int WINAPI wWinMain(
 	LPWSTR lpCmdLine,
 	int nCmdShow) {
 	InitWindow(hInstance, hPrevInstance, lpCmdLine, nCmdShow, "Game");
-	InitCamera();
 	/*
 	smodel.Init(L"Assets/modelData/testbox.cmo");
 	aniclip[0].Load(L"Assets/modelData/testbox.tka");
@@ -71,6 +46,7 @@ int WINAPI wWinMain(
 		);
 	*/
 	currentScene = new Title;
+	camera = new GameCamera;
 	while (DispatchWindowMessage()) {
 		GameUpdate();
 		Render();

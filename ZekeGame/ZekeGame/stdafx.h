@@ -37,7 +37,7 @@
 #include "graphics/animation/Animation.h"
 #include "graphics/animation/AnimationClip.h"
 #include "graphics/Camera.h"
-
+#include "GameCamera.h"
 #include "IScene.h"
 
 const float FRAME_BUFFER_W = 1280.0f;				

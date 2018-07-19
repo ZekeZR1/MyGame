@@ -5,6 +5,7 @@
 #include "Player.h"
 
 GameScene* g_game = nullptr;
+extern GameCamera* camera;
 GameScene::GameScene()
 {
 	g_game = this;
@@ -35,22 +36,9 @@ GameScene::~GameScene()
 void GameScene::Update() {
 	m_model->UpdateWorldMatrix(CVector3::Zero(),CQuaternion::Identity(),CVector3::One());
 	m_player->Update();
+	camera->Update(m_player);
 	CVector3 DrilPos = m_player->GetPosition();
-	//DrilPos.z *= 200.0f;
 	bg->Update(DrilPos);
-	CVector3 toCameraPos = camera3d->GetPosition() - camera3d->GetTarget();
-	camera3d->SetTarget(m_player->GetPosition());
-	CMatrix mRot = CMatrix::Identity();		
-	mRot.MakeRotationY(CMath::DegToRad(3.0f) * g_pad[0].GetRStickXF());
-	mRot.Mul(toCameraPos);
-	CVector3 rotAxis;
-	CVector3 upAxis(0.0f, 1.0f, 0.0f);
-	rotAxis.Cross(upAxis, toCameraPos);
-	rotAxis.Normalize();
-	mRot = CMatrix::Identity();
-	mRot.MakeRotationAxis(rotAxis, CMath::DegToRad(3.0f) * g_pad[0].GetRStickYF());
-	mRot.Mul(toCameraPos);
-	camera3d->SetPosition(camera3d->GetTarget() + toCameraPos);
 }
 
 void GameScene::Draw() {
@@ -58,4 +46,3 @@ void GameScene::Draw() {
 	m_player->Draw();
 	m_model->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
 }
-

@@ -152,6 +152,9 @@
     <ClCompile Include="Title.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="GameCamera.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -265,16 +268,19 @@
     <ClInclude Include="Title.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="GameCamera.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\mikyan.jpg">
-      <Filter>ソース ファイル\Assets\sprite</Filter>
-    </ImageContentTask>
     <ImageContentTask Include="Assets\modelData\test.png">
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </ImageContentTask>
     <ImageContentTask Include="Assets\modelData\utc_all2.tga">
       <Filter>ソース ファイル\Assets\modelData</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\mikyan.jpg">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>

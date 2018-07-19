@@ -2,13 +2,9 @@
 #include "Sprite.h"
 #include "SpBuffer.h"
 
-//Camera* g_camera2D = NULL;					//2Dカメラ。
-//Camera* g_camera3D = NULL;					//3Dカメラ。
-
 Sprite::Sprite()
 {
 }
-
 
 Sprite::~Sprite()
 {
@@ -109,7 +105,6 @@ void Sprite::Draw()
 	ge->GetD3DDeviceContext()->PSSetSamplers(0, 1, &m_samplerState);
 	ConstantBuffer cb;
 	cb.WVP = m_world;
-	extern Camera* camera2d;
 	cb.WVP.Mul(cb.WVP, camera2d->GetViewMatrix());
 	cb.WVP.Mul(cb.WVP, camera2d->GetProjectionMatrix());
 	ge->GetD3DDeviceContext()->UpdateSubresource(m_cb, 0, NULL, &cb, 0, 0);

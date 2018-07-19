@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="character\CharacterController.cpp" />
+    <ClCompile Include="GameCamera.cpp" />
     <ClCompile Include="gameObject\GameObject.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="graphics\animation\Animation.cpp" />
@@ -185,6 +186,7 @@
   <ItemGroup>
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="character\CharacterController.h" />
+    <ClInclude Include="GameCamera.h" />
     <ClInclude Include="gameObject\GameObject.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="graphics\animation\Animation.h" />
@@ -222,9 +224,6 @@
     <ClInclude Include="window\Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\mikyan.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <MeshContentTask Include="Assets\modelData\BackWorld.FBX" />
     <MeshContentTask Include="Assets\modelData\Space.FBX" />
     <MeshContentTask Include="Assets\modelData\testbox.FBX" />
@@ -240,6 +239,9 @@
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\modelData\utc_all2.tga" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\mikyan.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

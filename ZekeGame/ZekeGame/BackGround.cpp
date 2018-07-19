@@ -30,7 +30,6 @@ void BackGround::Draw() {
 	smodel.Draw(camera3d->GetViewMatrix() , camera3d->GetProjectionMatrix());
 }
 
-//TODO : 引数なんとかする
 void BackGround::ConvertMesh(CVector3 ppos) {
 	//CMatrix mWorldMatrixInv = m_skinModelRender->GetSkinModel().GetWorldMatrix();
 	CMatrix mWorldMatrixInv = smodel.GetWorldMatrix();
@@ -42,7 +41,18 @@ void BackGround::ConvertMesh(CVector3 ppos) {
 			mWorldMatrixInv.Mul(bodyPos);
 			CVector3 diff = bodyPos - *pos;
 			if (diff.Length() < 250.0f) {
+				//掘る
 				pos->z -= 5.0f;
+				m_converting = true;
+			}
+		}
+		if (g_pad[0].IsPress(enButtonX)) {
+			//付近の頂点を変形させる。
+			CVector3 bodyPos = ppos;
+			mWorldMatrixInv.Mul(bodyPos);
+			CVector3 diff = bodyPos - *pos;
+			if (diff.Length() < 250.0f) {
+				pos->z += 5.0f;
 				m_converting = true;
 			}
 		}
