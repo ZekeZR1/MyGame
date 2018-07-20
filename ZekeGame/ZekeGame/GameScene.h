@@ -23,8 +23,12 @@ private:
 	//Font
 	DirectX::SpriteBatch* pSpriteBatch;
 	DirectX::SpriteFont* pSpriteFont;
-	wchar_t text[256];
-	int a = 0;
+	wchar_t mw_PosX[256];
+	wchar_t mw_PosY[256];
+	wchar_t mw_PosZ[256];
+	int mi_x = 0;
+	int mi_y = 0;
+	int mi_z = 0;
 };
 
 extern GameScene* g_game;

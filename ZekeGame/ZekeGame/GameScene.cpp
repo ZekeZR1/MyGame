@@ -40,8 +40,13 @@ GameScene::~GameScene()
 }
 
 void GameScene::Update() {
-	a++;
-	_itow_s(a, text,10);
+	CVector3 Ppos = m_player->GetPosition();
+	mi_x = Ppos.x;
+	_itow_s(mi_x, mw_PosX,10);
+	mi_y = Ppos.y;
+	_itow_s(mi_y, mw_PosY, 10);
+	mi_z = Ppos.z;
+	_itow_s(mi_z, mw_PosZ, 10);
 	m_model->UpdateWorldMatrix(CVector3::Zero(),CQuaternion::Identity(),CVector3::One());
 	m_player->Update();
 	camera->Update(m_player);
@@ -57,6 +62,14 @@ void GameScene::Draw() {
 
 void GameScene::DrawFont() {
 	pSpriteBatch->Begin();
-	pSpriteFont->DrawString(pSpriteBatch, (L"%d", text), DirectX::XMFLOAT2(0.0f, 0.0f));
+	//XÀ•W
+	pSpriteFont->DrawString(pSpriteBatch, L"X", DirectX::XMFLOAT2(0.0f, 0.0f), CVector4::White);
+	pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_PosX), DirectX::XMFLOAT2(50.0f, 0.0f), CVector4::White);
+	//YÀ•W
+	pSpriteFont->DrawString(pSpriteBatch, L"Y", DirectX::XMFLOAT2(0.0f, 50.0f), CVector4::White);
+	pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_PosY), DirectX::XMFLOAT2(50.0f, 50.0f), CVector4::White);
+	//ZÀ•W
+	pSpriteFont->DrawString(pSpriteBatch, L"Z", DirectX::XMFLOAT2(0.0f, 100.0f), CVector4::White);
+	pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_PosZ), DirectX::XMFLOAT2(50.0f, 100.0f), CVector4::White);
 	pSpriteBatch->End();
 }
