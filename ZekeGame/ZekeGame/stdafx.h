@@ -42,4 +42,4 @@
 
 const float FRAME_BUFFER_W = 1280.0f;				
 const float FRAME_BUFFER_H = 720.0f;				
-static const int MAX_BONE = 512;	//!<ƒ{[ƒ“‚ÌÅ‘å”B
+static const int MAX_BONE = 512;

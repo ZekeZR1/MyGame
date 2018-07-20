@@ -1,14 +1,49 @@
 ﻿  Assets\modelData\test.png
   Assets\modelData\utc_all2.tga
   Assets\Sprite\mikyan.jpg
+  Assets\Sprite\TitleSprite.png
   Assets\modelData\BackWorld.FBX
   Assets\modelData\Space.FBX
   Assets\modelData\testbox.FBX
   Assets\modelData\unityChan.fbx
+  BackGround.cpp
+  GameCamera.cpp
+  GameScene.cpp
+  Pad.cpp
+  Player.cpp
   Title.cpp
+  CharacterController.cpp
+  Camera.cpp
+  GraphicsEngine.cpp
+  Shader.cpp
+  ShaderResources.cpp
+  Skelton.cpp
+  SkinModel.cpp
+  SkinModelDataManager.cpp
+  SkinModelEffect.cpp
+  Effect.cpp
+  SpBuffer.cpp
+  Sprite.cpp
+  Animation.cpp
+  AnimationClip.cpp
+  コンパイル中...
+  AnimationPlayController.cpp
+  Level.cpp
+  MapChip.cpp
+  main.cpp
+  Matrix.cpp
+  Vector.cpp
+  kMath.cpp
+  CapsuleCollider.cpp
+  MeshCollider.cpp
+  Physics.cpp
+  PhysicsStaticObject.cpp
+  RigitBody.cpp
+  stdafx.cpp
+  Window.cpp
   コード生成しています。
-  0 of 1794 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  14 of 1835 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
+    2 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
   ZekeGame.vcxproj -> C:\Users\Taiki.W\git\MyGame\ZekeGame\x64\Release\ZekeGame.exe

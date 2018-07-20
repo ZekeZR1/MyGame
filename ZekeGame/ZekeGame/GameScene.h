@@ -2,7 +2,6 @@
 #include "IScene.h"
 #include "BackGround.h"
 #include "Player.h"
-
 class GameScene : public IScene
 {
 public:
@@ -10,6 +9,7 @@ public:
 	~GameScene();
 	void Update() override;
 	void Draw() override;
+	void DrawFont() override;
 	Player* m_player;
 	bool Converting = false;
 private:
@@ -19,8 +19,12 @@ private:
 	CVector3 m_spscale = { 1.0f,1.0f,1.0f };
 	BackGround* bg;
 	CVector3 modelPos = CVector3::Zero();
-	//SkinModel smodel;
 	Animation modelanimation;
+	//Font
+	DirectX::SpriteBatch* pSpriteBatch;
+	DirectX::SpriteFont* pSpriteFont;
+	wchar_t text[256];
+	int a = 0;
 };
 
 extern GameScene* g_game;

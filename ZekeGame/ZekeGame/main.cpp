@@ -26,6 +26,7 @@ void GameUpdate() {
 void Render() {
 	g_graphicsEngine->BegineRender();
 	currentScene->Draw();
+	currentScene->DrawFont();
 	g_graphicsEngine->EndRender();
 }
 

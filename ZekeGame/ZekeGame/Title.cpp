@@ -6,8 +6,8 @@
 Title::Title()
 {
 	m_sprite = new Sprite;
-	m_sprite->Init(L"sprite/mikyan.dds", 300.0f, 300.0f);
-	m_sprite->Update({ 0.0f,0.0f,0.0f }, CQuaternion::Identity(), CVector3::One(), CVector2::Zero());
+	m_sprite->Init(L"sprite/TitleSprite.dds", 1280.0f,720.0f);
+	m_sprite->Update({ 0.0f,0.0f,0.0f }, CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
 }
 
 
@@ -25,4 +25,8 @@ void Title::Update() {
 
 void Title::Draw() {
 	m_sprite->Draw();
+}
+
+void Title::DrawFont() {
+
 }

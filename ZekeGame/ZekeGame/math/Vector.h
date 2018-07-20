@@ -328,6 +328,9 @@ public:
 		struct { float x, y, z, w; };
 		float v[4];
 	};
+	static const CVector4 White;
+	static const CVector4 Black;
+	static const CVector4 Yellow;
 public:
 	operator DirectX::XMVECTOR() const
 	{
@@ -465,12 +468,14 @@ public:
 		xmv = DirectX::XMVectorScale(xmv, s);
 		DirectX::XMStoreFloat4(&vec, xmv);
 	}
+	/*
 	static CVector4 White()
 	{
 		static const CVector4 white = { 1.0f, 1.0f, 1.0f, 1.0f };
 		return white;
 
 	}
+	*/
 };
 
 class CQuaternion : public CVector4 {
