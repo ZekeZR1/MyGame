@@ -28,12 +28,12 @@ void Player::Update() {
 	CVector3 cameraForward = camera3d->GetTarget() - camera3d->GetPosition();
 	cameraForward.y = 0.0f;
 	cameraForward.Normalize();
-	m_moveSpeed.x = cameraForward.x * 600.0f * g_pad[0].GetLStickYF();
-	m_moveSpeed.z = cameraForward.z * 600.0f * g_pad[0].GetLStickYF();
+	m_moveSpeed.x = cameraForward.x * m_moveSpeedParam * g_pad[0].GetLStickYF();
+	m_moveSpeed.z = cameraForward.z * m_moveSpeedParam * g_pad[0].GetLStickYF();
 	CVector3 cameraRight;
 	cameraRight.Cross({ 0.0f, 1.0f, 0.0f }, cameraForward);
 	cameraRight.Normalize();
-	m_moveSpeed += cameraRight * 600.0f * g_pad[0].GetLStickXF();
+	m_moveSpeed += cameraRight * m_moveSpeedParam * g_pad[0].GetLStickXF();
 	if (g_pad[0].IsTrigger(enButtonA)) {
 		m_moveSpeed.y += 600.0f;
 	}

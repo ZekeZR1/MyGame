@@ -6,7 +6,7 @@
 
 BackGround::BackGround()
 {
-	smodel.Init(L"Assets/modelData/backWorld.cmo");
+	smodel.Init(L"Assets/modelData/BackWorld.cmo");
 	smodel.UpdateWorldMatrix(m_pos, m_rot, CVector3::One());
 	m_physicsStaticObject = new PhysicsStaticObject;
 	m_physicsStaticObject->CreateMeshObject(smodel, CVector3::Zero(), CQuaternion::Identity());
