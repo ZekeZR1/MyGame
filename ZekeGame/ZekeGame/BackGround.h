@@ -6,10 +6,11 @@ class BackGround
 public:
 	BackGround();
 	~BackGround();
-	void Update(CVector3 playerPos);
+	void Update(CVector3 playerPos,CVector3 flat, Player* m_player);
 	void Draw();
-	void ConvertMesh(CVector3 pos);
+	void ConvertMesh(CVector3 pos,CVector3 flat,Player* m_player);
 	bool m_converting = false;
+	float m_RangeOfConvert = 250.0f;
 private:
 	SkinModel smodel;
 	CQuaternion m_rot = CQuaternion::Identity()	;

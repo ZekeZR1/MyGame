@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ActionMenu.cpp" />
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="character\CharacterController.cpp" />
     <ClCompile Include="GameCamera.cpp" />
@@ -184,6 +185,7 @@
     <ClCompile Include="window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActionMenu.h" />
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="character\CharacterController.h" />
     <ClInclude Include="GameCamera.h" />
@@ -245,6 +247,17 @@
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\TitleSprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\ActMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\ActMenu1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\ActState_Fill.png" />
+    <ImageContentTask Include="Assets\Sprite\ActState_Flat.png" />
+    <ImageContentTask Include="Assets\Sprite\ActState_Mining.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

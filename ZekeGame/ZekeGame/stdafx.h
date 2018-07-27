@@ -17,7 +17,7 @@
 #include "DirectXTK/Inc/CommonStates.h"
 #include "DirectXTK/Inc/SpriteFont.h"
 #include "DirectXTK/Inc/DDSTextureLoader.h"
-
+#include "DirectXTK/Inc/SpriteBatch.h"
 
 #include "btBulletDynamicsCommon.h"
 #include "BulletCollision\CollisionDispatch\btGhostObject.h"
