@@ -2,6 +2,8 @@
 #include "GameScene.h"
 #include "ActionMenu.h"
 #include "Player.h"
+#include "TestItem.h"
+
 Player* player;
 
 ActionMenu::ActionMenu()
@@ -70,6 +72,5 @@ void ActionMenu::Craft() {
 	if (g_pad[0].IsTrigger(enButtonA)) {
 		//選んだアイテムを指定した座標に置く
 		//new Item;
-
 	}
 }

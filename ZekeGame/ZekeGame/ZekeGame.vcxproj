@@ -168,6 +168,7 @@
     <ClCompile Include="graphics\Sprite\SpBuffer.cpp" />
     <ClCompile Include="graphics\Sprite\Sprite.cpp" />
     <ClCompile Include="HID\Pad.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="level\Level.cpp" />
     <ClCompile Include="level\MapChip.cpp" />
     <ClCompile Include="main.cpp" />
@@ -181,6 +182,7 @@
     <ClCompile Include="physics\RigitBody.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="TestItem.cpp" />
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="window\Window.cpp" />
   </ItemGroup>
@@ -208,6 +210,7 @@
     <ClInclude Include="graphics\Sprite\Sprite.h" />
     <ClInclude Include="HID\Pad.h" />
     <ClInclude Include="IScene.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="level\Level.h" />
     <ClInclude Include="level\MapChip.h" />
     <ClInclude Include="math\kMath.h" />
@@ -222,6 +225,7 @@
     <ClInclude Include="physics\RigitBody.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TestItem.h" />
     <ClInclude Include="Title.h" />
     <ClInclude Include="window\Window.h" />
   </ItemGroup>

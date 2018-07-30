@@ -4,8 +4,11 @@
 #include "level\Level.h"
 #include "Player.h"
 #include "ActionMenu.h"
+#include "Item.h"
+#include "TestItem.h"
 
 GameScene* g_game = nullptr;
+Item* Items;
 extern GameCamera* camera;
 
 GameScene::GameScene()
@@ -47,9 +50,15 @@ GameScene::~GameScene()
 	delete m_ActMenu;
 	delete pSpriteBatch;
 	delete pSpriteFont;
+	delete Items;
 }
 
 void GameScene::Update() {
+	if (g_pad[0].IsTrigger(enButtonA)) {
+		//選んだアイテムを指定した座標に置く
+		//new Item;
+		Items = new TestItem;
+	}
 	//座標
 	CVector3 Ppos = m_player->GetPosition();
 	mi_x = Ppos.x;
@@ -98,6 +107,8 @@ void GameScene::Update() {
 
 void GameScene::Draw() {
 	bg->Draw();
+	if(Items != nullptr)
+		Items->Draw();
 	m_player->Draw();
 	m_model->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
 	mS_ActState->Draw();

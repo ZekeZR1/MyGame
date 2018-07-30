@@ -158,6 +158,12 @@
     <ClCompile Include="ActionMenu.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="TestItem.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -275,6 +281,12 @@
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="ActionMenu.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="TestItem.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>
