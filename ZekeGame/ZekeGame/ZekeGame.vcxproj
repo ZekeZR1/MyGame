@@ -227,6 +227,7 @@
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\BackWorld.FBX" />
+    <MeshContentTask Include="Assets\modelData\ItemBox.FBX" />
     <MeshContentTask Include="Assets\modelData\Space.FBX" />
     <MeshContentTask Include="Assets\modelData\testbox.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
@@ -258,6 +259,12 @@
     <ImageContentTask Include="Assets\Sprite\ActState_Fill.png" />
     <ImageContentTask Include="Assets\Sprite\ActState_Flat.png" />
     <ImageContentTask Include="Assets\Sprite\ActState_Mining.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\None_Sprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\ItemBoxSprite.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

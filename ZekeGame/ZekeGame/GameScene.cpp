@@ -21,7 +21,7 @@ GameScene::GameScene()
 	pSpriteFont = new DirectX::SpriteFont(g_graphicsEngine->GetD3DDevice(), L"Assets/font/myfile.spritefont");
 	//Sprite
 	mS_ActState = new Sprite;
-	mS_ActState->Init(L"sprite/ActState_Mining.dds", 500.0f, 500.0f);
+	mS_ActState->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
 	mv_ActSpos.x = 500.0f;
 	mv_ActSpos.y = 300.0f;
 	mS_ActState->Update(mv_ActSpos, CQuaternion::Identity(), CVector3::One(), { 0.5,0.5 });
@@ -53,19 +53,20 @@ void GameScene::Update() {
 	//座標
 	CVector3 Ppos = m_player->GetPosition();
 	mi_x = Ppos.x;
-	_itow_s(mi_x, mw_PosX,10);
+	_itow_s(mi_x, mw_PosX, 10);
 	mi_y = Ppos.y;
 	_itow_s(mi_y, mw_PosY, 10);
 	mi_z = Ppos.z;
 	_itow_s(mi_z, mw_PosZ, 10);
-	m_model->UpdateWorldMatrix(CVector3::Zero(),CQuaternion::Identity(),CVector3::One());
+	m_model->UpdateWorldMatrix(CVector3::Zero(), CQuaternion::Identity(), CVector3::One());
 	m_player->Update();
 	camera->Update(m_player);
 	//Player近くの座標を送る
 	mi_flaty = m_ActMenu->m_flatPos.y;
 	_itow_s(mi_flaty, mw_flatPosY, 10);
 	CVector3 DrilPos = m_player->GetPosition();
-	bg->Update(DrilPos,m_ActMenu->m_flatPos, m_player);
+	if (m_player->m_enPState == m_player->PSTATE_MAKEGROUND)
+		bg->Update(DrilPos, m_ActMenu->m_flatPos, m_player);
 	//ActMenu
 	if (g_pad[0].IsTrigger(enButtonX)) {
 		if (isOpenAct) {
@@ -76,16 +77,21 @@ void GameScene::Update() {
 		}
 	}
 	if (isOpenAct) {
-		m_ActMenu->Update();
+		m_ActMenu->Update(m_player);
 	}
-	if (m_player->ActState == m_player->State_Leveling) {
-		mS_ActState->Init(L"sprite/ActState_Flat.dds", 500.0f, 500.0f);
+	if (m_player->m_enPState == m_player->PSTATE_CRAFT) {
+		mS_ActState->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
 	}
-	if (m_player->ActState == m_player->State_Fill) {
-		mS_ActState->Init(L"sprite/ActState_Fill.dds", 500.0f, 500.0f);
-	}
-	if (m_player->ActState == m_player->State_Mining) {
-		mS_ActState->Init(L"sprite/ActState_Mining.dds", 500.0f, 500.0f);
+	else {
+		if (m_player->ActState == m_player->State_Leveling) {
+			mS_ActState->Init(L"sprite/ActState_Flat.dds", 500.0f, 500.0f);
+		}
+		if (m_player->ActState == m_player->State_Fill) {
+			mS_ActState->Init(L"sprite/ActState_Fill.dds", 500.0f, 500.0f);
+		}
+		if (m_player->ActState == m_player->State_Mining) {
+			mS_ActState->Init(L"sprite/ActState_Mining.dds", 500.0f, 500.0f);
+		}
 	}
 	mS_ActState->Update(mv_ActSpos, CQuaternion::Identity(), { 0.5f,0.5f,0.5f }, { 0.5,0.5 });
 }
@@ -96,7 +102,7 @@ void GameScene::Draw() {
 	m_model->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
 	mS_ActState->Draw();
 	if (isOpenAct) {
-		m_ActMenu->Draw();
+			m_ActMenu->Draw();
 	}
 }
 
@@ -113,7 +119,8 @@ void GameScene::DrawFont() {
 	pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_PosZ), DirectX::XMFLOAT2(50.0f, 100.0f), CVector4::White);
 	//整地座標
 	if (isOpenAct) {
-		pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_flatPosY), DirectX::XMFLOAT2(640.0f, 360.0f), CVector4::Black);
+		if (m_player->m_enPState == m_player->PSTATE_MAKEGROUND)
+			pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_flatPosY), DirectX::XMFLOAT2(640.0f, 360.0f), CVector4::Black);
 	}
 	pSpriteBatch->End();
 }

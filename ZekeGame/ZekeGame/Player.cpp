@@ -55,6 +55,8 @@ void Player::Draw() {
 }
 
 void Player::ChangeState() {
+	if (m_enPState != PSTATE_MAKEGROUND)
+		return;
 	if (g_pad[0].IsTrigger(enButtonRB1)) {
 		if(mi_state != 2)
 			mi_state++;
