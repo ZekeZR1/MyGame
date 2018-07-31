@@ -54,10 +54,13 @@ GameScene::~GameScene()
 }
 
 void GameScene::Update() {
-	if (g_pad[0].IsTrigger(enButtonA)) {
-		//選んだアイテムを指定した座標に置く
-		//new Item;
-		Items = new TestItem;
+	if (g_pad[0].IsTrigger(enButtonB)) {
+		if (m_player->m_enPState == m_player->PSTATE_CRAFT) {
+			//選んだアイテムを指定した座標に置く
+			//new Item;
+			Items = new TestItem;
+			Items->SetPosition(m_player->GetPosition());
+		}
 	}
 	//座標
 	CVector3 Ppos = m_player->GetPosition();
@@ -74,8 +77,12 @@ void GameScene::Update() {
 	mi_flaty = m_ActMenu->m_flatPos.y;
 	_itow_s(mi_flaty, mw_flatPosY, 10);
 	CVector3 DrilPos = m_player->GetPosition();
-	if (m_player->m_enPState == m_player->PSTATE_MAKEGROUND)
-		bg->Update(DrilPos, m_ActMenu->m_flatPos, m_player);
+	if (g_pad[0].IsPress(enButtonB)) {
+		if (m_player->m_enPState == m_player->PSTATE_MAKEGROUND) {
+			bg->m_converting = true;
+			bg->Update(DrilPos, m_ActMenu->m_flatPos, m_player);
+		}
+	}
 	//ActMenu
 	if (g_pad[0].IsTrigger(enButtonX)) {
 		if (isOpenAct) {

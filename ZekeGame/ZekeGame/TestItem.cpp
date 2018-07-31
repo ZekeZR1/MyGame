@@ -20,6 +20,11 @@ void TestItem::Update() {
 
 }
 
+void TestItem::SetPosition(CVector3 pos) {
+	m_skinModel->UpdateWorldMatrix(pos, CQuaternion::Identity(), CVector3::One());
+}
+
 void TestItem::Draw() {
 	m_skinModel->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
 }
+

@@ -37,8 +37,8 @@ void BackGround::ConvertMesh(CVector3 playerpos, CVector3 flat, Player* m_player
 	CMatrix mWorldMatrixInv = smodel.GetWorldMatrix();
 	mWorldMatrixInv.Inverse(mWorldMatrixInv);
 	smodel.FindVertexPosition([&](CVector3* pos) {
-		if (g_pad[0].IsPress(enButtonB)) {
-			m_converting = true;
+		//if (g_pad[0].IsPress(enButtonB)) {
+			//m_converting = true;
 			//付近の頂点を変形させる。
 			CVector3 bodyPos = playerpos;
 			mWorldMatrixInv.Mul(bodyPos);
@@ -67,7 +67,7 @@ void BackGround::ConvertMesh(CVector3 playerpos, CVector3 flat, Player* m_player
 					break;
 				}
 			}
-		}
+		//}
 		/*
 		if (g_pad[0].IsPress(enButtonX)) {
 			//付近の頂点を変形させる。

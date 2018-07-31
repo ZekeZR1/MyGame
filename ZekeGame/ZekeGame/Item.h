@@ -6,5 +6,6 @@ public:
 	~Item();
 	virtual void Update() = 0;
 	virtual void Draw() = 0;
+	virtual void SetPosition(CVector3 pos) = 0;
 };
 
