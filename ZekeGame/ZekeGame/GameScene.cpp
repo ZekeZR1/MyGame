@@ -54,18 +54,29 @@ GameScene::~GameScene()
 }
 
 void GameScene::Update() {
-	if (g_pad[0].IsTrigger(enButtonB)) {
-		if (m_player->m_enPState == m_player->PSTATE_CRAFT) {
+	if (m_player->m_enPState == m_player->PSTATE_CRAFT) {
+		if (g_pad[0].IsTrigger(enButtonB)) {
 			//選んだアイテムを指定した座標に置く
 			//new Item;
-			Items = new TestItem;
-			CVector3 forward = camera3d->GetForward();
-			forward.y = 0;
-			forward.Normalize();
-			forward *= 100.0f;
-			forward += m_player->GetPosition();
-			Items->SetPosition(forward);
+			if (m_player->m_enPState != m_player->PSTATE_SETTING) {
+				Items = new TestItem;
+				CVector3 forward = camera3d->GetForward();
+				forward.y = 0;
+				forward.Normalize();
+				forward *= 100.0f;
+				forward += m_player->GetPosition();
+				Items->SetPosition(forward);
+				//m_player->m_enPState = m_player->PSTATE_SETTING;
+			}
 		}
+	}
+	if (m_player->m_enPState == m_player->PSTATE_SETTING) {
+		CVector3 forward = camera3d->GetForward();
+		forward.y = 0;
+		forward.Normalize();
+		forward *= 100.0f;
+		forward += m_player->GetPosition();
+		Items->SetPosition(forward);
 	}
 	//座標
 	CVector3 Ppos = m_player->GetPosition();
@@ -91,9 +102,11 @@ void GameScene::Update() {
 	//ActMenu
 	if (g_pad[0].IsTrigger(enButtonX)) {
 		if (isOpenAct) {
+			m_player->m_enPState = m_player->PSTATE_WALK;
 			isOpenAct = false;
 		}
 		else {
+			m_player->m_enPState = m_player->PSTATE_CRAFT;
 			isOpenAct = true;
 		}
 	}

@@ -21,6 +21,7 @@ void TestItem::Update() {
 }
 
 void TestItem::SetPosition(CVector3 pos) {
+
 	m_skinModel->UpdateWorldMatrix(pos, CQuaternion::Identity(), CVector3::One());
 }
 
