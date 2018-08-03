@@ -41,7 +41,10 @@ void ActionMenu::Update(Player* m_player) {
 		m_ActMenu->Init(L"sprite/ActMenu1.dds", 1280.0f, 720.0f);
 	}
 	if (m_player->m_enPState == m_player->PSTATE_CRAFT) {
-		Craft();
+		if (g_pad[0].IsTrigger(enButtonA)) {
+
+			Craft();
+		}
 	}
 }
 
@@ -69,7 +72,8 @@ void ActionMenu::Craft() {
 	}
 	*/
 	//選択中のアイテムの設置予定地を表示
-	if (g_pad[0].IsTrigger(enButtonA)) {
+	if (g_pad[0].IsTrigger(enButtonB)) {
+
 		//選んだアイテムを指定した座標に置く
 		//new Item;
 	}

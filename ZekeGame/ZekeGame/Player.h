@@ -25,11 +25,13 @@ public:
 	ActionState ActState = State_Mining;
 	enum PlayerState {
 		PSTATE_CRAFT,
+		PSTATE_SETTING,
+		PSTATE_WALK,
 		PSTATE_MAKEGROUND,
 		PSTATE_RIDING
 	};
 
-	PlayerState m_enPState = PSTATE_CRAFT;
+	PlayerState m_enPState = PSTATE_WALK;
 private:
 	int mi_state = 0;
 	SkinModel m_model;

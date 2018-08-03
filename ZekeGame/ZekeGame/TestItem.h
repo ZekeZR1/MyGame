@@ -6,9 +6,10 @@ class TestItem : public Item
 public:
 	TestItem();
 	~TestItem();
-	virtual void Update() override;
-	virtual void Draw() override;
-	virtual void SetPosition(CVector3 pos) override;
+	 void Update() override;
+	 void Draw() override;
+	 void SetPosition(CVector3 pos) override;
+	 bool isUsing();
 private:
 	SkinModel * m_skinModel;
 	CVector3 m_pos = CVector3::Zero();

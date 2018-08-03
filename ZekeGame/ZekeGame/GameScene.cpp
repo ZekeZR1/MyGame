@@ -59,7 +59,12 @@ void GameScene::Update() {
 			//選んだアイテムを指定した座標に置く
 			//new Item;
 			Items = new TestItem;
-			Items->SetPosition(m_player->GetPosition());
+			CVector3 forward = camera3d->GetForward();
+			forward.y = 0;
+			forward.Normalize();
+			forward *= 100.0f;
+			forward += m_player->GetPosition();
+			Items->SetPosition(forward);
 		}
 	}
 	//座標

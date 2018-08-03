@@ -164,6 +164,9 @@
     <ClCompile Include="TestItem.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="ItemManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -287,6 +290,9 @@
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="TestItem.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemManager.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>
