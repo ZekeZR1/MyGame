@@ -42,7 +42,6 @@ void ActionMenu::Update(Player* m_player) {
 	}
 	if (m_player->m_enPState == m_player->PSTATE_CRAFT) {
 		if (g_pad[0].IsTrigger(enButtonA)) {
-
 			Craft();
 		}
 	}

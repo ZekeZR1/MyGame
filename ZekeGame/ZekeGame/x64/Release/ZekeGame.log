@@ -14,16 +14,14 @@
   Assets\modelData\Space.FBX
   Assets\modelData\testbox.FBX
   Assets\modelData\unityChan.fbx
-  ActionMenu.cpp
-  BackGround.cpp
   GameScene.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\gamescene.cpp(67): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\gamescene.cpp(69): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\gamescene.cpp(71): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\gamescene.cpp(77): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\gamescene.cpp(88): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\gamescene.cpp(90): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\gamescene.cpp(92): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\gamescene.cpp(98): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
   コード生成しています。
-  0 of 1853 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  1 of 1854 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    4 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
   ZekeGame.vcxproj -> C:\Users\Taiki.W\git\MyGame\ZekeGame\x64\Release\ZekeGame.exe

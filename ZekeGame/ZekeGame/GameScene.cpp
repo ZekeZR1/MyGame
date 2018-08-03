@@ -54,11 +54,15 @@ GameScene::~GameScene()
 }
 
 void GameScene::Update() {
+	if (g_pad[0].IsTrigger(enButtonY)) {
+		m_player->m_enPState = m_player->PSTATE_WALK;
+	}
 	if (m_player->m_enPState == m_player->PSTATE_CRAFT) {
 		if (g_pad[0].IsTrigger(enButtonB)) {
 			//選んだアイテムを指定した座標に置く
 			//new Item;
 			if (m_player->m_enPState != m_player->PSTATE_SETTING) {
+				if (Items == nullptr){
 				Items = new TestItem;
 				CVector3 forward = camera3d->GetForward();
 				forward.y = 0;
@@ -66,7 +70,8 @@ void GameScene::Update() {
 				forward *= 100.0f;
 				forward += m_player->GetPosition();
 				Items->SetPosition(forward);
-				//m_player->m_enPState = m_player->PSTATE_SETTING;
+				m_player->m_enPState = m_player->PSTATE_WALK;
+				}
 			}
 		}
 	}
@@ -102,11 +107,11 @@ void GameScene::Update() {
 	//ActMenu
 	if (g_pad[0].IsTrigger(enButtonX)) {
 		if (isOpenAct) {
-			m_player->m_enPState = m_player->PSTATE_WALK;
+			//m_player->m_enPState = m_player->PSTATE_WALK;
 			isOpenAct = false;
 		}
 		else {
-			m_player->m_enPState = m_player->PSTATE_CRAFT;
+			//m_player->m_enPState = m_player->PSTATE_CRAFT;
 			isOpenAct = true;
 		}
 	}
@@ -114,9 +119,13 @@ void GameScene::Update() {
 		m_ActMenu->Update(m_player);
 	}
 	if (m_player->m_enPState == m_player->PSTATE_CRAFT) {
-		mS_ActState->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
+		if(Items ==nullptr)
+			mS_ActState->Init(L"sprite/ItemBoxSprite.dds", 500.0f, 500.0f);
+		else {
+			mS_ActState->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
+		}
 	}
-	else {
+	if(m_player->m_enPState== m_player->PSTATE_MAKEGROUND) {
 		if (m_player->ActState == m_player->State_Leveling) {
 			mS_ActState->Init(L"sprite/ActState_Flat.dds", 500.0f, 500.0f);
 		}
@@ -126,6 +135,9 @@ void GameScene::Update() {
 		if (m_player->ActState == m_player->State_Mining) {
 			mS_ActState->Init(L"sprite/ActState_Mining.dds", 500.0f, 500.0f);
 		}
+	}
+	if (m_player->m_enPState == m_player->PSTATE_WALK) {
+		mS_ActState->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
 	}
 	mS_ActState->Update(mv_ActSpos, CQuaternion::Identity(), { 0.5f,0.5f,0.5f }, { 0.5,0.5 });
 }

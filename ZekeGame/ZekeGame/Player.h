@@ -24,10 +24,10 @@ public:
 	};
 	ActionState ActState = State_Mining;
 	enum PlayerState {
-		PSTATE_CRAFT,
-		PSTATE_SETTING,
 		PSTATE_WALK,
+		PSTATE_CRAFT,
 		PSTATE_MAKEGROUND,
+		PSTATE_SETTING,
 		PSTATE_RIDING
 	};
 

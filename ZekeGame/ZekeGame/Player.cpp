@@ -15,6 +15,15 @@ Player::~Player()
 }
 
 void Player::Move() {
+	if (m_enPState == PSTATE_WALK) {
+		if (g_pad[0].IsPress(enButtonRB2)) {
+			m_moveSpeedParam = 1300.0f;
+		}else
+			m_moveSpeedParam = 750.0f;
+	}
+	else {
+		m_moveSpeedParam = 600.0f;
+	}
 	CVector3 cameraForward = camera3d->GetTarget() - camera3d->GetPosition();
 	cameraForward.y = 0.0f;
 	cameraForward.Normalize();
