@@ -13,6 +13,10 @@ public:
 	void Update() override;
 	void Draw() override;
 	void DrawFont() override;
+	void Craft();
+	void Ground();
+	void Menu();
+	void CastFont();
 	bool Converting = false;
 	bool isOpenAct = false;
 	ActionMenu* m_ActMenu = nullptr;

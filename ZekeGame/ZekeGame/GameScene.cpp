@@ -19,6 +19,7 @@ GameScene::GameScene()
 	m_player = new Player;
 	m_model = new SkinModel;
 	m_model->Init(L"Assets/modelData/Space.cmo");
+	m_model->UpdateWorldMatrix(CVector3::Zero(), CQuaternion::Identity(), CVector3::One());
 	//Font
 	pSpriteBatch = new DirectX::SpriteBatch(g_graphicsEngine->GetD3DDeviceContext());
 	pSpriteFont = new DirectX::SpriteFont(g_graphicsEngine->GetD3DDevice(), L"Assets/font/myfile.spritefont");
@@ -54,95 +55,12 @@ GameScene::~GameScene()
 }
 
 void GameScene::Update() {
-	if (g_pad[0].IsTrigger(enButtonY)) {
-		m_player->m_enPState = m_player->PSTATE_WALK;
-		m_ActMenu->m_enAction = m_ActMenu->ASTATE_INVENTORY;
-		m_ActMenu->m_mode = 1;
-	}
-	if (m_ActMenu->m_enAction ==  m_ActMenu->ASTATE_CRAFT) {
-		if (g_pad[0].IsTrigger(enButtonB)) {
-			//選んだアイテムを指定した座標に置く
-			//new Item;
-			if (m_player->m_enPState != m_player->PSTATE_SETTING) {
-				if (Items == nullptr) {
-					Items = new TestItem;
-					CVector3 forward = camera3d->GetForward();
-					forward.y = 0;
-					forward.Normalize();
-					forward *= 100.0f;
-					forward += m_player->GetPosition();
-					Items->SetPosition(forward);
-					m_player->m_enPState = m_player->PSTATE_WALK;
-				}
-			}
-		}
-	}
-	if (m_player->m_enPState == m_player->PSTATE_SETTING) {
-		CVector3 forward = camera3d->GetForward();
-		forward.y = 0;
-		forward.Normalize();
-		forward *= 100.0f;
-		forward += m_player->GetPosition();
-		Items->SetPosition(forward);
-	}
-	//座標
-	CVector3 Ppos = m_player->GetPosition();
-	mi_x = Ppos.x;
-	_itow_s(mi_x, mw_PosX, 10);
-	mi_y = Ppos.y;
-	_itow_s(mi_y, mw_PosY, 10);
-	mi_z = Ppos.z;
-	_itow_s(mi_z, mw_PosZ, 10);
-	m_model->UpdateWorldMatrix(CVector3::Zero(), CQuaternion::Identity(), CVector3::One());
+	Craft();
+	Ground();
+	CastFont();
+	Menu();
 	m_player->Update();
 	camera->Update(m_player);
-	//Player近くの座標を送る
-	mi_flaty = m_ActMenu->m_flatPos.y;
-	_itow_s(mi_flaty, mw_flatPosY, 10);
-	CVector3 DrilPos = m_player->GetPosition();
-	if (g_pad[0].IsPress(enButtonB)) {
-		//if (m_player->m_enPState == m_player->PSTATE_MAKEGROUND) {
-		if(m_ActMenu->m_enAction == m_ActMenu->ASTATE_MAKEGROUND){
-			bg->m_converting = true;
-			bg->Update(DrilPos, m_ActMenu->m_flatPos, m_player);
-		}
-	}
-	//ActMenu
-	if (g_pad[0].IsTrigger(enButtonX)) {
-		if (isOpenAct) {
-			//m_player->m_enPState = m_player->PSTATE_WALK;
-			isOpenAct = false;
-		}
-		else {
-			//m_player->m_enPState = m_player->PSTATE_CRAFT;
-			isOpenAct = true;
-		}
-	}
-	if (isOpenAct) {
-		m_ActMenu->Update(m_player);
-	}
-	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_CRAFT) {
-		if(Items ==nullptr)
-			mS_ActState->Init(L"sprite/ItemBoxSprite.dds", 500.0f, 500.0f);
-	}
-	if(m_ActMenu->m_enAction == m_ActMenu->ASTATE_INVENTORY){
-		mS_ActState->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
-	}
-	if(m_player->m_enPState== m_player->PSTATE_MAKEGROUND) {
-		if (m_player->ActState == m_player->State_Leveling) {
-			mS_ActState->Init(L"sprite/ActState_Flat.dds", 500.0f, 500.0f);
-		}
-		if (m_player->ActState == m_player->State_Fill) {
-			mS_ActState->Init(L"sprite/ActState_Fill.dds", 500.0f, 500.0f);
-		}
-		if (m_player->ActState == m_player->State_Mining) {
-			mS_ActState->Init(L"sprite/ActState_Mining.dds", 500.0f, 500.0f);
-		}
-	}
-	if (m_player->m_enPState == m_player->PSTATE_WALK) {
-		mS_ActState->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
-	}
-	mS_ActState->Update(mv_ActSpos, CQuaternion::Identity(), { 0.5f,0.5f,0.5f }, { 0.5,0.5 });
 }
 
 void GameScene::Draw() {
@@ -175,4 +93,100 @@ void GameScene::DrawFont() {
 			pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_flatPosY), DirectX::XMFLOAT2(640.0f, 360.0f), CVector4::Black);
 	}
 	pSpriteBatch->End();
+}
+
+void GameScene::Craft() {
+	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_CRAFT) {
+		if (g_pad[0].IsTrigger(enButtonB)) {
+			//選んだアイテムを指定した座標に置く
+			//new Item;
+			if (m_player->m_enPState != m_player->PSTATE_SETTING) {
+				if (Items == nullptr) {
+					Items = new TestItem;
+					CVector3 forward = camera3d->GetForward();
+					forward.y = 0;
+					forward.Normalize();
+					forward *= 100.0f;
+					forward += m_player->GetPosition();
+					Items->SetPosition(forward);
+					m_player->m_enPState = m_player->PSTATE_WALK;
+				}
+			}
+		}
+	}
+	if (m_player->m_enPState == m_player->PSTATE_SETTING) {
+		CVector3 forward = camera3d->GetForward();
+		forward.y = 0;
+		forward.Normalize();
+		forward *= 100.0f;
+		forward += m_player->GetPosition();
+		Items->SetPosition(forward);
+	}
+}
+
+void GameScene::Ground() {
+	CVector3 DrilPos = m_player->GetPosition();
+	if (g_pad[0].IsPress(enButtonB)) {
+		if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_MAKEGROUND) {
+			bg->m_converting = true;
+			bg->Update(DrilPos, m_ActMenu->m_flatPos, m_player);
+		}
+	}
+}
+void GameScene::Menu() {
+	//ActMenu
+	if (g_pad[0].IsTrigger(enButtonX)) {
+		if (isOpenAct) {
+			//m_player->m_enPState = m_player->PSTATE_WALK;
+			isOpenAct = false;
+		}
+		else {
+			//m_player->m_enPState = m_player->PSTATE_CRAFT;
+			isOpenAct = true;
+		}
+	}
+	if (isOpenAct) {
+		m_ActMenu->Update(m_player);
+	}
+	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_CRAFT) {
+		if (Items == nullptr)
+			mS_ActState->Init(L"sprite/ItemBoxSprite.dds", 500.0f, 500.0f);
+	}
+	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_INVENTORY) {
+		mS_ActState->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
+	}
+	if (m_player->m_enPState == m_player->PSTATE_MAKEGROUND) {
+		if (m_player->ActState == m_player->State_Leveling) {
+			mS_ActState->Init(L"sprite/ActState_Flat.dds", 500.0f, 500.0f);
+		}
+		if (m_player->ActState == m_player->State_Fill) {
+			mS_ActState->Init(L"sprite/ActState_Fill.dds", 500.0f, 500.0f);
+		}
+		if (m_player->ActState == m_player->State_Mining) {
+			mS_ActState->Init(L"sprite/ActState_Mining.dds", 500.0f, 500.0f);
+		}
+	}
+	if (m_player->m_enPState == m_player->PSTATE_WALK) {
+		mS_ActState->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
+	}
+	mS_ActState->Update(mv_ActSpos, CQuaternion::Identity(), { 0.5f,0.5f,0.5f }, { 0.5,0.5 });
+	//Walkに移行
+	if (g_pad[0].IsTrigger(enButtonY)) {
+		m_player->m_enPState = m_player->PSTATE_WALK;
+		m_ActMenu->m_enAction = m_ActMenu->ASTATE_INVENTORY;
+		m_ActMenu->m_mode = 1;
+	}
+}
+void GameScene::CastFont() {
+	//プレイヤー座標
+	CVector3 Ppos = m_player->GetPosition();
+	mi_x = Ppos.x;
+	_itow_s(mi_x, mw_PosX, 10);
+	mi_y = Ppos.y;
+	_itow_s(mi_y, mw_PosY, 10);
+	mi_z = Ppos.z;
+	_itow_s(mi_z, mw_PosZ, 10);
+	//整地座標
+	mi_flaty = m_ActMenu->m_flatPos.y;
+	_itow_s(mi_flaty, mw_flatPosY, 10);
 }
