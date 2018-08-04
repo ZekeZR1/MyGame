@@ -56,21 +56,23 @@ GameScene::~GameScene()
 void GameScene::Update() {
 	if (g_pad[0].IsTrigger(enButtonY)) {
 		m_player->m_enPState = m_player->PSTATE_WALK;
+		m_ActMenu->m_enAction = m_ActMenu->ASTATE_INVENTORY;
+		m_ActMenu->m_mode = 1;
 	}
-	if (m_player->m_enPState == m_player->PSTATE_CRAFT) {
+	if (m_ActMenu->m_enAction ==  m_ActMenu->ASTATE_CRAFT) {
 		if (g_pad[0].IsTrigger(enButtonB)) {
 			//選んだアイテムを指定した座標に置く
 			//new Item;
 			if (m_player->m_enPState != m_player->PSTATE_SETTING) {
-				if (Items == nullptr){
-				Items = new TestItem;
-				CVector3 forward = camera3d->GetForward();
-				forward.y = 0;
-				forward.Normalize();
-				forward *= 100.0f;
-				forward += m_player->GetPosition();
-				Items->SetPosition(forward);
-				m_player->m_enPState = m_player->PSTATE_WALK;
+				if (Items == nullptr) {
+					Items = new TestItem;
+					CVector3 forward = camera3d->GetForward();
+					forward.y = 0;
+					forward.Normalize();
+					forward *= 100.0f;
+					forward += m_player->GetPosition();
+					Items->SetPosition(forward);
+					m_player->m_enPState = m_player->PSTATE_WALK;
 				}
 			}
 		}
@@ -99,7 +101,8 @@ void GameScene::Update() {
 	_itow_s(mi_flaty, mw_flatPosY, 10);
 	CVector3 DrilPos = m_player->GetPosition();
 	if (g_pad[0].IsPress(enButtonB)) {
-		if (m_player->m_enPState == m_player->PSTATE_MAKEGROUND) {
+		//if (m_player->m_enPState == m_player->PSTATE_MAKEGROUND) {
+		if(m_ActMenu->m_enAction == m_ActMenu->ASTATE_MAKEGROUND){
 			bg->m_converting = true;
 			bg->Update(DrilPos, m_ActMenu->m_flatPos, m_player);
 		}
@@ -118,12 +121,12 @@ void GameScene::Update() {
 	if (isOpenAct) {
 		m_ActMenu->Update(m_player);
 	}
-	if (m_player->m_enPState == m_player->PSTATE_CRAFT) {
+	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_CRAFT) {
 		if(Items ==nullptr)
 			mS_ActState->Init(L"sprite/ItemBoxSprite.dds", 500.0f, 500.0f);
-		else {
-			mS_ActState->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
-		}
+	}
+	if(m_ActMenu->m_enAction == m_ActMenu->ASTATE_INVENTORY){
+		mS_ActState->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
 	}
 	if(m_player->m_enPState== m_player->PSTATE_MAKEGROUND) {
 		if (m_player->ActState == m_player->State_Leveling) {
@@ -167,7 +170,8 @@ void GameScene::DrawFont() {
 	pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_PosZ), DirectX::XMFLOAT2(50.0f, 100.0f), CVector4::White);
 	//整地座標
 	if (isOpenAct) {
-		if (m_player->m_enPState == m_player->PSTATE_MAKEGROUND)
+		//if (m_player->m_enPState == m_player->PSTATE_MAKEGROUND)
+		if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_MAKEGROUND)
 			pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_flatPosY), DirectX::XMFLOAT2(640.0f, 360.0f), CVector4::Black);
 	}
 	pSpriteBatch->End();

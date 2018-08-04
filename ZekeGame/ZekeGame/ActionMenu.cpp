@@ -25,20 +25,46 @@ ActionMenu::~ActionMenu()
 }
 
 void ActionMenu::Update(Player* m_player) {
-	player = m_player;
-	if (g_pad[0].IsTrigger(enButtonUp)) {
-		m_flatPos.y += 10.0f;
-	}
-	if (g_pad[0].IsTrigger(enButtonDown)) {
-		m_flatPos.y -= 10.0f;
-	}
-	if (g_pad[0].IsTrigger(enButtonRight)) {
-		m_player->m_enPState = m_player->PSTATE_MAKEGROUND;
+	switch (m_enAction) {
+	case ASTATE_INVENTORY:
+		m_ActMenu->Init(L"sprite/Inventory.dds", 1280.0f, 720.0f);
+		break;
+	case ASTATE_CRAFT:
+		m_ActMenu->Init(L"sprite/ActMenu1.dds", 1280.0f, 720.0f);
+		break;
+	case ASTATE_MAKEGROUND:
 		m_ActMenu->Init(L"sprite/ActMenu.dds", 1280.0f, 720.0f);
 	}
+	player = m_player;
+	if (m_enAction == ASTATE_MAKEGROUND) {
+		if (g_pad[0].IsTrigger(enButtonUp)) {
+			m_flatPos.y += 10.0f;
+		}
+		if (g_pad[0].IsTrigger(enButtonDown)) {
+			m_flatPos.y -= 10.0f;
+		}
+	}
+	if (g_pad[0].IsTrigger(enButtonRight)) {
+		if (m_mode != 2) {
+			m_mode++;
+		}
+	}
 	if (g_pad[0].IsTrigger(enButtonLeft)) {
+		if (m_mode != 0) {
+			m_mode--;
+		}
+	}
+	switch (m_mode) {
+	case 0:
 		m_player->m_enPState = m_player->PSTATE_CRAFT;
-		m_ActMenu->Init(L"sprite/ActMenu1.dds", 1280.0f, 720.0f);
+		m_enAction = ASTATE_CRAFT;
+		break;
+	case 1:
+		m_enAction = ASTATE_INVENTORY;
+		break;
+	case 2:
+		m_player->m_enPState = m_player->PSTATE_MAKEGROUND;
+		m_enAction = ASTATE_MAKEGROUND;
 	}
 	if (m_player->m_enPState == m_player->PSTATE_CRAFT) {
 		if (g_pad[0].IsTrigger(enButtonA)) {
@@ -49,7 +75,7 @@ void ActionMenu::Update(Player* m_player) {
 
 void ActionMenu::Draw() {
 	m_ActMenu->Draw();
-	if(player->m_enPState == player->PSTATE_CRAFT)
+	if(m_enAction == ASTATE_CRAFT)
 		mS_Item->Draw();
 }
 
