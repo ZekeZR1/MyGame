@@ -14,6 +14,12 @@ Player::~Player()
 {
 }
 
+void Player::Update() {
+	Move();
+	Turn();
+	ChangeState();
+}
+
 void Player::Move() {
 	if (m_enPState == PSTATE_WALK) {
 		if (g_pad[0].IsPress(enButtonRB2)) {
@@ -51,12 +57,6 @@ void Player::Turn() {
 	}
 	float angle = atan2(m_moveSpeed.x, m_moveSpeed.z);
 	m_rotation.SetRotation(CVector3::AxisY(), angle);
-}
-
-void Player::Update() {
-	Move();
-	Turn();
-	ChangeState();
 }
 
 void Player::Draw() {

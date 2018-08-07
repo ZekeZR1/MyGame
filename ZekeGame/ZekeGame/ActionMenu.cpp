@@ -60,6 +60,7 @@ void ActionMenu::Update(Player* m_player) {
 		m_enAction = ASTATE_CRAFT;
 		break;
 	case 1:
+		m_player->m_enPState = m_player->PSTATE_WALK;
 		m_enAction = ASTATE_INVENTORY;
 		break;
 	case 2:

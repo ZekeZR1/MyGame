@@ -96,10 +96,15 @@ void GameScene::DrawFont() {
 }
 
 void GameScene::Craft() {
+	if (Items != nullptr) {
+		Items->PutAway(m_player);
+		if (Items->isGoAway) {
+			Items = nullptr;
+		}
+	}
 	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_CRAFT) {
 		if (g_pad[0].IsTrigger(enButtonB)) {
 			//選んだアイテムを指定した座標に置く
-			//new Item;
 			if (m_player->m_enPState != m_player->PSTATE_SETTING) {
 				if (Items == nullptr) {
 					Items = new TestItem;
@@ -110,6 +115,7 @@ void GameScene::Craft() {
 					forward += m_player->GetPosition();
 					Items->SetPosition(forward);
 					m_player->m_enPState = m_player->PSTATE_WALK;
+					m_ActMenu->m_enAction = m_ActMenu->ASTATE_INVENTORY;
 				}
 			}
 		}
