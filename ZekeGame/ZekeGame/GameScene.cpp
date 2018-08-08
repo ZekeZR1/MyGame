@@ -6,9 +6,10 @@
 #include "ActionMenu.h"
 #include "Item.h"
 #include "TestItem.h"
+#include "IConstructor.h"
 
 GameScene* g_game = nullptr;
-Item* Items;
+IConstructor* Items;
 extern GameCamera* camera;
 
 GameScene::GameScene()
@@ -61,6 +62,9 @@ void GameScene::Update() {
 	Menu();
 	m_player->Update();
 	camera->Update(m_player);
+	if (Items != nullptr) {
+		Items->Update();
+	}
 }
 
 void GameScene::Draw() {
@@ -107,13 +111,14 @@ void GameScene::Craft() {
 			//選んだアイテムを指定した座標に置く
 			if (m_player->m_enPState != m_player->PSTATE_SETTING) {
 				if (Items == nullptr) {
-					Items = new TestItem;
+					Items = new IConstructor;
 					CVector3 forward = camera3d->GetForward();
 					forward.y = 0;
 					forward.Normalize();
 					forward *= 100.0f;
 					forward += m_player->GetPosition();
 					Items->SetPosition(forward);
+					isOpenAct = false;
 					m_player->m_enPState = m_player->PSTATE_WALK;
 					m_ActMenu->m_enAction = m_ActMenu->ASTATE_INVENTORY;
 				}

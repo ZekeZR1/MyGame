@@ -2,19 +2,19 @@
 <DEFECTS>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\character\</FILEPATH>
+      <FILEPATH>c:\users\zeke\git\mygame\zekegame\zekegame\character\</FILEPATH>
       <FILENAME>charactercontroller.cpp</FILENAME>
       <LINE>145</LINE>
       <COLUMN>12</COLUMN>
     </SFA>
     <DEFECTCODE>6246</DEFECTCODE>
-    <DESCRIPTION>'addPos' のローカル宣言は、外部スコープの同じ名前の宣言を隠します。追加情報については、行 '133' ('c:\users\taiki.w\git\mygame\zekegame\zekegame\character\charactercontroller.cpp') の以前の宣言を参照してください。</DESCRIPTION>
+    <DESCRIPTION>'addPos' のローカル宣言は、外部スコープの同じ名前の宣言を隠します。追加情報については、行 '133' ('c:\users\zeke\git\mygame\zekegame\zekegame\character\charactercontroller.cpp') の以前の宣言を参照してください。</DESCRIPTION>
     <FUNCTION>CharacterController::Execute</FUNCTION>
     <DECORATED>?Execute@CharacterController@@QEAAAEBVCVector3@@MAEAV2@@Z</DECORATED>
     <FUNCLINE>123</FUNCLINE>
     <PATH>
       <SFA>
-        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\character\</FILEPATH>
+        <FILEPATH>c:\users\zeke\git\mygame\zekegame\zekegame\character\</FILEPATH>
         <FILENAME>charactercontroller.cpp</FILENAME>
         <LINE>133</LINE>
         <COLUMN>10</COLUMN>
@@ -23,19 +23,19 @@
   </DEFECT>
   <DEFECT>
     <SFA>
-      <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\character\</FILEPATH>
+      <FILEPATH>c:\users\zeke\git\mygame\zekegame\zekegame\character\</FILEPATH>
       <FILENAME>charactercontroller.cpp</FILENAME>
       <LINE>231</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>6246</DEFECTCODE>
-    <DESCRIPTION>'addPos' のローカル宣言は、外部スコープの同じ名前の宣言を隠します。追加情報については、行 '133' ('c:\users\taiki.w\git\mygame\zekegame\zekegame\character\charactercontroller.cpp') の以前の宣言を参照してください。</DESCRIPTION>
+    <DESCRIPTION>'addPos' のローカル宣言は、外部スコープの同じ名前の宣言を隠します。追加情報については、行 '133' ('c:\users\zeke\git\mygame\zekegame\zekegame\character\charactercontroller.cpp') の以前の宣言を参照してください。</DESCRIPTION>
     <FUNCTION>CharacterController::Execute</FUNCTION>
     <DECORATED>?Execute@CharacterController@@QEAAAEBVCVector3@@MAEAV2@@Z</DECORATED>
     <FUNCLINE>123</FUNCLINE>
     <PATH>
       <SFA>
-        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\character\</FILEPATH>
+        <FILEPATH>c:\users\zeke\git\mygame\zekegame\zekegame\character\</FILEPATH>
         <FILENAME>charactercontroller.cpp</FILENAME>
         <LINE>133</LINE>
         <COLUMN>10</COLUMN>
