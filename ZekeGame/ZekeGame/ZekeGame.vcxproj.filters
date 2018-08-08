@@ -57,6 +57,9 @@
     <Filter Include="ソース ファイル\Game\Item">
       <UniqueIdentifier>{8bf2357e-4be5-47b1-9959-8da5e6b95686}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Game\Materials">
+      <UniqueIdentifier>{ed401d2a-042d-44fe-8472-8b243c58f0d4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="window\Window.cpp">
@@ -178,6 +181,9 @@
     </ClCompile>
     <ClCompile Include="IConstructor.cpp">
       <Filter>ソース ファイル\Game\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Iron.cpp">
+      <Filter>ソース ファイル\Game\Materials</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -309,6 +315,9 @@
     </ClInclude>
     <ClInclude Include="IConstructor.h">
       <Filter>ソース ファイル\Game\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Iron.h">
+      <Filter>ソース ファイル\Game\Materials</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

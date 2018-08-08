@@ -172,6 +172,7 @@
     <ClCompile Include="graphics\Sprite\Sprite.cpp" />
     <ClCompile Include="HID\Pad.cpp" />
     <ClCompile Include="IConstructor.cpp" />
+    <ClCompile Include="Iron.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemManager.cpp" />
     <ClCompile Include="level\Level.cpp" />
@@ -215,6 +216,7 @@
     <ClInclude Include="graphics\Sprite\Sprite.h" />
     <ClInclude Include="HID\Pad.h" />
     <ClInclude Include="IConstructor.h" />
+    <ClInclude Include="Iron.h" />
     <ClInclude Include="IScene.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemManager.h" />
