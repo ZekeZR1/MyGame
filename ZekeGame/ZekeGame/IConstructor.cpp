@@ -28,10 +28,13 @@ void IConstructor::Update() {
 }
 
 void IConstructor::Draw() {
+	m_skinModel->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
+}
+
+void IConstructor::DrawSprite() {
 	if (isOpenMenu) {
 		mS_ItemMenu->Draw();
 	}
-	m_skinModel->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
 }
 
 void IConstructor::Menu() {

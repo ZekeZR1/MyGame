@@ -69,14 +69,17 @@ void GameScene::Update() {
 
 void GameScene::Draw() {
 	bg->Draw();
-	if(Items != nullptr)
-		Items->Draw();
 	m_player->Draw();
 	m_model->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
+	if (Items != nullptr)
+		Items->Draw();
+	//Žè‘O‚É•`‰æ‚µ‚½‚¢•¨
 	mS_ActState->Draw();
 	if (isOpenAct) {
 			m_ActMenu->Draw();
 	}
+	if (Items != nullptr)
+		Items->DrawSprite();
 }
 
 void GameScene::DrawFont() {
@@ -146,6 +149,8 @@ void GameScene::Ground() {
 }
 void GameScene::Menu() {
 	//ActMenu
+	if (Items != nullptr && Items->isOpenMenu)
+		isOpenAct = false;
 	if (g_pad[0].IsTrigger(enButtonX)) {
 		if (isOpenAct) {
 			//m_player->m_enPState = m_player->PSTATE_WALK;
@@ -160,8 +165,13 @@ void GameScene::Menu() {
 		m_ActMenu->Update(m_player);
 	}
 	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_CRAFT) {
-		if (Items == nullptr)
+		if (Items != nullptr) {
+			mS_ActState->Init(L"sprite/ItemBoxUsing.dds", 500.0f, 500.0f);
+		}
+		else {
 			mS_ActState->Init(L"sprite/ItemBoxSprite.dds", 500.0f, 500.0f);
+		}
+
 	}
 	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_INVENTORY) {
 		mS_ActState->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);

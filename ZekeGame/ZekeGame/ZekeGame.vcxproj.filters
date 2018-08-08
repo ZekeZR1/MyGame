@@ -351,6 +351,9 @@
     <ImageContentTask Include="Assets\Sprite\Constructor.png">
       <Filter>リソース ファイル</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ItemBoxUsing.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\testbox.FBX">
