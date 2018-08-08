@@ -149,8 +149,10 @@ void GameScene::Ground() {
 }
 void GameScene::Menu() {
 	//ActMenu
-	if (Items != nullptr && Items->isOpenMenu)
+	if (Items != nullptr && Items->isOpenMenu) {
 		isOpenAct = false;
+		return;
+	}
 	if (g_pad[0].IsTrigger(enButtonX)) {
 		if (isOpenAct) {
 			//m_player->m_enPState = m_player->PSTATE_WALK;
