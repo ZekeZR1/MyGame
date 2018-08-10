@@ -23,6 +23,9 @@ GameScene::GameScene()
 	m_model = new SkinModel;
 	m_model->Init(L"Assets/modelData/Space.cmo");
 	m_model->UpdateWorldMatrix(CVector3::Zero(), CQuaternion::Identity(), CVector3::One());
+	//DrilPos
+	m_drilmodel = new SkinModel;
+	m_drilmodel->Init(L"Assets/modelData/DrilPos.cmo",enFbxUpAxisY);
 	//Font
 	pSpriteBatch = new DirectX::SpriteBatch(g_graphicsEngine->GetD3DDeviceContext());
 	pSpriteFont = new DirectX::SpriteFont(g_graphicsEngine->GetD3DDevice(), L"Assets/font/myfile.spritefont");
@@ -56,6 +59,7 @@ GameScene::~GameScene()
 	delete pSpriteBatch;
 	delete pSpriteFont;
 	delete Items;
+	delete m_drilmodel;
 }
 
 void GameScene::Update() {
@@ -78,6 +82,7 @@ void GameScene::Update() {
 }
 
 void GameScene::Draw() {
+	bg->Draw();
 	m_player->Draw();
 	m_model->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
 	if (Items != nullptr)
@@ -85,7 +90,9 @@ void GameScene::Draw() {
 	if (m_iron != nullptr) {
 		m_iron->Draw();
 	}
-	bg->Draw();
+	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_MAKEGROUND) {
+	m_drilmodel->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
+}
 	//Žè‘O‚É•`‰æ‚µ‚½‚¢•¨
 	mS_ActState->Draw();
 	if (isOpenAct) {
@@ -152,11 +159,21 @@ void GameScene::Craft() {
 }
 
 void GameScene::Ground() {
-	CVector3 DrilPos = m_player->GetPosition();
+	CVector3 forward = camera3d->GetForward();
+	forward.y = 0;
+	forward.Normalize();
+	if (m_player->m_enPState == m_player->State_Leveling) {
+		forward *= 100.0f;
+	}
+	else {
+		forward *= 300.0f;
+	}
+	forward += m_player->GetPosition();
+	m_drilmodel->UpdateWorldMatrix(forward, CQuaternion::Identity(), CVector3::One());
 	if (g_pad[0].IsPress(enButtonB)) {
 		if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_MAKEGROUND) {
 			bg->m_converting = true;
-			bg->Update(DrilPos, m_ActMenu->m_flatPos, m_player);
+			bg->Update(forward, m_ActMenu->m_flatPos, m_player);
 		}
 	}
 }

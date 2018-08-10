@@ -13,14 +13,20 @@
   Assets\Sprite\Constructor.png
   Assets\Sprite\ItemBoxUsing.png
   Assets\modelData\BackWorld.FBX
+  Assets\modelData\DrilPos.FBX
   Assets\modelData\IronOre.FBX
   Assets\modelData\ItemBox.FBX
   Assets\modelData\Space.FBX
   Assets\modelData\testbox.FBX
   Assets\modelData\unityChan.fbx
-  Iron.cpp
+  GameScene.cpp
+c:\users\zeke\git\mygame\zekegame\zekegame\gamescene.cpp(236): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\zeke\git\mygame\zekegame\zekegame\gamescene.cpp(238): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\zeke\git\mygame\zekegame\zekegame\gamescene.cpp(240): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\zeke\git\mygame\zekegame\zekegame\gamescene.cpp(243): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
   コード生成しています。
-  2 of 1866 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+  1 of 1869 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
-C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppCommon.targets(673,5): error MSB6006: "link.exe" はコード 128 を伴って終了しました。
+  コード生成が終了しました。
+  ZekeGame.vcxproj -> C:\Users\Zeke\git\MyGame\ZekeGame\x64\Release\ZekeGame.exe

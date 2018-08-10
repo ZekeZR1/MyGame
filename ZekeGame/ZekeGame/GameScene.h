@@ -33,6 +33,8 @@ private:
 	Animation modelanimation;
 	Sprite* mS_ActState;
 	CVector3 mv_ActSpos = CVector3::Zero();
+	//DrilPos
+	SkinModel* m_drilmodel;
 	//Font
 	DirectX::SpriteBatch* pSpriteBatch;
 	DirectX::SpriteFont* pSpriteFont;
