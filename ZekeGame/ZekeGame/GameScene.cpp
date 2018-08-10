@@ -4,9 +4,10 @@
 #include "level\Level.h"
 #include "Player.h"
 #include "ActionMenu.h"
-#include "Item.h"
-#include "TestItem.h"
-#include "IConstructor.h"
+#include "Item/Item.h"
+#include "Item/TestItem.h"
+#include "Item/IConstructor.h"
+#include "Materials\Iron.h"
 
 GameScene* g_game = nullptr;
 IConstructor* Items;
@@ -14,6 +15,7 @@ extern GameCamera* camera;
 
 GameScene::GameScene()
 {
+	m_iron = new Iron;
 	g_game = this;
 	m_ActMenu = new ActionMenu;
 	bg = new BackGround;
@@ -45,6 +47,7 @@ GameScene::GameScene()
 GameScene::~GameScene()
 {
 	g_game = nullptr;
+	delete m_iron;
 	delete m_player;
 	delete bg;
 	delete m_model;
@@ -65,14 +68,24 @@ void GameScene::Update() {
 	if (Items != nullptr) {
 		Items->Update();
 	}
+
+	if (m_iron != nullptr && m_iron->isGet){
+		m_iron = nullptr;
+}
+	if (m_iron != nullptr) {
+		m_iron->Update(m_player);
+	}
 }
 
 void GameScene::Draw() {
-	bg->Draw();
 	m_player->Draw();
 	m_model->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
 	if (Items != nullptr)
 		Items->Draw();
+	if (m_iron != nullptr) {
+		m_iron->Draw();
+	}
+	bg->Draw();
 	//Žè‘O‚É•`‰æ‚µ‚½‚¢•¨
 	mS_ActState->Draw();
 	if (isOpenAct) {

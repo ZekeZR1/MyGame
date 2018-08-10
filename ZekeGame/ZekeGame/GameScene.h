@@ -4,6 +4,7 @@
 #include "Player.h"
 //#include "ActionMenu.h"
 class ActionMenu;
+class Iron;
 
 class GameScene : public IScene
 {
@@ -22,6 +23,7 @@ public:
 	ActionMenu* m_ActMenu = nullptr;
 	Player* m_player = nullptr;
 private:
+	Iron* m_iron;
 	SkinModel * m_model;
 	CVector3 m_spritePos = CVector3::Zero();
 	float spweight = 100.0f, sphight = 100.0f;

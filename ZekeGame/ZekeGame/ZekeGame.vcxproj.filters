@@ -170,20 +170,20 @@
     <ClCompile Include="ActionMenu.cpp">
       <Filter>ソース ファイル\Game</Filter>
     </ClCompile>
-    <ClCompile Include="TestItem.cpp">
-      <Filter>ソース ファイル\Game\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="ItemManager.cpp">
-      <Filter>ソース ファイル\Game\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Item.cpp">
-      <Filter>ソース ファイル\Game\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="IConstructor.cpp">
-      <Filter>ソース ファイル\Game\Item</Filter>
-    </ClCompile>
-    <ClCompile Include="Iron.cpp">
+    <ClCompile Include="Materials\Iron.cpp">
       <Filter>ソース ファイル\Game\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="Materials\Mineral.cpp">
+      <Filter>ソース ファイル\Game\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="Item\TestItem.cpp">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Item\IConstructor.cpp">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Item\ItemManager.cpp">
+      <Filter>ソース ファイル\Game\Item</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -304,20 +304,23 @@
     <ClInclude Include="stdafx.h">
       <Filter>ソース ファイル\Game</Filter>
     </ClInclude>
-    <ClInclude Include="TestItem.h">
-      <Filter>ソース ファイル\Game\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Item.h">
-      <Filter>ソース ファイル\Game\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="ItemManager.h">
-      <Filter>ソース ファイル\Game\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="IConstructor.h">
-      <Filter>ソース ファイル\Game\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="Iron.h">
+    <ClInclude Include="Materials\Mineral.h">
       <Filter>ソース ファイル\Game\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="Materials\Iron.h">
+      <Filter>ソース ファイル\Game\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="Item\ItemManager.h">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Item\TestItem.h">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Item\IConstructor.h">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Item\Item.h">
+      <Filter>ソース ファイル\Game\Item</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -378,6 +381,9 @@
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\ItemBox.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\IronOre.FBX">
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
   </ItemGroup>
