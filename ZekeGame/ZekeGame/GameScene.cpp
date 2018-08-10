@@ -159,23 +159,25 @@ void GameScene::Craft() {
 }
 
 void GameScene::Ground() {
+	//プレイヤーの前をドリルの位置とする
 	CVector3 forward = camera3d->GetForward();
 	forward.y = 0;
 	forward.Normalize();
-	if (m_player->m_enPState == m_player->State_Leveling) {
-		forward *= 100.0f;
+	if (m_player->ActState == m_player->State_Leveling) {
+		forward *= 0.0f;
 	}
 	else {
 		forward *= 300.0f;
 	}
 	forward += m_player->GetPosition();
-	m_drilmodel->UpdateWorldMatrix(forward, CQuaternion::Identity(), CVector3::One());
 	if (g_pad[0].IsPress(enButtonB)) {
 		if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_MAKEGROUND) {
 			bg->m_converting = true;
 			bg->Update(forward, m_ActMenu->m_flatPos, m_player);
 		}
 	}
+	//DrilPos
+	m_drilmodel->UpdateWorldMatrix(forward, CQuaternion::Identity(), CVector3::One());
 }
 void GameScene::Menu() {
 	//ActMenu
