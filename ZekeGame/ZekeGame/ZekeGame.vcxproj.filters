@@ -60,6 +60,9 @@
     <Filter Include="ソース ファイル\Game\Materials">
       <UniqueIdentifier>{ed401d2a-042d-44fe-8472-8b243c58f0d4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Assets\texture">
+      <UniqueIdentifier>{ff6ad720-0aef-4baf-88a9-c428acafd9e2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="window\Window.cpp">
