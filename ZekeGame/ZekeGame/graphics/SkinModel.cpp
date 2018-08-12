@@ -136,7 +136,6 @@ void SkinModel::Draw(CMatrix viewMatrix, CMatrix projMatrix)
 
 void SkinModel::FindVertexPosition(std::function<void(CVector3* pos)> func) {
 	FindMesh([&](const auto& mesh) {
-		//ID3D11DeviceContext* deviceContext = GraphicsEngine().GetD3DDeviceContext();
 		ID3D11DeviceContext* deviceContext = g_graphicsEngine->GetD3DDeviceContext();
 		//頂点バッファを作成。
 		{
@@ -155,7 +154,6 @@ void SkinModel::FindVertexPosition(std::function<void(CVector3* pos)> func) {
 				func(pos);
 				pData += mesh->vertexStride;
 			}
-			//頂点バッファをアンロック
 			deviceContext->Unmap(mesh->vertexBuffer.Get(), 0);
 		}
 	});

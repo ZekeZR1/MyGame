@@ -41,6 +41,7 @@ private:
 	CVector3 mv_ActSpos = CVector3::Zero();
 	//DrilPos
 	SkinModel* m_drilmodel;
+	float deep = 0.0f;
 	//Font
 	DirectX::SpriteBatch* pSpriteBatch;
 	DirectX::SpriteFont* pSpriteFont;

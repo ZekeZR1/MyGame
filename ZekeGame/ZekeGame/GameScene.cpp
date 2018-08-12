@@ -200,14 +200,32 @@ void GameScene::Ground() {
 		forward *= 0.0f;
 	}
 	else {
-		forward *= 300.0f;
+		//Dril position
+		CVector3 camerapos = camera3d->GetPosition();
+		CVector3 playerpos = m_player->GetPosition();
+		CVector3 toCamera = camerapos - playerpos;
+		float MaxCameraHeight = 650.0f;
+		forward *= (MaxCameraHeight - toCamera.y);
+		//forward *= 300.0f;
 	}
 	forward += m_player->GetPosition();
 	if (g_pad[0].IsPress(enButtonB)) {
 		if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_MAKEGROUND) {
 			bg->m_converting = true;
+			if (m_player->ActState == m_player->State_Mining) {
+				if(deep < 200)
+					deep += 4.0f;
+				forward.y -= deep;
+			}else if (m_player->ActState == m_player->State_Fill) {
+				if(deep <200)
+					deep += 4.0f;
+				forward.y += deep;
+			}
 			bg->Update(forward, m_ActMenu->m_flatPos, m_player);
 		}
+	}
+	else {
+		deep = 0.0f;
 	}
 	//DrilPos
 	m_drilmodel->UpdateWorldMatrix(forward, CQuaternion::Identity(), CVector3::One());
