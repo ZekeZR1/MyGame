@@ -5,6 +5,7 @@
 //#include "ActionMenu.h"
 class ActionMenu;
 class Iron;
+class Inventory;
 
 class GameScene : public IScene
 {
@@ -29,6 +30,7 @@ private:
 	Effekseer::Effect* effect;
 	Effekseer::Handle handle;
 	*/
+	Inventory* m_inventory;
 	Iron* m_iron;
 	SkinModel * m_model;
 	CVector3 m_spritePos = CVector3::Zero();
@@ -49,6 +51,7 @@ private:
 	wchar_t mw_PosY[256];
 	wchar_t mw_PosZ[256];
 	wchar_t mw_flatPosY[256];
+	wchar_t mw_Iron[256];
 	int mi_x = 0;
 	int mi_y = 0;
 	int mi_z = 0;

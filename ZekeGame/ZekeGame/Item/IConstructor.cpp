@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "IConstructor.h"
 #include "Item.h"
-
+#include "Inventory.h"
 
 IConstructor::IConstructor()
 {
@@ -21,10 +21,10 @@ IConstructor::~IConstructor()
 	delete mS_ItemMenu;
 }
 
-void IConstructor::Update() {
-	if (isOpenMenu) {
+void IConstructor::Update(Inventory* m_inventory){
+if (isOpenMenu)
 		Menu();
-	}
+	Crafting(m_inventory);
 }
 
 void IConstructor::Draw() {
@@ -69,5 +69,30 @@ void IConstructor::PutAway(Player* m_player) {
 	}
 	if (diff > 100.0f) {
 		isOpenMenu = false;
+	}
+}
+
+void IConstructor::Crafting(Inventory* m_inventory) {
+	if (!isOpenMenu)
+		return;
+	if (g_pad[0].IsTrigger(enButtonRight)) {
+		if(ItemNumber!=1)
+			ItemNumber++;
+	}
+	if (g_pad[0].IsTrigger(enButtonLeft)) {
+		if(ItemNumber != 0)
+			ItemNumber--;
+	}
+	if (g_pad[0].IsTrigger(enButtonB)) {
+		switch (ItemNumber) {
+		case 0:
+			m_inventory->Iron = 50;
+			break;
+		case 1:
+			m_inventory->Iron = 100;
+			break;
+		default:
+			break;
+		}
 	}
 }

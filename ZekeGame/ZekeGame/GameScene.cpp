@@ -8,6 +8,7 @@
 #include "Item/TestItem.h"
 #include "Item/IConstructor.h"
 #include "Materials\Iron.h"
+#include "Inventory.h"
 
 GameScene* g_game = nullptr;
 IConstructor* Items;
@@ -25,6 +26,7 @@ GameScene::GameScene()
 	manager->SetTextureLoader(renderer->CreateTextureLoader());
 	manager->SetCoordinateSystem(Effekseer::CoordinateSystem::RH);
 	*/
+	m_inventory = new Inventory;
 	m_iron = new Iron;
 	g_game = this;
 	m_ActMenu = new ActionMenu;
@@ -68,6 +70,7 @@ GameScene::~GameScene()
 	renderer->Destroy();
 	*/
 	g_game = nullptr;
+	delete m_inventory;
 	delete m_iron;
 	delete m_player;
 	delete bg;
@@ -98,10 +101,11 @@ void GameScene::Update() {
 	m_player->Update();
 	camera->Update(m_player);
 	if (Items != nullptr) {
-		Items->Update();
+		Items->Update(m_inventory);
 	}
 
 	if (m_iron != nullptr && m_iron->isGet){
+		m_inventory->Iron++;
 		m_iron = nullptr;
 }
 	if (m_iron != nullptr) {
@@ -151,7 +155,11 @@ void GameScene::DrawFont() {
 		//if (m_player->m_enPState == m_player->PSTATE_MAKEGROUND)
 		if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_MAKEGROUND)
 			pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_flatPosY), DirectX::XMFLOAT2(640.0f, 360.0f), CVector4::Black);
+		if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_INVENTORY) {
+			pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_Iron), DirectX::XMFLOAT2(640.0f, 360.0f), CVector4::Black);
+		}
 	}
+
 	pSpriteBatch->End();
 }
 
@@ -295,4 +303,5 @@ void GameScene::CastFont() {
 	//®’nÀ•W
 	mi_flaty = m_ActMenu->m_flatPos.y;
 	_itow_s(mi_flaty, mw_flatPosY, 10);
+	_itow_s(m_inventory->Iron, mw_Iron, 10);
 }

@@ -188,6 +188,9 @@
     <ClCompile Include="Item\ItemManager.cpp">
       <Filter>ソース ファイル\Game\Item</Filter>
     </ClCompile>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window\Window.h">
@@ -325,6 +328,9 @@
     <ClInclude Include="Item\Item.h">
       <Filter>ソース ファイル\Game\Item</Filter>
     </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\modelData\test.png">
@@ -397,196 +403,194 @@
     <CustomBuild Include="Assets\modelData\unityChan.tks">
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Assets\texture\clockHand.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Cloud01.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\double-shockwave.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\drillshi.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\eggzero.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\ExperimentalBlur.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\ExperimentalNoise.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Fire.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Fire_Blur.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Fire_Single.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\fire_tex.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Flame01.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Glass.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\glow.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Halo.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\IntensiveLine.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\LaserMain01.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\LaserMain02.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\NoiseAnimation.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\orb_colored.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Particle_Hard.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Particle_Soft.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Particle01.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Particle02.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Particle03.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Particle04_bokashi_hard.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Particle04_bokashi_soft.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Particle04_bokashistrong_hard.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Particle04_bokashistrong_soft.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Particle04_clear_hard.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Particle04_clear_soft.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\ribbon01_trans.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\ShadowEye.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Shock_wave_ring001.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Shock_wave_ring001_long.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Shock_wave_ring002.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Shock_wave004.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Shockwave.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Smoke.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\smoke_tex.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Splash.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Splash01.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\squareWave.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\squareWave03_192.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\squareWave03_384.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Star.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\starpart.PNG">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\SwordLine01.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\t0002.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Tentacle.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Thunder_Bold.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Thunder_Thin.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Thunder01.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Thunder10.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Wind.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Wind01.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\wind02.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\actionlines.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\aurora01.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Burst_1.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Burst_2.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\Burst01.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
-    <Image Include="Assets\texture\burst02_red.png">
-      <Filter>ソース ファイル\Assets\texture</Filter>
-    </Image>
+    <CustomBuild Include="Assets\texture\actionlines.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\aurora01.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Burst01.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\burst02_red.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Burst_1.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Burst_2.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\clockHand.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Cloud01.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\double-shockwave.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\drillshi.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\eggzero.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\ExperimentalBlur.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\ExperimentalNoise.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Fire.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Fire_Blur.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Fire_Single.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\fire_tex.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Flame01.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Glass.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\glow.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Halo.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\IntensiveLine.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\LaserMain01.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\LaserMain02.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\NoiseAnimation.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\orb_colored.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle01.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle02.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle03.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle04_bokashistrong_hard.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle04_bokashistrong_soft.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle04_bokashi_hard.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle04_bokashi_soft.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle04_clear_hard.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle04_clear_soft.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle_Hard.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle_Soft.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\ribbon01_trans.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\ShadowEye.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Shockwave.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Shock_wave004.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Shock_wave_ring001.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Shock_wave_ring001_long.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Shock_wave_ring002.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Smoke.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\smoke_tex.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Splash.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Splash01.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\squareWave.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\squareWave03_192.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\squareWave03_384.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Star.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\starpart.PNG">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\SwordLine01.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\t0002.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Tentacle.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Thunder01.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Thunder10.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Thunder_Bold.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Thunder_Thin.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Wind.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Wind01.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\wind02.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>
