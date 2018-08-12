@@ -22,6 +22,9 @@
 #include "btBulletDynamicsCommon.h"
 #include "BulletCollision\CollisionDispatch\btGhostObject.h"
 
+#include "EffekseerRuntime130\src\Effekseer\Effekseer.h"
+#include "EffekseerRuntime130\src\EffekseerRendererDX11\EffekseerRendererDX11.h"
+
 #include "math/Vector.h"
 #include "math/Matrix.h"
 #include "graphics/GraphicsEngine.h"

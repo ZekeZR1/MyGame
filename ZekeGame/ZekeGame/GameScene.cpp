@@ -15,6 +15,16 @@ extern GameCamera* camera;
 
 GameScene::GameScene()
 {
+	/*Effect
+	manager->SetSpriteRenderer(renderer->CreateSpriteRenderer());
+	manager->SetRibbonRenderer(renderer->CreateRibbonRenderer());
+	manager->SetRingRenderer(renderer->CreateRingRenderer());
+	manager->SetTrackRenderer(renderer->CreateTrackRenderer());
+	manager->SetModelRenderer(renderer->CreateModelRenderer());
+
+	manager->SetTextureLoader(renderer->CreateTextureLoader());
+	manager->SetCoordinateSystem(Effekseer::CoordinateSystem::RH);
+	*/
 	m_iron = new Iron;
 	g_game = this;
 	m_ActMenu = new ActionMenu;
@@ -49,6 +59,14 @@ GameScene::GameScene()
 
 GameScene::~GameScene()
 {
+	/*Effect
+	// エフェクトを解放します。再生中の場合は、再生が終了した後、自動的に解放されます。
+	ES_SAFE_RELEASE(effect);
+	// エフェクト管理用インスタンスを破棄
+	manager->Destroy();
+	// 描画用インスタンスを破棄
+	renderer->Destroy();
+	*/
 	g_game = nullptr;
 	delete m_iron;
 	delete m_player;
@@ -63,6 +81,16 @@ GameScene::~GameScene()
 }
 
 void GameScene::Update() {
+	/*Effect
+	if (g_pad[0].IsTrigger(enButtonA)) {
+		//effect = Effekseer::Effect::Create(manager, filepath);
+		handle = manager->Play(effect, 0.0f,0.0f,0.0f);
+	}
+	//renderer->SetProjectionMatrix(::Effekseer::Matrix44);
+	//renderer->SetCameraMatrix(camera3d->GetViewMatrix());
+	//manager->AddLocation(handle, ::Effekseer::Vector3D);
+	manager->Update();
+	*/
 	Craft();
 	Ground();
 	CastFont();
@@ -82,6 +110,11 @@ void GameScene::Update() {
 }
 
 void GameScene::Draw() {
+	/*Effect
+	renderer->BeginRendering();
+	manager->Draw();
+	renderer->EndRendering();
+	*/
 	bg->Draw();
 	m_player->Draw();
 	m_model->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
@@ -91,8 +124,8 @@ void GameScene::Draw() {
 		m_iron->Draw();
 	}
 	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_MAKEGROUND) {
-	m_drilmodel->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
-}
+		m_drilmodel->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
+	}
 	//手前に描画したい物
 	mS_ActState->Draw();
 	if (isOpenAct) {

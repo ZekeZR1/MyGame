@@ -7,14 +7,14 @@ GameCamera::GameCamera()
 	camera2d = new Camera;
 	camera2d->SetTarget(CVector3::Zero());
 	camera2d->SetPosition({ 0.0f, 0.0f, -10.0f });
-	camera2d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Ortho);	//ƒJƒƒ‰‚ÌŒvŽZ•ûŽ®‚ð•½s“Š‰e‚É‚·‚éB
+	camera2d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Ortho);	
 	camera2d->SetNear(0.1f);
 	camera2d->SetFar(1000.0f);
 	camera2d->Update();
 
 	camera3d = new Camera;
 	camera3d->SetTarget({ 0.0f, 20.0f, 0.0f });
-	camera3d->SetPosition({ 0.0f, 350.0f, 300.0f });
+	camera3d->SetPosition({ 0.0f, 450.0f, 300.0f });
 	camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Perspective);
 	camera3d->SetNear(0.1f);
 	camera3d->SetFar(50000.0f);

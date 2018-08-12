@@ -10,7 +10,7 @@ public:
 	void Draw();
 	void ConvertMesh(CVector3 pos,CVector3 flat,Player* m_player);
 	bool m_converting = false;
-	float m_RangeOfConvert = 250.0f;
+	float m_RangeOfConvert = 200.0f;
 private:
 	SkinModel smodel;
 	CQuaternion m_rot = CQuaternion::Identity()	;

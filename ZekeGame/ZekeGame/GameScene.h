@@ -23,6 +23,12 @@ public:
 	ActionMenu* m_ActMenu = nullptr;
 	Player* m_player = nullptr;
 private:
+	/*Effect
+	::EffekseerRenderer::Renderer* renderer = ::EffekseerRendererDX11::Renderer::Create(g_graphicsEngine->GetD3DDevice(), g_graphicsEngine->GetD3DDeviceContext(), 100);
+	::Effekseer::Manager* manager = ::Effekseer::Manager::Create(100);
+	Effekseer::Effect* effect;
+	Effekseer::Handle handle;
+	*/
 	Iron* m_iron;
 	SkinModel * m_model;
 	CVector3 m_spritePos = CVector3::Zero();
