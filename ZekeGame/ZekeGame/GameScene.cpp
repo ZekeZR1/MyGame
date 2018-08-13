@@ -89,9 +89,10 @@ void GameScene::Update() {
 		//effect = Effekseer::Effect::Create(manager, filepath);
 		handle = manager->Play(effect, 0.0f,0.0f,0.0f);
 	}
-	//renderer->SetProjectionMatrix(::Effekseer::Matrix44);
-	//renderer->SetCameraMatrix(camera3d->GetViewMatrix());
-	//manager->AddLocation(handle, ::Effekseer::Vector3D);
+	reinterpret_cast
+	renderer->SetProjectionMatrix(::Effekseer::Matrix44);
+	renderer->SetCameraMatrix(camera3d->GetViewMatrix());
+	manager->AddLocation(handle, ::Effekseer::Vector3D);
 	manager->Update();
 	*/
 	Craft();

@@ -63,9 +63,7 @@ void SkinModel::InitConstantBuffer()
 																//アライメントって→バッファのサイズが16の倍数ということです。
 	bufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;			//バッファをどのようなパイプラインにバインドするかを指定する。
 																//定数バッファにバインドするので、D3D11_BIND_CONSTANT_BUFFERを指定する。
-	bufferDesc.CPUAccessFlags = 0;								//CPU アクセスのフラグです。
-																//CPUアクセスが不要な場合は0。
-																//作成。
+	bufferDesc.CPUAccessFlags = 0;							
 	g_graphicsEngine->GetD3DDevice()->CreateBuffer(&bufferDesc, NULL, &m_cb);
 }
 void SkinModel::InitSamplerState()
@@ -95,8 +93,7 @@ void SkinModel::UpdateWorldMatrix(CVector3 position, CQuaternion rotation, CVect
 	//拡大行列を作成する。
 	scaleMatrix.MakeScaling(scale);
 	//ワールド行列を作成する。
-	//拡大×回転×平行移動の順番で乗算するように！
-	//順番を間違えたら結果が変わるよ。
+	//拡大×回転×平行移動の順番で乗算する
 	m_worldMatrix.Mul(mBias, scaleMatrix);
 	m_worldMatrix.Mul(m_worldMatrix, rotMatrix);
 	m_worldMatrix.Mul(m_worldMatrix, transMatrix);
@@ -137,7 +134,6 @@ void SkinModel::Draw(CMatrix viewMatrix, CMatrix projMatrix)
 void SkinModel::FindVertexPosition(std::function<void(CVector3* pos)> func) {
 	FindMesh([&](const auto& mesh) {
 		ID3D11DeviceContext* deviceContext = g_graphicsEngine->GetD3DDeviceContext();
-		//頂点バッファを作成。
 		{
 			D3D11_MAPPED_SUBRESOURCE subresource;
 			HRESULT hr = deviceContext->Map(mesh->vertexBuffer.Get(), 0, D3D11_MAP_WRITE_NO_OVERWRITE, 0, &subresource);
