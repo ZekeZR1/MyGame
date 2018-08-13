@@ -85,11 +85,11 @@ GameScene::~GameScene()
 
 void GameScene::Update() {
 	/*Effect
+	reinterpret_cast
 	if (g_pad[0].IsTrigger(enButtonA)) {
 		//effect = Effekseer::Effect::Create(manager, filepath);
 		handle = manager->Play(effect, 0.0f,0.0f,0.0f);
 	}
-	reinterpret_cast
 	renderer->SetProjectionMatrix(::Effekseer::Matrix44);
 	renderer->SetCameraMatrix(camera3d->GetViewMatrix());
 	manager->AddLocation(handle, ::Effekseer::Vector3D);
