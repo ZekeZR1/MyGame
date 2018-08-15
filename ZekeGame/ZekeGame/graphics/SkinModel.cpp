@@ -146,6 +146,7 @@ void SkinModel::FindVertexPosition(std::function<void(CVector3* pos)> func) {
 			char* pData = reinterpret_cast<char*>(subresource.pData);
 			CVector3* pos;
 			for (int i = 0; i < vertexCount; i++) {
+				//pos = (CVector3*)pData;
 				pos = reinterpret_cast<CVector3*>(pData);
 				func(pos);
 				pData += mesh->vertexStride;
