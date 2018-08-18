@@ -85,7 +85,6 @@ GameScene::~GameScene()
 
 void GameScene::Update() {
 	/*Effect
-	reinterpret_cast
 	if (g_pad[0].IsTrigger(enButtonA)) {
 		//effect = Effekseer::Effect::Create(manager, filepath);
 		handle = manager->Play(effect, 0.0f,0.0f,0.0f);
@@ -100,6 +99,12 @@ void GameScene::Update() {
 	CastFont();
 	Menu();
 	m_player->Update();
+	CVector3 camerapos = camera3d->GetPosition();
+	CVector3 playerpos = m_player->GetPosition();
+	if (camerapos.y <= playerpos.y) {
+		camerapos.y = (playerpos.y + 1.0f);
+		camera3d->SetPosition(camerapos);
+	}
 	camera->Update(m_player);
 	if (Items != nullptr) {
 		Items->Update(m_inventory);
@@ -202,12 +207,14 @@ void GameScene::Craft() {
 
 void GameScene::Ground() {
 	DrilRange();
-
 	if (g_pad[0].IsPress(enButtonB)) {
 		if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_MAKEGROUND) {
 			bg->m_converting = true;
 			bg->Update(forward, m_ActMenu->m_flatPos, m_player);
 		}
+	}
+	else {
+		deep = 0.0f;
 	}
 
 }
@@ -294,22 +301,27 @@ void GameScene::DrilRange() {
 		forward *= (MaxCameraHeight - toCamera.y);
 	}
 	forward += m_player->GetPosition();
-	if (g_pad[0].IsPress(enButtonB)) {
-		if (m_player->ActState == m_player->State_Mining) {
+	//DrilPos
+	switch (m_player->ActState) {
+	case 0:
+		m_drilmodel->Init(L"Assets/modelData/FlatRange.cmo", enFbxUpAxisY);
+		break;
+	case 1:
+		m_drilmodel->Init(L"Assets/modelData/DrilPos.cmo", enFbxUpAxisY);
+		if (bg->m_converting) {
 			if (deep < 200)
 				deep += 4.0f;
 			forward.y -= deep;
 		}
-		else if (m_player->ActState == m_player->State_Fill) {
+		break;
+	case 2:
+		m_drilmodel->Init(L"Assets/modelData/DrilPos.cmo", enFbxUpAxisY);
+		if (bg->m_converting) {
 			if (deep < 200)
 				deep += 4.0f;
 			forward.y += deep;
+			break;
 		}
 	}
-	else {
-		deep = 0.0f;
-	}
-	//DrilPos
-	m_drilmodel->Init(L"Assets/modelData/FlatRange.cmo", enFbxUpAxisY);
 	m_drilmodel->UpdateWorldMatrix(forward, CQuaternion::Identity(), CVector3::One());
 }
