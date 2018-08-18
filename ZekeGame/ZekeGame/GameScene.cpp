@@ -201,43 +201,15 @@ void GameScene::Craft() {
 }
 
 void GameScene::Ground() {
-	//プレイヤーの前をドリルの位置とする
-	CVector3 forward = camera3d->GetForward();
-	forward.y = 0;
-	forward.Normalize();
-	if (m_player->ActState == m_player->State_Leveling) {
-		forward *= 0.0f;
-	}
-	else {
-		//Dril position
-		CVector3 camerapos = camera3d->GetPosition();
-		CVector3 playerpos = m_player->GetPosition();
-		CVector3 toCamera = camerapos - playerpos;
-		float MaxCameraHeight = 650.0f;
-		forward *= (MaxCameraHeight - toCamera.y);
-		//forward *= 300.0f;
-	}
-	forward += m_player->GetPosition();
+	DrilRange();
+
 	if (g_pad[0].IsPress(enButtonB)) {
 		if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_MAKEGROUND) {
 			bg->m_converting = true;
-			if (m_player->ActState == m_player->State_Mining) {
-				if(deep < 200)
-					deep += 4.0f;
-				forward.y -= deep;
-			}else if (m_player->ActState == m_player->State_Fill) {
-				if(deep <200)
-					deep += 4.0f;
-				forward.y += deep;
-			}
 			bg->Update(forward, m_ActMenu->m_flatPos, m_player);
 		}
 	}
-	else {
-		deep = 0.0f;
-	}
-	//DrilPos
-	m_drilmodel->UpdateWorldMatrix(forward, CQuaternion::Identity(), CVector3::One());
+
 }
 void GameScene::Menu() {
 	//ActMenu
@@ -305,4 +277,39 @@ void GameScene::CastFont() {
 	mi_flaty = m_ActMenu->m_flatPos.y;
 	_itow_s(mi_flaty, mw_flatPosY, 10);
 	_itow_s(m_inventory->Iron, mw_Iron, 10);
+}
+
+void GameScene::DrilRange() {
+	forward = camera3d->GetForward();
+	forward.y = 0;
+	forward.Normalize();
+	if (m_player->ActState == m_player->State_Leveling) {
+		forward *= 0.0f;
+	}
+	else {
+		CVector3 camerapos = camera3d->GetPosition();
+		CVector3 playerpos = m_player->GetPosition();
+		CVector3 toCamera = camerapos - playerpos;
+		float MaxCameraHeight = 650.0f;
+		forward *= (MaxCameraHeight - toCamera.y);
+	}
+	forward += m_player->GetPosition();
+	if (g_pad[0].IsPress(enButtonB)) {
+		if (m_player->ActState == m_player->State_Mining) {
+			if (deep < 200)
+				deep += 4.0f;
+			forward.y -= deep;
+		}
+		else if (m_player->ActState == m_player->State_Fill) {
+			if (deep < 200)
+				deep += 4.0f;
+			forward.y += deep;
+		}
+	}
+	else {
+		deep = 0.0f;
+	}
+	//DrilPos
+	m_drilmodel->Init(L"Assets/modelData/FlatRange.cmo", enFbxUpAxisY);
+	m_drilmodel->UpdateWorldMatrix(forward, CQuaternion::Identity(), CVector3::One());
 }

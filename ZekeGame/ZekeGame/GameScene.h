@@ -21,6 +21,7 @@ public:
 	void CastFont();
 	bool Converting = false;
 	bool isOpenAct = false;
+	void DrilRange();
 	ActionMenu* m_ActMenu = nullptr;
 	Player* m_player = nullptr;
 private:
@@ -30,6 +31,7 @@ private:
 	Effekseer::Effect* effect;
 	Effekseer::Handle handle;
 	*/
+	CVector3 forward = CVector3::Zero();
 	Inventory* m_inventory;
 	Iron* m_iron;
 	SkinModel * m_model;

@@ -244,6 +244,7 @@
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\BackWorld.FBX" />
     <MeshContentTask Include="Assets\modelData\DrilPos.FBX" />
+    <MeshContentTask Include="Assets\modelData\FlatRange.FBX" />
     <MeshContentTask Include="Assets\modelData\IronOre.FBX" />
     <MeshContentTask Include="Assets\modelData\ItemBox.FBX" />
     <MeshContentTask Include="Assets\modelData\Space.FBX" />
