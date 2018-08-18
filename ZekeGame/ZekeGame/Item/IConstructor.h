@@ -6,9 +6,9 @@ class IConstructor
 public:
 	IConstructor();
 	~IConstructor();
-	 void Update(Inventory* m_inventory) ;
-	 void Draw() ;
-	 void DrawSprite();
+	void Update(Inventory* m_inventory) ;
+	void Draw() ;
+	void DrawSprite();
 	void Menu();
 	void Crafting(Inventory* m_inventory);
 	void SetPosition(CVector3 pos) ;

@@ -3,6 +3,8 @@
 #include "BackGround.h"
 #include "Player.h"
 //#include "ActionMenu.h"
+#define MAXITEM 100
+
 class ActionMenu;
 class Iron;
 class Inventory;
@@ -60,6 +62,9 @@ private:
 	int mi_y = 0;
 	int mi_z = 0;
 	int mi_flaty = 0;
+	//ItemList
+	int m_nItem = 0;
+	Item* m_items[MAXITEM];
 };
 
 extern GameScene* g_game;
