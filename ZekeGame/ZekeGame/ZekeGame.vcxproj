@@ -172,9 +172,10 @@
     <ClCompile Include="graphics\Sprite\Sprite.cpp" />
     <ClCompile Include="HID\Pad.cpp" />
     <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="Item\ExplorationRocket.cpp" />
     <ClCompile Include="Item\IConstructor.cpp" />
+    <ClCompile Include="Item\Item.cpp" />
     <ClCompile Include="Item\ItemManager.cpp" />
-    <ClCompile Include="Item\TestItem.cpp" />
     <ClCompile Include="level\Level.cpp" />
     <ClCompile Include="level\MapChip.cpp" />
     <ClCompile Include="main.cpp" />
@@ -218,10 +219,10 @@
     <ClInclude Include="HID\Pad.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="IScene.h" />
+    <ClInclude Include="Item\ExplorationRocket.h" />
     <ClInclude Include="Item\IConstructor.h" />
     <ClInclude Include="Item\Item.h" />
     <ClInclude Include="Item\ItemManager.h" />
-    <ClInclude Include="Item\TestItem.h" />
     <ClInclude Include="level\Level.h" />
     <ClInclude Include="level\MapChip.h" />
     <ClInclude Include="Materials\Iron.h" />
@@ -244,6 +245,7 @@
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\BackWorld.FBX" />
     <MeshContentTask Include="Assets\modelData\DrilPos.FBX" />
+    <MeshContentTask Include="Assets\modelData\ExplorationRocket.FBX" />
     <MeshContentTask Include="Assets\modelData\FlatRange.FBX" />
     <MeshContentTask Include="Assets\modelData\IronOre.FBX" />
     <MeshContentTask Include="Assets\modelData\ItemBox.FBX" />
@@ -358,6 +360,9 @@
     <CustomBuild Include="Assets\texture\Wind.png" />
     <CustomBuild Include="Assets\texture\Wind01.png" />
     <CustomBuild Include="Assets\texture\wind02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\ItemRocket.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

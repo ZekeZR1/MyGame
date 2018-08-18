@@ -2,7 +2,6 @@
 #include "GameScene.h"
 #include "ActionMenu.h"
 #include "Player.h"
-#include "Item/TestItem.h"
 
 Player* player;
 

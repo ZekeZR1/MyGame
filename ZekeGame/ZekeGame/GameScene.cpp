@@ -5,10 +5,10 @@
 #include "Player.h"
 #include "ActionMenu.h"
 #include "Item/Item.h"
-#include "Item/TestItem.h"
 #include "Item/IConstructor.h"
 #include "Materials\Iron.h"
 #include "Inventory.h"
+#include "Item/ExplorationRocket.h"
 
 GameScene* g_game = nullptr;
 IConstructor* Items;
@@ -26,6 +26,7 @@ GameScene::GameScene()
 	manager->SetTextureLoader(renderer->CreateTextureLoader());
 	manager->SetCoordinateSystem(Effekseer::CoordinateSystem::RH);
 	*/
+
 	m_inventory = new Inventory;
 	m_iron = new Iron;
 	g_game = this;
@@ -81,6 +82,7 @@ GameScene::~GameScene()
 	delete pSpriteFont;
 	delete Items;
 	delete m_drilmodel;
+	delete m_rocket;
 }
 
 void GameScene::Update() {
@@ -94,6 +96,10 @@ void GameScene::Update() {
 	manager->AddLocation(handle, ::Effekseer::Vector3D);
 	manager->Update();
 	*/
+	if (g_pad[0].IsTrigger(enButtonStart)) {
+		CVector3 rocketpos = m_player->GetPosition();
+		m_rocket = new ExplorationRocket(rocketpos);
+	}
 	Craft();
 	Ground();
 	CastFont();
@@ -128,6 +134,9 @@ void GameScene::Draw() {
 	bg->Draw();
 	m_player->Draw();
 	m_model->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
+	if (m_rocket != nullptr) {
+		m_rocket->Draw();
+	}
 	if (Items != nullptr)
 		Items->Draw();
 	if (m_iron != nullptr) {

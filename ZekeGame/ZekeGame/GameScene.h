@@ -6,12 +6,13 @@
 class ActionMenu;
 class Iron;
 class Inventory;
+class ExplorationRocket;
 
 class GameScene : public IScene
 {
 public:
 	GameScene();
-	~GameScene();
+	virtual ~GameScene() override;
 	void Update() override;
 	void Draw() override;
 	void DrawFont() override;
@@ -31,6 +32,7 @@ private:
 	Effekseer::Effect* effect;
 	Effekseer::Handle handle;
 	*/
+	ExplorationRocket* m_rocket = nullptr;
 	CVector3 forward = CVector3::Zero();
 	Inventory* m_inventory;
 	Iron* m_iron;

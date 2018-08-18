@@ -5,7 +5,7 @@ class Title : public IScene
 {
 public:
 	Title();
-	~Title();
+	virtual ~Title() override;
 	void Update() override;
 	void Draw() override;
 	void DrawFont() override;

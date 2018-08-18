@@ -179,9 +179,6 @@
     <ClCompile Include="Materials\Mineral.cpp">
       <Filter>ソース ファイル\Game\Materials</Filter>
     </ClCompile>
-    <ClCompile Include="Item\TestItem.cpp">
-      <Filter>ソース ファイル\Game\Item</Filter>
-    </ClCompile>
     <ClCompile Include="Item\IConstructor.cpp">
       <Filter>ソース ファイル\Game\Item</Filter>
     </ClCompile>
@@ -190,6 +187,12 @@
     </ClCompile>
     <ClCompile Include="Inventory.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Item\ExplorationRocket.cpp">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Item\Item.cpp">
+      <Filter>ソース ファイル\Game\Item</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -319,9 +322,6 @@
     <ClInclude Include="Item\ItemManager.h">
       <Filter>ソース ファイル\Game\Item</Filter>
     </ClInclude>
-    <ClInclude Include="Item\TestItem.h">
-      <Filter>ソース ファイル\Game\Item</Filter>
-    </ClInclude>
     <ClInclude Include="Item\IConstructor.h">
       <Filter>ソース ファイル\Game\Item</Filter>
     </ClInclude>
@@ -330,6 +330,9 @@
     </ClInclude>
     <ClInclude Include="Inventory.h">
       <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Item\ExplorationRocket.h">
+      <Filter>ソース ファイル\Game\Item</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -399,6 +402,9 @@
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\FlatRange.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\ExplorationRocket.FBX">
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
   </ItemGroup>
@@ -595,5 +601,10 @@
     <CustomBuild Include="Assets\texture\wind02.png">
       <Filter>リソース ファイル</Filter>
     </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Sprite\ItemRocket.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </Image>
   </ItemGroup>
 </Project>
