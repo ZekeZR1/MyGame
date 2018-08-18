@@ -44,9 +44,10 @@ void ActionMenu::Update(Player* m_player) {
 		}
 	}
 	if (g_pad[0].IsTrigger(enButtonRight)) {
-		if (m_mode != 2) {
-			m_mode++;
-		}
+		m_mode = (m_mode + 1) % 3;
+		//if (m_mode != 2) {
+//			m_mode++;
+		//}
 	}
 	if (g_pad[0].IsTrigger(enButtonLeft)) {
 		if (m_mode != 0) {

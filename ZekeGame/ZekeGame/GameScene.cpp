@@ -98,9 +98,9 @@ void GameScene::Update() {
 	*/
 	if (g_pad[0].IsTrigger(enButtonStart)) {
 		CVector3 rocketpos = m_player->GetPosition();
-		//m_rocket = new ExplorationRocket(rocketpos);
+		m_rocket = new ExplorationRocket(rocketpos);
 		//えーっと、出来なかった！ｗ
-		m_items[m_nItem] =  new ExplorationRocket(rocketpos);
+		//m_items[m_nItem] =  new ExplorationRocket(rocketpos);
 	}
 	Craft();
 	Ground();
