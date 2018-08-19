@@ -66,6 +66,7 @@ void ActionMenu::Update(Player* m_player) {
 	case 2:
 		m_player->m_enPState = m_player->PSTATE_MAKEGROUND;
 		m_enAction = ASTATE_MAKEGROUND;
+		break;
 	}
 	if (m_player->m_enPState == m_player->PSTATE_CRAFT) {
 		if (g_pad[0].IsTrigger(enButtonA)) {
