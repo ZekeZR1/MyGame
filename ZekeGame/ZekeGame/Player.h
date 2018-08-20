@@ -10,6 +10,15 @@ public:
 	void Turn();
 	void Draw();
 	void ChangeState();
+	bool isNear(CVector3 thatpos, float dist);
+	CVector3 GetForward(float param) {
+		CVector3 forward = camera3d->GetForward();
+		forward.y = 0;
+		forward.Normalize();
+		forward *= param;
+		forward += m_position;
+		return forward;
+	}
 	void SetPosition(CVector3 pos) {
 		m_position = pos;
 		m_charaCon.SetPosition(m_position);

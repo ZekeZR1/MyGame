@@ -101,7 +101,7 @@ void GameScene::Update() {
 		//m_rocket = new ExplorationRocket(rocketpos);
 		if (m_nItem <= MAXITEM) {
 			//ExplorationRocket* mprocket = new ExplorationRocket(rocketpos);
-			m_items[m_nItem] = reinterpret_cast<Item*>(new ExplorationRocket(rocketpos));
+			m_items[m_nItem] = reinterpret_cast<Item*>(new ExplorationRocket(m_player));
 			m_nItem++;
 		}
 	}
@@ -110,6 +110,13 @@ void GameScene::Update() {
 	CastFont();
 	Menu();
 	m_player->Update();
+	
+	for (int i = 0; i < m_nItem; i++) {
+		if (m_items[i] != nullptr) {
+			m_items[i]->Update();
+		}
+	}
+
 	CVector3 camerapos = camera3d->GetPosition();
 	CVector3 playerpos = m_player->GetPosition();
 	if (camerapos.y <= playerpos.y) {

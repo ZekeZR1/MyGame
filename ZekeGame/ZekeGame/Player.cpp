@@ -86,3 +86,14 @@ void Player::ChangeState() {
 		break;
 	}
 }
+
+bool Player::isNear(CVector3 thatpos, float dist) {
+	CVector3 t = m_position - thatpos;
+	float diff = t.Length();
+	if (diff < dist) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
