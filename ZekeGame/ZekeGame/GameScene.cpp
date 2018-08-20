@@ -98,9 +98,12 @@ void GameScene::Update() {
 	*/
 	if (g_pad[0].IsTrigger(enButtonStart)) {
 		CVector3 rocketpos = m_player->GetPosition();
-		m_rocket = new ExplorationRocket(rocketpos);
-		//えーっと、出来なかった！ｗ
-		//m_items[m_nItem] =  new ExplorationRocket(rocketpos);
+		//m_rocket = new ExplorationRocket(rocketpos);
+		if (m_nItem <= MAXITEM) {
+			//ExplorationRocket* mprocket = new ExplorationRocket(rocketpos);
+			m_items[m_nItem] = reinterpret_cast<Item*>(new ExplorationRocket(rocketpos));
+			m_nItem++;
+		}
 	}
 	Craft();
 	Ground();
@@ -137,7 +140,18 @@ void GameScene::Draw() {
 	m_player->Draw();
 	m_model->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
 	if (m_rocket != nullptr) {
-		m_rocket->Draw();
+		//m_rocket->Draw();
+		//m_items[0]->Draw();
+	}
+	/*
+	if (m_items[0] != nullptr) {
+		m_items[0]->Draw();
+	}
+	*/
+	for (int i = 0; i < m_nItem; i++) {
+		if (m_items[i] != nullptr) {
+			m_items[i]->Draw();
+		}
 	}
 	if (Items != nullptr)
 		Items->Draw();
