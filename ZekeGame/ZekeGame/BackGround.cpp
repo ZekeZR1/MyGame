@@ -5,7 +5,6 @@
 #include "Player.h"
 #include "ActionMenu.h"
 
-
 BackGround::BackGround()
 {
 	smodel.Init(L"Assets/modelData/BackWorld.cmo");

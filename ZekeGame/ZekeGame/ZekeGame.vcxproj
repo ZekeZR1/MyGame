@@ -364,6 +364,9 @@
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\ItemRocket.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\RocketMenu.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.targets" />
