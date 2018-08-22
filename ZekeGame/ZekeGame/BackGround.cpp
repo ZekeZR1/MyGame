@@ -42,6 +42,7 @@ void BackGround::ConvertMesh(CVector3 drilpos, CVector3 flat, Player* m_player) 
 			CVector3 diff = DrilPos - *pos;
 			if (diff.Length() < m_RangeOfConvert) {
 				//®’n
+				char message[256];
 				switch (m_player->ActState) {
 				case m_player->State_Leveling:
 					if (abs((drilpos.y) - (flat.y)) > 25) {
@@ -55,11 +56,17 @@ void BackGround::ConvertMesh(CVector3 drilpos, CVector3 flat, Player* m_player) 
 					else {
 						pos->z = flat.y;
 					}
+					sprintf_s(message, "SEITIDAYO\n");
+					OutputDebugStringA(message);
 					break;
 				case m_player->State_Mining:
+					sprintf_s(message, "HOTTERUYO\n");
+					OutputDebugStringA(message);
 					pos->z -= 6.0f;
 					break;
 				case m_player->State_Fill:
+					sprintf_s(message, "UMETERUYO\n");
+					OutputDebugStringA(message);
 					pos->z += 6.0f;
 					break;
 				}

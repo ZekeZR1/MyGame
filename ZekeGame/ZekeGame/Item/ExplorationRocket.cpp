@@ -1,12 +1,11 @@
 #include "stdafx.h"
 #include "ExplorationRocket.h"
 
-
-
 ExplorationRocket::ExplorationRocket(Player* m_player)
 {
 	mp_player = m_player;
 	m_pos = m_player->GetForward(200.0f);
+	m_basepos = m_pos;
 	m_skinModel = new SkinModel;
 	m_skinModel->Init(L"Assets/modelData/ExplorationRocket.cmo",enFbxUpAxisY);
 	m_skinModel->UpdateWorldMatrix(m_pos, CQuaternion::Identity(), CVector3::One());
@@ -15,15 +14,30 @@ ExplorationRocket::ExplorationRocket(Player* m_player)
 	m_sprite->Update(CVector3::Zero(), CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
 }
 
-ExplorationRocket::~ExplorationRocket()
-{
+ExplorationRocket::~ExplorationRocket(){
+	delete m_skinModel;
+	delete m_sprite;
 }
 
 void ExplorationRocket::Update() {
-	if (!isOnGround) {
-		m_pos.y += 10.0f;
-	}
 	Menu();
+	RocketControl();
+	switch (setting) {
+	case en_Searching :
+		mi_nowSearchingTime++;
+		m_pos.y += 10.0f;
+		if (mi_nowSearchingTime== mi_SearchTime) {
+			setting = en_Back;
+		}
+		break;
+	case en_Back:
+		mi_nowSearchingTime--;
+		m_pos.y -= 10.0f;
+		if (mi_nowSearchingTime == 0) {
+			setting = en_Material;
+		}
+		break;
+	}
 	m_skinModel->UpdateWorldMatrix(m_pos, CQuaternion::Identity(), CVector3::One());
 }
 
@@ -34,16 +48,72 @@ void ExplorationRocket::Draw() {
 	}
 }
 
-void ExplorationRocket::Menu() {
-	if (g_pad[0].IsTrigger(enButtonB)) {
-		if (isOpenMenu) {
-			isOpenMenu = false;
+void ExplorationRocket::RocketControl() {
+	if (!isOpenMenu)
+		return;
+	if (g_pad[0].IsTrigger(enButtonUp)) {
+		setting = en_Launch;
+	}
+	if (g_pad[0].IsTrigger(enButtonDown)) {
+		setting = en_Exit;
+	}
+	switch (setting) {
+	case en_Material:
+		SetMaterial();
+		break;
+	case en_Launch:
+		Launch();
+		break;
+	case en_Searching:
+		break;
+	case en_Exit:
+		if (g_pad[0].IsTrigger(enButtonB)) {
+			Exit();
 		}
-		else {
-			isOpenMenu = true;
-		}
-		//if (mp_player->isNear(m_pos, 200.0f)) {
-//			isOnGround = false;
-		//}
+		break;
 	}
 }
+void ExplorationRocket::Menu() {
+	//Menu Open and Close
+	if (g_pad[0].IsTrigger(enButtonB)) {
+		if (mp_player->isNear(m_pos, 200.0f)) {
+			if (isOpenMenu) {
+				//isOpenMenu = false;
+				//メニューを閉じるときはbuttonBを使わないデー
+			}
+			else {
+				isOpenMenu = true;
+			}
+		}
+	}
+	if (!(mp_player->isNear(m_pos, 300.0f))) {
+		isOpenMenu = false;
+		return;
+	}
+}
+
+void ExplorationRocket::SetMaterial() {
+	if (g_pad[0].IsTrigger(enButtonRight)) {
+
+	}
+	if (g_pad[0].IsTrigger(enButtonLeft)) {
+
+	}
+}
+
+void ExplorationRocket::Exit() {
+		isOpenMenu = false;
+		setting = en_Material;
+}
+
+void ExplorationRocket::Launch() {
+	if (g_pad[0].IsTrigger(enButtonB)) {
+		setting = en_Searching;
+	}
+}
+
+/*
+	char message[256];
+	sprintf_s(message, "Close and en_MATERIALLLLLLLL\n");
+	OutputDebugStringA(message);
+*/
