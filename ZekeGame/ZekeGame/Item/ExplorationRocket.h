@@ -6,6 +6,7 @@ public:
 	~ExplorationRocket();
 	virtual void Update() override;
 	virtual void Draw() override;
+	bool isOpenMenu = false;
 private:
 	void RocketControl();
 	void SetMaterial();
@@ -18,7 +19,6 @@ private:
 	Player* mp_player;
 	Sprite* m_sprite;
 	bool isOnGround = true;
-	bool isOpenMenu = false;
 	int mi_nowSearchingTime = 0;
 	int mi_SearchTime = 100;
 	enum SetMenu {

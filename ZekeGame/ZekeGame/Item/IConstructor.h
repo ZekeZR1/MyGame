@@ -1,10 +1,11 @@
 #pragma once
 class Inventory;
+class Player;
 
 class IConstructor 
 {
 public:
-	IConstructor();
+	IConstructor(Player* player);
 	~IConstructor();
 	void Update(Inventory* m_inventory) ;
 	void Draw() ;
@@ -21,5 +22,6 @@ private:
 	Sprite* mS_ItemMenu;
 	CVector3 m_MenuPos = CVector3::Zero();
 	int ItemNumber = 0;
+	Player* mp_player = nullptr;
 };
 

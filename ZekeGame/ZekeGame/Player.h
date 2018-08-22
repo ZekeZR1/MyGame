@@ -12,6 +12,7 @@ public:
 	void ChangeState();
 	bool isNear(CVector3 thatpos, float dist);
 	bool isOpenMenuNow = false;
+	bool OpenMenuNow = false;
 	CVector3 GetForward(float param) {
 		CVector3 forward = camera3d->GetForward();
 		forward.y = 0;

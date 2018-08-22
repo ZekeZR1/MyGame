@@ -82,12 +82,19 @@ void ExplorationRocket::Menu() {
 				//メニューを閉じるときはbuttonBを使わないデー
 			}
 			else {
-				isOpenMenu = true;
+				if (!mp_player->isOpenMenuNow) {
+					char message[256];
+					sprintf_s(message, "OPEN ROCKET\n");
+					OutputDebugStringA(message);
+					isOpenMenu = true;
+					mp_player->isOpenMenuNow = true;
+				}
 			}
 		}
 	}
 	if (!(mp_player->isNear(m_pos, 300.0f))) {
 		isOpenMenu = false;
+		mp_player->isOpenMenuNow = false;
 		return;
 	}
 }
@@ -103,6 +110,7 @@ void ExplorationRocket::SetMaterial() {
 
 void ExplorationRocket::Exit() {
 		isOpenMenu = false;
+		mp_player->isOpenMenuNow = false;
 		setting = en_Material;
 }
 

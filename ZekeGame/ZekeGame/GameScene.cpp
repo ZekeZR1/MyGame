@@ -197,7 +197,6 @@ void GameScene::DrawFont() {
 			pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_Iron), DirectX::XMFLOAT2(640.0f, 360.0f), CVector4::Black);
 		}
 	}
-
 	pSpriteBatch->End();
 }
 
@@ -213,7 +212,7 @@ void GameScene::Craft() {
 			//選んだアイテムを指定した座標に置く
 			if (m_player->m_enPState != m_player->PSTATE_SETTING) {
 				if (Items == nullptr) {
-					Items = new IConstructor;
+					Items = new IConstructor(m_player);
 					CVector3 forward = camera3d->GetForward();
 					forward.y = 0;
 					forward.Normalize();
@@ -259,11 +258,15 @@ void GameScene::Menu() {
 	if (g_pad[0].IsTrigger(enButtonX)) {
 		if (isOpenAct) {
 			//m_player->m_enPState = m_player->PSTATE_WALK;
+			m_player->isOpenMenuNow = false;
 			isOpenAct = false;
 		}
 		else {
 			//m_player->m_enPState = m_player->PSTATE_CRAFT;
-			isOpenAct = true;
+			if (!m_player->isOpenMenuNow) {
+				m_player->isOpenMenuNow = true;
+				isOpenAct = true;
+			}
 		}
 	}
 	if (isOpenAct) {

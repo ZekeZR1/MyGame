@@ -60,7 +60,6 @@ void SkinModel::InitConstantBuffer()
 	ZeroMemory(&bufferDesc, sizeof(bufferDesc));				//０でクリア。
 	bufferDesc.Usage = D3D11_USAGE_DEFAULT;						//バッファで想定されている、読み込みおよび書き込み方法。
 	bufferDesc.ByteWidth = (((bufferSize - 1) / 16) + 1) * 16;	//バッファは16バイトアライメントになっている必要がある。
-																//アライメントって→バッファのサイズが16の倍数ということです。
 	bufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;			//バッファをどのようなパイプラインにバインドするかを指定する。
 																//定数バッファにバインドするので、D3D11_BIND_CONSTANT_BUFFERを指定する。
 	bufferDesc.CPUAccessFlags = 0;							

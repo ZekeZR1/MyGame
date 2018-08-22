@@ -3,8 +3,9 @@
 #include "Item.h"
 #include "Inventory.h"
 
-IConstructor::IConstructor()
+IConstructor::IConstructor(Player* player)
 {
+	mp_player = player;
 	m_skinModel = new SkinModel;
 	m_skinModel->Init(L"Assets/modelData/ItemBox.cmo");
 	m_pos.y += 100.0f;
@@ -59,16 +60,32 @@ void IConstructor::PutAway(Player* m_player) {
 			if (diff <= 100.0f) {
 				if (isOpenMenu) {
 					isOpenMenu = false;
+					mp_player->isOpenMenuNow = false;
+					char message[256];
+					sprintf_s(message, "CLOSE CONST\n");
+					OutputDebugStringA(message);
 				}
 				else {
-					isOpenMenu = true;
+					if (!(mp_player->isOpenMenuNow)) {
+						isOpenMenu = true;
+						mp_player->isOpenMenuNow = true;
+						char message[256];
+						sprintf_s(message, "OPEN CONST\n");
+						OutputDebugStringA(message);
+					}
 				}
 				//isGoAway = true;
 			}
 		}
 	}
 	if (diff > 100.0f) {
-		isOpenMenu = false;
+		if (isOpenMenu) {
+			isOpenMenu = false;
+			mp_player->isOpenMenuNow = false;
+			char message[256];
+			sprintf_s(message, "CLOSE CONST\n");
+			OutputDebugStringA(message);
+		}
 	}
 }
 
