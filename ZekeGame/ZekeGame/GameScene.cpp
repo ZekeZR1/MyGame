@@ -113,7 +113,14 @@ void GameScene::Update() {
 	CastFont();
 	Menu();
 	m_player->Update();
-	
+
+	if (m_player->isOpenMenuNow) {
+		//DebugDraw
+	}
+	else {
+		//DebugDraw
+	}
+
 	for (int i = 0; i < m_nItem; i++) {
 		if (m_items[i] != nullptr) {
 			m_items[i]->Update();
