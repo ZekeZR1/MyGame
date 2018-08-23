@@ -16,11 +16,14 @@ public:
 	void PutAway(Player* m_player) ;
 	bool isGoAway = false;
 	bool isOpenMenu = false;
+	bool isOrderRocket = false;
 private:
 	SkinModel * m_skinModel;
 	CVector3 m_pos = CVector3::Zero();
 	Sprite* mS_ItemMenu;
 	CVector3 m_MenuPos = CVector3::Zero();
+	Sprite* mS_ItemPre;
+	CVector3 m_ItemPrePos = CVector3::Zero();
 	int ItemNumber = 0;
 	Player* mp_player = nullptr;
 };

@@ -13,6 +13,9 @@ IConstructor::IConstructor(Player* player)
 	mS_ItemMenu = new Sprite;
 	mS_ItemMenu->Init(L"sprite/constructor.dds", 1280.0f, 720.0f);
 	mS_ItemMenu->Update(CVector3::Zero(), CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
+	mS_ItemPre = new Sprite;
+	mS_ItemPre->Init(L"sprite/ExRocket.dds", 500.0f, 500.0f);
+	mS_ItemPre->Update(m_ItemPrePos, CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
 }
 
 
@@ -20,6 +23,7 @@ IConstructor::~IConstructor()
 {
 	delete m_skinModel;
 	delete mS_ItemMenu;
+	delete mS_ItemPre;
 }
 
 void IConstructor::Update(Inventory* m_inventory){
@@ -35,11 +39,16 @@ void IConstructor::Draw() {
 void IConstructor::DrawSprite() {
 	if (isOpenMenu) {
 		mS_ItemMenu->Draw();
+		mS_ItemPre->Draw();
 	}
 }
 
 void IConstructor::Menu() {
 	if (g_pad[0].IsTrigger(enButtonA)) {
+		mp_player->isOpenMenuNow = false;
+		char message[256];
+		sprintf_s(message, "CLOSE CONST\n");
+		OutputDebugStringA(message);
 		isGoAway = true;
 	}
 }
@@ -59,11 +68,13 @@ void IConstructor::PutAway(Player* m_player) {
 		if (g_pad[0].IsTrigger(enButtonB)) {
 			if (diff <= 100.0f) {
 				if (isOpenMenu) {
+					/*
 					isOpenMenu = false;
 					mp_player->isOpenMenuNow = false;
 					char message[256];
 					sprintf_s(message, "CLOSE CONST\n");
 					OutputDebugStringA(message);
+					*/
 				}
 				else {
 					if (!(mp_player->isOpenMenuNow)) {
@@ -92,24 +103,28 @@ void IConstructor::PutAway(Player* m_player) {
 void IConstructor::Crafting(Inventory* m_inventory) {
 	if (!isOpenMenu)
 		return;
-	if (g_pad[0].IsTrigger(enButtonRight)) {
+	if (g_pad[0].IsTrigger(enButtonDown)) {
 		if(ItemNumber!=1)
 			ItemNumber++;
 	}
-	if (g_pad[0].IsTrigger(enButtonLeft)) {
+	if (g_pad[0].IsTrigger(enButtonUp)) {
 		if(ItemNumber != 0)
 			ItemNumber--;
 	}
-	if (g_pad[0].IsTrigger(enButtonB)) {
+	//if (g_pad[0].IsTrigger(enButtonB)) {
 		switch (ItemNumber) {
 		case 0:
+			mS_ItemPre->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
 			m_inventory->Iron = 50;
 			break;
 		case 1:
-			m_inventory->Iron = 100;
+			mS_ItemPre->Init(L"sprite/ExRocket.dds", 500.0f, 500.0f);
+			if (g_pad[0].IsTrigger(enButtonB)) {
+				isOrderRocket = true;
+			}
 			break;
 		default:
 			break;
 		}
-	}
+	//}
 }

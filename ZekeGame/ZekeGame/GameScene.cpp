@@ -11,7 +11,7 @@
 #include "Item/ExplorationRocket.h"
 
 GameScene* g_game = nullptr;
-IConstructor* Items;
+IConstructor* m_pConstructor;
 extern GameCamera* camera;
 
 GameScene::GameScene()
@@ -80,7 +80,7 @@ GameScene::~GameScene()
 	delete m_ActMenu;
 	delete pSpriteBatch;
 	delete pSpriteFont;
-	delete Items;
+	delete m_pConstructor;
 	delete m_drilmodel;
 	delete m_rocket;
 }
@@ -96,13 +96,16 @@ void GameScene::Update() {
 	manager->AddLocation(handle, ::Effekseer::Vector3D);
 	manager->Update();
 	*/
-	if (g_pad[0].IsTrigger(enButtonStart)) {
-		CVector3 rocketpos = m_player->GetPosition();
-		//m_rocket = new ExplorationRocket(rocketpos);
-		if (m_nItem <= MAXITEM) {
-			//ExplorationRocket* mprocket = new ExplorationRocket(rocketpos);
-			m_items[m_nItem] = reinterpret_cast<Item*>(new ExplorationRocket(m_player));
-			m_nItem++;
+	if (m_pConstructor != nullptr) {
+		if (m_pConstructor->isOrderRocket) {
+			CVector3 rocketpos = m_player->GetPosition();
+			//m_rocket = new ExplorationRocket(rocketpos);
+			if (m_nItem <= MAXITEM) {
+				//ExplorationRocket* mprocket = new ExplorationRocket(rocketpos);
+				m_items[m_nItem] = reinterpret_cast<Item*>(new ExplorationRocket(m_player));
+				m_pConstructor->isOrderRocket = false;
+				m_nItem++;
+			}
 		}
 	}
 	Craft();
@@ -124,8 +127,8 @@ void GameScene::Update() {
 		camera3d->SetPosition(camerapos);
 	}
 	camera->Update(m_player);
-	if (Items != nullptr) {
-		Items->Update(m_inventory);
+	if (m_pConstructor != nullptr) {
+		m_pConstructor->Update(m_inventory);
 	}
 
 	if (m_iron != nullptr && m_iron->isGet){
@@ -160,8 +163,8 @@ void GameScene::Draw() {
 			m_items[i]->Draw();
 		}
 	}
-	if (Items != nullptr)
-		Items->Draw();
+	if (m_pConstructor != nullptr)
+		m_pConstructor->Draw();
 	if (m_iron != nullptr) {
 		m_iron->Draw();
 	}
@@ -173,8 +176,8 @@ void GameScene::Draw() {
 	if (isOpenAct) {
 			m_ActMenu->Draw();
 	}
-	if (Items != nullptr)
-		Items->DrawSprite();
+	if (m_pConstructor != nullptr)
+		m_pConstructor->DrawSprite();
 }
 
 void GameScene::DrawFont() {
@@ -201,27 +204,31 @@ void GameScene::DrawFont() {
 }
 
 void GameScene::Craft() {
-	if (Items != nullptr) {
-		Items->PutAway(m_player);
-		if (Items->isGoAway) {
-			Items = nullptr;
+	if (m_pConstructor != nullptr) {
+		m_pConstructor->PutAway(m_player);
+		if (m_pConstructor->isGoAway) {
+			m_pConstructor = nullptr;
 		}
 	}
 	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_CRAFT) {
 		if (g_pad[0].IsTrigger(enButtonB)) {
 			//選んだアイテムを指定した座標に置く
 			if (m_player->m_enPState != m_player->PSTATE_SETTING) {
-				if (Items == nullptr) {
-					Items = new IConstructor(m_player);
+				if (m_pConstructor == nullptr) {
+					m_pConstructor = new IConstructor(m_player);
 					CVector3 forward = camera3d->GetForward();
 					forward.y = 0;
 					forward.Normalize();
 					forward *= 100.0f;
 					forward += m_player->GetPosition();
-					Items->SetPosition(forward);
+					m_pConstructor->SetPosition(forward);
 					isOpenAct = false;
 					m_player->m_enPState = m_player->PSTATE_WALK;
 					m_ActMenu->m_enAction = m_ActMenu->ASTATE_INVENTORY;
+					char message[256];
+					sprintf_s(message, "CLOSE Act\n");
+					OutputDebugStringA(message);
+					m_player->isOpenMenuNow = false;
 				}
 			}
 		}
@@ -232,7 +239,7 @@ void GameScene::Craft() {
 		forward.Normalize();
 		forward *= 100.0f;
 		forward += m_player->GetPosition();
-		Items->SetPosition(forward);
+		m_pConstructor->SetPosition(forward);
 	}
 }
 
@@ -251,7 +258,7 @@ void GameScene::Ground() {
 }
 void GameScene::Menu() {
 	//ActMenu
-	if (Items != nullptr && Items->isOpenMenu) {
+	if (m_pConstructor != nullptr && m_pConstructor->isOpenMenu) {
 		isOpenAct = false;
 		return;
 	}
@@ -273,7 +280,7 @@ void GameScene::Menu() {
 		m_ActMenu->Update(m_player);
 	}
 	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_CRAFT) {
-		if (Items != nullptr) {
+		if (m_pConstructor != nullptr) {
 			mS_ActState->Init(L"sprite/ItemBoxUsing.dds", 500.0f, 500.0f);
 		}
 		else {

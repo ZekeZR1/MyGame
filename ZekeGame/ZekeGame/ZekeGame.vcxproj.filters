@@ -381,6 +381,9 @@
     <ImageContentTask Include="Assets\Sprite\ItemRocket.png">
       <Filter>リソース ファイル</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\RocketMenu.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\testbox.FBX">
@@ -606,7 +609,7 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Assets\Sprite\RocketMenu.png">
+    <Image Include="Assets\Sprite\ExRocket.png">
       <Filter>ソース ファイル\Assets\sprite</Filter>
     </Image>
   </ItemGroup>
