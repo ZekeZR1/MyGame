@@ -6,6 +6,7 @@ public:
 	~ExplorationRocket();
 	virtual void Update() override;
 	virtual void Draw() override;
+	virtual void DrawSprite() override;
 	bool isOpenMenu = false;
 private:
 	void RocketControl();

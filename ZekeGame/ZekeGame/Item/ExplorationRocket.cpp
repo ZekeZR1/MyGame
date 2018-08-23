@@ -43,6 +43,9 @@ void ExplorationRocket::Update() {
 
 void ExplorationRocket::Draw() {
 	m_skinModel->Draw(camera3d->GetViewMatrix(),camera3d->GetProjectionMatrix());
+}
+
+void ExplorationRocket::DrawSprite() {
 	if (isOpenMenu) {
 		m_sprite->Draw();
 	}
@@ -73,6 +76,7 @@ void ExplorationRocket::RocketControl() {
 		break;
 	}
 }
+
 void ExplorationRocket::Menu() {
 	//Menu Open and Close
 	if (g_pad[0].IsTrigger(enButtonB)) {
@@ -95,7 +99,7 @@ void ExplorationRocket::Menu() {
 	if (!(mp_player->isNear(m_pos, 300.0f))) {
 		isOpenMenu = false;
 		mp_player->isOpenMenuNow = false;
-		return;
+		//return;
 	}
 }
 

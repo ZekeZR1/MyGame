@@ -163,6 +163,11 @@ void GameScene::Draw() {
 			m_items[i]->Draw();
 		}
 	}
+	for (int i = 0; i < m_nItem; i++) {
+		if (m_items[i] != nullptr) {
+			m_items[i]->DrawSprite();
+		}
+	}
 	if (m_pConstructor != nullptr)
 		m_pConstructor->Draw();
 	if (m_iron != nullptr) {
