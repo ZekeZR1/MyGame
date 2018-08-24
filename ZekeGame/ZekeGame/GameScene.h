@@ -47,6 +47,7 @@ private:
 	Animation modelanimation;
 	Sprite* mS_ActState;
 	CVector3 mv_ActSpos = CVector3::Zero();
+	Sprite* mS_SettingItem;
 	//DrilPos
 	SkinModel* m_drilmodel;
 	float deep = 0.0f;
@@ -64,7 +65,20 @@ private:
 	int mi_flaty = 0;
 	//ItemList
 	int m_nItem = 0;
+	bool m_settingOrderedItem = false;
+	bool m_isOrderedItemSet = false;
 	Item* m_items[MAXITEM];
+	enum ItemState {
+		en_STANDBY,
+		en_SETTING,
+		en_SET
+	};
+	ItemState m_itemState = en_STANDBY;
+	enum OrderedItem {
+		en_NONE,
+		en_ROCKET,
+	};
+	OrderedItem m_ordered = en_NONE;
 };
 
 extern GameScene* g_game;

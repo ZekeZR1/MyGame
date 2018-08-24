@@ -90,13 +90,7 @@ void IConstructor::PutAway(Player* m_player) {
 		}
 	}
 	if (diff > 100.0f) {
-		if (isOpenMenu) {
-			isOpenMenu = false;
-			mp_player->CloseMenu();
-			char message[256];
-			sprintf_s(message, "CLOSE CONST\n");
-			OutputDebugStringA(message);
-		}
+		CloseMenu();
 	}
 }
 
@@ -121,10 +115,22 @@ void IConstructor::Crafting(Inventory* m_inventory) {
 			mS_ItemPre->Init(L"sprite/ExRocket.dds", 500.0f, 500.0f);
 			if (g_pad[0].IsTrigger(enButtonB)) {
 				isOrderRocket = true;
+				CloseMenu();
 			}
 			break;
 		default:
 			break;
 		}
 	//}
+}
+
+void IConstructor::CloseMenu() {
+	if (isOpenMenu) {
+		isOpenMenu = false;
+		mp_player->CloseMenu();
+		char message[256];
+		sprintf_s(message, "CLOSE CONST\n");
+		OutputDebugStringA(message);
+		ItemNumber = 0;
+	}
 }

@@ -26,7 +26,6 @@ GameScene::GameScene()
 	manager->SetTextureLoader(renderer->CreateTextureLoader());
 	manager->SetCoordinateSystem(Effekseer::CoordinateSystem::RH);
 	*/
-
 	m_inventory = new Inventory;
 	m_iron = new Iron;
 	g_game = this;
@@ -48,6 +47,9 @@ GameScene::GameScene()
 	mv_ActSpos.x = 500.0f;
 	mv_ActSpos.y = 300.0f;
 	mS_ActState->Update(mv_ActSpos, CQuaternion::Identity(), CVector3::One(), { 0.5,0.5 });
+	mS_SettingItem = new Sprite;
+	mS_SettingItem->Init(L"sprite/None_Sprite.dds",500.0f, 500.0f);
+	mS_SettingItem->Update(mv_ActSpos, CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
 	//
 	//smodel = new SkinModel;
 	//smodel->Init(L"Assets/modelData/testbox.cmo");
@@ -83,6 +85,11 @@ GameScene::~GameScene()
 	delete m_pConstructor;
 	delete m_drilmodel;
 	delete m_rocket;
+	for (int i = 0; i < MAXITEM; i++) {
+		if (m_items[i] != nullptr) {
+			delete m_items[i];
+		}
+	}
 }
 
 void GameScene::Update() {
@@ -98,17 +105,34 @@ void GameScene::Update() {
 	*/
 	if (m_pConstructor != nullptr) {
 		if (m_pConstructor->isOrderRocket) {
-			CVector3 rocketpos = m_player->GetPosition();
-			//m_rocket = new ExplorationRocket(rocketpos);
-			if (m_nItem < MAXITEM) {
-				//ExplorationRocket* mprocket = new ExplorationRocket(rocketpos);
-				m_items[m_nItem] = reinterpret_cast<Item*>(new ExplorationRocket(m_player));
-				m_pConstructor->isOrderRocket = false;
-				m_nItem++;
-			}
+			m_ordered = en_ROCKET;
+			m_settingOrderedItem = true;
 			//m_pConstructor->isOpenMenu = false;
 			//m_player->isOpenMenuNow = false;
 		}
+	}
+	if (m_settingOrderedItem) {
+		switch (m_ordered) {
+		case en_ROCKET:
+			mS_SettingItem->Init(L"sprite/ExRocket.dds", 500.0f, 500.0f);
+			if (g_pad[0].IsTrigger(enButtonB)) {
+				m_settingOrderedItem = false;
+				m_isOrderedItemSet = true;
+			}
+			break;
+		}
+	}
+	else {
+		mS_SettingItem->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
+	}
+	if (m_isOrderedItemSet) {
+		CVector3 rocketpos = m_player->GetPosition();
+		if (m_nItem < MAXITEM) {
+			m_items[m_nItem] = reinterpret_cast<Item*>(new ExplorationRocket(m_player));
+			m_pConstructor->isOrderRocket = false;
+			m_nItem++;
+		}
+		m_isOrderedItemSet = false;
 	}
 	Craft();
 	Ground();
@@ -194,6 +218,7 @@ void GameScene::Draw() {
 	}
 	//Žè‘O‚É•`‰æ‚µ‚½‚¢•¨
 	mS_ActState->Draw();
+	mS_SettingItem->Draw();
 	if (isOpenAct) {
 			m_ActMenu->Draw();
 	}

@@ -17,6 +17,7 @@ public:
 	bool isGoAway = false;
 	bool isOpenMenu = false;
 	bool isOrderRocket = false;
+	void CloseMenu();
 private:
 	SkinModel * m_skinModel;
 	CVector3 m_pos = CVector3::Zero();
