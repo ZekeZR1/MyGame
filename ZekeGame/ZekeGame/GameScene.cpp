@@ -286,14 +286,14 @@ void GameScene::Menu() {
 	if (g_pad[0].IsTrigger(enButtonX)) {
 		if (isOpenAct) {
 			//m_player->m_enPState = m_player->PSTATE_WALK;
-			m_player->isOpenMenuNow = false;
 			isOpenAct = false;
+			m_player->CloseMenu();
 		}
 		else {
 			//m_player->m_enPState = m_player->PSTATE_CRAFT;
 			if (!m_player->isOpenMenuNow) {
-				m_player->isOpenMenuNow = true;
 				isOpenAct = true;
+				m_player->OpenMenu();
 			}
 		}
 	}

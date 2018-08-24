@@ -45,7 +45,7 @@ void IConstructor::DrawSprite() {
 
 void IConstructor::Menu() {
 	if (g_pad[0].IsTrigger(enButtonA)) {
-		mp_player->isOpenMenuNow = false;
+		mp_player->CloseMenu();
 		char message[256];
 		sprintf_s(message, "CLOSE CONST\n");
 		OutputDebugStringA(message);
@@ -79,7 +79,7 @@ void IConstructor::PutAway(Player* m_player) {
 				else {
 					if (!(mp_player->isOpenMenuNow)) {
 						isOpenMenu = true;
-						mp_player->isOpenMenuNow = true;
+						mp_player->OpenMenu();
 						char message[256];
 						sprintf_s(message, "OPEN CONST\n");
 						OutputDebugStringA(message);
@@ -92,7 +92,7 @@ void IConstructor::PutAway(Player* m_player) {
 	if (diff > 100.0f) {
 		if (isOpenMenu) {
 			isOpenMenu = false;
-			mp_player->isOpenMenuNow = false;
+			mp_player->CloseMenu();
 			char message[256];
 			sprintf_s(message, "CLOSE CONST\n");
 			OutputDebugStringA(message);

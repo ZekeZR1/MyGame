@@ -114,3 +114,13 @@ bool Player::CanOpenMenu() {
 		return true;
 	}
 }
+
+void Player::OpenMenu() {
+	m_nMenu++;
+	isOpenMenuNow = true;
+}
+
+void Player::CloseMenu() {
+	m_nMenu--;
+	isOpenMenuNow = false;
+}

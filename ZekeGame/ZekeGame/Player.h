@@ -13,6 +13,8 @@ public:
 	bool isNear(CVector3 thatpos, float dist);
 	bool isOpenMenuNow = false;
 	bool OpenMenuNow = false;
+	void OpenMenu();
+	void CloseMenu();
 	bool CanOpenMenu();
 	unsigned int m_nMenu = 0;
 	CVector3 GetForward(float param) {

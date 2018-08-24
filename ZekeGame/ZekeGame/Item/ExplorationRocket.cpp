@@ -20,13 +20,11 @@ ExplorationRocket::~ExplorationRocket(){
 }
 
 void ExplorationRocket::Update() {
-	Menu();
-	RocketControl();
 	switch (setting) {
-	case en_Searching :
+	case en_Searching:
 		mi_nowSearchingTime++;
 		m_pos.y += 10.0f;
-		if (mi_nowSearchingTime== mi_SearchTime) {
+		if (mi_nowSearchingTime == mi_SearchTime) {
 			setting = en_Back;
 		}
 		break;
@@ -38,43 +36,9 @@ void ExplorationRocket::Update() {
 		}
 		break;
 	}
+	Menu();
+	RocketControl();
 	m_skinModel->UpdateWorldMatrix(m_pos, CQuaternion::Identity(), CVector3::One());
-}
-
-void ExplorationRocket::Draw() {
-	m_skinModel->Draw(camera3d->GetViewMatrix(),camera3d->GetProjectionMatrix());
-}
-
-void ExplorationRocket::DrawSprite() {
-	if (isOpenMenu) {
-		m_sprite->Draw();
-	}
-}
-
-void ExplorationRocket::RocketControl() {
-	if (!isOpenMenu)
-		return;
-	if (g_pad[0].IsTrigger(enButtonUp)) {
-		setting = en_Launch;
-	}
-	if (g_pad[0].IsTrigger(enButtonDown)) {
-		setting = en_Exit;
-	}
-	switch (setting) {
-	case en_Material:
-		SetMaterial();
-		break;
-	case en_Launch:
-		Launch();
-		break;
-	case en_Searching:
-		break;
-	case en_Exit:
-		if (g_pad[0].IsTrigger(enButtonB)) {
-			Exit();
-		}
-		break;
-	}
 }
 
 void ExplorationRocket::Menu() {
@@ -92,8 +56,7 @@ void ExplorationRocket::Menu() {
 						sprintf_s(message, "OPEN ROCKET\n");
 						OutputDebugStringA(message);
 						isOpenMenu = true;
-						mp_player->m_nMenu++;
-						mp_player->isOpenMenuNow = true;
+						mp_player->OpenMenu();
 					}
 				}
 			}
@@ -101,6 +64,42 @@ void ExplorationRocket::Menu() {
 	}
 	if (!(mp_player->isNear(m_pos, 300.0f))) {
 		Exit();
+	}
+}
+
+void ExplorationRocket::Draw() {
+	m_skinModel->Draw(camera3d->GetViewMatrix(),camera3d->GetProjectionMatrix());
+}
+
+void ExplorationRocket::DrawSprite() {
+	if (isOpenMenu) {
+		m_sprite->Draw();
+	}
+}
+
+void ExplorationRocket::RocketControl() {
+	if (isOpenMenu) {
+		if (g_pad[0].IsTrigger(enButtonUp)) {
+			setting = en_Launch;
+		}
+		if (g_pad[0].IsTrigger(enButtonDown)) {
+			setting = en_Exit;
+		}
+		switch (setting) {
+		case en_Material:
+			SetMaterial();
+			break;
+		case en_Launch:
+			Launch();
+			break;
+		case en_Searching:
+			break;
+		case en_Exit:
+			if (g_pad[0].IsTrigger(enButtonB)) {
+				Exit();
+			}
+			break;
+		}
 	}
 }
 
@@ -126,6 +125,8 @@ void ExplorationRocket::Exit() {
 void ExplorationRocket::Launch() {
 	if (g_pad[0].IsTrigger(enButtonB)) {
 		setting = en_Searching;
+		isOpenMenu = false;
+		mp_player->CloseMenu();
 	}
 }
 
