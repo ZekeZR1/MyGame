@@ -100,12 +100,14 @@ void GameScene::Update() {
 		if (m_pConstructor->isOrderRocket) {
 			CVector3 rocketpos = m_player->GetPosition();
 			//m_rocket = new ExplorationRocket(rocketpos);
-			if (m_nItem <= MAXITEM) {
+			if (m_nItem < MAXITEM) {
 				//ExplorationRocket* mprocket = new ExplorationRocket(rocketpos);
 				m_items[m_nItem] = reinterpret_cast<Item*>(new ExplorationRocket(m_player));
 				m_pConstructor->isOrderRocket = false;
 				m_nItem++;
 			}
+			//m_pConstructor->isOpenMenu = false;
+			//m_player->isOpenMenuNow = false;
 		}
 	}
 	Craft();
@@ -113,14 +115,21 @@ void GameScene::Update() {
 	CastFont();
 	Menu();
 	m_player->Update();
-
+//Debug Draw
+	m_player->CanOpenMenu(); 
+	/*
 	if (m_player->isOpenMenuNow) {
-		//DebugDraw
+		char message[256];
+		sprintf_s(message, "TRUEEEEEEE\n");
+		OutputDebugStringA(message);
 	}
 	else {
-		//DebugDraw
+		char message[256];
+		sprintf_s(message, "FALSEEEE\n");
+		OutputDebugStringA(message);
 	}
-
+	*/
+//
 	for (int i = 0; i < m_nItem; i++) {
 		if (m_items[i] != nullptr) {
 			m_items[i]->Update();
@@ -379,3 +388,4 @@ void GameScene::DrilRange() {
 	}
 	m_drilmodel->UpdateWorldMatrix(forward, CQuaternion::Identity(), CVector3::One());
 }
+

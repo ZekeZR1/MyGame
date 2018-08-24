@@ -83,23 +83,24 @@ void ExplorationRocket::Menu() {
 		if (mp_player->isNear(m_pos, 200.0f)) {
 			if (isOpenMenu) {
 				//isOpenMenu = false;
-				//メニューを閉じるときはbuttonBを使わないデー
+				//メニューを閉じるときはExit()使っテー
 			}
 			else {
 				if (!mp_player->isOpenMenuNow) {
-					char message[256];
-					sprintf_s(message, "OPEN ROCKET\n");
-					OutputDebugStringA(message);
-					isOpenMenu = true;
-					mp_player->isOpenMenuNow = true;
+					if (mp_player->CanOpenMenu()) {
+						char message[256];
+						sprintf_s(message, "OPEN ROCKET\n");
+						OutputDebugStringA(message);
+						isOpenMenu = true;
+						mp_player->m_nMenu++;
+						mp_player->isOpenMenuNow = true;
+					}
 				}
 			}
 		}
 	}
 	if (!(mp_player->isNear(m_pos, 300.0f))) {
-		isOpenMenu = false;
-		mp_player->isOpenMenuNow = false;
-		//return;
+		Exit();
 	}
 }
 
@@ -113,9 +114,13 @@ void ExplorationRocket::SetMaterial() {
 }
 
 void ExplorationRocket::Exit() {
-		isOpenMenu = false;
-		mp_player->isOpenMenuNow = false;
-		setting = en_Material;
+	if (!isOpenMenu) {
+		return;
+	}
+	isOpenMenu = false;
+	mp_player->isOpenMenuNow = false;
+	mp_player->m_nMenu--;
+	setting = en_Material;
 }
 
 void ExplorationRocket::Launch() {
