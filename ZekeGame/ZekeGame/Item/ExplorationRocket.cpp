@@ -95,9 +95,7 @@ void ExplorationRocket::RocketControl() {
 		case en_Searching:
 			break;
 		case en_Exit:
-			if (g_pad[0].IsTrigger(enButtonB)) {
-				Exit();
-			}
+			CloseMenu();
 			break;
 		}
 	}
@@ -123,6 +121,7 @@ void ExplorationRocket::Exit() {
 }
 
 void ExplorationRocket::Launch() {
+	m_sprite->Init(L"sprite/ExRocketLaunch.dds", 1280.0f, 720.0f);
 	if (g_pad[0].IsTrigger(enButtonB)) {
 		setting = en_Searching;
 		isOpenMenu = false;
@@ -135,3 +134,10 @@ void ExplorationRocket::Launch() {
 	sprintf_s(message, "Close and en_MATERIALLLLLLLL\n");
 	OutputDebugStringA(message);
 */
+
+void ExplorationRocket::CloseMenu() {
+	m_sprite->Init(L"sprite/ExRocketClose.dds", 1280.0f, 720.0f);
+	if (g_pad[0].IsTrigger(enButtonB)) {
+		Exit();
+	}
+}

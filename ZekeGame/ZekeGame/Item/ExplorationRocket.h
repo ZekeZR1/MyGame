@@ -12,6 +12,7 @@ private:
 	void RocketControl();
 	void SetMaterial();
 	void Menu();
+	void CloseMenu();
 	void Exit();
 	void Launch();
 	SkinModel* m_skinModel;
