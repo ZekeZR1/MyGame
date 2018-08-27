@@ -130,6 +130,7 @@ void GameScene::Update() {
 		if (m_nItem < MAXITEM) {
 			m_items[m_nItem] = reinterpret_cast<Item*>(new ExplorationRocket(m_player));
 			m_pConstructor->isOrderRocket = false;
+			m_inventory->UseMaterial(en_ROCKET);
 			m_nItem++;
 		}
 		m_isOrderedItemSet = false;
@@ -172,7 +173,7 @@ void GameScene::Update() {
 	}
 
 	if (m_iron != nullptr && m_iron->isGet){
-		m_inventory->Iron++;
+		m_inventory->m_nIron++;
 		m_iron = nullptr;
 }
 	if (m_iron != nullptr) {
@@ -256,6 +257,27 @@ void GameScene::Craft() {
 			m_pConstructor = nullptr;
 		}
 	}
+	//test
+	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_CRAFT) {
+		if (g_pad[0].IsTrigger(enButtonB)) {
+			if (m_pConstructor == nullptr) {
+				m_pConstructor = new IConstructor(m_player);
+				CVector3 ConstructorPos = m_player->GetForward(100.0f);
+				m_pConstructor->SetPosition(ConstructorPos);
+				m_player->m_enPState = m_player->PSTATE_WALK;
+				m_ActMenu->m_enAction = m_ActMenu->ASTATE_INVENTORY;
+				char message[256];
+				sprintf_s(message, "CLOSE Act\n");
+				OutputDebugStringA(message);
+				//m_player->isOpenMenuNow = false;
+				if(isOpenAct){
+					isOpenAct = false;
+					m_player->CloseMenu();
+				}
+			}
+		}
+	}
+	/*
 	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_CRAFT) {
 		if (g_pad[0].IsTrigger(enButtonB)) {
 			//選んだアイテムを指定した座標に置く
@@ -279,6 +301,7 @@ void GameScene::Craft() {
 			}
 		}
 	}
+	
 	if (m_player->m_enPState == m_player->PSTATE_SETTING) {
 		CVector3 forward = camera3d->GetForward();
 		forward.y = 0;
@@ -287,6 +310,7 @@ void GameScene::Craft() {
 		forward += m_player->GetPosition();
 		m_pConstructor->SetPosition(forward);
 	}
+	*/
 }
 
 void GameScene::Ground() {
@@ -371,7 +395,7 @@ void GameScene::CastFont() {
 	//整地座標
 	mi_flaty = m_ActMenu->m_flatPos.y;
 	_itow_s(mi_flaty, mw_flatPosY, 10);
-	_itow_s(m_inventory->Iron, mw_Iron, 10);
+	_itow_s(m_inventory->m_nIron, mw_Iron, 10);
 }
 
 void GameScene::DrilRange() {

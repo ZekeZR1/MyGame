@@ -15,6 +15,8 @@
   Assets\Sprite\ItemRocket.png
   Assets\Sprite\RocketMenu.png
   Assets\Sprite\ExRocket.png
+  Assets\Sprite\ExRocketClose.png
+  Assets\Sprite\ExRocketLaunch.png
   Assets\modelData\BackWorld.FBX
   Assets\modelData\DrilPos.FBX
   Assets\modelData\ExplorationRocket.FBX
@@ -24,54 +26,10 @@
   Assets\modelData\Space.FBX
   Assets\modelData\testbox.FBX
   Assets\modelData\unityChan.fbx
-  ActionMenu.cpp
-  BackGround.cpp
-  GameCamera.cpp
-  GameScene.cpp
-c:\users\zeke\git\mygame\zekegame\zekegame\gamescene.cpp(365): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-c:\users\zeke\git\mygame\zekegame\zekegame\gamescene.cpp(367): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-c:\users\zeke\git\mygame\zekegame\zekegame\gamescene.cpp(369): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-c:\users\zeke\git\mygame\zekegame\zekegame\gamescene.cpp(372): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-  Pad.cpp
-  ExplorationRocket.cpp
   IConstructor.cpp
-  Item.cpp
-  ItemManager.cpp
-  Iron.cpp
-  Player.cpp
-  Title.cpp
-  CharacterController.cpp
-  Camera.cpp
-  GraphicsEngine.cpp
-  Shader.cpp
-  ShaderResources.cpp
-  Skelton.cpp
-  SkinModel.cpp
-  SkinModelDataManager.cpp
-  コンパイル中...
-  SkinModelEffect.cpp
-  Effect.cpp
-  SpBuffer.cpp
-  Sprite.cpp
-  Animation.cpp
-  AnimationClip.cpp
-  AnimationPlayController.cpp
-  Level.cpp
-  MapChip.cpp
-  main.cpp
-  Matrix.cpp
-  Vector.cpp
-  kMath.cpp
-  CapsuleCollider.cpp
-  MeshCollider.cpp
-  Physics.cpp
-  PhysicsStaticObject.cpp
-  RigitBody.cpp
-  stdafx.cpp
-  Window.cpp
   コード生成しています。
-  44 of 1897 functions ( 2.3%) were compiled, the rest were copied from previous compilation.
-    4 functions were new in current compilation
-    17 functions had inline decision re-evaluated but remain unchanged
+  3 of 1899 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    9 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
-  ZekeGame.vcxproj -> C:\Users\Zeke\git\MyGame\ZekeGame\x64\Release\ZekeGame.exe
+  ZekeGame.vcxproj -> C:\Users\Taiki.W\git\MyGame\ZekeGame\x64\Release\ZekeGame.exe

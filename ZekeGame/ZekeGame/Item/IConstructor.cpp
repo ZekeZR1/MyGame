@@ -51,6 +51,9 @@ void IConstructor::Menu() {
 		OutputDebugStringA(message);
 		isGoAway = true;
 	}
+	if (g_pad[0].IsTrigger(enButtonY)) {
+		CloseMenu();
+	}
 }
 
 
@@ -109,13 +112,18 @@ void IConstructor::Crafting(Inventory* m_inventory) {
 		switch (ItemNumber) {
 		case 0:
 			mS_ItemPre->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
-			m_inventory->Iron = 50;
+			m_inventory->m_nIron = 9;
 			break;
 		case 1:
 			mS_ItemPre->Init(L"sprite/ExRocket.dds", 500.0f, 500.0f);
 			if (g_pad[0].IsTrigger(enButtonB)) {
-				isOrderRocket = true;
-				CloseMenu();
+				if (m_inventory->m_nIron >= 10) {
+					isOrderRocket = true;
+					CloseMenu();
+				}
+				else {
+					//Material‚ª‘«‚è‚Ê‚¼
+				}
 			}
 			break;
 		default:

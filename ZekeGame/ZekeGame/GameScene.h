@@ -63,6 +63,9 @@ private:
 	int mi_y = 0;
 	int mi_z = 0;
 	int mi_flaty = 0;
+	//constructor
+	bool m_settingConstructor = false;
+	bool m_setConstructor = false;
 	//ItemList
 	int m_nItem = 0;
 	bool m_settingOrderedItem = false;
