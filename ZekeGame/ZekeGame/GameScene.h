@@ -4,6 +4,7 @@
 #include "Player.h"
 //#include "ActionMenu.h"
 #define MAXITEM 100
+#define MAXIRON 10
 
 class ActionMenu;
 class Iron;
@@ -34,6 +35,7 @@ private:
 	Effekseer::Effect* effect;
 	Effekseer::Handle handle;
 	*/
+	Iron* m_irons[MAXIRON];
 	ExplorationRocket* m_rocket = nullptr;
 	CVector3 forward = CVector3::Zero();
 	Inventory* m_inventory;

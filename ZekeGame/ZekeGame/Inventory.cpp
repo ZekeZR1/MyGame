@@ -2,8 +2,6 @@
 #include "Item\ExplorationRocket.h"
 #include "Inventory.h"
 
-
-
 Inventory::Inventory()
 {
 }

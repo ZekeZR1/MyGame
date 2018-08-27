@@ -13,13 +13,20 @@ Iron::~Iron() {
 
 void Iron::Update(Player* m_player) {
 	if (isNear(m_player->GetPosition())) {
-		isGet = true;
+		if (!isGet) {
+			isGet = true;
+		}
 	}
 	m_skinModel->UpdateWorldMatrix(m_pos, CQuaternion::Identity(), CVector3::One());
 }
 
 void Iron::Draw() {
 	m_skinModel->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
+}
+
+void Iron::SetPosition(CVector3 pos) {
+	m_pos = pos;
+	m_skinModel->UpdateWorldMatrix(m_pos, CQuaternion::Identity(), CVector3::One());
 }
 
 bool Iron::isNear(CVector3 pos) {

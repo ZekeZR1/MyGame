@@ -26,9 +26,10 @@ GameScene::GameScene()
 	manager->SetTextureLoader(renderer->CreateTextureLoader());
 	manager->SetCoordinateSystem(Effekseer::CoordinateSystem::RH);
 	*/
+
+	g_game = this;
 	m_inventory = new Inventory;
 	m_iron = new Iron;
-	g_game = this;
 	m_ActMenu = new ActionMenu;
 	bg = new BackGround;
 	m_player = new Player;
@@ -50,6 +51,19 @@ GameScene::GameScene()
 	mS_SettingItem = new Sprite;
 	mS_SettingItem->Init(L"sprite/None_Sprite.dds",500.0f, 500.0f);
 	mS_SettingItem->Update(mv_ActSpos, CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
+	//Material
+	for (int i = 0; i < MAXIRON; i++) {
+		m_irons[i] = new Iron;
+		float x = rand() % 1000;
+		float y = rand() % 100;
+		float z = rand() % 1000;
+		CVector3 pos;
+		pos.x = x;
+		pos.y = y;
+		pos.z = z;
+		m_irons[i]->SetPosition(pos);
+		m_irons[i]->Update(m_player);
+	}
 	//
 	//smodel = new SkinModel;
 	//smodel->Init(L"Assets/modelData/testbox.cmo");
@@ -90,6 +104,11 @@ GameScene::~GameScene()
 			delete m_items[i];
 		}
 	}
+	for (int i = 0; i < MAXIRON; i++) {
+		//if (m_irons[i] != nullptr) {
+			delete m_irons[i];
+//		}
+	}
 }
 
 void GameScene::Update() {
@@ -103,6 +122,11 @@ void GameScene::Update() {
 	manager->AddLocation(handle, ::Effekseer::Vector3D);
 	manager->Update();
 	*/
+	for (int i = 0; i < MAXIRON; i++) {
+		if (m_irons[i] != nullptr) {
+			m_irons[i]->Update(m_player);
+		}
+	}
 	if (m_pConstructor != nullptr) {
 		if (m_pConstructor->isOrderRocket) {
 			m_ordered = en_ROCKET;
@@ -173,9 +197,21 @@ void GameScene::Update() {
 	}
 
 	if (m_iron != nullptr && m_iron->isGet){
-		m_inventory->m_nIron++;
+		m_inventory->m_nIron+=10;
 		m_iron = nullptr;
-}
+	}
+
+	for (int i = 0; i < MAXIRON; i++) {
+		if (m_irons[i] != nullptr){
+			if (m_irons[i]->isGet) {
+				char message[256];
+				sprintf_s(message, "GET IRON!!!\n");
+				OutputDebugStringA(message);
+				m_inventory->m_nIron += 10;
+				m_irons[i] = nullptr;
+			}
+		}
+	}
 	if (m_iron != nullptr) {
 		m_iron->Update(m_player);
 	}
@@ -188,6 +224,10 @@ void GameScene::Draw() {
 	renderer->EndRendering();
 	*/
 	bg->Draw();
+	for (int i = 0; i < MAXIRON; i++) {
+		if(m_irons[i]!=nullptr)
+			m_irons[i]->Draw();
+	}
 	m_player->Draw();
 	m_model->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
 	if (m_rocket != nullptr) {
@@ -437,4 +477,3 @@ void GameScene::DrilRange() {
 	}
 	m_drilmodel->UpdateWorldMatrix(forward, CQuaternion::Identity(), CVector3::One());
 }
-

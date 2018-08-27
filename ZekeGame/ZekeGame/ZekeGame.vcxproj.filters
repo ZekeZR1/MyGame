@@ -185,14 +185,14 @@
     <ClCompile Include="Item\ItemManager.cpp">
       <Filter>ソース ファイル\Game\Item</Filter>
     </ClCompile>
-    <ClCompile Include="Inventory.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Item\ExplorationRocket.cpp">
       <Filter>ソース ファイル\Game\Item</Filter>
     </ClCompile>
     <ClCompile Include="Item\Item.cpp">
       <Filter>ソース ファイル\Game\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>ソース ファイル\Game\Materials</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -328,11 +328,11 @@
     <ClInclude Include="Item\Item.h">
       <Filter>ソース ファイル\Game\Item</Filter>
     </ClInclude>
-    <ClInclude Include="Inventory.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Item\ExplorationRocket.h">
       <Filter>ソース ファイル\Game\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>ソース ファイル\Game\Materials</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -385,6 +385,12 @@
       <Filter>リソース ファイル</Filter>
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\ExRocket.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ExRocketClose.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ExRocketLaunch.png">
       <Filter>リソース ファイル</Filter>
     </ImageContentTask>
   </ItemGroup>
@@ -610,13 +616,5 @@
     <CustomBuild Include="Assets\texture\wind02.png">
       <Filter>リソース ファイル</Filter>
     </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Assets\Sprite\ExRocketLaunch.png">
-      <Filter>ソース ファイル\Assets\sprite</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\ExRocketClose.png">
-      <Filter>ソース ファイル\Assets\sprite</Filter>
-    </Image>
   </ItemGroup>
 </Project>

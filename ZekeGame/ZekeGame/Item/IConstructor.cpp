@@ -112,7 +112,6 @@ void IConstructor::Crafting(Inventory* m_inventory) {
 		switch (ItemNumber) {
 		case 0:
 			mS_ItemPre->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
-			m_inventory->m_nIron = 9;
 			break;
 		case 1:
 			mS_ItemPre->Init(L"sprite/ExRocket.dds", 500.0f, 500.0f);

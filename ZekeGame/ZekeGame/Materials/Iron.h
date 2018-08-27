@@ -8,6 +8,7 @@ public:
 	~Iron();
 	void Update(Player* m_player);
 	void Draw();
+	void SetPosition(CVector3 pos);
 	bool isNear(CVector3 pos);
 	bool isGet = false;
 private:
