@@ -7,7 +7,8 @@ ExplorationRocket::ExplorationRocket(Player* m_player)
 	m_pos = m_player->GetForward(200.0f);
 	m_basepos = m_pos;
 	m_skinModel = new SkinModel;
-	m_skinModel->Init(L"Assets/modelData/ExplorationRocket.cmo",enFbxUpAxisY);
+	//m_skinModel->Init(L"Assets/modelData/ExplorationRocket.cmo",enFbxUpAxisY);
+	m_skinModel->Init(L"Assets/modelData/ExRocketDL.cmo",enFbxUpAxisY);
 	m_skinModel->UpdateWorldMatrix(m_pos, CQuaternion::Identity(), CVector3::One());
 	m_sprite = new Sprite;
 	m_sprite->Init(L"sprite/RocketMenu.dds", 1280.0f, 720.0f);

@@ -4,7 +4,7 @@
 #include "Player.h"
 //#include "ActionMenu.h"
 #define MAXITEM 100
-#define MAXIRON 10
+#define MAXIRON 15
 
 class ActionMenu;
 class Iron;

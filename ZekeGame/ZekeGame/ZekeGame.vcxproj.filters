@@ -194,6 +194,9 @@
     <ClCompile Include="Inventory.cpp">
       <Filter>ソース ファイル\Game\Materials</Filter>
     </ClCompile>
+    <ClCompile Include="Popup.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window\Window.h">
@@ -334,6 +337,9 @@
     <ClInclude Include="Inventory.h">
       <Filter>ソース ファイル\Game\Materials</Filter>
     </ClInclude>
+    <ClInclude Include="Popup.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\modelData\test.png">
@@ -420,6 +426,9 @@
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\ExplorationRocket.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\ExRocketDL.FBX">
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
   </ItemGroup>
