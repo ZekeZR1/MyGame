@@ -1,4 +1,5 @@
 #pragma once
+#include "physics\PhysicsStaticObject.h"
 #include "Player.h"
 class Item
 {

@@ -31,5 +31,7 @@ private:
 		en_Back
 	};
 	SetMenu setting = en_Material;
+	PhysicsStaticObject* m_physicsStaticObject;
+	CQuaternion qRot;
 };
 

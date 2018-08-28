@@ -10,6 +10,11 @@ ExplorationRocket::ExplorationRocket(Player* m_player)
 	//m_skinModel->Init(L"Assets/modelData/ExplorationRocket.cmo",enFbxUpAxisY);
 	m_skinModel->Init(L"Assets/modelData/ExRocketDL.cmo",enFbxUpAxisY);
 	m_skinModel->UpdateWorldMatrix(m_pos, CQuaternion::Identity(), CVector3::One());
+
+	m_physicsStaticObject = new PhysicsStaticObject;
+	qRot.SetRotationDeg(CVector3::AxisX(), 90.0f);
+	m_physicsStaticObject->CreateMeshObject(*m_skinModel, m_pos, qRot);
+
 	m_sprite = new Sprite;
 	m_sprite->Init(L"sprite/RocketMenu.dds", 1280.0f, 720.0f);
 	m_sprite->Update(CVector3::Zero(), CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
@@ -18,6 +23,7 @@ ExplorationRocket::ExplorationRocket(Player* m_player)
 ExplorationRocket::~ExplorationRocket(){
 	delete m_skinModel;
 	delete m_sprite;
+	delete m_physicsStaticObject;
 }
 
 void ExplorationRocket::Update() {
@@ -34,6 +40,8 @@ void ExplorationRocket::Update() {
 		m_pos.y -= 10.0f;
 		if (mi_nowSearchingTime == 0) {
 			setting = en_Material;
+			m_physicsStaticObject = new PhysicsStaticObject;
+			m_physicsStaticObject->CreateMeshObject(*m_skinModel, m_pos, qRot);
 		}
 		break;
 	}
@@ -124,6 +132,7 @@ void ExplorationRocket::Exit() {
 void ExplorationRocket::Launch() {
 	m_sprite->Init(L"sprite/ExRocketLaunch.dds", 1280.0f, 720.0f);
 	if (g_pad[0].IsTrigger(enButtonB)) {
+		delete m_physicsStaticObject;
 		setting = en_Searching;
 		isOpenMenu = false;
 		mp_player->CloseMenu();
