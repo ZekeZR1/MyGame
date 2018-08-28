@@ -2,7 +2,6 @@
 #include "IConstructor.h"
 #include "Item.h"
 #include "Inventory.h"
-
 IConstructor::IConstructor(Player* player)
 {
 	mp_player = player;
@@ -18,6 +17,14 @@ IConstructor::IConstructor(Player* player)
 	mS_ItemPre = new Sprite;
 	mS_ItemPre->Init(L"sprite/ExRocket.dds", 500.0f, 500.0f);
 	mS_ItemPre->Update(m_ItemPrePos, CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
+
+	m_pos = mp_player->GetForward(100.0f);
+	SetPosition(m_pos);
+	//LengthSQ
+	m_physicsStaticObject = new PhysicsStaticObject;
+	CQuaternion rot;
+	rot.SetRotationDeg(CVector3::AxisX(), 90.0f);
+	m_physicsStaticObject->CreateMeshObject(*m_skinModel, m_pos, rot);
 }
 
 
@@ -26,6 +33,7 @@ IConstructor::~IConstructor()
 	delete m_skinModel;
 	delete mS_ItemMenu;
 	delete mS_ItemPre;
+	delete m_physicsStaticObject;
 }
 
 void IConstructor::Update(Inventory* m_inventory){

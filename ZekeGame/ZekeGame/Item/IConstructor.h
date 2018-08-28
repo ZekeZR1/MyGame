@@ -1,4 +1,6 @@
 #pragma once
+#include "physics\PhysicsStaticObject.h"
+
 class Inventory;
 class Player;
 
@@ -28,5 +30,6 @@ private:
 	CVector3 m_ItemPrePos = CVector3::Zero();
 	int ItemNumber = 0;
 	Player* mp_player = nullptr;
+	PhysicsStaticObject* m_physicsStaticObject;
 };
 

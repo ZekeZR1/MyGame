@@ -192,8 +192,6 @@ void GameScene::Craft() {
 		if (g_pad[0].IsTrigger(enButtonB)) {
 			if (m_pConstructor == nullptr) {
 				m_pConstructor = new IConstructor(m_player);
-				CVector3 ConstructorPos = m_player->GetForward(100.0f);
-				m_pConstructor->SetPosition(ConstructorPos);
 				m_player->m_enPState = m_player->PSTATE_WALK;
 				m_ActMenu->m_enAction = m_ActMenu->ASTATE_INVENTORY;
 				char message[256];
