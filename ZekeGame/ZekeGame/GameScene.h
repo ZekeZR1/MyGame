@@ -2,12 +2,11 @@
 #include "IScene.h"
 #include "BackGround.h"
 #include "Player.h"
-//#include "ActionMenu.h"
 #define MAXITEM 100
-#define MAXIRON 15
 
 class ActionMenu;
 class Iron;
+class ArrangeIron;
 class Inventory;
 class ExplorationRocket;
 
@@ -35,11 +34,11 @@ private:
 	Effekseer::Effect* effect;
 	Effekseer::Handle handle;
 	*/
-	Iron* m_irons[MAXIRON];
+	void ItemOrder();
+	ArrangeIron* m_irons;
 	ExplorationRocket* m_rocket = nullptr;
 	CVector3 forward = CVector3::Zero();
 	Inventory* m_inventory;
-	Iron* m_iron;
 	SkinModel * m_model;
 	CVector3 m_spritePos = CVector3::Zero();
 	float spweight = 100.0f, sphight = 100.0f;

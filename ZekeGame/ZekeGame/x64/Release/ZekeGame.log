@@ -17,26 +17,24 @@
   Assets\Sprite\ExRocket.png
   Assets\Sprite\ExRocketClose.png
   Assets\Sprite\ExRocketLaunch.png
+  Assets\modelData\ceiling022.jpg
+  Assets\modelData\alien010.jpg
+  Assets\modelData\control004.jpg
   Assets\modelData\BackWorld.FBX
+  Assets\modelData\Constructor.FBX
   Assets\modelData\DrilPos.FBX
   Assets\modelData\ExplorationRocket.FBX
+  Assets\modelData\ExRocketDL.FBX
   Assets\modelData\FlatRange.FBX
   Assets\modelData\IronOre.FBX
   Assets\modelData\ItemBox.FBX
   Assets\modelData\Space.FBX
   Assets\modelData\testbox.FBX
   Assets\modelData\unityChan.fbx
-  GameScene.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\gamescene.cpp(57): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\gamescene.cpp(58): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\gamescene.cpp(59): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\gamescene.cpp(429): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\gamescene.cpp(431): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\gamescene.cpp(433): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\gamescene.cpp(436): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+  IConstructor.cpp
   コード生成しています。
-  1 of 1900 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+  4 of 1907 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
   ZekeGame.vcxproj -> C:\Users\Taiki.W\git\MyGame\ZekeGame\x64\Release\ZekeGame.exe

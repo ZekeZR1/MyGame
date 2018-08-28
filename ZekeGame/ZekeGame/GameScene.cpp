@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "GameScene.h"
 #include "BackGround.h"
-#include "level\Level.h"
 #include "Player.h"
 #include "ActionMenu.h"
 #include "Item/Item.h"
@@ -9,6 +8,7 @@
 #include "Materials\Iron.h"
 #include "Inventory.h"
 #include "Item/ExplorationRocket.h"
+#include "ArrangeIron.h"
 
 GameScene* g_game = nullptr;
 IConstructor* m_pConstructor;
@@ -26,10 +26,8 @@ GameScene::GameScene()
 	manager->SetTextureLoader(renderer->CreateTextureLoader());
 	manager->SetCoordinateSystem(Effekseer::CoordinateSystem::RH);
 	*/
-
 	g_game = this;
 	m_inventory = new Inventory;
-	m_iron = new Iron;
 	m_ActMenu = new ActionMenu;
 	bg = new BackGround;
 	m_player = new Player;
@@ -51,29 +49,19 @@ GameScene::GameScene()
 	mS_SettingItem = new Sprite;
 	mS_SettingItem->Init(L"sprite/None_Sprite.dds",500.0f, 500.0f);
 	mS_SettingItem->Update(mv_ActSpos, CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
-	//Material
-	for (int i = 0; i < MAXIRON; i++) {
-		m_irons[i] = new Iron;
-		float x = rand() % 1000;
-		float y = rand() % 100;
-		float z = rand() % 1000;
-		CVector3 pos;
-		pos.x = x;
-		pos.y = y;
-		pos.z = z;
-		m_irons[i]->SetPosition(pos);
-		m_irons[i]->Update(m_player);
-	}
-	//
-	//smodel = new SkinModel;
-	//smodel->Init(L"Assets/modelData/testbox.cmo");
-	//aniclip[0].Load(L"Assets/modelData/testbox.tka");
-	//aniclip[0].SetLoopFlag(true);
-	//modelanimation.Init(
-//		*smodel,
-		//aniclip,
-		//1
-	//);
+	//Materials
+	m_irons = new ArrangeIron(m_player, m_inventory);
+	/*
+	smodel = new SkinModel;
+	smodel->Init(L"Assets/modelData/testbox.cmo");
+	aniclip[0].Load(L"Assets/modelData/testbox.tka");
+	aniclip[0].SetLoopFlag(true);
+	modelanimation.Init(
+		*smodel,
+		aniclip,
+		1
+	);
+	*/
 }
 
 GameScene::~GameScene()
@@ -88,7 +76,7 @@ GameScene::~GameScene()
 	*/
 	g_game = nullptr;
 	delete m_inventory;
-	delete m_iron;
+	delete m_irons;
 	delete m_player;
 	delete bg;
 	delete m_model;
@@ -104,11 +92,6 @@ GameScene::~GameScene()
 			delete m_items[i];
 		}
 	}
-	for (int i = 0; i < MAXIRON; i++) {
-		//if (m_irons[i] != nullptr) {
-			delete m_irons[i];
-//		}
-	}
 }
 
 void GameScene::Update() {
@@ -122,98 +105,22 @@ void GameScene::Update() {
 	manager->AddLocation(handle, ::Effekseer::Vector3D);
 	manager->Update();
 	*/
-	for (int i = 0; i < MAXIRON; i++) {
-		if (m_irons[i] != nullptr) {
-			m_irons[i]->Update(m_player);
-		}
-	}
-	if (m_pConstructor != nullptr) {
-		if (m_pConstructor->isOrderRocket) {
-			m_ordered = en_ROCKET;
-			m_settingOrderedItem = true;
-			//m_pConstructor->isOpenMenu = false;
-			//m_player->isOpenMenuNow = false;
-		}
-	}
-	if (m_settingOrderedItem) {
-		switch (m_ordered) {
-		case en_ROCKET:
-			mS_SettingItem->Init(L"sprite/ExRocket.dds", 500.0f, 500.0f);
-			if (g_pad[0].IsTrigger(enButtonB)) {
-				m_settingOrderedItem = false;
-				m_isOrderedItemSet = true;
-			}
-			break;
-		}
-	}
-	else {
-		mS_SettingItem->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
-	}
-	if (m_isOrderedItemSet) {
-		CVector3 rocketpos = m_player->GetPosition();
-		if (m_nItem < MAXITEM) {
-			m_items[m_nItem] = reinterpret_cast<Item*>(new ExplorationRocket(m_player));
-			m_pConstructor->isOrderRocket = false;
-			m_inventory->UseMaterial(en_ROCKET);
-			m_nItem++;
-		}
-		m_isOrderedItemSet = false;
-	}
+	ItemOrder();
 	Craft();
 	Ground();
 	CastFont();
 	Menu();
 	m_player->Update();
-//Debug Draw
-	m_player->CanOpenMenu(); 
-	/*
-	if (m_player->isOpenMenuNow) {
-		char message[256];
-		sprintf_s(message, "TRUEEEEEEE\n");
-		OutputDebugStringA(message);
-	}
-	else {
-		char message[256];
-		sprintf_s(message, "FALSEEEE\n");
-		OutputDebugStringA(message);
-	}
-	*/
-//
+	camera->Update(m_player);
+	m_irons->Update();
+
 	for (int i = 0; i < m_nItem; i++) {
 		if (m_items[i] != nullptr) {
 			m_items[i]->Update();
 		}
 	}
-
-	CVector3 camerapos = camera3d->GetPosition();
-	CVector3 playerpos = m_player->GetPosition();
-	if (camerapos.y <= playerpos.y) {
-		camerapos.y = (playerpos.y + 1.0f);
-		camera3d->SetPosition(camerapos);
-	}
-	camera->Update(m_player);
 	if (m_pConstructor != nullptr) {
 		m_pConstructor->Update(m_inventory);
-	}
-
-	if (m_iron != nullptr && m_iron->isGet){
-		m_inventory->m_nIron+=10;
-		m_iron = nullptr;
-	}
-
-	for (int i = 0; i < MAXIRON; i++) {
-		if (m_irons[i] != nullptr){
-			if (m_irons[i]->isGet) {
-				char message[256];
-				sprintf_s(message, "GET IRON!!!\n");
-				OutputDebugStringA(message);
-				m_inventory->m_nIron += 10;
-				m_irons[i] = nullptr;
-			}
-		}
-	}
-	if (m_iron != nullptr) {
-		m_iron->Update(m_player);
 	}
 }
 
@@ -224,21 +131,9 @@ void GameScene::Draw() {
 	renderer->EndRendering();
 	*/
 	bg->Draw();
-	for (int i = 0; i < MAXIRON; i++) {
-		if(m_irons[i]!=nullptr)
-			m_irons[i]->Draw();
-	}
 	m_player->Draw();
 	m_model->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
-	if (m_rocket != nullptr) {
-		//m_rocket->Draw();
-		//m_items[0]->Draw();
-	}
-	/*
-	if (m_items[0] != nullptr) {
-		m_items[0]->Draw();
-	}
-	*/
+	m_irons->Draw();
 	for (int i = 0; i < m_nItem; i++) {
 		if (m_items[i] != nullptr) {
 			m_items[i]->Draw();
@@ -251,9 +146,6 @@ void GameScene::Draw() {
 	}
 	if (m_pConstructor != nullptr)
 		m_pConstructor->Draw();
-	if (m_iron != nullptr) {
-		m_iron->Draw();
-	}
 	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_MAKEGROUND) {
 		m_drilmodel->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
 	}
@@ -292,12 +184,10 @@ void GameScene::DrawFont() {
 
 void GameScene::Craft() {
 	if (m_pConstructor != nullptr) {
-		m_pConstructor->PutAway(m_player);
 		if (m_pConstructor->isGoAway) {
 			m_pConstructor = nullptr;
 		}
 	}
-	//test
 	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_CRAFT) {
 		if (g_pad[0].IsTrigger(enButtonB)) {
 			if (m_pConstructor == nullptr) {
@@ -309,7 +199,6 @@ void GameScene::Craft() {
 				char message[256];
 				sprintf_s(message, "CLOSE Act\n");
 				OutputDebugStringA(message);
-				//m_player->isOpenMenuNow = false;
 				if(isOpenAct){
 					isOpenAct = false;
 					m_player->CloseMenu();
@@ -317,40 +206,6 @@ void GameScene::Craft() {
 			}
 		}
 	}
-	/*
-	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_CRAFT) {
-		if (g_pad[0].IsTrigger(enButtonB)) {
-			//選んだアイテムを指定した座標に置く
-			if (m_player->m_enPState != m_player->PSTATE_SETTING) {
-				if (m_pConstructor == nullptr) {
-					m_pConstructor = new IConstructor(m_player);
-					CVector3 forward = camera3d->GetForward();
-					forward.y = 0;
-					forward.Normalize();
-					forward *= 100.0f;
-					forward += m_player->GetPosition();
-					m_pConstructor->SetPosition(forward);
-					isOpenAct = false;
-					m_player->m_enPState = m_player->PSTATE_WALK;
-					m_ActMenu->m_enAction = m_ActMenu->ASTATE_INVENTORY;
-					char message[256];
-					sprintf_s(message, "CLOSE Act\n");
-					OutputDebugStringA(message);
-					m_player->isOpenMenuNow = false;
-				}
-			}
-		}
-	}
-	
-	if (m_player->m_enPState == m_player->PSTATE_SETTING) {
-		CVector3 forward = camera3d->GetForward();
-		forward.y = 0;
-		forward.Normalize();
-		forward *= 100.0f;
-		forward += m_player->GetPosition();
-		m_pConstructor->SetPosition(forward);
-	}
-	*/
 }
 
 void GameScene::Ground() {
@@ -423,6 +278,7 @@ void GameScene::Menu() {
 		m_ActMenu->m_mode = 1;
 	}
 }
+
 void GameScene::CastFont() {
 	//プレイヤー座標
 	CVector3 Ppos = m_player->GetPosition();
@@ -476,4 +332,37 @@ void GameScene::DrilRange() {
 		}
 	}
 	m_drilmodel->UpdateWorldMatrix(forward, CQuaternion::Identity(), CVector3::One());
+}
+
+void GameScene::ItemOrder() {
+	if (m_pConstructor != nullptr) {
+		if (m_pConstructor->isOrderRocket) {
+			m_ordered = en_ROCKET;
+			m_settingOrderedItem = true;
+		}
+	}
+	if (m_settingOrderedItem) {
+		switch (m_ordered) {
+		case en_ROCKET:
+			mS_SettingItem->Init(L"sprite/ExRocket.dds", 500.0f, 500.0f);
+			if (g_pad[0].IsTrigger(enButtonB)) {
+				m_settingOrderedItem = false;
+				m_isOrderedItemSet = true;
+			}
+			break;
+		}
+	}
+	else {
+		mS_SettingItem->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
+	}
+	if (m_isOrderedItemSet) {
+		CVector3 rocketpos = m_player->GetPosition();
+		if (m_nItem < MAXITEM) {
+			m_items[m_nItem] = reinterpret_cast<Item*>(new ExplorationRocket(m_player));
+			m_pConstructor->isOrderRocket = false;
+			m_inventory->UseMaterial(en_ROCKET);
+			m_nItem++;
+		}
+		m_isOrderedItemSet = false;
+	}
 }

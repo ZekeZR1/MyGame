@@ -15,6 +15,7 @@ Player::~Player()
 }
 
 void Player::Update() {
+	CanOpenMenu();
 	Move();
 	Turn();
 	ChangeState();

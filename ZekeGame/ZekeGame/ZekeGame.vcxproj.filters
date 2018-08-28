@@ -197,6 +197,9 @@
     <ClCompile Include="Popup.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="ArrangeIron.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window\Window.h">
@@ -340,6 +343,9 @@
     <ClInclude Include="Popup.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="ArrangeIron.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\modelData\test.png">
@@ -399,6 +405,15 @@
     <ImageContentTask Include="Assets\Sprite\ExRocketLaunch.png">
       <Filter>リソース ファイル</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\ceiling022.jpg">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\alien010.jpg">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\control004.jpg">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\testbox.FBX">
@@ -429,6 +444,9 @@
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\ExRocketDL.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Constructor.FBX">
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
   </ItemGroup>
