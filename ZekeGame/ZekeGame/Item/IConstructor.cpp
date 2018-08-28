@@ -7,7 +7,7 @@ IConstructor::IConstructor(Player* player)
 {
 	mp_player = player;
 	m_skinModel = new SkinModel;
-	m_skinModel->Init(L"Assets/modelData/ItemBox.cmo");
+	m_skinModel->Init(L"Assets/modelData/Constructor.cmo", enFbxUpAxisY);
 	m_pos.y += 100.0f;
 	m_skinModel->UpdateWorldMatrix(m_pos, CQuaternion::Identity(), CVector3::One());
 
@@ -47,7 +47,6 @@ void IConstructor::Menu() {
 		CloseMenu();
 	}
 }
-
 
 void IConstructor::SetPosition(CVector3 pos) {
 	m_pos = pos;
@@ -97,7 +96,7 @@ void IConstructor::Crafting(Inventory* m_inventory) {
 }
 
 void IConstructor::OpenMenu() {
-	if (!(mp_player->isNear(m_pos, 100.0f)))
+	if (!(mp_player->isNear(m_pos, 500.0f)))
 		return;
 	if (isOpenMenu)
 		return;

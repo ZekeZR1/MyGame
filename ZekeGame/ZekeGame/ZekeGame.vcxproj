@@ -151,6 +151,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ActionMenu.cpp" />
+    <ClCompile Include="ArrangeIron.cpp" />
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="character\CharacterController.cpp" />
     <ClCompile Include="GameCamera.cpp" />
@@ -197,6 +198,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionMenu.h" />
+    <ClInclude Include="ArrangeIron.h" />
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="character\CharacterController.h" />
     <ClInclude Include="GameCamera.h" />
@@ -246,6 +248,7 @@
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\BackWorld.FBX" />
+    <MeshContentTask Include="Assets\modelData\Constructor.FBX" />
     <MeshContentTask Include="Assets\modelData\DrilPos.FBX" />
     <MeshContentTask Include="Assets\modelData\ExplorationRocket.FBX" />
     <MeshContentTask Include="Assets\modelData\ExRocketDL.FBX" />
@@ -376,6 +379,15 @@
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\ExRocketClose.png" />
     <ImageContentTask Include="Assets\Sprite\ExRocketLaunch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\modelData\ceiling022.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\modelData\alien010.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\modelData\control004.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
