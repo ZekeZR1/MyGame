@@ -10,15 +10,16 @@ public:
 	void Update(Inventory* m_inventory) ;
 	void Draw() ;
 	void DrawSprite();
-	void Menu();
-	void Crafting(Inventory* m_inventory);
 	void SetPosition(CVector3 pos) ;
-	void PutAway(Player* m_player) ;
 	bool isGoAway = false;
 	bool isOpenMenu = false;
 	bool isOrderRocket = false;
-	void CloseMenu();
 private:
+	void Menu();
+	void OpenMenu();
+	void CloseMenu();
+	void PutAway();
+	void Crafting(Inventory* m_inventory);
 	SkinModel * m_skinModel;
 	CVector3 m_pos = CVector3::Zero();
 	Sprite* mS_ItemMenu;

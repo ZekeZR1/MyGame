@@ -292,7 +292,6 @@ void GameScene::DrawFont() {
 
 void GameScene::Craft() {
 	if (m_pConstructor != nullptr) {
-		m_pConstructor->PutAway(m_player);
 		if (m_pConstructor->isGoAway) {
 			m_pConstructor = nullptr;
 		}
@@ -317,40 +316,6 @@ void GameScene::Craft() {
 			}
 		}
 	}
-	/*
-	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_CRAFT) {
-		if (g_pad[0].IsTrigger(enButtonB)) {
-			//選んだアイテムを指定した座標に置く
-			if (m_player->m_enPState != m_player->PSTATE_SETTING) {
-				if (m_pConstructor == nullptr) {
-					m_pConstructor = new IConstructor(m_player);
-					CVector3 forward = camera3d->GetForward();
-					forward.y = 0;
-					forward.Normalize();
-					forward *= 100.0f;
-					forward += m_player->GetPosition();
-					m_pConstructor->SetPosition(forward);
-					isOpenAct = false;
-					m_player->m_enPState = m_player->PSTATE_WALK;
-					m_ActMenu->m_enAction = m_ActMenu->ASTATE_INVENTORY;
-					char message[256];
-					sprintf_s(message, "CLOSE Act\n");
-					OutputDebugStringA(message);
-					m_player->isOpenMenuNow = false;
-				}
-			}
-		}
-	}
-	
-	if (m_player->m_enPState == m_player->PSTATE_SETTING) {
-		CVector3 forward = camera3d->GetForward();
-		forward.y = 0;
-		forward.Normalize();
-		forward *= 100.0f;
-		forward += m_player->GetPosition();
-		m_pConstructor->SetPosition(forward);
-	}
-	*/
 }
 
 void GameScene::Ground() {
