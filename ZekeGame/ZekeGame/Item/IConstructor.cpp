@@ -91,7 +91,7 @@ void IConstructor::Crafting(Inventory* m_inventory) {
 	case 1:
 		mS_ItemPre->Init(L"sprite/ExRocket.dds", 500.0f, 500.0f);
 		if (g_pad[0].IsTrigger(enButtonB)) {
-			if (m_inventory->m_nIron >= 10) {
+			if (m_inventory->m_nIron >= 5) {
 				isOrderRocket = true;
 				CloseMenu();
 			}

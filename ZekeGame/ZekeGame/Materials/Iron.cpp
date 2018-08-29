@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Iron.h"
+#include "Inventory.h"
 #include "Player.h"
 
 Iron::Iron() {
@@ -11,16 +12,22 @@ Iron::~Iron() {
 	delete m_skinModel;
 }
 
-void Iron::Update(Player* m_player) {
+void Iron::Update(Player* m_player, Inventory* inventory) {
+	if (isGet)
+		return;
 	if (isNear(m_player->GetPosition())) {
-		if (!isGet) {
-			isGet = true;
-		}
+		char message[256];
+		sprintf_s(message, "GET IRON!!!\n");
+		OutputDebugStringA(message);
+		inventory->m_nIron += 1;
+		isGet = true;
 	}
 	m_skinModel->UpdateWorldMatrix(m_pos, CQuaternion::Identity(), CVector3::One());
 }
 
 void Iron::Draw() {
+	if (isGet)
+		return;
 	m_skinModel->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
 }
 

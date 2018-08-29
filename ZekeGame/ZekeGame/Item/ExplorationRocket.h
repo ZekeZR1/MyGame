@@ -12,6 +12,7 @@ private:
 	void RocketControl();
 	void SetMaterial();
 	void Menu();
+	void OpenMenu();
 	void CloseMenu();
 	void Exit();
 	void Launch();

@@ -56,23 +56,7 @@ void ExplorationRocket::Menu() {
 		Exit();
 	}
 	if (g_pad[0].IsTrigger(enButtonB)) {
-		if (mp_player->isNear(m_pos, 200.0f)) {
-			if (isOpenMenu) {
-				//isOpenMenu = false;
-				//メニューを閉じるときはExit()使っテー
-			}
-			else {
-				if (!mp_player->isOpenMenuNow) {
-					if (mp_player->CanOpenMenu()) {
-						char message[256];
-						sprintf_s(message, "OPEN ROCKET\n");
-						OutputDebugStringA(message);
-						isOpenMenu = true;
-						mp_player->OpenMenu();
-					}
-				}
-			}
-		}
+		OpenMenu();
 	}
 	if (!(mp_player->isNear(m_pos, 300.0f))) {
 		Exit();
@@ -147,6 +131,22 @@ void ExplorationRocket::Launch() {
 	sprintf_s(message, "Close and en_MATERIALLLLLLLL\n");
 	OutputDebugStringA(message);
 */
+
+void ExplorationRocket::OpenMenu() {
+	if (setting != en_Material)
+		return;
+	if (mp_player->isNear(m_pos, 200.0f)) {
+		if (!isOpenMenu) {
+			if (mp_player->CanOpenMenu()) {
+				char message[256];
+				sprintf_s(message, "OPEN ROCKET\n");
+				OutputDebugStringA(message);
+				isOpenMenu = true;
+				mp_player->OpenMenu();
+			}
+		}
+	}
+}
 
 void ExplorationRocket::CloseMenu() {
 	m_sprite->Init(L"sprite/ExRocketClose.dds", 1280.0f, 720.0f);

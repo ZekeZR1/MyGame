@@ -49,6 +49,10 @@ GameScene::GameScene()
 	mS_SettingItem = new Sprite;
 	mS_SettingItem->Init(L"sprite/None_Sprite.dds",500.0f, 500.0f);
 	mS_SettingItem->Update(mv_ActSpos, CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
+	//Items
+	for (int i = 0; i < MAXITEM; i++) {
+		m_items[i] = nullptr;
+	}
 	//Materials
 	for (int i = 0; i < IRONS; i++) {
 		m_irons[i] = new ArrangeIron(m_player, m_inventory);
@@ -147,17 +151,18 @@ void GameScene::Draw() {
 			m_items[i]->Draw();
 		}
 	}
-	for (int i = 0; i < m_nItem; i++) {
-		if (m_items[i] != nullptr) {
-			m_items[i]->DrawSprite();
-		}
-	}
+	
 	if (m_pConstructor != nullptr)
 		m_pConstructor->Draw();
 	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_MAKEGROUND) {
 		m_drilmodel->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
 	}
 	//Žè‘O‚É•`‰æ‚µ‚½‚¢•¨
+	for (int i = 0; i < m_nItem; i++) {
+		if (m_items[i] != nullptr) {
+			m_items[i]->DrawSprite();
+		}
+	}
 	mS_ActState->Draw();
 	mS_SettingItem->Draw();
 	if (isOpenAct) {
