@@ -11,6 +11,7 @@ public:
 	void Draw();
 private:
 	Iron* m_irons[MAXIRON];
+	CVector3 m_IronsPos = CVector3::Zero();
 	Player* mp_player;
 	Inventory* mp_inventory;
 };

@@ -50,7 +50,9 @@ GameScene::GameScene()
 	mS_SettingItem->Init(L"sprite/None_Sprite.dds",500.0f, 500.0f);
 	mS_SettingItem->Update(mv_ActSpos, CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
 	//Materials
-	m_irons = new ArrangeIron(m_player, m_inventory);
+	for (int i = 0; i < IRONS; i++) {
+		m_irons[i] = new ArrangeIron(m_player, m_inventory);
+	}
 	/*
 	smodel = new SkinModel;
 	smodel->Init(L"Assets/modelData/testbox.cmo");
@@ -76,7 +78,9 @@ GameScene::~GameScene()
 	*/
 	g_game = nullptr;
 	delete m_inventory;
-	delete m_irons;
+	for (int i = 0; i < IRONS; i++) {
+		delete m_irons[i];
+	}
 	delete m_player;
 	delete bg;
 	delete m_model;
@@ -112,7 +116,9 @@ void GameScene::Update() {
 	Menu();
 	m_player->Update();
 	camera->Update(m_player);
-	m_irons->Update();
+	for (int i = 0; i < IRONS; i++) {
+		m_irons[i]->Update();
+	}
 
 	for (int i = 0; i < m_nItem; i++) {
 		if (m_items[i] != nullptr) {
@@ -133,7 +139,9 @@ void GameScene::Draw() {
 	bg->Draw();
 	m_player->Draw();
 	m_model->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
-	m_irons->Draw();
+	for (int i = 0; i < IRONS; i++) {
+		m_irons[i]->Draw();
+	}
 	for (int i = 0; i < m_nItem; i++) {
 		if (m_items[i] != nullptr) {
 			m_items[i]->Draw();

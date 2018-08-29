@@ -52,7 +52,8 @@ private:
 	SkinModel m_model;
 	CVector3 m_position = CVector3::Zero();
 	CQuaternion m_rotation;
-	float m_moveSpeedParam = 600.0f;
+	//float m_moveSpeedParam = 600.0f;
+	float m_moveSpeedParam = 7000.0f;
 	CVector3 m_moveSpeed = CVector3::Zero();
 	Animation m_animation;
 	AnimationClip m_animationClip[1];

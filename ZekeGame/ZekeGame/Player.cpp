@@ -24,7 +24,8 @@ void Player::Update() {
 void Player::Move() {
 	if (m_enPState == PSTATE_WALK) {
 		if (g_pad[0].IsPress(enButtonRB2)) {
-			m_moveSpeedParam = 1300.0f;
+			//m_moveSpeedParam = 1300.0f;
+			m_moveSpeedParam = 7000.0f;
 		}else
 			m_moveSpeedParam = 750.0f;
 	}
@@ -100,6 +101,8 @@ bool Player::isNear(CVector3 thatpos, float dist) {
 }
 
 bool Player::CanOpenMenu() {
+	if (m_enPState != PSTATE_WALK)
+		return false;
 	if (m_nMenu > 0) {
 		//m_player->isOpenMenuNow = true;
 		char message[256];

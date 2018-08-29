@@ -52,6 +52,9 @@ void ExplorationRocket::Update() {
 
 void ExplorationRocket::Menu() {
 	//Menu Open and Close
+	if (g_pad[0].IsTrigger(enButtonY)) {
+		Exit();
+	}
 	if (g_pad[0].IsTrigger(enButtonB)) {
 		if (mp_player->isNear(m_pos, 200.0f)) {
 			if (isOpenMenu) {

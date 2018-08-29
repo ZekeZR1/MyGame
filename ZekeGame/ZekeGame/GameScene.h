@@ -3,6 +3,7 @@
 #include "BackGround.h"
 #include "Player.h"
 #define MAXITEM 100
+#define IRONS 20
 
 class ActionMenu;
 class Iron;
@@ -35,7 +36,7 @@ private:
 	Effekseer::Handle handle;
 	*/
 	void ItemOrder();
-	ArrangeIron* m_irons;
+	ArrangeIron* m_irons[50];
 	ExplorationRocket* m_rocket = nullptr;
 	CVector3 forward = CVector3::Zero();
 	Inventory* m_inventory;

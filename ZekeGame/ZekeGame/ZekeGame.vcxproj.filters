@@ -198,7 +198,7 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="ArrangeIron.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Game\Materials</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -344,7 +344,7 @@
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="ArrangeIron.h">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Game\Materials</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
