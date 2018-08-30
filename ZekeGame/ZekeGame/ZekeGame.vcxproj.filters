@@ -414,6 +414,15 @@
     <ImageContentTask Include="Assets\modelData\control004.jpg">
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ActMenuFlatSet.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ActMenuCraft.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ActMenuInventory.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\testbox.FBX">

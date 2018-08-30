@@ -31,17 +31,10 @@
   Assets\modelData\Space.FBX
   Assets\modelData\testbox.FBX
   Assets\modelData\unityChan.fbx
-  ArrangeIron.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\arrangeiron.cpp(12): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\arrangeiron.cpp(13): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\arrangeiron.cpp(19): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\arrangeiron.cpp(20): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\arrangeiron.cpp(22): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-  IConstructor.cpp
-  Iron.cpp
+  Inventory.cpp
   コード生成しています。
-  5 of 1908 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  3 of 1908 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    3 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
   ZekeGame.vcxproj -> C:\Users\Taiki.W\git\MyGame\ZekeGame\x64\Release\ZekeGame.exe

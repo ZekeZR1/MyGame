@@ -44,7 +44,7 @@ GameScene::GameScene()
 	mS_ActState = new Sprite;
 	mS_ActState->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
 	mv_ActSpos.x = 500.0f;
-	mv_ActSpos.y = 300.0f;
+	mv_ActSpos.y = 280.0f;
 	mS_ActState->Update(mv_ActSpos, CQuaternion::Identity(), CVector3::One(), { 0.5,0.5 });
 	mS_SettingItem = new Sprite;
 	mS_SettingItem->Init(L"sprite/None_Sprite.dds",500.0f, 500.0f);
@@ -187,9 +187,10 @@ void GameScene::DrawFont() {
 	if (isOpenAct) {
 		//if (m_player->m_enPState == m_player->PSTATE_MAKEGROUND)
 		if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_MAKEGROUND)
-			pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_flatPosY), DirectX::XMFLOAT2(640.0f, 360.0f), CVector4::Black);
+			//360
+			pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_flatPosY), DirectX::XMFLOAT2(640.0f, 240.0f), CVector4::White);
 		if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_INVENTORY) {
-			pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_Iron), DirectX::XMFLOAT2(640.0f, 360.0f), CVector4::Black);
+			pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_Iron), DirectX::XMFLOAT2(640.0f, 360.0f), CVector4::White);
 		}
 	}
 	pSpriteBatch->End();

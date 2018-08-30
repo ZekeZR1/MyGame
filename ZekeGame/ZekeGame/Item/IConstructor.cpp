@@ -12,7 +12,7 @@ IConstructor::IConstructor(Player* player)
 
 	mS_ItemMenu = new Sprite;
 	mS_ItemMenu->Init(L"sprite/constructor.dds", 1280.0f, 720.0f);
-	mS_ItemMenu->Update(CVector3::Zero(), CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
+	mS_ItemMenu->Update(CVector3::Zero(), CQuaternion::Identity(), { 0.7f,0.7f,0.7f }, { 0.5f,0.5f });
 
 	mS_ItemPre = new Sprite;
 	mS_ItemPre->Init(L"sprite/ExRocket.dds", 500.0f, 500.0f);

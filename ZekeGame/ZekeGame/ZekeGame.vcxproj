@@ -389,6 +389,15 @@
   <ItemGroup>
     <ImageContentTask Include="Assets\modelData\control004.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\ActMenuFlatSet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\ActMenuCraft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\ActMenuInventory.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.targets" />

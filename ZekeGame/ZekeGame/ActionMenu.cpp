@@ -10,10 +10,11 @@ ActionMenu::ActionMenu()
 	//Font
 	m_ActMenu = new Sprite;
 	mS_Item = new Sprite;
-	mS_Item->Init(L"sprite/ItemBoxSprite.dds", 500.0f, 400.0f);
-	mS_Item->Update(CVector3::Zero(), CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
-	m_ActMenu->Init(L"sprite/ActMenu1.dds", 1280.0f, 720.0f);
-	m_ActMenu->Update(m_ActPos, CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
+	mS_Item->Init(L"sprite/ItemBoxSprite.dds", 500.0f, 500.0f);
+	mS_Item->Update(CVector3::Zero(), CQuaternion::Identity(), { 0.5,0.5,0.5 }, { 0.5f,0.5f });
+	m_ActMenu->Init(L"sprite/ActMenuCraft.dds", 1280.0f, 720.0f);
+	m_ActMenu->Update(m_ActPos, CQuaternion::Identity(), { 0.8f,0.8f,0.8f }, { 0.5f,0.5f });
+	//m_ActMenu->Update(m_ActPos, CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
 }
 
 
@@ -26,13 +27,13 @@ ActionMenu::~ActionMenu()
 void ActionMenu::Update(Player* m_player) {
 	switch (m_enAction) {
 	case ASTATE_INVENTORY:
-		m_ActMenu->Init(L"sprite/Inventory.dds", 1280.0f, 720.0f);
+		m_ActMenu->Init(L"sprite/ActMenuInventory.dds", 1280.0f, 720.0f);
 		break;
 	case ASTATE_CRAFT:
-		m_ActMenu->Init(L"sprite/ActMenu1.dds", 1280.0f, 720.0f);
+		m_ActMenu->Init(L"sprite/ActMenuCraft.dds", 1280.0f, 720.0f);
 		break;
 	case ASTATE_MAKEGROUND:
-		m_ActMenu->Init(L"sprite/ActMenu.dds", 1280.0f, 720.0f);
+		m_ActMenu->Init(L"sprite/ActMenuFlatSet.dds", 1280.0f, 720.0f);
 	}
 	player = m_player;
 	if (m_enAction == ASTATE_MAKEGROUND) {

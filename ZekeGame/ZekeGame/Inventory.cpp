@@ -14,7 +14,7 @@ Inventory::~Inventory()
 void Inventory::UseMaterial(int ordered) {
 	switch (ordered) {
 	case en_ROCKET:
-		m_nIron -= 10;
+		m_nIron -= 5;
 		break;
 	}
 }
