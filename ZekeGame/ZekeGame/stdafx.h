@@ -36,6 +36,7 @@
 
 #include "graphics/SkinModel.h"
 #include "graphics/Skelton.h"
+#include "CFONT.h"
 
 #include "graphics/animation/Animation.h"
 #include "graphics/animation/AnimationClip.h"

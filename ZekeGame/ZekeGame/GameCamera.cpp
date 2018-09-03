@@ -32,14 +32,14 @@ void GameCamera::Update(Player* player) {
 	CVector3 toCameraPos = camera3d->GetPosition() - camera3d->GetTarget();
 	camera3d->SetTarget(player->GetPosition());
 	CMatrix mRot = CMatrix::Identity();
-	mRot.MakeRotationY(CMath::DegToRad(3.0f) * g_pad[0].GetRStickXF());
+	mRot.MakeRotationY(CMath::DegToRad(7.0f) * g_pad[0].GetRStickXF());
 	mRot.Mul(toCameraPos);
 	CVector3 rotAxis;
 	CVector3 upAxis(0.0f, 1.0f, 0.0f);
 	rotAxis.Cross(upAxis, toCameraPos);
 	rotAxis.Normalize();
 	mRot = CMatrix::Identity();
-	mRot.MakeRotationAxis(rotAxis, CMath::DegToRad(3.0f) * g_pad[0].GetRStickYF());
+	mRot.MakeRotationAxis(rotAxis, CMath::DegToRad(7.0f) * g_pad[0].GetRStickYF());
 	mRot.Mul(toCameraPos);
 	camera3d->SetPosition(camera3d->GetTarget() + toCameraPos);
 	camera2d->Update();

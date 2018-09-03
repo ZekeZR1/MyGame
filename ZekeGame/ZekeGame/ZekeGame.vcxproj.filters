@@ -200,6 +200,9 @@
     <ClCompile Include="ArrangeIron.cpp">
       <Filter>ソース ファイル\Game\Materials</Filter>
     </ClCompile>
+    <ClCompile Include="CFONT.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window\Window.h">
@@ -345,6 +348,9 @@
     </ClInclude>
     <ClInclude Include="ArrangeIron.h">
       <Filter>ソース ファイル\Game\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="CFONT.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -20,21 +20,6 @@
   Assets\modelData\ceiling022.jpg
   Assets\modelData\alien010.jpg
   Assets\modelData\control004.jpg
-  Assets\modelData\BackWorld.FBX
-  Assets\modelData\Constructor.FBX
-  Assets\modelData\DrilPos.FBX
-  Assets\modelData\ExplorationRocket.FBX
-  Assets\modelData\ExRocketDL.FBX
-  Assets\modelData\FlatRange.FBX
-  Assets\modelData\IronOre.FBX
-  Assets\modelData\ItemBox.FBX
-  Assets\modelData\Space.FBX
-  Assets\modelData\testbox.FBX
-  Assets\modelData\unityChan.fbx
-  Inventory.cpp
-  コード生成しています。
-  3 of 1908 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  コード生成が終了しました。
-  ZekeGame.vcxproj -> C:\Users\Taiki.W\git\MyGame\ZekeGame\x64\Release\ZekeGame.exe
+  Assets\Sprite\ActMenuFlatSet.png
+  Assets\Sprite\ActMenuCraft.png
+  Assets\Sprite\ActMenuInventory.png

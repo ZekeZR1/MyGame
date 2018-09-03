@@ -153,6 +153,7 @@
     <ClCompile Include="ActionMenu.cpp" />
     <ClCompile Include="ArrangeIron.cpp" />
     <ClCompile Include="BackGround.cpp" />
+    <ClCompile Include="CFONT.cpp" />
     <ClCompile Include="character\CharacterController.cpp" />
     <ClCompile Include="GameCamera.cpp" />
     <ClCompile Include="gameObject\GameObject.cpp" />
@@ -200,6 +201,7 @@
     <ClInclude Include="ActionMenu.h" />
     <ClInclude Include="ArrangeIron.h" />
     <ClInclude Include="BackGround.h" />
+    <ClInclude Include="CFONT.h" />
     <ClInclude Include="character\CharacterController.h" />
     <ClInclude Include="GameCamera.h" />
     <ClInclude Include="gameObject\GameObject.h" />

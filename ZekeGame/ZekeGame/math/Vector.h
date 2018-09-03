@@ -329,6 +329,7 @@ public:
 		float v[4];
 	};
 	static const CVector4 White;
+	static const CVector4 Red;
 	static const CVector4 Black;
 	static const CVector4 Yellow;
 public:

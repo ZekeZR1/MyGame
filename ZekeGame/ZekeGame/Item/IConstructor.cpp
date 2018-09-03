@@ -16,7 +16,8 @@ IConstructor::IConstructor(Player* player)
 
 	mS_ItemPre = new Sprite;
 	mS_ItemPre->Init(L"sprite/ExRocket.dds", 500.0f, 500.0f);
-	mS_ItemPre->Update(m_ItemPrePos, CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
+	m_ItemPrePos.x -= 100.0f;
+	mS_ItemPre->Update(m_ItemPrePos, CQuaternion::Identity(), { 0.5f,0.5f,0.5f }, { 0.5f,0.5f });
 
 	m_pos = mp_player->GetForward(100.0f);
 	SetPosition(m_pos);
@@ -25,6 +26,9 @@ IConstructor::IConstructor(Player* player)
 	CQuaternion rot;
 	rot.SetRotationDeg(CVector3::AxisX(), 90.0f);
 	m_physicsStaticObject->CreateMeshObject(*m_skinModel, m_pos, rot);
+	//Font
+	m_bFontpos = { 730.0f, 400.0f,0.0f };
+	m_aFontpos = { 850.0f, 400.0f,0.0f };
 }
 
 
@@ -86,18 +90,26 @@ void IConstructor::Crafting(Inventory* m_inventory) {
 	}
 	switch (ItemNumber) {
 	case 0:
+		isDrawFont = false;
 		mS_ItemPre->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
 		break;
 	case 1:
+		isDrawFont = true;
 		mS_ItemPre->Init(L"sprite/ExRocket.dds", 500.0f, 500.0f);
-		if (g_pad[0].IsTrigger(enButtonB)) {
-			if (m_inventory->m_nIron >= 5) {
+		_itow_s(m_inventory->m_nIron, mw_bCraft, 10);
+		_itow_s(m_inventory->m_nIron - 5, mw_aCraft, 10);
+		//if(m_inventory->CanCreate(ExRocket)
+		if (m_inventory->m_nIron >= 5) {
+			mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
+			mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos);
+			if (g_pad[0].IsTrigger(enButtonB)) {
 				isOrderRocket = true;
 				CloseMenu();
 			}
-			else {
-				//Material‚ª‘«‚è‚Ê‚¼
-			}
+		}
+		else {
+			mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
+			mf_aMaterial.Init((L"%d", mw_aCraft),m_aFontpos,CVector3::One(), CVector4::Red);
 		}
 		break;
 	}
@@ -138,4 +150,8 @@ void IConstructor::DrawSprite() {
 		return;
 	mS_ItemMenu->Draw();
 	mS_ItemPre->Draw();
+	if (isDrawFont) {
+		mf_bMaterial.Draw();
+		mf_aMaterial.Draw();
+	}
 }
