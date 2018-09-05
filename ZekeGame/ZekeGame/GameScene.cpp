@@ -11,7 +11,6 @@
 #include "ArrangeIron.h"
 
 GameScene* g_game = nullptr;
-IConstructor* m_pConstructor;
 extern GameCamera* camera;
 
 GameScene::GameScene()
@@ -92,9 +91,10 @@ GameScene::~GameScene()
 	delete m_ActMenu;
 	delete pSpriteBatch;
 	delete pSpriteFont;
-	delete m_pConstructor;
 	delete m_drilmodel;
 	delete m_rocket;
+	if (m_pConstructor != nullptr)
+		delete m_pConstructor;
 	for (int i = 0; i < MAXITEM; i++) {
 		if (m_items[i] != nullptr) {
 			delete m_items[i];
@@ -199,6 +199,7 @@ void GameScene::DrawFont() {
 void GameScene::Craft() {
 	if (m_pConstructor != nullptr) {
 		if (m_pConstructor->isGoAway) {
+			delete m_pConstructor;
 			m_pConstructor = nullptr;
 		}
 	}

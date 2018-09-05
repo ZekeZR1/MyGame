@@ -38,5 +38,6 @@ private:
 	wchar_t mw_aCraft[256];
 	CVector3 m_bFontpos = CVector3::Zero();
 	CVector3 m_aFontpos = CVector3::Zero();
+	bool isOpenNow = false;
 };
 

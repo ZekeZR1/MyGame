@@ -8,6 +8,7 @@
 class ActionMenu;
 class Iron;
 class ArrangeIron;
+class IConstructor;
 class Inventory;
 class ExplorationRocket;
 
@@ -36,6 +37,7 @@ private:
 	Effekseer::Handle handle;
 	*/
 	void ItemOrder();
+	IConstructor* m_pConstructor;
 	ArrangeIron* m_irons[50];
 	ExplorationRocket* m_rocket = nullptr;
 	CVector3 forward = CVector3::Zero();

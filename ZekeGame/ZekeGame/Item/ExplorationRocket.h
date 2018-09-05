@@ -21,6 +21,8 @@ private:
 	CVector3 m_basepos = CVector3::Zero();
 	Player* mp_player;
 	Sprite* m_sprite;
+	Sprite m_sArrow;
+	CVector3 m_ArrowPos = CVector3::Zero();
 	bool isOnGround = true;
 	int mi_nowSearchingTime = 0;
 	int mi_SearchTime = 100;

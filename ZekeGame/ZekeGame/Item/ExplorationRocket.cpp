@@ -16,8 +16,10 @@ ExplorationRocket::ExplorationRocket(Player* m_player)
 	m_physicsStaticObject->CreateMeshObject(*m_skinModel, m_pos, qRot);
 
 	m_sprite = new Sprite;
-	m_sprite->Init(L"sprite/RocketMenu.dds", 1280.0f, 720.0f);
-	m_sprite->Update(CVector3::Zero(), CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
+	m_sprite->Init(L"sprite/ExRocketMenu.dds", 1280.0f, 720.0f);
+	m_sprite->Update(CVector3::Zero(), CQuaternion::Identity(), { 0.8f,0.8f,0.8f }, { 0.5f,0.5f });
+
+	m_sArrow.Init(L"sprite/ExRocketMenuArrow.dds", 1280.0f, 720.0f);
 }
 
 ExplorationRocket::~ExplorationRocket(){
@@ -70,34 +72,39 @@ void ExplorationRocket::Draw() {
 void ExplorationRocket::DrawSprite() {
 	if (isOpenMenu) {
 		m_sprite->Draw();
+		m_sArrow.Draw();
 	}
 }
 
 void ExplorationRocket::RocketControl() {
-	if (isOpenMenu) {
-		if (g_pad[0].IsTrigger(enButtonUp)) {
-			setting = en_Launch;
-		}
-		if (g_pad[0].IsTrigger(enButtonDown)) {
-			setting = en_Exit;
-		}
-		switch (setting) {
-		case en_Material:
-			SetMaterial();
-			break;
-		case en_Launch:
-			Launch();
-			break;
-		case en_Searching:
-			break;
-		case en_Exit:
-			CloseMenu();
-			break;
-		}
+	if (!isOpenMenu)
+		return;
+	if (g_pad[0].IsTrigger(enButtonUp)) {
+		setting = en_Material;
+	}
+	if (g_pad[0].IsTrigger(enButtonDown)) {
+		setting = en_Launch;
+		//setting = en_Exit;
+	}
+	m_sArrow.Update(m_ArrowPos, CQuaternion::Identity(), { 0.8f,0.8f,0.8f }, { 0.5f,0.5f });
+
+	switch (setting) {
+	case en_Material:
+		SetMaterial();
+		break;
+	case en_Launch:
+		Launch();
+		break;
+	case en_Searching:
+		break;
+	case en_Exit:
+		CloseMenu();
+		break;
 	}
 }
 
 void ExplorationRocket::SetMaterial() {
+	m_ArrowPos.y = 0.0f;
 	if (g_pad[0].IsTrigger(enButtonRight)) {
 
 	}
@@ -117,7 +124,8 @@ void ExplorationRocket::Exit() {
 }
 
 void ExplorationRocket::Launch() {
-	m_sprite->Init(L"sprite/ExRocketLaunch.dds", 1280.0f, 720.0f);
+	m_ArrowPos.y = -80.0f;
+	//m_sprite->Init(L"sprite/ExRocketMenu.dds", 1280.0f, 720.0f);
 	if (g_pad[0].IsTrigger(enButtonB)) {
 		delete m_physicsStaticObject;
 		setting = en_Searching;
@@ -149,7 +157,7 @@ void ExplorationRocket::OpenMenu() {
 }
 
 void ExplorationRocket::CloseMenu() {
-	m_sprite->Init(L"sprite/ExRocketClose.dds", 1280.0f, 720.0f);
+	//m_sprite->Init(L"sprite/ExRocketClose.dds", 1280.0f, 720.0f);
 	if (g_pad[0].IsTrigger(enButtonB)) {
 		Exit();
 	}

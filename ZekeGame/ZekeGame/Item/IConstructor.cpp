@@ -50,14 +50,16 @@ void IConstructor::Menu() {
 	//プレイヤーの状態がWALK&&近くでBボタンが押されたらアイテムのメニューを開く
 	if (mp_player->m_enPState == mp_player->PSTATE_WALK) {
 		if (g_pad[0].IsTrigger(enButtonB)) {
+			if (!isOpenMenu) {
 				OpenMenu();
+				isOpenNow = true;
+			}
 		}
 	}
-	if (!isOpenMenu)
-		return;
-	if (g_pad[0].IsTrigger(enButtonY)) {
+	if (g_pad[0].IsTrigger(enButtonX)) {
 		CloseMenu();
 	}
+
 }
 
 void IConstructor::SetPosition(CVector3 pos) {
@@ -68,7 +70,7 @@ void IConstructor::SetPosition(CVector3 pos) {
 void IConstructor::PutAway() {
 	if (!isOpenMenu)
 		return;
-	if (g_pad[0].IsTrigger(enButtonA)) {
+	if (g_pad[0].IsTrigger(enButtonY)) {
 		CloseMenu();
 		isGoAway = true;
 	}
@@ -89,11 +91,11 @@ void IConstructor::Crafting(Inventory* m_inventory) {
 			ItemNumber--;
 	}
 	switch (ItemNumber) {
-	case 0:
+	case 1:
 		isDrawFont = false;
 		mS_ItemPre->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
 		break;
-	case 1:
+	case 0:
 		isDrawFont = true;
 		mS_ItemPre->Init(L"sprite/ExRocket.dds", 500.0f, 500.0f);
 		_itow_s(m_inventory->m_nIron, mw_bCraft, 10);
@@ -102,6 +104,10 @@ void IConstructor::Crafting(Inventory* m_inventory) {
 		if (m_inventory->m_nIron >= 5) {
 			mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
 			mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos);
+			if (isOpenNow) {
+				isOpenNow = false;
+				return;
+			}
 			if (g_pad[0].IsTrigger(enButtonB)) {
 				isOrderRocket = true;
 				CloseMenu();
