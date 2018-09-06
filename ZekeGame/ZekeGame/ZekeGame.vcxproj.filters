@@ -435,6 +435,9 @@
     <ImageContentTask Include="Assets\Sprite\ExRocketMenuArrow.png">
       <Filter>ソース ファイル\Assets\sprite</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\NotiGotMaterial.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\testbox.FBX">

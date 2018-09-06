@@ -44,6 +44,7 @@
 #include "GameCamera.h"
 #include "IScene.h"
 #include "Item\Item.h"
+#include "Popup.h"
 
 const float FRAME_BUFFER_W = 1280.0f;				
 const float FRAME_BUFFER_H = 720.0f;				

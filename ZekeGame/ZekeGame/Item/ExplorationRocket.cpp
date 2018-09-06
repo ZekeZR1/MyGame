@@ -1,13 +1,15 @@
 #include "stdafx.h"
+#include "Inventory.h"
 #include "ExplorationRocket.h"
 
-ExplorationRocket::ExplorationRocket(Player* m_player)
+ExplorationRocket::ExplorationRocket(Player* m_player, Inventory* m_inventory)
 {
 	mp_player = m_player;
+	mp_inventory = m_inventory;
+
 	m_pos = m_player->GetForward(200.0f);
 	m_basepos = m_pos;
 	m_skinModel = new SkinModel;
-	//m_skinModel->Init(L"Assets/modelData/ExplorationRocket.cmo",enFbxUpAxisY);
 	m_skinModel->Init(L"Assets/modelData/ExRocketDL.cmo",enFbxUpAxisY);
 	m_skinModel->UpdateWorldMatrix(m_pos, CQuaternion::Identity(), CVector3::One());
 
@@ -20,12 +22,15 @@ ExplorationRocket::ExplorationRocket(Player* m_player)
 	m_sprite->Update(CVector3::Zero(), CQuaternion::Identity(), { 0.8f,0.8f,0.8f }, { 0.5f,0.5f });
 
 	m_sArrow.Init(L"sprite/ExRocketMenuArrow.dds", 1280.0f, 720.0f);
+
+	m_popup = new Popup;
 }
 
 ExplorationRocket::~ExplorationRocket(){
 	delete m_skinModel;
 	delete m_sprite;
 	delete m_physicsStaticObject;
+	delete m_popup;
 }
 
 void ExplorationRocket::Update() {
@@ -41,6 +46,7 @@ void ExplorationRocket::Update() {
 		mi_nowSearchingTime--;
 		m_pos.y -= 10.0f;
 		if (mi_nowSearchingTime == 0) {
+			isGotMaterial = true;
 			setting = en_Material;
 			m_physicsStaticObject = new PhysicsStaticObject;
 			m_physicsStaticObject->CreateMeshObject(*m_skinModel, m_pos, qRot);
@@ -54,15 +60,19 @@ void ExplorationRocket::Update() {
 
 void ExplorationRocket::Menu() {
 	//Menu Open and Close
-	if (g_pad[0].IsTrigger(enButtonY)) {
+	if (g_pad[0].IsTrigger(enButtonX)) {
 		Exit();
 	}
 	if (g_pad[0].IsTrigger(enButtonB)) {
 		OpenMenu();
+		if (isGotMaterial) {
+			AddMaterial();
+		}
 	}
 	if (!(mp_player->isNear(m_pos, 300.0f))) {
 		Exit();
 	}
+	m_popup->Update();
 }
 
 void ExplorationRocket::Draw() {
@@ -74,6 +84,7 @@ void ExplorationRocket::DrawSprite() {
 		m_sprite->Draw();
 		m_sArrow.Draw();
 	}
+	m_popup->Draw();
 }
 
 void ExplorationRocket::RocketControl() {
@@ -160,5 +171,15 @@ void ExplorationRocket::CloseMenu() {
 	//m_sprite->Init(L"sprite/ExRocketClose.dds", 1280.0f, 720.0f);
 	if (g_pad[0].IsTrigger(enButtonB)) {
 		Exit();
+	}
+}
+
+void ExplorationRocket::AddMaterial() {
+	switch (gotMaterial) {
+	case Iron:
+		mp_inventory->m_nIron += 100.0f;
+		m_popup->Notify(en_GotMaterial);
+		isGotMaterial = false;
+		break;
 	}
 }
