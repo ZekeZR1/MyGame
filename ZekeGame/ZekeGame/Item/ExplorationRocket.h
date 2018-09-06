@@ -22,6 +22,7 @@ private:
 	bool isGotMaterial = false;
 	SkinModel* m_skinModel;
 	CVector3 m_pos = CVector3::Zero();
+	CQuaternion m_rot = CQuaternion::Identity();
 	CVector3 m_basepos = CVector3::Zero();
 	Player* mp_player;
 	Inventory* mp_inventory;

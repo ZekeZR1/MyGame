@@ -10,12 +10,12 @@ ExplorationRocket::ExplorationRocket(Player* m_player, Inventory* m_inventory)
 	m_pos = m_player->GetForward(200.0f);
 	m_basepos = m_pos;
 	m_skinModel = new SkinModel;
-	m_skinModel->Init(L"Assets/modelData/ExRocketDL.cmo",enFbxUpAxisY);
-	m_skinModel->UpdateWorldMatrix(m_pos, CQuaternion::Identity(), CVector3::One());
+	m_skinModel->Init(L"Assets/modelData/ExRocketDL.cmo",enFbxUpAxisZ);
+	m_skinModel->UpdateWorldMatrix(m_pos, m_rot, CVector3::One());
 
 	m_physicsStaticObject = new PhysicsStaticObject;
-	qRot.SetRotationDeg(CVector3::AxisX(), 90.0f);
-	m_physicsStaticObject->CreateMeshObject(*m_skinModel, m_pos, qRot);
+	//m_rot.SetRotationDeg(CVector3::AxisX(), 90.0f);
+	m_physicsStaticObject->CreateMeshObject(*m_skinModel, m_pos, m_rot);
 
 	m_sprite = new Sprite;
 	m_sprite->Init(L"sprite/ExRocketMenu.dds", 1280.0f, 720.0f);

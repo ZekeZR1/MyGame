@@ -6,7 +6,7 @@ IConstructor::IConstructor(Player* player)
 {
 	mp_player = player;
 	m_skinModel = new SkinModel;
-	m_skinModel->Init(L"Assets/modelData/Constructor.cmo", enFbxUpAxisY);
+	m_skinModel->Init(L"Assets/modelData/Constructor.cmo", enFbxUpAxisZ);
 	m_pos.y += 100.0f;
 	m_skinModel->UpdateWorldMatrix(m_pos, CQuaternion::Identity(), CVector3::One());
 
@@ -23,9 +23,7 @@ IConstructor::IConstructor(Player* player)
 	SetPosition(m_pos);
 	//LengthSQ
 	m_physicsStaticObject = new PhysicsStaticObject;
-	CQuaternion rot;
-	rot.SetRotationDeg(CVector3::AxisX(), 90.0f);
-	m_physicsStaticObject->CreateMeshObject(*m_skinModel, m_pos, rot);
+	m_physicsStaticObject->CreateMeshObject(*m_skinModel, m_pos, CQuaternion::Identity());
 	//Font
 	m_bFontpos = { 730.0f, 400.0f,0.0f };
 	m_aFontpos = { 850.0f, 400.0f,0.0f };
