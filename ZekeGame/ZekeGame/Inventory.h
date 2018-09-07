@@ -6,6 +6,7 @@ public:
 	~Inventory();
 	void UseMaterial(int ordered);
 	int m_nIron = 100;
+	int m_nSilicon = 100;
 	enum OrderedItem {
 		en_NONE,
 		en_ROCKET,

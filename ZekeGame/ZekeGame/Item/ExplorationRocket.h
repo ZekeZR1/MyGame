@@ -44,6 +44,7 @@ private:
 	SetMenu setting = en_Material;
 	enum Material {
 		en_Iron,
+		en_Silicon
 	};
 	Material gotMaterial = en_Iron;
 

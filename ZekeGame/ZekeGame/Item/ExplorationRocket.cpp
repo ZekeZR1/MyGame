@@ -7,7 +7,6 @@ ExplorationRocket::ExplorationRocket(Player* m_player, Inventory* m_inventory)
 	mp_player = m_player;
 	mp_inventory = m_inventory;
 
-
 	m_pos = m_player->GetForward(200.0f);
 	m_basepos = m_pos;
 	m_skinModel = new SkinModel;
@@ -119,18 +118,21 @@ void ExplorationRocket::RocketControl() {
 }
 
 void ExplorationRocket::SetMaterial() {
+	wchar_t mw_silicon[255] = { L"Silicon" };
+	wchar_t mw_iron[255] = { L"Iron" };
 	m_ArrowPos.y = 0.0f;
 	if (g_pad[0].IsTrigger(enButtonRight)) {
-
+		gotMaterial = en_Silicon;
 	}
 	if (g_pad[0].IsTrigger(enButtonLeft)) {
-
+		gotMaterial = en_Iron;
 	}
 	switch (gotMaterial) {
 	case en_Iron:
-		wchar_t mw_font[] = { L"Iron" };
-		m_font.Init(mw_font, m_fontPos);
+		m_font.Init(mw_iron, m_fontPos);
 		break;
+	case en_Silicon:
+		m_font.Init(mw_silicon, m_fontPos);
 	}
 }
 
@@ -188,6 +190,11 @@ void ExplorationRocket::AddMaterial() {
 	switch (gotMaterial) {
 	case en_Iron:
 		mp_inventory->m_nIron += 100.0f;
+		m_popup->Notify(0);
+		isGotMaterial = false;
+		break;
+	case en_Silicon:
+		mp_inventory->m_nSilicon += 100.0f;
 		m_popup->Notify(0);
 		isGotMaterial = false;
 		break;
