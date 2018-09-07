@@ -203,6 +203,9 @@
     <ClCompile Include="CFONT.cpp">
       <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClCompile>
+    <ClCompile Include="Item\Hover.cpp">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window\Window.h">
@@ -352,6 +355,9 @@
     <ClInclude Include="CFONT.h">
       <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClInclude>
+    <ClInclude Include="Item\Hover.h">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\modelData\test.png">
@@ -471,6 +477,9 @@
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\Constructor.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Hover.FBX">
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
   </ItemGroup>

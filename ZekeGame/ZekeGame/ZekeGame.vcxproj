@@ -175,6 +175,7 @@
     <ClCompile Include="HID\Pad.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item\ExplorationRocket.cpp" />
+    <ClCompile Include="Item\Hover.cpp" />
     <ClCompile Include="Item\IConstructor.cpp" />
     <ClCompile Include="Item\Item.cpp" />
     <ClCompile Include="Item\ItemManager.cpp" />
@@ -225,6 +226,7 @@
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="IScene.h" />
     <ClInclude Include="Item\ExplorationRocket.h" />
+    <ClInclude Include="Item\Hover.h" />
     <ClInclude Include="Item\IConstructor.h" />
     <ClInclude Include="Item\Item.h" />
     <ClInclude Include="Item\ItemManager.h" />
@@ -255,6 +257,7 @@
     <MeshContentTask Include="Assets\modelData\ExplorationRocket.FBX" />
     <MeshContentTask Include="Assets\modelData\ExRocketDL.FBX" />
     <MeshContentTask Include="Assets\modelData\FlatRange.FBX" />
+    <MeshContentTask Include="Assets\modelData\Hover.FBX" />
     <MeshContentTask Include="Assets\modelData\IronOre.FBX" />
     <MeshContentTask Include="Assets\modelData\ItemBox.FBX" />
     <MeshContentTask Include="Assets\modelData\Space.FBX" />
