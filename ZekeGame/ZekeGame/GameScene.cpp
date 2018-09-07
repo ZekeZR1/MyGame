@@ -190,8 +190,10 @@ void GameScene::DrawFont() {
 		if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_MAKEGROUND)
 			//360
 			pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_flatPosY), DirectX::XMFLOAT2(640.0f, 240.0f), CVector4::White);
+		//Inventory
 		if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_INVENTORY) {
 			pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_Iron), DirectX::XMFLOAT2(640.0f, 360.0f), CVector4::White);
+			pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_Silicon), DirectX::XMFLOAT2(640.0f, 425.0f), CVector4::White);
 		}
 	}
 	pSpriteBatch->End();
@@ -306,6 +308,7 @@ void GameScene::CastFont() {
 	mi_flaty = m_ActMenu->m_flatPos.y;
 	_itow_s(mi_flaty, mw_flatPosY, 10);
 	_itow_s(m_inventory->m_nIron, mw_Iron, 10);
+	_itow_s(m_inventory->m_nSilicon, mw_Silicon, 10);
 }
 
 void GameScene::DrilRange() {
