@@ -1,4 +1,5 @@
 #pragma once
+class CFONT;
 class Inventory;
 
 class ExplorationRocket : Item
@@ -26,7 +27,7 @@ private:
 	CVector3 m_basepos = CVector3::Zero();
 	Player* mp_player;
 	Inventory* mp_inventory;
-	Sprite* m_sprite;
+	Sprite* m_sMenu;
 	Sprite m_sArrow;
 	Sprite m_notify;
 	CVector3 m_ArrowPos = CVector3::Zero();
@@ -42,9 +43,9 @@ private:
 	};
 	SetMenu setting = en_Material;
 	enum Material {
-		Iron,
+		en_Iron,
 	};
-	Material gotMaterial;
+	Material gotMaterial = en_Iron;
 
 	PhysicsStaticObject* m_physicsStaticObject;
 	CQuaternion qRot;
@@ -53,5 +54,8 @@ private:
 	enum NotifyType {
 		en_GotMaterial,
 	};
+	//Font
+	CFONT m_font;
+	CVector3 m_fontPos;
 };
 
