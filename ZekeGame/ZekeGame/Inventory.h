@@ -10,6 +10,8 @@ public:
 	enum OrderedItem {
 		en_NONE,
 		en_ROCKET,
+		en_HOVER,
+
 	};
 	OrderedItem m_ordered = en_NONE;
 };

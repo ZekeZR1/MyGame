@@ -9,6 +9,7 @@
 #include "Inventory.h"
 #include "Item/ExplorationRocket.h"
 #include "ArrangeIron.h"
+#include "Item/Hover.h"
 
 GameScene* g_game = nullptr;
 extern GameCamera* camera;
@@ -375,6 +376,7 @@ void GameScene::ItemOrder() {
 	if (m_isOrderedItemSet) {
 		CVector3 rocketpos = m_player->GetPosition();
 		if (m_nItem < MAXITEM) {
+			//m_items[m_nItem] = reinterpret_cast<Item*>(new ExplorationRocket(m_player, m_inventory));
 			m_items[m_nItem] = reinterpret_cast<Item*>(new ExplorationRocket(m_player, m_inventory));
 			m_pConstructor->isOrderRocket = false;
 			m_inventory->UseMaterial(en_ROCKET);

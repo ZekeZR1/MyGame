@@ -16,6 +16,7 @@ public:
 	bool isGoAway = false;
 	bool isOpenMenu = false;
 	bool isOrderRocket = false;
+	bool isOrderHover = false;
 private:
 	void Menu();
 	void OpenMenu();

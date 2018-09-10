@@ -89,10 +89,6 @@ void IConstructor::Crafting(Inventory* m_inventory) {
 			ItemNumber--;
 	}
 	switch (ItemNumber) {
-	case 1:
-		isDrawFont = false;
-		mS_ItemPre->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
-		break;
 	case 0:
 		isDrawFont = true;
 		mS_ItemPre->Init(L"sprite/ExRocket.dds", 500.0f, 500.0f);
@@ -114,6 +110,29 @@ void IConstructor::Crafting(Inventory* m_inventory) {
 		else {
 			mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
 			mf_aMaterial.Init((L"%d", mw_aCraft),m_aFontpos,CVector3::One(), CVector4::Red);
+		}
+		break;
+	case 1:
+		isDrawFont = true;
+		mS_ItemPre->Init(L"sprite/Hover.dds", 500.0f, 500.0f);
+		_itow_s(m_inventory->m_nSilicon, mw_bCraft, 10);
+		_itow_s(m_inventory->m_nSilicon - 5, mw_aCraft, 10);
+		//if(m_inventory->CanCreate(ExRocket)
+		if (m_inventory->m_nSilicon >= 5) {
+			mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
+			mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos);
+			if (isOpenNow) {
+				isOpenNow = false;
+				return;
+			}
+			if (g_pad[0].IsTrigger(enButtonB)) {
+				isOrderHover = true;
+				CloseMenu();
+			}
+		}
+		else {
+			mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
+			mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos, CVector3::One(), CVector4::Red);
 		}
 		break;
 	}
