@@ -32,6 +32,10 @@ void Player::Move() {
 	else {
 		m_moveSpeedParam = 600.0f;
 	}
+	if (isRiding) {
+		m_moveSpeedParam = 2500.0f;
+		m_moveSpeed.y = 0;
+	}
 	CVector3 cameraForward = camera3d->GetTarget() - camera3d->GetPosition();
 	cameraForward.y = 0.0f;
 	cameraForward.Normalize();
@@ -42,9 +46,12 @@ void Player::Move() {
 	cameraRight.Normalize();
 	m_moveSpeed += cameraRight * m_moveSpeedParam * g_pad[0].GetLStickXF();
 	if (g_pad[0].IsTrigger(enButtonA)) {
-		m_moveSpeed.y += 700.0f;
+		if(!isRiding)
+			m_moveSpeed.y += 700.0f;
 	}
-	m_moveSpeed.y -= 50.0f;
+	if (!isRiding) {
+		m_moveSpeed.y -= 50.0f;
+	}
 	CQuaternion qRot;
 	qRot.SetRotationDeg(CVector3::AxisX(), 180.0f);
 	qRot.Multiply(m_rotation, qRot);

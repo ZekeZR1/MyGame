@@ -353,35 +353,56 @@ void GameScene::DrilRange() {
 }
 
 void GameScene::ItemOrder() {
-	if (m_pConstructor != nullptr) {
-		if (m_pConstructor->isOrderRocket) {
-			m_ordered = en_ROCKET;
-			m_settingOrderedItem = true;
-		}
+	if (m_pConstructor == nullptr)
+		return;
+	if (m_pConstructor->isOrderRocket) {
+		m_ordered = en_ROCKET;
+		m_settingOrderedItem = true;
 	}
-	if (m_settingOrderedItem) {
-		switch (m_ordered) {
-		case en_ROCKET:
-			mS_SettingItem->Init(L"sprite/ExRocket.dds", 500.0f, 500.0f);
-			if (g_pad[0].IsTrigger(enButtonB)) {
-				m_settingOrderedItem = false;
-				m_isOrderedItemSet = true;
-			}
-			break;
-		}
+	if (m_pConstructor->isOrderHover) {
+		m_ordered = en_HOVER;
+		m_settingOrderedItem = true;
 	}
-	else {
+
+	if (!m_settingOrderedItem) {
 		mS_SettingItem->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
+		return;
 	}
-	if (m_isOrderedItemSet) {
-		CVector3 rocketpos = m_player->GetPosition();
-		if (m_nItem < MAXITEM) {
-			//m_items[m_nItem] = reinterpret_cast<Item*>(new ExplorationRocket(m_player, m_inventory));
-			m_items[m_nItem] = reinterpret_cast<Item*>(new ExplorationRocket(m_player, m_inventory));
-			m_pConstructor->isOrderRocket = false;
-			m_inventory->UseMaterial(en_ROCKET);
-			m_nItem++;
+	switch (m_ordered) {
+	case en_ROCKET:
+		mS_SettingItem->Init(L"sprite/ExRocket.dds", 500.0f, 500.0f);
+		if (g_pad[0].IsTrigger(enButtonB)) {
+			m_settingOrderedItem = false;
+			m_isOrderedItemSet = true;
 		}
-		m_isOrderedItemSet = false;
+		break;
+	case en_HOVER:
+		mS_SettingItem->Init(L"sprite/Hover.dds", 500.0f, 500.0f);
+		if (g_pad[0].IsTrigger(enButtonB)) {
+			m_settingOrderedItem = false;
+			m_isOrderedItemSet = true;
+		}
+		break;
 	}
+
+	if (!m_isOrderedItemSet)
+		return;
+	if (m_nItem >= MAXITEM)
+		return;
+	switch (m_ordered) {
+	case en_ROCKET:
+		m_items[m_nItem] = reinterpret_cast<Item*>(new ExplorationRocket(m_player, m_inventory));
+		m_pConstructor->isOrderRocket = false;
+		m_inventory->UseMaterial(en_ROCKET);
+		m_nItem++;
+		break;
+	case en_HOVER:
+		m_items[m_nItem] = reinterpret_cast<Item*>(new Hover(m_player, m_inventory));
+		m_pConstructor->isOrderHover = false;
+		m_inventory->UseMaterial(en_HOVER);
+		m_nItem++;
+		break;
+	}
+
+	m_isOrderedItemSet = false;
 }

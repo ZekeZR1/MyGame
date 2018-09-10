@@ -16,6 +16,9 @@ public:
 	void OpenMenu();
 	void CloseMenu();
 	bool CanOpenMenu();
+	CQuaternion GetRot() {
+		return m_rotation;
+	}
 	unsigned int m_nMenu = 0;
 	CVector3 GetForward(float param) {
 		CVector3 forward = camera3d->GetForward();
@@ -45,8 +48,8 @@ public:
 		PSTATE_SETTING,
 		PSTATE_RIDING
 	};
-
 	PlayerState m_enPState = PSTATE_WALK;
+	bool isRiding = false;
 private:
 	int mi_state = 0;
 	SkinModel m_model;
