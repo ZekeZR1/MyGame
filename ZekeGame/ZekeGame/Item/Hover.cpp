@@ -25,29 +25,7 @@ Hover::~Hover()
 }
 
 void Hover::Update() {
-	if (mp_player->m_enPState != mp_player->PSTATE_WALK)
-		return;
-	if (!mp_player->isNear(m_pos,300.0f))
-		return;
-	if (g_pad[0].IsTrigger(enButtonB)) {
-		if (isRiding) {
-			isRiding = false;
-			mp_player->isRiding = false;
-			CVector3 pos = mp_player->GetPosition();
-			pos.y += 70.0f;
-			mp_player->SetPosition(pos);
-			mp_player->CloseMenu();
-		}
-		else {
-			if (mp_player->isRiding)
-				return;
-			isRiding = true;
-			isRideNow = true;
-			mp_player->isRiding = true;
-			//Menu‚ğŠJ‚¯‚È‚¢‚æ‚¤‚É‚·‚é
-			mp_player->OpenMenu();
-		}
-	}
+	Ride();
 	Physics();
 	MoveAndRotation();
 }
@@ -102,6 +80,32 @@ void Hover::Physics() {
 		if (m_physicsStaticObject == nullptr) {
 			m_physicsStaticObject = new PhysicsStaticObject;
 			m_physicsStaticObject->CreateMeshObject(*m_hoverModel, m_pos, m_rot);
+		}
+	}
+}
+
+void Hover::Ride() {
+	if (g_pad[0].IsTrigger(enButtonB)) {
+		if (isRiding) {
+			mp_player->isRiding = false;
+			CVector3 pos = mp_player->GetPosition();
+			pos.y += 70.0f;
+			mp_player->SetPosition(pos);
+			mp_player->CloseMenu();
+			isRiding = false;
+		}
+		else {
+			if (mp_player->m_enPState != mp_player->PSTATE_WALK)
+				return;
+			if (!mp_player->isNear(m_pos, 300.0f))
+				return;
+			if (mp_player->isRiding || isRiding)
+				return;
+			isRiding = true;
+			isRideNow = true;
+			mp_player->isRiding = true;
+			//Menu‚ğŠJ‚¯‚È‚¢‚æ‚¤‚É‚·‚é
+			mp_player->OpenMenu();
 		}
 	}
 }

@@ -11,6 +11,7 @@ public:
 	void Draw() override;
 	void DrawSprite() override;
 private:
+	void Ride();
 	void MoveAndRotation();
 	void Physics();
 	bool isRideNow = false;

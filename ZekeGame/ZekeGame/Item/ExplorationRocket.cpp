@@ -7,7 +7,7 @@ ExplorationRocket::ExplorationRocket(Player* m_player, Inventory* m_inventory)
 	mp_player = m_player;
 	mp_inventory = m_inventory;
 
-	m_pos = m_player->GetForward(200.0f);
+	m_pos = m_player->GetForward(300.0f);
 	m_basepos = m_pos;
 	m_skinModel = new SkinModel;
 	m_skinModel->Init(L"Assets/modelData/ExRocketDL.cmo",enFbxUpAxisZ);

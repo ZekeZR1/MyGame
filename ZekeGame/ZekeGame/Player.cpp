@@ -143,7 +143,7 @@ void Player::CharaconUpdate() {
 	if (isRiding && !isCharaConRide) {
 		delete m_charaCon;
 		m_charaCon = new CharacterController;
-		m_charaCon->Init(500.0f, 100.0f, m_position);
+		m_charaCon->Init(500.0f, 60.0f, m_position);
 		isCharaConRide = true;
 	}
 	else {
