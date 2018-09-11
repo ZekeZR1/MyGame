@@ -102,28 +102,28 @@
     <SFA>
       <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\</FILEPATH>
       <FILENAME>player.cpp</FILENAME>
-      <LINE>114</LINE>
+      <LINE>116</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
     <DESCRIPTION>符号の不一致: 'unsigned int' が _Param_(3) として渡されました。signed 型が 'sprintf_s' への呼び出しに必要です。</DESCRIPTION>
     <FUNCTION>Player::CanOpenMenu</FUNCTION>
     <DECORATED>?CanOpenMenu@Player@@QEAA_NXZ</DECORATED>
-    <FUNCLINE>108</FUNCLINE>
+    <FUNCLINE>110</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
   <DEFECT>
     <SFA>
       <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\</FILEPATH>
       <FILENAME>player.cpp</FILENAME>
-      <LINE>121</LINE>
+      <LINE>123</LINE>
       <COLUMN>11</COLUMN>
     </SFA>
     <DEFECTCODE>6340</DEFECTCODE>
     <DESCRIPTION>符号の不一致: 'unsigned int' が _Param_(3) として渡されました。signed 型が 'sprintf_s' への呼び出しに必要です。</DESCRIPTION>
     <FUNCTION>Player::CanOpenMenu</FUNCTION>
     <DECORATED>?CanOpenMenu@Player@@QEAA_NXZ</DECORATED>
-    <FUNCLINE>108</FUNCLINE>
+    <FUNCLINE>110</FUNCLINE>
     <PATH></PATH>
   </DEFECT>
 </DEFECTS>

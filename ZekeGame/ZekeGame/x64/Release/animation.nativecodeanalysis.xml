@@ -198,6 +198,128 @@
     <SFA>
       <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
       <FILENAME>animation.cpp</FILENAME>
+      <LINE>69</LINE>
+      <COLUMN>17</COLUMN>
+    </SFA>
+    <DEFECTCODE>6385</DEFECTCODE>
+    <DESCRIPTION>'qGlobalPose' から無効なデータを読み取っています: 読み取り可能なサイズは 'sizeof(CQuaternion)*numBone' バイトですが、'32' バイトを読み取る可能性があります。</DESCRIPTION>
+    <FUNCTION>Animation::UpdateGlobalPose</FUNCTION>
+    <DECORATED>?UpdateGlobalPose@Animation@@AEAAXXZ</DECORATED>
+    <FUNCLINE>62</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
+        <FILENAME>animation.cpp</FILENAME>
+        <LINE>65</LINE>
+        <COLUMN>5</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
+        <FILENAME>animation.cpp</FILENAME>
+        <LINE>66</LINE>
+        <COLUMN>12</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>宣言</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'qGlobalPose' は 0 バイト配列です</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
+        <FILENAME>animation.cpp</FILENAME>
+        <LINE>67</LINE>
+        <COLUMN>9</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
+        <FILENAME>animation.cpp</FILENAME>
+        <LINE>68</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
+        <FILENAME>animation.cpp</FILENAME>
+        <LINE>68</LINE>
+        <COLUMN>19</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>分岐</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>このループに入る ('i&lt;numBone' と仮定)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
+        <FILENAME>animation.cpp</FILENAME>
+        <LINE>69</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
+        <FILENAME>animation.cpp</FILENAME>
+        <LINE>70</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
+        <FILENAME>animation.cpp</FILENAME>
+        <LINE>68</LINE>
+        <COLUMN>31</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>宣言</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'i' は 1 と同じである可能性があります</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
+        <FILENAME>animation.cpp</FILENAME>
+        <LINE>68</LINE>
+        <COLUMN>19</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>分岐</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>このループを続行する ('i&lt;numBone' と仮定)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
+        <FILENAME>animation.cpp</FILENAME>
+        <LINE>69</LINE>
+        <COLUMN>17</COLUMN>
+        <KEYEVENT>
+          <ID>5</ID>
+          <KIND>宣言</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'i' は 'CQuaternion::=' からの出力です (c:\users\taiki.w\git\mygame\zekegame\zekegame\math\vector.h:583 で宣言)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
+        <FILENAME>animation.cpp</FILENAME>
+        <LINE>69</LINE>
+        <COLUMN>17</COLUMN>
+        <KEYEVENT>
+          <ID>6</ID>
+          <KIND>使用法</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'qGlobalPose' からの読み取りは無効です (読み取り可能な範囲外)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
+      <FILENAME>animation.cpp</FILENAME>
       <LINE>70</LINE>
       <COLUMN>17</COLUMN>
     </SFA>
@@ -324,128 +446,6 @@
           <KIND>使用法</KIND>
           <IMPORTANCE>Essential</IMPORTANCE>
           <MESSAGE>'vGlobalPose' からの読み取りは無効です (読み取り可能な範囲外)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-    </PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
-      <FILENAME>animation.cpp</FILENAME>
-      <LINE>69</LINE>
-      <COLUMN>17</COLUMN>
-    </SFA>
-    <DEFECTCODE>6385</DEFECTCODE>
-    <DESCRIPTION>'qGlobalPose' から無効なデータを読み取っています: 読み取り可能なサイズは 'sizeof(CQuaternion)*numBone' バイトですが、'32' バイトを読み取る可能性があります。</DESCRIPTION>
-    <FUNCTION>Animation::UpdateGlobalPose</FUNCTION>
-    <DECORATED>?UpdateGlobalPose@Animation@@AEAAXXZ</DECORATED>
-    <FUNCLINE>62</FUNCLINE>
-    <PROBABILITY>1</PROBABILITY>
-    <RANK>4</RANK>
-    <CATEGORY>
-      <RULECATEGORY>mspft</RULECATEGORY>
-    </CATEGORY>
-    <PATH>
-      <SFA>
-        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
-        <FILENAME>animation.cpp</FILENAME>
-        <LINE>65</LINE>
-        <COLUMN>5</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
-        <FILENAME>animation.cpp</FILENAME>
-        <LINE>66</LINE>
-        <COLUMN>12</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>宣言</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'qGlobalPose' は 0 バイト配列です</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
-        <FILENAME>animation.cpp</FILENAME>
-        <LINE>67</LINE>
-        <COLUMN>9</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
-        <FILENAME>animation.cpp</FILENAME>
-        <LINE>68</LINE>
-        <COLUMN>10</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
-        <FILENAME>animation.cpp</FILENAME>
-        <LINE>68</LINE>
-        <COLUMN>19</COLUMN>
-        <KEYEVENT>
-          <ID>2</ID>
-          <KIND>分岐</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>このループに入る ('i&lt;numBone' と仮定)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
-        <FILENAME>animation.cpp</FILENAME>
-        <LINE>69</LINE>
-        <COLUMN>17</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
-        <FILENAME>animation.cpp</FILENAME>
-        <LINE>70</LINE>
-        <COLUMN>17</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
-        <FILENAME>animation.cpp</FILENAME>
-        <LINE>68</LINE>
-        <COLUMN>31</COLUMN>
-        <KEYEVENT>
-          <ID>3</ID>
-          <KIND>宣言</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'i' は 1 と同じである可能性があります</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
-        <FILENAME>animation.cpp</FILENAME>
-        <LINE>68</LINE>
-        <COLUMN>19</COLUMN>
-        <KEYEVENT>
-          <ID>4</ID>
-          <KIND>分岐</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>このループを続行する ('i&lt;numBone' と仮定)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
-        <FILENAME>animation.cpp</FILENAME>
-        <LINE>69</LINE>
-        <COLUMN>17</COLUMN>
-        <KEYEVENT>
-          <ID>5</ID>
-          <KIND>宣言</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>'i' は 'CQuaternion::=' からの出力です (c:\users\taiki.w\git\mygame\zekegame\zekegame\math\vector.h:583 で宣言)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\animation\</FILEPATH>
-        <FILENAME>animation.cpp</FILENAME>
-        <LINE>69</LINE>
-        <COLUMN>17</COLUMN>
-        <KEYEVENT>
-          <ID>6</ID>
-          <KIND>使用法</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'qGlobalPose' からの読み取りは無効です (読み取り可能な範囲外)</MESSAGE>
         </KEYEVENT>
       </SFA>
     </PATH>

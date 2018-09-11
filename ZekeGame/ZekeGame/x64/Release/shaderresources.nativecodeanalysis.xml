@@ -102,6 +102,68 @@
     <SFA>
       <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\</FILEPATH>
       <FILENAME>shaderresources.cpp</FILENAME>
+      <LINE>17</LINE>
+      <COLUMN>7</COLUMN>
+    </SFA>
+    <DEFECTCODE>6387</DEFECTCODE>
+    <DESCRIPTION>'fp' は '0' である可能性があります: この動作は、関数 'fseek' の指定に従っていません。</DESCRIPTION>
+    <FUNCTION>`anonymous-namespace'::ReadFile</FUNCTION>
+    <DECORATED>?ReadFile@?A0x9ebf06ec@@YA?AV?$unique_ptr@$$BY0A@DU?$default_delete@$$BY0A@D@std@@@std@@PEBDAEAH@Z</DECORATED>
+    <FUNCLINE>12</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\</FILEPATH>
+        <FILENAME>shaderresources.cpp</FILENAME>
+        <LINE>15</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\</FILEPATH>
+        <FILENAME>shaderresources.cpp</FILENAME>
+        <LINE>16</LINE>
+        <COLUMN>9</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>宣言</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'fp' は NULL である可能性があります</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\</FILEPATH>
+        <FILENAME>shaderresources.cpp</FILENAME>
+        <LINE>17</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>使用法</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'fp' は 'fseek' への入力です (c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h:264 で宣言)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\</FILEPATH>
+        <FILENAME>shaderresources.cpp</FILENAME>
+        <LINE>17</LINE>
+        <COLUMN>7</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>使用法</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'fp' を NULL にすることはできません。この値は 'fseek' の SAL 注釈と一致しません</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\</FILEPATH>
+      <FILENAME>shaderresources.cpp</FILENAME>
       <LINE>19</LINE>
       <COLUMN>9</COLUMN>
     </SFA>
@@ -174,68 +236,6 @@
           <KIND>使用法</KIND>
           <IMPORTANCE>Essential</IMPORTANCE>
           <MESSAGE>'fp' を NULL にすることはできません。この値は 'fgetpos' の SAL 注釈と一致しません</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-    </PATH>
-  </DEFECT>
-  <DEFECT>
-    <SFA>
-      <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\</FILEPATH>
-      <FILENAME>shaderresources.cpp</FILENAME>
-      <LINE>17</LINE>
-      <COLUMN>7</COLUMN>
-    </SFA>
-    <DEFECTCODE>6387</DEFECTCODE>
-    <DESCRIPTION>'fp' は '0' である可能性があります: この動作は、関数 'fseek' の指定に従っていません。</DESCRIPTION>
-    <FUNCTION>`anonymous-namespace'::ReadFile</FUNCTION>
-    <DECORATED>?ReadFile@?A0x9ebf06ec@@YA?AV?$unique_ptr@$$BY0A@DU?$default_delete@$$BY0A@D@std@@@std@@PEBDAEAH@Z</DECORATED>
-    <FUNCLINE>12</FUNCLINE>
-    <PROBABILITY>1</PROBABILITY>
-    <RANK>4</RANK>
-    <CATEGORY>
-      <RULECATEGORY>mspft</RULECATEGORY>
-    </CATEGORY>
-    <PATH>
-      <SFA>
-        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\</FILEPATH>
-        <FILENAME>shaderresources.cpp</FILENAME>
-        <LINE>15</LINE>
-        <COLUMN>8</COLUMN>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\</FILEPATH>
-        <FILENAME>shaderresources.cpp</FILENAME>
-        <LINE>16</LINE>
-        <COLUMN>9</COLUMN>
-        <KEYEVENT>
-          <ID>1</ID>
-          <KIND>宣言</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'fp' は NULL である可能性があります</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\</FILEPATH>
-        <FILENAME>shaderresources.cpp</FILENAME>
-        <LINE>17</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>2</ID>
-          <KIND>使用法</KIND>
-          <IMPORTANCE>Full</IMPORTANCE>
-          <MESSAGE>'fp' は 'fseek' への入力です (c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h:264 で宣言)</MESSAGE>
-        </KEYEVENT>
-      </SFA>
-      <SFA>
-        <FILEPATH>c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\</FILEPATH>
-        <FILENAME>shaderresources.cpp</FILENAME>
-        <LINE>17</LINE>
-        <COLUMN>7</COLUMN>
-        <KEYEVENT>
-          <ID>3</ID>
-          <KIND>使用法</KIND>
-          <IMPORTANCE>Essential</IMPORTANCE>
-          <MESSAGE>'fp' を NULL にすることはできません。この値は 'fseek' の SAL 注釈と一致しません</MESSAGE>
         </KEYEVENT>
       </SFA>
     </PATH>

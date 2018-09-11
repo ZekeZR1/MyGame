@@ -39,6 +39,8 @@ void Hover::Update() {
 			mp_player->CloseMenu();
 		}
 		else {
+			if (mp_player->isRiding)
+				return;
 			isRiding = true;
 			isRideNow = true;
 			mp_player->isRiding = true;
@@ -68,6 +70,7 @@ void Hover::MoveAndRotation() {
 	}
 	else {
 		m_pos = mp_player->GetPosition();
+		m_pos.y -= 50.0f;
 	}
 	if (g_pad[0].IsPress(enButtonRB2)) {
 		CVector3 pos = mp_player->GetPosition();

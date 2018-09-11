@@ -33,7 +33,7 @@ private:
 	CVector3 m_ArrowPos = CVector3::Zero();
 	bool isOnGround = true;
 	int mi_nowSearchingTime = 0;
-	int mi_SearchTime = 10;
+	int mi_SearchTime = 500;
 	enum SetMenu {
 		en_Material,
 		en_Exit,

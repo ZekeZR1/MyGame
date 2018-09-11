@@ -6,12 +6,14 @@ Player::Player()
 {
 	m_model.Init(L"Assets/modelData/unityChan.cmo");
 	m_position.y += 500.0f;
-	m_charaCon.Init(30.0f, 50.0f, m_position);
+	m_charaCon = new CharacterController;
+	m_charaCon->Init(30.0f, 50.0f, m_position);
 }
 
 
 Player::~Player()
 {
+	delete m_charaCon;
 }
 
 void Player::Update() {
@@ -19,6 +21,7 @@ void Player::Update() {
 	Move();
 	Turn();
 	ChangeState();
+	CharaconUpdate();
 }
 
 void Player::Move() {
@@ -55,7 +58,7 @@ void Player::Move() {
 	CQuaternion qRot;
 	qRot.SetRotationDeg(CVector3::AxisX(), 180.0f);
 	qRot.Multiply(m_rotation, qRot);
-	m_position = m_charaCon.Execute(1.0f / 60.0f, m_moveSpeed);
+	m_position = m_charaCon->Execute(1.0f / 60.0f, m_moveSpeed);
 	m_model.UpdateWorldMatrix(m_position, m_rotation, CVector3::One());
 }
 
@@ -134,4 +137,21 @@ void Player::OpenMenu() {
 void Player::CloseMenu() {
 	m_nMenu--;
 	isOpenMenuNow = false;
+}
+
+void Player::CharaconUpdate() {
+	if (isRiding && !isCharaConRide) {
+		delete m_charaCon;
+		m_charaCon = new CharacterController;
+		m_charaCon->Init(500.0f, 100.0f, m_position);
+		isCharaConRide = true;
+	}
+	else {
+		if (isCharaConRide) {
+			delete m_charaCon;
+			m_charaCon = new CharacterController;
+			m_charaCon->Init(30.0f, 50.0f, m_position);
+			isCharaConRide = false;
+		}
+	}
 }
