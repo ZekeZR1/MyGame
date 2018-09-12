@@ -4,7 +4,8 @@
 
 Player::Player()
 {
-	m_model.Init(L"Assets/modelData/unityChan.cmo");
+	//m_model.Init(L"Assets/modelData/unityChan.cmo");
+	m_model.Init(L"Assets/modelData/Player.cmo", enFbxUpAxisY);
 	m_position.y += 500.0f;
 	m_charaCon = new CharacterController;
 	m_charaCon->Init(30.0f, 50.0f, m_position);

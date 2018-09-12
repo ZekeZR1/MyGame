@@ -50,7 +50,6 @@ GameScene::GameScene()
 	mS_SettingItem->Init(L"sprite/None_Sprite.dds",500.0f, 500.0f);
 	mS_SettingItem->Update(mv_ActSpos, CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
 	//Items
-	//TODO : LISTÇ≈ä«óùÇµÇÊÇ§Ç‚Ç≈ÅEÅEÅE
 	for (int i = 0; i < MAXITEM; i++) {
 		m_items[i] = nullptr;
 	}

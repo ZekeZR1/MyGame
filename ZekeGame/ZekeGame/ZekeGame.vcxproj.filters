@@ -444,6 +444,9 @@
     <ImageContentTask Include="Assets\Sprite\NotiGotMaterial.png">
       <Filter>ソース ファイル\Assets\sprite</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Hover.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\testbox.FBX">
@@ -480,6 +483,9 @@
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\Hover.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Player.FBX">
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
   </ItemGroup>
@@ -676,10 +682,5 @@
     <CustomBuild Include="Assets\texture\wind02.png">
       <Filter>リソース ファイル</Filter>
     </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Assets\Sprite\Hover.png">
-      <Filter>ソース ファイル\Assets\sprite</Filter>
-    </Image>
   </ItemGroup>
 </Project>

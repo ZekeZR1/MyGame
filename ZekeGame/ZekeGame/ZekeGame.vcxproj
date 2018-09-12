@@ -260,6 +260,7 @@
     <MeshContentTask Include="Assets\modelData\Hover.FBX" />
     <MeshContentTask Include="Assets\modelData\IronOre.FBX" />
     <MeshContentTask Include="Assets\modelData\ItemBox.FBX" />
+    <MeshContentTask Include="Assets\modelData\Player.FBX" />
     <MeshContentTask Include="Assets\modelData\Space.FBX" />
     <MeshContentTask Include="Assets\modelData\testbox.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
