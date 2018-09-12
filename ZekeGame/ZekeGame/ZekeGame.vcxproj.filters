@@ -683,4 +683,12 @@
       <Filter>リソース ファイル</Filter>
     </CustomBuild>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Sprite\BatteryGauge.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\BatteryFrame.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

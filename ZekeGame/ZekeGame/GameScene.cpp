@@ -164,6 +164,7 @@ void GameScene::Draw() {
 			m_items[i]->DrawSprite();
 		}
 	}
+	m_player->DrawSprite();
 	mS_ActState->Draw();
 	mS_SettingItem->Draw();
 	if (isOpenAct) {

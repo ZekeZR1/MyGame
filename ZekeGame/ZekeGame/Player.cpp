@@ -9,15 +9,29 @@ Player::Player()
 	m_position.y += 500.0f;
 	m_charaCon = new CharacterController;
 	m_charaCon->Init(30.0f, 50.0f, m_position);
+
+	ms_battery = new Sprite;
+	m_batteryPos.x += 300.0f;
+	m_batteryPos.y += 300.0f;
+	ms_battery->Init(L"sprite/BatteryGauge.dds", 300.0f, 50.0f);
+
+	ms_bFrame.Init(L"sprite/BatteryFrame.dds", 400.0f, 100.0f);
+	m_bFramePos = m_batteryPos;
+	m_bFramePos.x -= 50.0f;
+	m_bFramePos.y -= 27.0f;
+	ms_bFrame.Update(m_bFramePos, CQuaternion::Identity(), CVector3::One(), { 0.0f,0.0f });
 }
 
 
 Player::~Player()
 {
 	delete m_charaCon;
+	delete ms_battery;
 }
 
 void Player::Update() {
+	m_batteryScale.x -= 0.001f;
+	ms_battery->Update(m_batteryPos, CQuaternion::Identity(), m_batteryScale, { 0.0f,0.0f });
 	CanOpenMenu();
 	Move();
 	Turn();
@@ -74,6 +88,11 @@ void Player::Turn() {
 
 void Player::Draw() {
 	m_model.Draw(camera3d->GetViewMatrix(),camera3d->GetProjectionMatrix());
+}
+
+void Player::DrawSprite() {
+	ms_bFrame.Draw();
+	ms_battery->Draw();
 }
 
 void Player::ChangeState() {

@@ -9,6 +9,7 @@ public:
 	void Move();
 	void Turn();
 	void Draw();
+	void DrawSprite();
 	void ChangeState();
 	bool isNear(CVector3 thatpos, float dist);
 	bool isOpenMenuNow = false;
@@ -52,8 +53,16 @@ public:
 	bool isRiding = false;
 private:
 	int mi_state = 0;
+	int m_battery = 1000;
+	float mf_batteryX = 300.0f;
+	float mf_batteryY = 50.0f;
 	void CharaconUpdate();
 	bool isCharaConRide = false;
+	Sprite* ms_battery;
+	Sprite ms_bFrame;
+	CVector3 m_batteryPos = CVector3::Zero();
+	CVector3 m_bFramePos = CVector3::Zero();
+	CVector3 m_batteryScale = CVector3::One();
 	SkinModel m_model;
 	CVector3 m_position = CVector3::Zero();
 	CQuaternion m_rotation;
