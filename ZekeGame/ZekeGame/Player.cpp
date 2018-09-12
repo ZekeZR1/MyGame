@@ -30,13 +30,12 @@ Player::~Player()
 }
 
 void Player::Update() {
-	m_batteryScale.x -= 0.001f;
-	ms_battery->Update(m_batteryPos, CQuaternion::Identity(), m_batteryScale, { 0.0f,0.0f });
 	CanOpenMenu();
 	Move();
 	Turn();
 	ChangeState();
 	CharaconUpdate();
+	Gauge();
 }
 
 void Player::Move() {
@@ -50,6 +49,8 @@ void Player::Move() {
 	else {
 		m_moveSpeedParam = 600.0f;
 	}
+	if (isLowBattery)
+		m_moveSpeedParam = 500.0f;
 	if (isRiding) {
 		m_moveSpeedParam = 2500.0f;
 		m_moveSpeed.y = 0;
@@ -174,4 +175,38 @@ void Player::CharaconUpdate() {
 			isCharaConRide = false;
 		}
 	}
+}
+
+void Player::Gauge() {
+	if (m_batteryScale.x >= 1.0f) {
+		isMaxBattery = true;
+	}
+	else {
+		isMaxBattery = false;
+	}
+	if (m_batteryScale.x < 0.0f) {
+		isLowBattery = true;
+	}
+	else {
+		isLowBattery = false;
+	}
+	if(!isMaxBattery)
+		m_batteryScale.x += 0.0002f;
+
+	if (isRiding)
+		return;
+	if (m_moveSpeed.x != 0.0f || m_moveSpeed.z != 0.0f) {
+		if (!isLowBattery)
+			m_batteryScale.x -= 0.001f;
+	}
+	ms_battery->Update(m_batteryPos, CQuaternion::Identity(), m_batteryScale, { 0.0f,0.0f });
+}
+
+void Player::UseBattery() {
+	m_batteryScale.x -= 0.002f;
+}
+
+void Player::ChargeBattery() {
+	if(m_batteryScale.x >= 1.0f)
+	m_batteryScale.x += 0.01f;
 }

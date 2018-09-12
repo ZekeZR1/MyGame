@@ -11,7 +11,9 @@ public:
 	void Draw();
 	void DrawSprite();
 	void ChangeState();
+	void ChargeBattery();
 	bool isNear(CVector3 thatpos, float dist);
+	void UseBattery();
 	bool isOpenMenuNow = false;
 	bool OpenMenuNow = false;
 	void OpenMenu();
@@ -51,12 +53,15 @@ public:
 	};
 	PlayerState m_enPState = PSTATE_WALK;
 	bool isRiding = false;
+	bool isMaxBattery = true;
+	bool isLowBattery = false;
 private:
 	int mi_state = 0;
 	int m_battery = 1000;
 	float mf_batteryX = 300.0f;
 	float mf_batteryY = 50.0f;
 	void CharaconUpdate();
+	void Gauge();
 	bool isCharaConRide = false;
 	Sprite* ms_battery;
 	Sprite ms_bFrame;

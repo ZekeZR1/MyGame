@@ -229,6 +229,9 @@ void GameScene::Ground() {
 	DrilRange();
 	if (g_pad[0].IsPress(enButtonB)) {
 		if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_MAKEGROUND) {
+			if (m_player->isLowBattery)
+				return;
+			m_player->UseBattery();
 			bg->m_converting = true;
 			bg->Update(forward, m_ActMenu->m_flatPos, m_player);
 		}
