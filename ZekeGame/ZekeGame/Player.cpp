@@ -193,8 +193,10 @@ void Player::Gauge() {
 	if(!isMaxBattery)
 		m_batteryScale.x += 0.0002f;
 
-	if (isRiding)
+	if (isRiding) {
+		ChargeBattery();
 		return;
+	}
 	if (m_moveSpeed.x != 0.0f || m_moveSpeed.z != 0.0f) {
 		if (!isLowBattery)
 			m_batteryScale.x -= 0.001f;
@@ -207,6 +209,7 @@ void Player::UseBattery() {
 }
 
 void Player::ChargeBattery() {
-	if(m_batteryScale.x >= 1.0f)
-	m_batteryScale.x += 0.01f;
+	if(!isMaxBattery)
+		m_batteryScale.x += 0.005f;
+	ms_battery->Update(m_batteryPos, CQuaternion::Identity(), m_batteryScale, { 0.0f,0.0f });
 }
