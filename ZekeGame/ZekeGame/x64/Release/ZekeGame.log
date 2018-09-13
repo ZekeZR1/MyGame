@@ -32,6 +32,7 @@
   Assets\Sprite\HoverMenu.png
   Assets\Sprite\HoverFrame.png
   Assets\Sprite\HoverGauge.png
+  Assets\Sprite\HoverFuelMenu.png
   Assets\modelData\BackWorld.FBX
   Assets\modelData\Constructor.FBX
   Assets\modelData\DrilPos.FBX
@@ -45,34 +46,12 @@
   Assets\modelData\Space.FBX
   Assets\modelData\testbox.FBX
   Assets\modelData\unityChan.fbx
-  ActionMenu.cpp
-  ArrangeIron.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\arrangeiron.cpp(12): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\arrangeiron.cpp(13): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\arrangeiron.cpp(19): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\arrangeiron.cpp(20): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\arrangeiron.cpp(22): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-  BackGround.cpp
-  GameScene.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\gamescene.cpp(304): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\gamescene.cpp(306): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\gamescene.cpp(308): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\gamescene.cpp(311): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
-  Inventory.cpp
-  ExplorationRocket.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\item\explorationrocket.cpp(192): warning C4244: '+=': 'float' から 'int' への変換です。データが失われる可能性があります。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\item\explorationrocket.cpp(197): warning C4244: '+=': 'float' から 'int' への変換です。データが失われる可能性があります。
   Hover.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\item\hover.cpp(159): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\item\hover.cpp(164): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
-  IConstructor.cpp
-  Iron.cpp
-  Player.cpp
-  Title.cpp
-  main.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\item\hover.cpp(172): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\item\hover.cpp(177): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
   コード生成しています。
-  20 of 1946 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
+  2 of 1947 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
   ZekeGame.vcxproj -> C:\Users\Taiki.W\git\MyGame\ZekeGame\x64\Release\ZekeGame.exe

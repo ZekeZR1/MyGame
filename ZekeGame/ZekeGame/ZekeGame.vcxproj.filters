@@ -699,5 +699,8 @@
     <Image Include="Assets\Sprite\HoverGauge.png">
       <Filter>ソース ファイル\Assets\sprite</Filter>
     </Image>
+    <Image Include="Assets\Sprite\HoverFuelMenu.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </Image>
   </ItemGroup>
 </Project>

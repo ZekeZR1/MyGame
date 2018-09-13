@@ -17,6 +17,7 @@ private:
 	void MoveAndRotation();
 	void Physics();
 	void UseBattery();
+	void addFuel();
 	void BatteryGauge();
 	bool isRideNow = false;
 	bool m_isLowBattery = false;
@@ -38,5 +39,13 @@ private:
 	CVector3 m_gaugeScale = CVector3::One();
 	Sprite ms_frame;
 	CVector3 m_framePos = CVector3::Zero();
+	//FuelMenu
+	Sprite ms_fuelMenu;
+	CFONT mf_bFuel;
+	CFONT mf_aFuel;
+	wchar_t mw_bCharge[256];
+	wchar_t mw_aCharge[256];
+	CVector3 m_bFontpos = CVector3::Zero();
+	CVector3 m_aFontpos = CVector3::Zero();
 };
 

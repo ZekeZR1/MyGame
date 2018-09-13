@@ -24,6 +24,11 @@ Hover::Hover(Player* player, Inventory* inventory)
 	ms_gauge.Update(m_gaugePos, CQuaternion::Identity(), m_gaugeScale,{ 0.0f,0.0f });
 	ms_frame.Init(L"sprite/HoverFrame.dds", 250.0f, 30.0f);
 	ms_frame.Update(m_gaugePos, CQuaternion::Identity(), m_gaugeScale, { 0.0f,0.0f });
+	
+	ms_fuelMenu.Init(L"sprite/HoverFuelMenu.dds",300.0f,150.0f);
+	ms_fuelMenu.Update(CVector3::Zero(), CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
+	m_bFontpos = { 540.0f, 350.0f,0.0f };
+	m_aFontpos = { 650.0f, 350.0f,0.0f };
 
 	m_physicsStaticObject = new PhysicsStaticObject;
 	m_physicsStaticObject->CreateMeshObject(*m_hoverModel, m_pos, m_rot);
@@ -37,6 +42,7 @@ Hover::~Hover()
 }
 
 void Hover::Update() {
+	addFuel();
 	BatteryGauge();
 	UseBattery();
 	Ride();
@@ -54,6 +60,11 @@ void Hover::DrawSprite() {
 	ms_panel.Draw();
 	ms_gauge.Draw();
 	ms_frame.Draw();
+	if (isOpenFuelMenu) {
+		ms_fuelMenu.Draw();
+		mf_aFuel.Draw();
+		mf_bFuel.Draw();
+	}
 }
 
 void Hover::MoveAndRotation() {
@@ -132,10 +143,12 @@ void Hover::BatteryGauge() {
 	if (!isRiding)
 		return;
 	if (::g_pad[0].IsTrigger(enButtonX)) {
-		mp_inventory->ChargeFuel();
-		m_isMaxBattery = true;
-		m_isLowBattery = false;
-		m_gaugeScale.x = 1.0f;
+		if (isOpenFuelMenu) {
+			isOpenFuelMenu = false;
+		}
+		else {
+			isOpenFuelMenu = true;
+		}
 	}
 	if (m_isLowBattery) {
 		mp_player->isLowHoverBattery = true;
@@ -167,4 +180,33 @@ void Hover::BatteryGauge() {
 }
 
 void Hover::UseBattery() {
+}
+
+
+void Hover::addFuel() {
+	_itow_s(mp_inventory->m_nFuel, mw_bCharge, 10);
+	_itow_s(mp_inventory->m_nFuel - 5, mw_aCharge, 10);
+	if (!isOpenFuelMenu)
+		return;
+	if (mp_inventory->m_nFuel >= 5) {
+		mf_bFuel.Init((L"%d", mw_bCharge), m_bFontpos);
+		mf_aFuel.Init((L"%d", mw_aCharge), m_aFontpos);
+		if (g_pad[0].IsTrigger(enButtonA)) {
+			if (m_isMaxBattery)
+				return;
+			mp_inventory->ChargeFuel();
+			//m_isMaxBattery = true;
+			//m_isLowBattery = false;
+			if (m_gaugeScale.x <= 0.8f) {
+				m_gaugeScale.x += 0.2f;
+			}
+			else {
+				m_gaugeScale.x = 1.0f;
+			}
+		}
+	}
+	else {
+		mf_bFuel.Init((L"%d", mw_bCharge), m_bFontpos);
+		mf_aFuel.Init((L"%d", mw_aCharge), m_aFontpos, CVector3::One(), CVector4::Red);
+	}
 }
