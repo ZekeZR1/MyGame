@@ -1,4 +1,6 @@
 #pragma once
+#define MOVECOST 0.001
+#define CHARGECOST 0.002
 class Player;
 class Inventory;
 
@@ -14,7 +16,12 @@ private:
 	void Ride();
 	void MoveAndRotation();
 	void Physics();
+	void UseBattery();
+	void BatteryGauge();
 	bool isRideNow = false;
+	bool m_isLowBattery = false;
+	bool m_isMaxBattery = true;
+	bool isOpenFuelMenu = false;
 	Player * mp_player = nullptr;
 	Inventory* mp_inventory = nullptr;
 	SkinModel* m_hoverModel;
@@ -23,5 +30,13 @@ private:
 	CVector3 m_moveSpeed = CVector3::Zero();
 	PhysicsStaticObject* m_physicsStaticObject;
 	bool isRiding = false;
+	Sprite ms_panel;
+	CVector3 m_panelPos = CVector3::Zero();
+	CVector3 m_panelScale = CVector3::One();
+	Sprite ms_gauge;
+	CVector3 m_gaugePos = CVector3::Zero();
+	CVector3 m_gaugeScale = CVector3::One();
+	Sprite ms_frame;
+	CVector3 m_framePos = CVector3::Zero();
 };
 

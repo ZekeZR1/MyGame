@@ -21,3 +21,8 @@ void Inventory::UseMaterial(int ordered) {
 		break;
 	}
 }
+
+void Inventory::ChargeFuel() {
+	if (m_nFuel - 5 >= 0)
+		m_nFuel -= 5;
+}

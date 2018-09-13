@@ -29,6 +29,7 @@ public:
 	void DrilRange();
 	ActionMenu* m_ActMenu = nullptr;
 	Player* m_player = nullptr;
+	//void addSearchRate();
 private:
 	/*Effect
 	::EffekseerRenderer::Renderer* renderer = ::EffekseerRendererDX11::Renderer::Create(g_graphicsEngine->GetD3DDevice(), g_graphicsEngine->GetD3DDeviceContext(), 100);
@@ -37,6 +38,7 @@ private:
 	Effekseer::Handle handle;
 	*/
 	void ItemOrder();
+	int SearchRate = 0;
 	IConstructor* m_pConstructor;
 	ArrangeIron* m_irons[50];
 	ExplorationRocket* m_rocket = nullptr;

@@ -176,15 +176,14 @@ void GameScene::Draw() {
 
 void GameScene::DrawFont() {
 	pSpriteBatch->Begin();
-	//X座標
-	pSpriteFont->DrawString(pSpriteBatch, L"X", DirectX::XMFLOAT2(0.0f, 0.0f), CVector4::White);
-	pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_PosX), DirectX::XMFLOAT2(50.0f, 0.0f), CVector4::White);
-	//Y座標
-	pSpriteFont->DrawString(pSpriteBatch, L"Y", DirectX::XMFLOAT2(0.0f, 50.0f), CVector4::White);
-	pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_PosY), DirectX::XMFLOAT2(50.0f, 50.0f), CVector4::White);
-	//Z座標
-	pSpriteFont->DrawString(pSpriteBatch, L"Z", DirectX::XMFLOAT2(0.0f, 100.0f), CVector4::White);
-	pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_PosZ), DirectX::XMFLOAT2(50.0f, 100.0f), CVector4::White);
+	if (m_player->isRiding) {
+		//X座標
+		pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_PosX), DirectX::XMFLOAT2(430.0f, 630.0f), CVector4::White, 0.0f, DirectX::XMFLOAT2(0.0, 0.0), 0.5f);
+		//Y座標
+		pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_PosY), DirectX::XMFLOAT2(360.0f, 570.0f), CVector4::White, 0.0f, DirectX::XMFLOAT2(0.0, 0.0), 0.5f);
+		//Z座標
+		pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_PosZ), DirectX::XMFLOAT2(310.0f, 650.0f), CVector4::White, 0.0f, DirectX::XMFLOAT2(0.0, 0.0), 0.5f);
+	}
 	//整地座標
 	if (isOpenAct) {
 		//if (m_player->m_enPState == m_player->PSTATE_MAKEGROUND)

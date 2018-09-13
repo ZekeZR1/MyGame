@@ -447,6 +447,12 @@
     <ImageContentTask Include="Assets\Sprite\Hover.png">
       <Filter>リソース ファイル</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\BatteryGauge.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\BatteryFrame.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\testbox.FBX">
@@ -684,10 +690,13 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Assets\Sprite\BatteryGauge.png">
+    <Image Include="Assets\Sprite\HoverMenu.png">
       <Filter>ソース ファイル\Assets\sprite</Filter>
     </Image>
-    <Image Include="Assets\Sprite\BatteryFrame.png">
+    <Image Include="Assets\Sprite\HoverFrame.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\HoverGauge.png">
       <Filter>ソース ファイル\Assets\sprite</Filter>
     </Image>
   </ItemGroup>

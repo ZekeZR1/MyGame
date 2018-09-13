@@ -422,6 +422,13 @@
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\BatteryFrame.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\HoverMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\Sprite\HoverFrame.png" />
+    <ImageContentTask Include="Assets\Sprite\HoverGauge.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.targets" />

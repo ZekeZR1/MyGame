@@ -19,6 +19,7 @@ public:
 	void OpenMenu();
 	void CloseMenu();
 	bool CanOpenMenu();
+	bool isLowHoverBattery = false;
 	CQuaternion GetRot() {
 		return m_rotation;
 	}
@@ -55,6 +56,9 @@ public:
 	bool isRiding = false;
 	bool isMaxBattery = true;
 	bool isLowBattery = false;
+	CVector3 GetMoveSpeed() {
+		return m_moveSpeed;
+	}
 private:
 	int mi_state = 0;
 	int m_battery = 1000;

@@ -52,7 +52,12 @@ void Player::Move() {
 	if (isLowBattery)
 		m_moveSpeedParam = 500.0f;
 	if (isRiding) {
-		m_moveSpeedParam = 2500.0f;
+		if (isLowHoverBattery) {
+			m_moveSpeedParam = 300.0f;
+		}
+		else {
+			m_moveSpeedParam = 2500.0f;
+		}
 		m_moveSpeed.y = 0;
 	}
 	CVector3 cameraForward = camera3d->GetTarget() - camera3d->GetPosition();
@@ -193,10 +198,6 @@ void Player::Gauge() {
 	if(!isMaxBattery)
 		m_batteryScale.x += 0.0002f;
 
-	if (isRiding) {
-		ChargeBattery();
-		return;
-	}
 	if (m_moveSpeed.x != 0.0f || m_moveSpeed.z != 0.0f) {
 		if (!isLowBattery)
 			m_batteryScale.x -= 0.001f;
@@ -209,7 +210,6 @@ void Player::UseBattery() {
 }
 
 void Player::ChargeBattery() {
-	if(!isMaxBattery)
-		m_batteryScale.x += 0.005f;
+	m_batteryScale.x += 0.005f;
 	ms_battery->Update(m_batteryPos, CQuaternion::Identity(), m_batteryScale, { 0.0f,0.0f });
 }
