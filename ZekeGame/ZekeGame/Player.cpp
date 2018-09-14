@@ -141,16 +141,20 @@ bool Player::CanOpenMenu() {
 		return false;
 	if (m_nMenu > 0) {
 		//m_player->isOpenMenuNow = true;
+		/*
 		char message[256];
 		sprintf_s(message, "NOOOOOOO NOW %d\n",m_nMenu);
 		OutputDebugStringA(message);
+		*/
 		return false;
 	}
 	else {
 		//m_player->isOpenMenuNow = false;
+		/*
 		char message[256];
 		sprintf_s(message, "YEEEEEEEEEES %d\n", m_nMenu);
 		OutputDebugStringA(message);
+		*/
 		return true;
 	}
 }

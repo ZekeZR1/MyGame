@@ -81,7 +81,7 @@ void IConstructor::Crafting(Inventory* m_inventory) {
 	if (!isOpenMenu)
 		return;
 	if (g_pad[0].IsTrigger(enButtonDown)) {
-		if(ItemNumber!=1)
+		if(ItemNumber!=NUMITEM)
 			ItemNumber++;
 	}
 	if (g_pad[0].IsTrigger(enButtonUp)) {
@@ -127,6 +127,29 @@ void IConstructor::Crafting(Inventory* m_inventory) {
 			}
 			if (g_pad[0].IsTrigger(enButtonB)) {
 				isOrderHover = true;
+				CloseMenu();
+			}
+		}
+		else {
+			mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
+			mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos, CVector3::One(), CVector4::Red);
+		}
+		break;
+	case 2:
+		isDrawFont = true;
+		mS_ItemPre->Init(L"sprite/ItemMining.dds", 500.0f, 500.0f);
+		_itow_s(m_inventory->m_nIron, mw_bCraft, 10);
+		_itow_s(m_inventory->m_nIron - 5, mw_aCraft, 10);
+		//if(m_inventory->CanCreate(ExRocket)
+		if (m_inventory->m_nIron >= 5) {
+			mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
+			mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos);
+			if (isOpenNow) {
+				isOpenNow = false;
+				return;
+			}
+			if (g_pad[0].IsTrigger(enButtonB)) {
+				isOrderMining = true;
 				CloseMenu();
 			}
 		}

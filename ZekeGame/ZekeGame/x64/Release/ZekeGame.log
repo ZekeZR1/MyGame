@@ -33,6 +33,8 @@
   Assets\Sprite\HoverFrame.png
   Assets\Sprite\HoverGauge.png
   Assets\Sprite\HoverFuelMenu.png
+  Assets\Sprite\MiningMachineMenu.png
+  Assets\Sprite\ItemMining.png
   Assets\modelData\BackWorld.FBX
   Assets\modelData\Constructor.FBX
   Assets\modelData\DrilPos.FBX
@@ -42,16 +44,15 @@
   Assets\modelData\Hover.FBX
   Assets\modelData\IronOre.FBX
   Assets\modelData\ItemBox.FBX
+  Assets\modelData\MiningItem.FBX
   Assets\modelData\Player.FBX
   Assets\modelData\Space.FBX
   Assets\modelData\testbox.FBX
   Assets\modelData\unityChan.fbx
-  Hover.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\item\hover.cpp(172): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\item\hover.cpp(177): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+  MiningMachine.cpp
   コード生成しています。
-  2 of 1947 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+  2 of 1957 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    5 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
   ZekeGame.vcxproj -> C:\Users\Taiki.W\git\MyGame\ZekeGame\x64\Release\ZekeGame.exe

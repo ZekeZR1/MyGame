@@ -10,6 +10,7 @@
 #include "Item/ExplorationRocket.h"
 #include "ArrangeIron.h"
 #include "Item/Hover.h"
+#include "Item/MiningMachine.h"
 
 GameScene* g_game = nullptr;
 extern GameCamera* camera;
@@ -365,6 +366,10 @@ void GameScene::ItemOrder() {
 		m_ordered = en_HOVER;
 		m_settingOrderedItem = true;
 	}
+	if (m_pConstructor->isOrderMining) {
+		m_ordered = en_MINING;
+		m_settingOrderedItem = true;
+	}
 
 	if (!m_settingOrderedItem) {
 		mS_SettingItem->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
@@ -380,6 +385,13 @@ void GameScene::ItemOrder() {
 		break;
 	case en_HOVER:
 		mS_SettingItem->Init(L"sprite/Hover.dds", 500.0f, 500.0f);
+		if (g_pad[0].IsTrigger(enButtonB)) {
+			m_settingOrderedItem = false;
+			m_isOrderedItemSet = true;
+		}
+		break;
+	case en_MINING:
+		mS_SettingItem->Init(L"sprite/MiningMachine.dds", 500.0f, 500.0f);
 		if (g_pad[0].IsTrigger(enButtonB)) {
 			m_settingOrderedItem = false;
 			m_isOrderedItemSet = true;
@@ -402,6 +414,12 @@ void GameScene::ItemOrder() {
 		m_items[m_nItem] = reinterpret_cast<Item*>(new Hover(m_player, m_inventory));
 		m_pConstructor->isOrderHover = false;
 		m_inventory->UseMaterial(en_HOVER);
+		m_nItem++;
+		break;
+	case en_MINING:
+		m_items[m_nItem] = reinterpret_cast<Item*>(new MiningMachine(m_player, m_inventory));
+		m_pConstructor->isOrderMining = false;
+		m_inventory->UseMaterial(en_MINING);
 		m_nItem++;
 		break;
 	}

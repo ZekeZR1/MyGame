@@ -179,6 +179,7 @@
     <ClCompile Include="Item\IConstructor.cpp" />
     <ClCompile Include="Item\Item.cpp" />
     <ClCompile Include="Item\ItemManager.cpp" />
+    <ClCompile Include="Item\MiningMachine.cpp" />
     <ClCompile Include="level\Level.cpp" />
     <ClCompile Include="level\MapChip.cpp" />
     <ClCompile Include="main.cpp" />
@@ -230,6 +231,7 @@
     <ClInclude Include="Item\IConstructor.h" />
     <ClInclude Include="Item\Item.h" />
     <ClInclude Include="Item\ItemManager.h" />
+    <ClInclude Include="Item\MiningMachine.h" />
     <ClInclude Include="level\Level.h" />
     <ClInclude Include="level\MapChip.h" />
     <ClInclude Include="Materials\Iron.h" />
@@ -260,6 +262,7 @@
     <MeshContentTask Include="Assets\modelData\Hover.FBX" />
     <MeshContentTask Include="Assets\modelData\IronOre.FBX" />
     <MeshContentTask Include="Assets\modelData\ItemBox.FBX" />
+    <MeshContentTask Include="Assets\modelData\MiningItem.FBX" />
     <MeshContentTask Include="Assets\modelData\Player.FBX" />
     <MeshContentTask Include="Assets\modelData\Space.FBX" />
     <MeshContentTask Include="Assets\modelData\testbox.FBX" />
@@ -431,6 +434,11 @@
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\Sprite\HoverFuelMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\modelData\door018.jpg" />
+    <ImageContentTask Include="Assets\Sprite\MiningMachineMenu.png" />
+    <ImageContentTask Include="Assets\Sprite\ItemMining.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

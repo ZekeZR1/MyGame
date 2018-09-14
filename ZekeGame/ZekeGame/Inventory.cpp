@@ -19,6 +19,9 @@ void Inventory::UseMaterial(int ordered) {
 	case en_HOVER:
 		m_nSilicon -= 5;
 		break;
+	case en_MINING:
+		m_nIron -= 5;
+		break;
 	}
 }
 

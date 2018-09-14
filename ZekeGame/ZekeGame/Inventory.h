@@ -13,7 +13,7 @@ public:
 		en_NONE,
 		en_ROCKET,
 		en_HOVER,
-
+		en_MINING,
 	};
 	OrderedItem m_ordered = en_NONE;
 };

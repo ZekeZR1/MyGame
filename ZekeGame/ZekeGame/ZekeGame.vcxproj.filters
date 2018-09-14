@@ -206,6 +206,9 @@
     <ClCompile Include="Item\Hover.cpp">
       <Filter>ソース ファイル\Game\Item</Filter>
     </ClCompile>
+    <ClCompile Include="Item\MiningMachine.cpp">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window\Window.h">
@@ -358,6 +361,9 @@
     <ClInclude Include="Item\Hover.h">
       <Filter>ソース ファイル\Game\Item</Filter>
     </ClInclude>
+    <ClInclude Include="Item\MiningMachine.h">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\modelData\test.png">
@@ -453,6 +459,18 @@
     <ImageContentTask Include="Assets\Sprite\BatteryFrame.png">
       <Filter>リソース ファイル</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\HoverMenu.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\HoverFrame.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\HoverGauge.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\HoverFuelMenu.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\testbox.FBX">
@@ -492,6 +510,9 @@
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\Player.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\MiningItem.FBX">
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
   </ItemGroup>
@@ -690,16 +711,13 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Assets\Sprite\HoverMenu.png">
+    <Image Include="Assets\modelData\door018.jpg">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\ItemMining.png">
       <Filter>ソース ファイル\Assets\sprite</Filter>
     </Image>
-    <Image Include="Assets\Sprite\HoverFrame.png">
-      <Filter>ソース ファイル\Assets\sprite</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\HoverGauge.png">
-      <Filter>ソース ファイル\Assets\sprite</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\HoverFuelMenu.png">
+    <Image Include="Assets\Sprite\MiningMachineMenu.png">
       <Filter>ソース ファイル\Assets\sprite</Filter>
     </Image>
   </ItemGroup>
