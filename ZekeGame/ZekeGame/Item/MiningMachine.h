@@ -1,5 +1,4 @@
 #pragma once
-#define MININGTIME 50
 class Player;
 class Inventory;
 
@@ -17,6 +16,10 @@ private:
 	Popup m_popup;
 	Player * mp_player = nullptr;
 	Sprite ms_menu;
+	Sprite ms_frame;
+	Sprite ms_gauge;
+	CVector3 m_gaugePos = CVector3::Zero();
+	CVector3 m_gaugeScale = CVector3::One();
 	Inventory* mp_inventory = nullptr;
 	SkinModel m_MiningMachine;
 	CVector3 m_pos = CVector3::Zero();
@@ -24,5 +27,7 @@ private:
 	bool isOpenMenu = false;
 	bool isMining = false;
 	bool isGot = false;
-	int mn_mining = 0;
+	bool isOpendNow = true;
+	float  mn_mining = 0.0;
+	float  mn_miningTime = 500.0f;
 };

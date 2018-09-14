@@ -720,5 +720,17 @@
     <Image Include="Assets\Sprite\MiningMachineMenu.png">
       <Filter>ソース ファイル\Assets\sprite</Filter>
     </Image>
+    <Image Include="Assets\Sprite\MiningMachineMining.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\MiningMachineStandby.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\MiningFrame.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\MiningGauge.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -437,6 +437,10 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\door018.jpg" />
+    <ImageContentTask Include="Assets\Sprite\MiningFrame.png" />
+    <ImageContentTask Include="Assets\Sprite\MiningGauge.png" />
+    <ImageContentTask Include="Assets\Sprite\MiningMachineMining.png" />
+    <ImageContentTask Include="Assets\Sprite\MiningMachineStandby.png" />
     <ImageContentTask Include="Assets\Sprite\MiningMachineMenu.png" />
     <ImageContentTask Include="Assets\Sprite\ItemMining.png" />
   </ItemGroup>
