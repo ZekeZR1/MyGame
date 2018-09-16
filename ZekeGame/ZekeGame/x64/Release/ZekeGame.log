@@ -33,6 +33,10 @@
   Assets\Sprite\HoverFrame.png
   Assets\Sprite\HoverGauge.png
   Assets\Sprite\HoverFuelMenu.png
+  Assets\Sprite\MiningFrame.png
+  Assets\Sprite\MiningGauge.png
+  Assets\Sprite\MiningMachineMining.png
+  Assets\Sprite\MiningMachineStandby.png
   Assets\Sprite\MiningMachineMenu.png
   Assets\Sprite\ItemMining.png
   Assets\modelData\BackWorld.FBX
@@ -53,6 +57,6 @@
   コード生成しています。
   2 of 1957 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    20 functions had inline decision re-evaluated but remain unchanged
+    4 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
-  ZekeGame.vcxproj -> C:\Users\Taiki.W\git\MyGame\ZekeGame\x64\Release\ZekeGame.exe
+  ZekeGame.vcxproj -> C:\Users\Zeke\git\MyGame\ZekeGame\x64\Release\ZekeGame.exe

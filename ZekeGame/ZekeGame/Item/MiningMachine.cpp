@@ -10,6 +10,9 @@ MiningMachine::MiningMachine(Player* player, Inventory* inventory)
 	m_MiningMachine.Init(L"Assets/modelData/MiningItem.cmo", enFbxUpAxisY);
 	m_pos = player->GetForward(300.0f);
 	m_MiningMachine.UpdateWorldMatrix(m_pos, CQuaternion::Identity(), CVector3::One());
+	CQuaternion rot = CQuaternion::Identity();
+	rot.SetRotationDeg(CVector3::AxisX(), 90.0f);
+	m_physicsStaticObject.CreateMeshObject(m_MiningMachine, m_pos, rot);
 	ms_menu.Init(L"sprite/MiningMachineStandby.dds", 1270.0f, 720.0f);
 	ms_menu.Update(CVector3::Zero(), CQuaternion::Identity(), { 0.7f,0.7f,0.7f }, { 0.5f,0.5f });
 	//ms_menu.Update(CVector3::Zero(), CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
@@ -19,7 +22,6 @@ MiningMachine::MiningMachine(Player* player, Inventory* inventory)
 	ms_gauge.Update(m_gaugePos, CQuaternion::Identity(), m_gaugeScale, { 0.0f,0.0f });
 	ms_frame.Init(L"sprite/MiningFrame.dds", 300.0f, 50.0f);
 	ms_frame.Update(m_gaugePos, CQuaternion::Identity(), CVector3::One() , { 0.0f,0.0f });
-	m_physicsStaticObject.CreateMeshObject(m_MiningMachine, m_pos, CQuaternion::Identity());
 }
 
 
