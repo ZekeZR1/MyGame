@@ -26,7 +26,3 @@ void Title::Update() {
 void Title::Draw() {
 	m_sprite->Draw();
 }
-
-void Title::DrawFont() {
-
-}

@@ -17,16 +17,6 @@ extern GameCamera* camera;
 
 GameScene::GameScene()
 {
-	/*Effect
-	manager->SetSpriteRenderer(renderer->CreateSpriteRenderer());
-	manager->SetRibbonRenderer(renderer->CreateRibbonRenderer());
-	manager->SetRingRenderer(renderer->CreateRingRenderer());
-	manager->SetTrackRenderer(renderer->CreateTrackRenderer());
-	manager->SetModelRenderer(renderer->CreateModelRenderer());
-
-	manager->SetTextureLoader(renderer->CreateTextureLoader());
-	manager->SetCoordinateSystem(Effekseer::CoordinateSystem::RH);
-	*/
 	g_game = this;
 	m_inventory = new Inventory;
 	m_ActMenu = new ActionMenu;
@@ -38,9 +28,6 @@ GameScene::GameScene()
 	//DrilPos
 	m_drilmodel = new SkinModel;
 	m_drilmodel->Init(L"Assets/modelData/DrilPos.cmo",enFbxUpAxisY);
-	//Font
-	pSpriteBatch = new DirectX::SpriteBatch(g_graphicsEngine->GetD3DDeviceContext());
-	pSpriteFont = new DirectX::SpriteFont(g_graphicsEngine->GetD3DDevice(), L"Assets/font/myfile.spritefont");
 	//Sprite
 	mS_ActState = new Sprite;
 	mS_ActState->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
@@ -73,14 +60,6 @@ GameScene::GameScene()
 
 GameScene::~GameScene()
 {
-	/*Effect
-	// エフェクトを解放します。再生中の場合は、再生が終了した後、自動的に解放されます。
-	ES_SAFE_RELEASE(effect);
-	// エフェクト管理用インスタンスを破棄
-	manager->Destroy();
-	// 描画用インスタンスを破棄
-	renderer->Destroy();
-	*/
 	g_game = nullptr;
 	delete m_inventory;
 	for (int i = 0; i < IRONS; i++) {
@@ -91,8 +70,6 @@ GameScene::~GameScene()
 	delete m_model;
 	delete mS_ActState;
 	delete m_ActMenu;
-	delete pSpriteBatch;
-	delete pSpriteFont;
 	delete m_drilmodel;
 	delete m_rocket;
 	if (m_pConstructor != nullptr)
@@ -105,20 +82,9 @@ GameScene::~GameScene()
 }
 
 void GameScene::Update() {
-	/*Effect
-	if (g_pad[0].IsTrigger(enButtonA)) {
-		//effect = Effekseer::Effect::Create(manager, filepath);
-		handle = manager->Play(effect, 0.0f,0.0f,0.0f);
-	}
-	renderer->SetProjectionMatrix(::Effekseer::Matrix44);
-	renderer->SetCameraMatrix(camera3d->GetViewMatrix());
-	manager->AddLocation(handle, ::Effekseer::Vector3D);
-	manager->Update();
-	*/
 	ItemOrder();
 	Craft();
 	Ground();
-	CastFont();
 	Menu();
 	m_player->Update();
 	camera->Update(m_player);
@@ -137,11 +103,7 @@ void GameScene::Update() {
 }
 
 void GameScene::Draw() {
-	/*Effect
-	renderer->BeginRendering();
-	manager->Draw();
-	renderer->EndRendering();
-	*/
+
 	bg->Draw();
 	m_player->Draw();
 	m_model->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
@@ -168,28 +130,11 @@ void GameScene::Draw() {
 	m_player->DrawSprite();
 	mS_ActState->Draw();
 	mS_SettingItem->Draw();
-	if (isOpenAct) {
-			m_ActMenu->Draw();
+	if (m_ActMenu->isOpenAct) {
+			m_ActMenu->Draw(m_inventory);
 	}
 	if (m_pConstructor != nullptr)
 		m_pConstructor->DrawSprite();
-}
-
-void GameScene::DrawFont() {
-	pSpriteBatch->Begin();
-	//整地座標
-	if (isOpenAct) {
-		//if (m_player->m_enPState == m_player->PSTATE_MAKEGROUND)
-		if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_MAKEGROUND)
-			//360
-			pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_flatPosY), DirectX::XMFLOAT2(640.0f, 240.0f), CVector4::White);
-		//Inventory
-		if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_INVENTORY) {
-			pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_Iron), DirectX::XMFLOAT2(640.0f, 360.0f), CVector4::White);
-			pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_Silicon), DirectX::XMFLOAT2(640.0f, 425.0f), CVector4::White);
-		}
-	}
-	pSpriteBatch->End();
 }
 
 void GameScene::Craft() {
@@ -208,8 +153,8 @@ void GameScene::Craft() {
 				char message[256];
 				sprintf_s(message, "CLOSE Act\n");
 				OutputDebugStringA(message);
-				if(isOpenAct){
-					isOpenAct = false;
+				if(m_ActMenu->isOpenAct){
+					m_ActMenu->isOpenAct = false;
 					m_player->CloseMenu();
 				}
 			}
@@ -236,24 +181,24 @@ void GameScene::Ground() {
 void GameScene::Menu() {
 	//ActMenu
 	if (m_pConstructor != nullptr && m_pConstructor->isOpenMenu) {
-		isOpenAct = false;
+		m_ActMenu->isOpenAct = false;
 		return;
 	}
 	if (g_pad[0].IsTrigger(enButtonX)) {
-		if (isOpenAct) {
+		if (m_ActMenu->isOpenAct) {
 			//m_player->m_enPState = m_player->PSTATE_WALK;
-			isOpenAct = false;
+			m_ActMenu->isOpenAct = false;
 			m_player->CloseMenu();
 		}
 		else {
 			//m_player->m_enPState = m_player->PSTATE_CRAFT;
 			if (!m_player->isOpenMenuNow) {
-				isOpenAct = true;
+				m_ActMenu->isOpenAct = true;
 				m_player->OpenMenu();
 			}
 		}
 	}
-	if (isOpenAct) {
+	if (m_ActMenu->isOpenAct) {
 		m_ActMenu->Update(m_player);
 	}
 	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_CRAFT) {
@@ -287,13 +232,6 @@ void GameScene::Menu() {
 		m_ActMenu->m_enAction = m_ActMenu->ASTATE_INVENTORY;
 		m_ActMenu->m_mode = 1;
 	}
-}
-
-void GameScene::CastFont() {
-	mi_flaty = m_ActMenu->m_flatPos.y;
-	_itow_s(mi_flaty, mw_flatPosY, 10);
-	_itow_s(m_inventory->m_nIron, mw_Iron, 10);
-	_itow_s(m_inventory->m_nSilicon, mw_Silicon, 10);
 }
 
 void GameScene::DrilRange() {

@@ -42,6 +42,8 @@ Hover::~Hover()
 {
 	delete m_hoverModel;
 	delete m_physicsStaticObject;
+	delete pSpriteBatch;
+	delete pSpriteFont;
 }
 
 void Hover::Update() {

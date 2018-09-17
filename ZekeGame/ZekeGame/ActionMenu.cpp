@@ -2,6 +2,7 @@
 #include "GameScene.h"
 #include "ActionMenu.h"
 #include "Player.h"
+#include "Inventory.h"
 
 Player* player;
 
@@ -15,6 +16,9 @@ ActionMenu::ActionMenu()
 	m_ActMenu->Init(L"sprite/ActMenuCraft.dds", 1280.0f, 720.0f);
 	m_ActMenu->Update(m_ActPos, CQuaternion::Identity(), { 0.8f,0.8f,0.8f }, { 0.5f,0.5f });
 	//m_ActMenu->Update(m_ActPos, CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
+
+	pSpriteBatch = new DirectX::SpriteBatch(g_graphicsEngine->GetD3DDeviceContext());
+	pSpriteFont = new DirectX::SpriteFont(g_graphicsEngine->GetD3DDevice(), L"Assets/font/myfile.spritefont");
 }
 
 
@@ -22,6 +26,8 @@ ActionMenu::~ActionMenu()
 {
 	delete m_ActMenu;
 	delete mS_Item;
+	delete pSpriteBatch;
+	delete pSpriteFont;
 }
 
 void ActionMenu::Update(Player* m_player) {
@@ -76,10 +82,11 @@ void ActionMenu::Update(Player* m_player) {
 	}
 }
 
-void ActionMenu::Draw() {
+void ActionMenu::Draw(Inventory* mp_inventory) {
 	m_ActMenu->Draw();
 	if(m_enAction == ASTATE_CRAFT)
 		mS_Item->Draw();
+	DrawFont(mp_inventory);
 }
 
 void ActionMenu::Craft() {
@@ -105,4 +112,31 @@ void ActionMenu::Craft() {
 		//選んだアイテムを指定した座標に置く
 		//new Item;
 	}
+}
+
+
+void ActionMenu::CastFont() {
+	mi_flaty = m_flatPos.y;
+	_itow_s(mi_flaty, mw_flatPosY, 10);
+	_itow_s(mp_inventory->m_nIron, mw_Iron, 10);
+	_itow_s(mp_inventory->m_nSilicon, mw_Silicon, 10);
+}
+
+
+void ActionMenu::DrawFont(Inventory* mp_inventory) {
+	mi_flaty = m_flatPos.y;
+	_itow_s(mi_flaty, mw_flatPosY, 10);
+	_itow_s(mp_inventory->m_nIron, mw_Iron, 10);
+	_itow_s(mp_inventory->m_nSilicon, mw_Silicon, 10);
+	pSpriteBatch->Begin();
+	//整地座標
+	if (isOpenAct) {
+		if (m_enAction == ASTATE_MAKEGROUND)
+			pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_flatPosY), DirectX::XMFLOAT2(640.0f, 240.0f), CVector4::White);
+		if (m_enAction == ASTATE_INVENTORY) {
+			pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_Iron), DirectX::XMFLOAT2(640.0f, 360.0f), CVector4::White);
+			pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_Silicon), DirectX::XMFLOAT2(640.0f, 425.0f), CVector4::White);
+		}
+	}
+	pSpriteBatch->End();
 }

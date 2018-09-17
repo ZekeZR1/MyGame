@@ -19,24 +19,16 @@ public:
 	virtual ~GameScene() override;
 	void Update() override;
 	void Draw() override;
-	void DrawFont() override;
 	void Craft();
 	void Ground();
 	void Menu();
-	void CastFont();
 	bool Converting = false;
-	bool isOpenAct = false;
+	//bool isOpenAct = false;
 	void DrilRange();
 	ActionMenu* m_ActMenu = nullptr;
 	Player* m_player = nullptr;
 	//void addSearchRate();
 private:
-	/*Effect
-	::EffekseerRenderer::Renderer* renderer = ::EffekseerRendererDX11::Renderer::Create(g_graphicsEngine->GetD3DDevice(), g_graphicsEngine->GetD3DDeviceContext(), 100);
-	::Effekseer::Manager* manager = ::Effekseer::Manager::Create(100);
-	Effekseer::Effect* effect;
-	Effekseer::Handle handle;
-	*/
 	void ItemOrder();
 	int SearchRate = 0;
 	IConstructor* m_pConstructor;
@@ -57,13 +49,6 @@ private:
 	//DrilPos
 	SkinModel* m_drilmodel;
 	float deep = 0.0f;
-	//Font
-	DirectX::SpriteBatch* pSpriteBatch;
-	DirectX::SpriteFont* pSpriteFont;
-	wchar_t mw_flatPosY[256];
-	wchar_t mw_Iron[256];
-	wchar_t mw_Silicon[256];
-	int mi_flaty = 0;
 	//constructor
 	bool m_settingConstructor = false;
 	bool m_setConstructor = false;

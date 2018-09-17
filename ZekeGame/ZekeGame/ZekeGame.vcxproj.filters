@@ -209,6 +209,9 @@
     <ClCompile Include="Item\MiningMachine.cpp">
       <Filter>ソース ファイル\Game\Item</Filter>
     </ClCompile>
+    <ClCompile Include="graphics\CEffect.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window\Window.h">
@@ -364,6 +367,9 @@
     <ClInclude Include="Item\MiningMachine.h">
       <Filter>ソース ファイル\Game\Item</Filter>
     </ClInclude>
+    <ClInclude Include="graphics\CEffect.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\modelData\test.png">
@@ -469,6 +475,24 @@
       <Filter>リソース ファイル</Filter>
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\HoverFuelMenu.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\MiningFrame.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\MiningGauge.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\MiningMachineMining.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\MiningMachineStandby.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\MiningMachineMenu.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ItemMining.png">
       <Filter>リソース ファイル</Filter>
     </ImageContentTask>
   </ItemGroup>
@@ -713,24 +737,6 @@
   <ItemGroup>
     <Image Include="Assets\modelData\door018.jpg">
       <Filter>ソース ファイル\Assets\modelData</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\ItemMining.png">
-      <Filter>ソース ファイル\Assets\sprite</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\MiningMachineMenu.png">
-      <Filter>ソース ファイル\Assets\sprite</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\MiningMachineMining.png">
-      <Filter>ソース ファイル\Assets\sprite</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\MiningMachineStandby.png">
-      <Filter>ソース ファイル\Assets\sprite</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\MiningFrame.png">
-      <Filter>ソース ファイル\Assets\sprite</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\MiningGauge.png">
-      <Filter>ソース ファイル\Assets\sprite</Filter>
     </Image>
   </ItemGroup>
 </Project>
