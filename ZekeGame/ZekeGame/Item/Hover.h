@@ -19,6 +19,8 @@ private:
 	void UseBattery();
 	void addFuel();
 	void BatteryGauge();
+	void CastFont();
+	void DrawFont();
 	bool isRideNow = false;
 	bool m_isLowBattery = false;
 	bool m_isMaxBattery = true;
@@ -47,5 +49,14 @@ private:
 	wchar_t mw_aCharge[256];
 	CVector3 m_bFontpos = CVector3::Zero();
 	CVector3 m_aFontpos = CVector3::Zero();
+	//Font
+	DirectX::SpriteBatch* pSpriteBatch;
+	DirectX::SpriteFont* pSpriteFont;
+	wchar_t mw_PosX[256];
+	wchar_t mw_PosY[256];
+	wchar_t mw_PosZ[256];
+	int mi_x = 0;
+	int mi_y = 0;
+	int mi_z = 0;
 };
 

@@ -53,10 +53,15 @@
   Assets\modelData\Space.FBX
   Assets\modelData\testbox.FBX
   Assets\modelData\unityChan.fbx
-  MiningMachine.cpp
+  Hover.cpp
+c:\users\zeke\git\mygame\zekegame\zekegame\item\hover.cpp(177): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+c:\users\zeke\git\mygame\zekegame\zekegame\item\hover.cpp(182): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+c:\users\zeke\git\mygame\zekegame\zekegame\item\hover.cpp(222): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\zeke\git\mygame\zekegame\zekegame\item\hover.cpp(224): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\zeke\git\mygame\zekegame\zekegame\item\hover.cpp(226): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
   コード生成しています。
-  2 of 1957 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+  9 of 1959 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    4 functions had inline decision re-evaluated but remain unchanged
+    33 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
   ZekeGame.vcxproj -> C:\Users\Zeke\git\MyGame\ZekeGame\x64\Release\ZekeGame.exe

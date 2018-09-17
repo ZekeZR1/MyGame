@@ -13,6 +13,7 @@ private:
 	void OpenClose();
 	void Menu();
 	void Mining();
+	void CastFont();
 	Popup m_popup;
 	Player * mp_player = nullptr;
 	Sprite ms_menu;

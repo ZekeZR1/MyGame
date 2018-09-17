@@ -177,14 +177,6 @@ void GameScene::Draw() {
 
 void GameScene::DrawFont() {
 	pSpriteBatch->Begin();
-	if (m_player->isRiding) {
-		//X座標
-		pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_PosX), DirectX::XMFLOAT2(430.0f, 630.0f), CVector4::White, 0.0f, DirectX::XMFLOAT2(0.0, 0.0), 0.5f);
-		//Y座標
-		pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_PosY), DirectX::XMFLOAT2(360.0f, 570.0f), CVector4::White, 0.0f, DirectX::XMFLOAT2(0.0, 0.0), 0.5f);
-		//Z座標
-		pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_PosZ), DirectX::XMFLOAT2(310.0f, 650.0f), CVector4::White, 0.0f, DirectX::XMFLOAT2(0.0, 0.0), 0.5f);
-	}
 	//整地座標
 	if (isOpenAct) {
 		//if (m_player->m_enPState == m_player->PSTATE_MAKEGROUND)
@@ -271,7 +263,6 @@ void GameScene::Menu() {
 		else {
 			mS_ActState->Init(L"sprite/ItemBoxSprite.dds", 500.0f, 500.0f);
 		}
-
 	}
 	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_INVENTORY) {
 		mS_ActState->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
@@ -291,7 +282,6 @@ void GameScene::Menu() {
 		mS_ActState->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
 	}
 	mS_ActState->Update(mv_ActSpos, CQuaternion::Identity(), { 0.5f,0.5f,0.5f }, { 0.5,0.5 });
-	//Walkに移行
 	if (g_pad[0].IsTrigger(enButtonY)) {
 		m_player->m_enPState = m_player->PSTATE_WALK;
 		m_ActMenu->m_enAction = m_ActMenu->ASTATE_INVENTORY;
@@ -300,15 +290,6 @@ void GameScene::Menu() {
 }
 
 void GameScene::CastFont() {
-	//プレイヤー座標
-	CVector3 Ppos = m_player->GetPosition();
-	mi_x = Ppos.x;
-	_itow_s(mi_x, mw_PosX, 10);
-	mi_y = Ppos.y;
-	_itow_s(mi_y, mw_PosY, 10);
-	mi_z = Ppos.z;
-	_itow_s(mi_z, mw_PosZ, 10);
-	//整地座標
 	mi_flaty = m_ActMenu->m_flatPos.y;
 	_itow_s(mi_flaty, mw_flatPosY, 10);
 	_itow_s(m_inventory->m_nIron, mw_Iron, 10);

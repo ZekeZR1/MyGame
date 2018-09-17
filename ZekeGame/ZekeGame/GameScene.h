@@ -60,15 +60,9 @@ private:
 	//Font
 	DirectX::SpriteBatch* pSpriteBatch;
 	DirectX::SpriteFont* pSpriteFont;
-	wchar_t mw_PosX[256];
-	wchar_t mw_PosY[256];
-	wchar_t mw_PosZ[256];
 	wchar_t mw_flatPosY[256];
 	wchar_t mw_Iron[256];
 	wchar_t mw_Silicon[256];
-	int mi_x = 0;
-	int mi_y = 0;
-	int mi_z = 0;
 	int mi_flaty = 0;
 	//constructor
 	bool m_settingConstructor = false;

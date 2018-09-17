@@ -30,6 +30,9 @@ Hover::Hover(Player* player, Inventory* inventory)
 	m_bFontpos = { 540.0f, 350.0f,0.0f };
 	m_aFontpos = { 650.0f, 350.0f,0.0f };
 
+	pSpriteBatch = new DirectX::SpriteBatch(g_graphicsEngine->GetD3DDeviceContext());
+	pSpriteFont = new DirectX::SpriteFont(g_graphicsEngine->GetD3DDevice(), L"Assets/font/myfile.spritefont");
+
 	m_physicsStaticObject = new PhysicsStaticObject;
 	m_physicsStaticObject->CreateMeshObject(*m_hoverModel, m_pos, m_rot);
 }
@@ -48,6 +51,7 @@ void Hover::Update() {
 	Ride();
 	Physics();
 	MoveAndRotation();
+	CastFont();
 }
 
 void Hover::Draw() {
@@ -65,6 +69,7 @@ void Hover::DrawSprite() {
 		mf_aFuel.Draw();
 		mf_bFuel.Draw();
 	}
+	DrawFont();
 }
 
 void Hover::MoveAndRotation() {
@@ -209,4 +214,28 @@ void Hover::addFuel() {
 		mf_bFuel.Init((L"%d", mw_bCharge), m_bFontpos);
 		mf_aFuel.Init((L"%d", mw_aCharge), m_aFontpos, CVector3::One(), CVector4::Red);
 	}
+}
+
+
+void Hover::CastFont() {
+	CVector3 Ppos = mp_player->GetPosition();
+	mi_x = Ppos.x;
+	_itow_s(mi_x, mw_PosX, 10);
+	mi_y = Ppos.y;
+	_itow_s(mi_y, mw_PosY, 10);
+	mi_z = Ppos.z;
+	_itow_s(mi_z, mw_PosZ, 10);
+}
+
+void Hover::DrawFont() {
+	pSpriteBatch->Begin();
+	if (mp_player->isRiding) {
+		//XÀ•W
+		pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_PosX), DirectX::XMFLOAT2(430.0f, 630.0f), CVector4::White, 0.0f, DirectX::XMFLOAT2(0.0, 0.0), 0.5f);
+		//YÀ•W
+		pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_PosY), DirectX::XMFLOAT2(360.0f, 570.0f), CVector4::White, 0.0f, DirectX::XMFLOAT2(0.0, 0.0), 0.5f);
+		//ZÀ•W
+		pSpriteFont->DrawString(pSpriteBatch, (L"%d", mw_PosZ), DirectX::XMFLOAT2(310.0f, 650.0f), CVector4::White, 0.0f, DirectX::XMFLOAT2(0.0, 0.0), 0.5f);
+	}
+	pSpriteBatch->End();
 }

@@ -30,7 +30,7 @@ MiningMachine::~MiningMachine()
 }
 
 void MiningMachine::OpenClose() {
-	if (!mp_player->isNear(m_pos, 200.0f)) {
+	if (!mp_player->isNear(m_pos, 300.0f)) {
 		if (isOpenMenu) {
 			isOpenMenu = false;
 			mp_player->CloseMenu();
@@ -118,4 +118,8 @@ void MiningMachine::DrawSprite() {
 		ms_gauge.Draw();
 	}
 	m_popup.Draw();
+}
+
+void MiningMachine::CastFont() {
+
 }
