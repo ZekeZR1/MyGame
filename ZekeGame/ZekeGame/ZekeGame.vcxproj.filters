@@ -212,6 +212,9 @@
     <ClCompile Include="graphics\CEffect.cpp">
       <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClCompile>
+    <ClCompile Include="Item\IBase.cpp">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window\Window.h">
@@ -370,6 +373,9 @@
     <ClInclude Include="graphics\CEffect.h">
       <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClInclude>
+    <ClInclude Include="Item\IBase.h">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\modelData\test.png">
@@ -501,6 +507,9 @@
     <ImageContentTask Include="Assets\Sprite\testgauge.png">
       <Filter>ソース ファイル\Assets\sprite</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Base.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\testbox.FBX">
@@ -543,6 +552,9 @@
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\MiningItem.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Base.FBX">
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
   </ItemGroup>

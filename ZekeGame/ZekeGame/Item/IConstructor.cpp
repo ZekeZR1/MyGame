@@ -158,6 +158,28 @@ void IConstructor::Crafting(Inventory* m_inventory) {
 			mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos, CVector3::One(), CVector4::Red);
 		}
 		break;
+	case 3:
+		isDrawFont = true;
+		mS_ItemPre->Init(L"sprite/Base.dds", 500.0f, 500.0f);
+		_itow_s(m_inventory->m_nIron, mw_bCraft, 10);
+		_itow_s(m_inventory->m_nIron - 10, mw_aCraft, 10);
+		if (m_inventory->m_nIron >= 10) {
+			mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
+			mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos);
+			if (isOpenNow) {
+				isOpenNow = false;
+				return;
+			}
+			if (g_pad[0].IsTrigger(enButtonB)) {
+				isOrderBase = true;
+				CloseMenu();
+			}
+		}
+		else {
+			mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
+			mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos, CVector3::One(), CVector4::Red);
+		}
+		break;
 	}
 }
 

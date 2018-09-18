@@ -1,5 +1,5 @@
 #pragma once
-#define NUMITEM 2
+#define NUMITEM 3
 #include "physics\PhysicsStaticObject.h"
 
 class Inventory;
@@ -19,6 +19,7 @@ public:
 	bool isOrderRocket = false;
 	bool isOrderHover = false;
 	bool isOrderMining = false;
+	bool isOrderBase = false;
 private:
 	void Menu();
 	void OpenMenu();

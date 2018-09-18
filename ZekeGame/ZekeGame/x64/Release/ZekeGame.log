@@ -33,14 +33,95 @@
   Assets\Sprite\HoverFrame.png
   Assets\Sprite\HoverGauge.png
   Assets\Sprite\HoverFuelMenu.png
+  Assets\Sprite\testgauge.png
+  Assets\Sprite\testmask.png
   Assets\Sprite\MiningFrame.png
   Assets\Sprite\MiningGauge.png
   Assets\Sprite\MiningMachineMining.png
   Assets\Sprite\MiningMachineStandby.png
   Assets\Sprite\MiningMachineMenu.png
   Assets\Sprite\ItemMining.png
-C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\BuildCustomizations\ImageContentTask.targets(66,5): error MSB4018: "ImageContentTask" タスクが予期せずに失敗しました。
-C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\BuildCustomizations\ImageContentTask.targets(66,5): error MSB4018: System.Exception: VsGraphics failed, error code 4317 returned.
-C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\BuildCustomizations\ImageContentTask.targets(66,5): error MSB4018:    場所 Microsoft.VisualStudio.Graphics.Api.VsgTask.Execute()
-C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\BuildCustomizations\ImageContentTask.targets(66,5): error MSB4018:    場所 Microsoft.Build.BackEnd.TaskExecutionHost.Microsoft.Build.BackEnd.ITaskExecutionHost.Execute()
-C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\BuildCustomizations\ImageContentTask.targets(66,5): error MSB4018:    場所 Microsoft.Build.BackEnd.TaskBuilder.<ExecuteInstantiatedTask>d__26.MoveNext()
+  Assets\modelData\BackWorld.FBX
+  Assets\modelData\Base.FBX
+  Assets\modelData\Constructor.FBX
+  Assets\modelData\DrilPos.FBX
+  Assets\modelData\ExplorationRocket.FBX
+  Assets\modelData\ExRocketDL.FBX
+  Assets\modelData\FlatRange.FBX
+  Assets\modelData\Hover.FBX
+  Assets\modelData\IronOre.FBX
+  Assets\modelData\ItemBox.FBX
+  Assets\modelData\MiningItem.FBX
+  Assets\modelData\Player.FBX
+  Assets\modelData\Space.FBX
+  Assets\modelData\testbox.FBX
+  Assets\modelData\unityChan.fbx
+  ActionMenu.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\actionmenu.cpp(83): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\actionmenu.cpp(91): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+  ArrangeIron.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\arrangeiron.cpp(12): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\arrangeiron.cpp(13): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\arrangeiron.cpp(19): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\arrangeiron.cpp(20): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\arrangeiron.cpp(22): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+  BackGround.cpp
+  CFONT.cpp
+  CharacterController.cpp
+  GameCamera.cpp
+  GameScene.cpp
+  Animation.cpp
+  AnimationClip.cpp
+  AnimationPlayController.cpp
+  Camera.cpp
+  GraphicsEngine.cpp
+  Shader.cpp
+  ShaderResources.cpp
+  Skelton.cpp
+  SkinModel.cpp
+  SkinModelDataManager.cpp
+  SkinModelEffect.cpp
+  Effect.cpp
+  SpBuffer.cpp
+  コンパイル中...
+  Sprite.cpp
+  Pad.cpp
+  Inventory.cpp
+  ExplorationRocket.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\item\explorationrocket.cpp(192): warning C4244: '+=': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\item\explorationrocket.cpp(197): warning C4244: '+=': 'float' から 'int' への変換です。データが失われる可能性があります。
+  Hover.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\item\hover.cpp(179): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\item\hover.cpp(184): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\item\hover.cpp(224): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\item\hover.cpp(226): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\item\hover.cpp(228): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+  IBase.cpp
+  IConstructor.cpp
+  Item.cpp
+  ItemManager.cpp
+  MiningMachine.cpp
+  Level.cpp
+  MapChip.cpp
+  main.cpp
+  Iron.cpp
+  kMath.cpp
+  Matrix.cpp
+  Vector.cpp
+  CapsuleCollider.cpp
+  MeshCollider.cpp
+  Physics.cpp
+  コンパイル中...
+  PhysicsStaticObject.cpp
+  RigitBody.cpp
+  Player.cpp
+  Popup.cpp
+  stdafx.cpp
+  Title.cpp
+  Window.cpp
+  コード生成しています。
+  9 of 1960 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+    7 functions were new in current compilation
+    24 functions had inline decision re-evaluated but remain unchanged
+  コード生成が終了しました。
+  ZekeGame.vcxproj -> C:\Users\Taiki.W\git\MyGame\ZekeGame\x64\Release\ZekeGame.exe

@@ -177,6 +177,7 @@
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item\ExplorationRocket.cpp" />
     <ClCompile Include="Item\Hover.cpp" />
+    <ClCompile Include="Item\IBase.cpp" />
     <ClCompile Include="Item\IConstructor.cpp" />
     <ClCompile Include="Item\Item.cpp" />
     <ClCompile Include="Item\ItemManager.cpp" />
@@ -230,6 +231,7 @@
     <ClInclude Include="IScene.h" />
     <ClInclude Include="Item\ExplorationRocket.h" />
     <ClInclude Include="Item\Hover.h" />
+    <ClInclude Include="Item\IBase.h" />
     <ClInclude Include="Item\IConstructor.h" />
     <ClInclude Include="Item\Item.h" />
     <ClInclude Include="Item\ItemManager.h" />
@@ -256,6 +258,7 @@
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\BackWorld.FBX" />
+    <MeshContentTask Include="Assets\modelData\Base.FBX" />
     <MeshContentTask Include="Assets\modelData\Constructor.FBX" />
     <MeshContentTask Include="Assets\modelData\DrilPos.FBX" />
     <MeshContentTask Include="Assets\modelData\ExplorationRocket.FBX" />
@@ -439,6 +442,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\door018.jpg" />
+    <ImageContentTask Include="Assets\Sprite\Base.png" />
     <ImageContentTask Include="Assets\Sprite\testgauge.png" />
     <ImageContentTask Include="Assets\Sprite\testmask.png" />
     <ImageContentTask Include="Assets\Sprite\MiningFrame.png" />

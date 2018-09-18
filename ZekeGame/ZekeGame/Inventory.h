@@ -14,6 +14,7 @@ public:
 		en_ROCKET,
 		en_HOVER,
 		en_MINING,
+		en_BASE,
 	};
 	OrderedItem m_ordered = en_NONE;
 };

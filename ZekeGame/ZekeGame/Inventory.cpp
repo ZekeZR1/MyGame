@@ -22,6 +22,9 @@ void Inventory::UseMaterial(int ordered) {
 	case en_MINING:
 		m_nIron -= 5;
 		break;
+	case en_BASE:
+		m_nIron -= 10;
+		break;
 	}
 }
 
