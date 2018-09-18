@@ -31,6 +31,8 @@ public:
 private:
 	void ItemOrder();
 	int SearchRate = 0;
+	Sprite m_SearchRate;
+	CVector3 m_ratePos = CVector3::Zero();
 	IConstructor* m_pConstructor;
 	ArrangeIron* m_irons[50];
 	ExplorationRocket* m_rocket = nullptr;

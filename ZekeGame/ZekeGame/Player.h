@@ -67,7 +67,7 @@ private:
 	void CharaconUpdate();
 	void Gauge();
 	bool isCharaConRide = false;
-	Sprite* ms_battery;
+	Sprite ms_battery;
 	Sprite ms_bFrame;
 	CVector3 m_batteryPos = CVector3::Zero();
 	CVector3 m_bFramePos = CVector3::Zero();

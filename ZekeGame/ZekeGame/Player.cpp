@@ -10,10 +10,9 @@ Player::Player()
 	m_charaCon = new CharacterController;
 	m_charaCon->Init(30.0f, 50.0f, m_position);
 
-	ms_battery = new Sprite;
 	m_batteryPos.x += 300.0f;
-	m_batteryPos.y += 300.0f;
-	ms_battery->Init(L"sprite/BatteryGauge.dds", 300.0f, 50.0f);
+	m_batteryPos.y += 280.0f;
+	ms_battery.Init(L"sprite/BatteryGauge.dds", 300.0f, 50.0f);
 
 	ms_bFrame.Init(L"sprite/BatteryFrame.dds", 400.0f, 100.0f);
 	m_bFramePos = m_batteryPos;
@@ -26,7 +25,6 @@ Player::Player()
 Player::~Player()
 {
 	delete m_charaCon;
-	delete ms_battery;
 }
 
 void Player::Update() {
@@ -98,7 +96,7 @@ void Player::Draw() {
 
 void Player::DrawSprite() {
 	ms_bFrame.Draw();
-	ms_battery->Draw();
+	ms_battery.Draw();
 }
 
 void Player::ChangeState() {
@@ -202,7 +200,7 @@ void Player::Gauge() {
 		if (!isLowBattery)
 			m_batteryScale.x -= 0.001f;
 	}
-	ms_battery->Update(m_batteryPos, CQuaternion::Identity(), m_batteryScale, { 0.0f,0.0f });
+	ms_battery.Update(m_batteryPos, CQuaternion::Identity(), m_batteryScale, { 0.0f,0.0f });
 }
 
 void Player::UseBattery() {
@@ -211,5 +209,5 @@ void Player::UseBattery() {
 
 void Player::ChargeBattery() {
 	m_batteryScale.x += 0.005f;
-	ms_battery->Update(m_batteryPos, CQuaternion::Identity(), m_batteryScale, { 0.0f,0.0f });
+	ms_battery.Update(m_batteryPos, CQuaternion::Identity(), m_batteryScale, { 0.0f,0.0f });
 }

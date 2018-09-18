@@ -32,7 +32,7 @@ GameScene::GameScene()
 	mS_ActState = new Sprite;
 	mS_ActState->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
 	mv_ActSpos.x = 500.0f;
-	mv_ActSpos.y = 280.0f;
+	mv_ActSpos.y -= 250.0f;
 	mS_ActState->Update(mv_ActSpos, CQuaternion::Identity(), CVector3::One(), { 0.5,0.5 });
 	mS_SettingItem = new Sprite;
 	mS_SettingItem->Init(L"sprite/None_Sprite.dds",500.0f, 500.0f);
@@ -45,6 +45,11 @@ GameScene::GameScene()
 	for (int i = 0; i < IRONS; i++) {
 		m_irons[i] = new ArrangeIron(m_player, m_inventory);
 	}
+	//Rate
+	m_SearchRate.Init(L"sprite/testgauge.dds", 150.0f, 150.0f);
+	m_ratePos.x -= 550.0f;
+	m_ratePos.y += 270.0f;
+	m_SearchRate.Update(m_ratePos, CQuaternion::Identity(), CVector3::One(), { 0.5,0.5 });
 	/*
 	smodel = new SkinModel;
 	smodel->Init(L"Assets/modelData/testbox.cmo");
@@ -103,7 +108,6 @@ void GameScene::Update() {
 }
 
 void GameScene::Draw() {
-
 	bg->Draw();
 	m_player->Draw();
 	m_model->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
@@ -122,19 +126,20 @@ void GameScene::Draw() {
 		m_drilmodel->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
 	}
 	//Žè‘O‚É•`‰æ‚µ‚½‚¢•¨
+	m_player->DrawSprite();
+	m_SearchRate.Draw();
 	for (int i = 0; i < m_nItem; i++) {
 		if (m_items[i] != nullptr) {
 			m_items[i]->DrawSprite();
 		}
 	}
-	m_player->DrawSprite();
-	mS_ActState->Draw();
 	mS_SettingItem->Draw();
 	if (m_ActMenu->isOpenAct) {
 			m_ActMenu->Draw(m_inventory);
 	}
 	if (m_pConstructor != nullptr)
 		m_pConstructor->DrawSprite();
+	mS_ActState->Draw();
 }
 
 void GameScene::Craft() {
@@ -296,21 +301,21 @@ void GameScene::ItemOrder() {
 	}
 	switch (m_ordered) {
 	case en_ROCKET:
-		mS_SettingItem->Init(L"sprite/ExRocket.dds", 500.0f, 500.0f);
+		mS_SettingItem->Init(L"sprite/ExRocket.dds", 250.0f, 250.0f);
 		if (g_pad[0].IsTrigger(enButtonB)) {
 			m_settingOrderedItem = false;
 			m_isOrderedItemSet = true;
 		}
 		break;
 	case en_HOVER:
-		mS_SettingItem->Init(L"sprite/Hover.dds", 500.0f, 500.0f);
+		mS_SettingItem->Init(L"sprite/Hover.dds", 250.0f, 250.0f);
 		if (g_pad[0].IsTrigger(enButtonB)) {
 			m_settingOrderedItem = false;
 			m_isOrderedItemSet = true;
 		}
 		break;
 	case en_MINING:
-		mS_SettingItem->Init(L"sprite/MiningMachine.dds", 500.0f, 500.0f);
+		mS_SettingItem->Init(L"sprite/MiningMachine.dds", 250.0f, 250.0f);
 		if (g_pad[0].IsTrigger(enButtonB)) {
 			m_settingOrderedItem = false;
 			m_isOrderedItemSet = true;
