@@ -13,16 +13,16 @@ Inventory::~Inventory()
 
 void Inventory::UseMaterial(int ordered) {
 	switch (ordered) {
-	case en_ROCKET:
+	case Item::en_ROCKET:
 		m_nIron -= 5;
 		break;
-	case en_HOVER:
+	case Item::en_HOVER:
 		m_nSilicon -= 5;
 		break;
-	case en_MINING:
+	case Item::en_MINING:
 		m_nIron -= 5;
 		break;
-	case en_BASE:
+	case Item::en_BASE:
 		m_nIron -= 10;
 		break;
 	}

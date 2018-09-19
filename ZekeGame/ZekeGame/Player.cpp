@@ -58,6 +58,10 @@ void Player::Move() {
 		}
 		m_moveSpeed.y = 0;
 	}
+	if (isInBase) {
+		m_moveSpeedParam = 0.0f;
+		m_moveSpeed = { 0.0f, 0.0f, 0.0f };
+	}
 	CVector3 cameraForward = camera3d->GetTarget() - camera3d->GetPosition();
 	cameraForward.y = 0.0f;
 	cameraForward.Normalize();
@@ -204,10 +208,12 @@ void Player::Gauge() {
 }
 
 void Player::UseBattery() {
+	if(!isLowBattery)
 	m_batteryScale.x -= 0.002f;
 }
 
 void Player::ChargeBattery() {
-	m_batteryScale.x += 0.005f;
+	if(!isMaxBattery)
+		m_batteryScale.x += 0.005f;
 	ms_battery.Update(m_batteryPos, CQuaternion::Identity(), m_batteryScale, { 0.0f,0.0f });
 }

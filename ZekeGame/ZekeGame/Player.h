@@ -54,6 +54,7 @@ public:
 	};
 	PlayerState m_enPState = PSTATE_WALK;
 	bool isRiding = false;
+	bool isInBase = false;
 	bool isMaxBattery = true;
 	bool isLowBattery = false;
 	CVector3 GetMoveSpeed() {
