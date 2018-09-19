@@ -180,7 +180,6 @@
     <ClCompile Include="Item\IBase.cpp" />
     <ClCompile Include="Item\IConstructor.cpp" />
     <ClCompile Include="Item\Item.cpp" />
-    <ClCompile Include="Item\ItemManager.cpp" />
     <ClCompile Include="Item\MiningMachine.cpp" />
     <ClCompile Include="level\Level.cpp" />
     <ClCompile Include="level\MapChip.cpp" />
@@ -234,7 +233,6 @@
     <ClInclude Include="Item\IBase.h" />
     <ClInclude Include="Item\IConstructor.h" />
     <ClInclude Include="Item\Item.h" />
-    <ClInclude Include="Item\ItemManager.h" />
     <ClInclude Include="Item\MiningMachine.h" />
     <ClInclude Include="level\Level.h" />
     <ClInclude Include="level\MapChip.h" />

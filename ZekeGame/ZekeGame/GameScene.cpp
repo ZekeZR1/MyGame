@@ -287,78 +287,78 @@ void GameScene::Craft() {
 }
 
 void GameScene::ItemOrder() {
-	if (m_pConstructor == nullptr)
-		return;
-	if (m_pConstructor->isOrder[en_ROCKET]) {
-		m_ordered = en_ROCKET;
-		m_settingOrderedItem = true;
-	}
-	if (m_pConstructor->isOrder[en_HOVER]) {
-		m_ordered = en_HOVER;
-		m_settingOrderedItem = true;
-	}
-	if (m_pConstructor->isOrder[en_MINING]) {
-		m_ordered = en_MINING;
-		m_settingOrderedItem = true;
-	}
-	if (m_pConstructor->isOrder[en_BASE]) {
-		m_ordered = en_BASE;
-		m_settingOrderedItem = true;
-	}
-	if (!m_settingOrderedItem) {
-		mS_SettingItem->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
-		return;
-	}
-	switch (m_ordered) {
-	case en_ROCKET:
-		mS_SettingItem->Init(L"sprite/ExRocket.dds", 250.0f, 250.0f);
-		SetItem();
-		break;
-	case en_HOVER:
-		mS_SettingItem->Init(L"sprite/Hover.dds", 250.0f, 250.0f);
-		SetItem();
-		break;
-	case en_MINING:
-		mS_SettingItem->Init(L"sprite/ItemMining.dds", 250.0f, 250.0f);
-		SetItem();
-		break;
-	case en_BASE:
-		mS_SettingItem->Init(L"sprite/Base.dds", 250.0f, 250.0f);
-		SetItem();
-	}
+		if (m_pConstructor == nullptr)
+			return;
+		if (m_pConstructor->isOrder[ITEM::en_ROCKET]) {
+			m_ordered = ITEM::en_ROCKET;
+			m_settingOrderedItem = true;
+		}
+		if (m_pConstructor->isOrder[ITEM::en_HOVER]) {
+			m_ordered = ITEM::en_HOVER;
+			m_settingOrderedItem = true;
+		}
+		if (m_pConstructor->isOrder[ITEM::en_MINING]) {
+			m_ordered = ITEM::en_MINING;
+			m_settingOrderedItem = true;
+		}
+		if (m_pConstructor->isOrder[ITEM::en_BASE]) {
+			m_ordered = ITEM::en_BASE;
+			m_settingOrderedItem = true;
+		}
+		if (!m_settingOrderedItem) {
+			mS_SettingItem->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
+			return;
+		}
+		switch (m_ordered) {
+		case ITEM::en_ROCKET:
+			mS_SettingItem->Init(L"sprite/ExRocket.dds", 250.0f, 250.0f);
+			SetItem();
+			break;
+		case ITEM::en_HOVER:
+			mS_SettingItem->Init(L"sprite/Hover.dds", 250.0f, 250.0f);
+			SetItem();
+			break;
+		case ITEM::en_MINING:
+			mS_SettingItem->Init(L"sprite/ItemMining.dds", 250.0f, 250.0f);
+			SetItem();
+			break;
+		case ITEM::en_BASE:
+			mS_SettingItem->Init(L"sprite/Base.dds", 250.0f, 250.0f);
+			SetItem();
+		}
 
-	if (!m_isOrderedItemSet)
-		return;
-	if (m_nItem >= MAXITEM)
-		return;
-	switch (m_ordered) {
-	case en_ROCKET:
-		m_items[m_nItem] = reinterpret_cast<Item*>(new ExplorationRocket(m_player,m_inventory));
-		m_pConstructor->isOrder[en_ROCKET] = false;
-		m_inventory->UseMaterial(en_ROCKET);
-		m_nItem++;
-		break;
-	case en_HOVER:
-		m_items[m_nItem] = reinterpret_cast<Item*>(new Hover(m_player, m_inventory));
-		m_pConstructor->isOrder[en_HOVER] = false;
-		m_inventory->UseMaterial(en_HOVER);
-		m_nItem++;
-		break;
-	case en_MINING:
-		m_items[m_nItem] = reinterpret_cast<Item*>(new MiningMachine(m_player, m_inventory));
-		m_pConstructor->isOrder[en_MINING] = false;
-		m_inventory->UseMaterial(en_MINING);
-		m_nItem++;
-		break;
-	case en_BASE:
-		m_items[m_nItem] = reinterpret_cast<Item*>(new IBase(m_player));
-		m_pConstructor->isOrder[en_BASE] = false;
-		m_inventory->UseMaterial(en_BASE);
-		m_nItem++;
-		break;
-	}
+		if (!m_isOrderedItemSet)
+			return;
+		if (m_nItem >= MAXITEM)
+			return;
+		switch (m_ordered) {
+		case ITEM::en_ROCKET:
+			m_items[m_nItem] = reinterpret_cast<Item*>(new ExplorationRocket(m_player, m_inventory));
+			m_pConstructor->isOrder[ITEM::en_ROCKET] = false;
+			m_inventory->UseMaterial(ITEM::en_ROCKET);
+			m_nItem++;
+			break;
+		case ITEM::en_HOVER:
+			m_items[m_nItem] = reinterpret_cast<Item*>(new Hover(m_player, m_inventory));
+			m_pConstructor->isOrder[ITEM::en_HOVER] = false;
+			m_inventory->UseMaterial(ITEM::en_HOVER);
+			m_nItem++;
+			break;
+		case ITEM::en_MINING:
+			m_items[m_nItem] = reinterpret_cast<Item*>(new MiningMachine(m_player, m_inventory));
+			m_pConstructor->isOrder[ITEM::en_MINING] = false;
+			m_inventory->UseMaterial(ITEM::en_MINING);
+			m_nItem++;
+			break;
+		case ITEM::en_BASE:
+			m_items[m_nItem] = reinterpret_cast<Item*>(new IBase(m_player));
+			m_pConstructor->isOrder[ITEM::en_BASE] = false;
+			m_inventory->UseMaterial(ITEM::en_BASE);
+			m_nItem++;
+			break;
+		}
 
-	m_isOrderedItemSet = false;
+		m_isOrderedItemSet = false;
 }
 
 void GameScene::SetItem() {

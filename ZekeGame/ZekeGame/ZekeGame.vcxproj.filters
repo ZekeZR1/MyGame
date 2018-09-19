@@ -182,9 +182,6 @@
     <ClCompile Include="Item\IConstructor.cpp">
       <Filter>ソース ファイル\Game\Item</Filter>
     </ClCompile>
-    <ClCompile Include="Item\ItemManager.cpp">
-      <Filter>ソース ファイル\Game\Item</Filter>
-    </ClCompile>
     <ClCompile Include="Item\ExplorationRocket.cpp">
       <Filter>ソース ファイル\Game\Item</Filter>
     </ClCompile>
@@ -339,9 +336,6 @@
     </ClInclude>
     <ClInclude Include="Materials\Iron.h">
       <Filter>ソース ファイル\Game\Materials</Filter>
-    </ClInclude>
-    <ClInclude Include="Item\ItemManager.h">
-      <Filter>ソース ファイル\Game\Item</Filter>
     </ClInclude>
     <ClInclude Include="Item\IConstructor.h">
       <Filter>ソース ファイル\Game\Item</Filter>

@@ -2,8 +2,10 @@
 #include "IScene.h"
 #include "BackGround.h"
 #include "Player.h"
+
 #define MAXITEM 100
 #define IRONS 20
+#define ITEM Item
 
 class ActionMenu;
 class Iron;
@@ -62,21 +64,8 @@ private:
 	bool m_settingOrderedItem = false;
 	bool m_isOrderedItemSet = false;
 	Item* m_items[MAXITEM];
-	enum ItemState {
-		en_STANDBY,
-		en_SETTING,
-		en_SET
-	};
-	ItemState m_itemState = en_STANDBY;
-	enum OrderedItem {
-		en_NONE,
-		en_ROCKET,
-		en_HOVER,
-		en_MINING,
-		en_BASE,
-
-	};
-	OrderedItem m_ordered = en_NONE;
+	
+	ITEM::EnItem m_ordered = ITEM::en_NONE;
 };
 
 extern GameScene* g_game;

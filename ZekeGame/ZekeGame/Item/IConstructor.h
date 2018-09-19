@@ -17,13 +17,6 @@ public:
 	bool isOpenMenu = false;
 	bool isGoAway = false;
 	bool isOrder[NUMITEM] = { false };
-	enum OrderItem {
-		en_NONE,
-		en_ROCKET,
-		en_HOVER,
-		en_MINING,
-		en_BASE,
-	};
 private:
 	void Menu();
 	void OpenMenu();

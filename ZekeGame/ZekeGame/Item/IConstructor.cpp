@@ -104,7 +104,7 @@ void IConstructor::Crafting(Inventory* m_inventory) {
 				return;
 			}
 			if (g_pad[0].IsTrigger(enButtonB)) {
-				isOrder[en_ROCKET] = true;
+				isOrder[Item::en_ROCKET] = true;
 				CloseMenu();
 			}
 		}
@@ -127,7 +127,7 @@ void IConstructor::Crafting(Inventory* m_inventory) {
 				return;
 			}
 			if (g_pad[0].IsTrigger(enButtonB)) {
-				isOrder[en_HOVER] = true;
+				isOrder[Item::en_HOVER] = true;
 				CloseMenu();
 			}
 		}
@@ -150,7 +150,7 @@ void IConstructor::Crafting(Inventory* m_inventory) {
 				return;
 			}
 			if (g_pad[0].IsTrigger(enButtonB)) {
-				isOrder[en_MINING] = true;
+				isOrder[Item::en_MINING] = true;
 				CloseMenu();
 			}
 		}
@@ -172,7 +172,7 @@ void IConstructor::Crafting(Inventory* m_inventory) {
 				return;
 			}
 			if (g_pad[0].IsTrigger(enButtonB)) {
-				isOrder[en_BASE] = true;
+				isOrder[Item::en_BASE] = true;
 				CloseMenu();
 			}
 		}
