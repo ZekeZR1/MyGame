@@ -80,3 +80,4 @@ private:
 };
 
 extern GameScene* g_game;
+

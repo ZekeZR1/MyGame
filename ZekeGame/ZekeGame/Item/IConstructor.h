@@ -14,19 +14,16 @@ public:
 	void Draw();
 	void DrawSprite();
 	void SetPosition(CVector3 pos);
+	bool isOpenMenu = false;
 	bool isGoAway = false;
 	bool isOrder[NUMITEM] = { false };
 	enum OrderItem {
+		en_NONE,
 		en_ROCKET,
 		en_HOVER,
 		en_MINING,
 		en_BASE,
 	};
-	bool isOpenMenu = false;
-	bool isOrderRocket = false;
-	bool isOrderHover = false;
-	bool isOrderMining = false;
-	bool isOrderBase = false;
 private:
 	void Menu();
 	void OpenMenu();

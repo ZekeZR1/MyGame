@@ -27,6 +27,7 @@ IConstructor::IConstructor(Player* player)
 	//Font
 	m_bFontpos = { 730.0f, 400.0f,0.0f };
 	m_aFontpos = { 850.0f, 400.0f,0.0f };
+
 }
 
 
@@ -103,7 +104,7 @@ void IConstructor::Crafting(Inventory* m_inventory) {
 				return;
 			}
 			if (g_pad[0].IsTrigger(enButtonB)) {
-				isOrderRocket = true;
+				isOrder[en_ROCKET] = true;
 				CloseMenu();
 			}
 		}
@@ -126,7 +127,7 @@ void IConstructor::Crafting(Inventory* m_inventory) {
 				return;
 			}
 			if (g_pad[0].IsTrigger(enButtonB)) {
-				isOrderHover = true;
+				isOrder[en_HOVER] = true;
 				CloseMenu();
 			}
 		}
@@ -149,7 +150,7 @@ void IConstructor::Crafting(Inventory* m_inventory) {
 				return;
 			}
 			if (g_pad[0].IsTrigger(enButtonB)) {
-				isOrderMining = true;
+				isOrder[en_MINING] = true;
 				CloseMenu();
 			}
 		}
@@ -171,7 +172,7 @@ void IConstructor::Crafting(Inventory* m_inventory) {
 				return;
 			}
 			if (g_pad[0].IsTrigger(enButtonB)) {
-				isOrderBase = true;
+				isOrder[en_BASE] = true;
 				CloseMenu();
 			}
 		}
