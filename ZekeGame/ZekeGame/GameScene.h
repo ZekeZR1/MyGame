@@ -30,9 +30,12 @@ public:
 	//void addSearchRate();
 private:
 	void ItemOrder();
+	void SetItem();
 	int SearchRate = 0;
 	Sprite m_SearchRate;
+	Sprite m_mask;
 	CVector3 m_ratePos = CVector3::Zero();
+	CVector3 m_maskPos = CVector3::Zero();
 	IConstructor* m_pConstructor;
 	ArrangeIron* m_irons[50];
 	ExplorationRocket* m_rocket = nullptr;

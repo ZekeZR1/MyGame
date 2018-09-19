@@ -5,16 +5,23 @@
 class Inventory;
 class Player;
 
-class IConstructor 
+class IConstructor
 {
 public:
 	IConstructor(Player* player);
 	~IConstructor();
-	void Update(Inventory* m_inventory) ;
-	void Draw() ;
+	void Update(Inventory* m_inventory);
+	void Draw();
 	void DrawSprite();
-	void SetPosition(CVector3 pos) ;
+	void SetPosition(CVector3 pos);
 	bool isGoAway = false;
+	bool isOrder[NUMITEM] = { false };
+	enum OrderItem {
+		en_ROCKET,
+		en_HOVER,
+		en_MINING,
+		en_BASE,
+	};
 	bool isOpenMenu = false;
 	bool isOrderRocket = false;
 	bool isOrderHover = false;

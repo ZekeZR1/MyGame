@@ -51,6 +51,9 @@ GameScene::GameScene()
 	m_ratePos.x -= 550.0f;
 	m_ratePos.y += 270.0f;
 	m_SearchRate.Update(m_ratePos, CQuaternion::Identity(), CVector3::One(), { 0.5,0.5 });
+	m_mask.Init(L"sprite/testmask.dds", 500.0f, 500.0f);
+	m_maskPos = m_ratePos;
+	m_mask.Update(m_maskPos, CQuaternion::Identity(), CVector3::One(), { 0.5,0.5 });
 	/*
 	smodel = new SkinModel;
 	smodel->Init(L"Assets/modelData/testbox.cmo");
@@ -129,6 +132,7 @@ void GameScene::Draw() {
 	//Žè‘O‚É•`‰æ‚µ‚½‚¢•¨
 	m_player->DrawSprite();
 	m_SearchRate.Draw();
+	m_mask.Draw();
 	for (int i = 0; i < m_nItem; i++) {
 		if (m_items[i] != nullptr) {
 			m_items[i]->DrawSprite();
@@ -141,31 +145,6 @@ void GameScene::Draw() {
 	if (m_pConstructor != nullptr)
 		m_pConstructor->DrawSprite();
 	mS_ActState->Draw();
-}
-
-void GameScene::Craft() {
-	if (m_pConstructor != nullptr) {
-		if (m_pConstructor->isGoAway) {
-			delete m_pConstructor;
-			m_pConstructor = nullptr;
-		}
-	}
-	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_CRAFT) {
-		if (g_pad[0].IsTrigger(enButtonB)) {
-			if (m_pConstructor == nullptr) {
-				m_pConstructor = new IConstructor(m_player);
-				m_player->m_enPState = m_player->PSTATE_WALK;
-				m_ActMenu->m_enAction = m_ActMenu->ASTATE_INVENTORY;
-				char message[256];
-				sprintf_s(message, "CLOSE Act\n");
-				OutputDebugStringA(message);
-				if(m_ActMenu->isOpenAct){
-					m_ActMenu->isOpenAct = false;
-					m_player->CloseMenu();
-				}
-			}
-		}
-	}
 }
 
 void GameScene::Ground() {
@@ -184,6 +163,7 @@ void GameScene::Ground() {
 	}
 
 }
+
 void GameScene::Menu() {
 	//ActMenu
 	if (m_pConstructor != nullptr && m_pConstructor->isOpenMenu) {
@@ -280,6 +260,32 @@ void GameScene::DrilRange() {
 	m_drilmodel->UpdateWorldMatrix(forward, CQuaternion::Identity(), CVector3::One());
 }
 
+
+void GameScene::Craft() {
+	if (m_pConstructor != nullptr) {
+		if (m_pConstructor->isGoAway) {
+			delete m_pConstructor;
+			m_pConstructor = nullptr;
+		}
+	}
+	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_CRAFT) {
+		if (g_pad[0].IsTrigger(enButtonB)) {
+			if (m_pConstructor == nullptr) {
+				m_pConstructor = new IConstructor(m_player);
+				m_player->m_enPState = m_player->PSTATE_WALK;
+				m_ActMenu->m_enAction = m_ActMenu->ASTATE_INVENTORY;
+				char message[256];
+				sprintf_s(message, "CLOSE Act\n");
+				OutputDebugStringA(message);
+				if (m_ActMenu->isOpenAct) {
+					m_ActMenu->isOpenAct = false;
+					m_player->CloseMenu();
+				}
+			}
+		}
+	}
+}
+
 void GameScene::ItemOrder() {
 	if (m_pConstructor == nullptr)
 		return;
@@ -306,31 +312,19 @@ void GameScene::ItemOrder() {
 	switch (m_ordered) {
 	case en_ROCKET:
 		mS_SettingItem->Init(L"sprite/ExRocket.dds", 250.0f, 250.0f);
-		if (g_pad[0].IsTrigger(enButtonB)) {
-			m_settingOrderedItem = false;
-			m_isOrderedItemSet = true;
-		}
+		SetItem();
 		break;
 	case en_HOVER:
 		mS_SettingItem->Init(L"sprite/Hover.dds", 250.0f, 250.0f);
-		if (g_pad[0].IsTrigger(enButtonB)) {
-			m_settingOrderedItem = false;
-			m_isOrderedItemSet = true;
-		}
+		SetItem();
 		break;
 	case en_MINING:
 		mS_SettingItem->Init(L"sprite/ItemMining.dds", 250.0f, 250.0f);
-		if (g_pad[0].IsTrigger(enButtonB)) {
-			m_settingOrderedItem = false;
-			m_isOrderedItemSet = true;
-		}
+		SetItem();
 		break;
 	case en_BASE:
 		mS_SettingItem->Init(L"sprite/Base.dds", 250.0f, 250.0f);
-		if (g_pad[0].IsTrigger(enButtonB)) {
-			m_settingOrderedItem = false;
-			m_isOrderedItemSet = true;
-		}
+		SetItem();
 	}
 
 	if (!m_isOrderedItemSet)
@@ -339,7 +333,6 @@ void GameScene::ItemOrder() {
 		return;
 	switch (m_ordered) {
 	case en_ROCKET:
-		//m_items[m_nItem] = reinterpret_cast<Item*>(new ExplorationRocket(m_player, m_inventory));
 		m_items[m_nItem] = reinterpret_cast<Item*>(new ExplorationRocket(m_player,m_inventory));
 		m_pConstructor->isOrderRocket = false;
 		m_inventory->UseMaterial(en_ROCKET);
@@ -366,4 +359,11 @@ void GameScene::ItemOrder() {
 	}
 
 	m_isOrderedItemSet = false;
+}
+
+void GameScene::SetItem() {
+	if (g_pad[0].IsTrigger(enButtonB)) {
+		m_settingOrderedItem = false;
+		m_isOrderedItemSet = true;
+	}
 }
