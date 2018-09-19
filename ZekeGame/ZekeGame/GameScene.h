@@ -32,6 +32,7 @@ public:
 	//void addSearchRate();
 private:
 	void ItemOrder();
+	void CreateItem();
 	void SetItem();
 	int SearchRate = 0;
 	Sprite m_SearchRate;
