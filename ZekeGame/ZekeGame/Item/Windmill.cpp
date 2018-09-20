@@ -27,7 +27,7 @@ Windmill::~Windmill()
 }
 
 void Windmill::Update() {
-	m_animation.Play(0, 0.3f);
+	//m_animation.Play(0, 0.3f);
 }
 
 void Windmill::Draw() {

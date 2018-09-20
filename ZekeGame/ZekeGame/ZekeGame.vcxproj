@@ -454,16 +454,6 @@
     <ImageContentTask Include="Assets\Sprite\MiningMachineMenu.png" />
     <ImageContentTask Include="Assets\Sprite\ItemMining.png" />
   </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="Assets\modelData\Windmill.tks">
-      <FileType>Document</FileType>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="Assets\modelData\windmill.tka">
-      <FileType>Document</FileType>
-    </CustomBuild>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.targets" />

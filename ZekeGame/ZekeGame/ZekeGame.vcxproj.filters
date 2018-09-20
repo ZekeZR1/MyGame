@@ -510,6 +510,9 @@
     <ImageContentTask Include="Assets\Sprite\Base.png">
       <Filter>ソース ファイル\Assets\sprite</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Windmill.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\testbox.FBX">
@@ -754,21 +757,12 @@
     <CustomBuild Include="Assets\texture\wind02.png">
       <Filter>リソース ファイル</Filter>
     </CustomBuild>
+    <CustomBuild Include="Assets\modelData\Windmill.tks" />
+    <CustomBuild Include="Assets\modelData\windmill.tka" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\door018.jpg">
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </Image>
-    <Image Include="Assets\Sprite\Windmill.png">
-      <Filter>ソース ファイル\Assets\sprite</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\modelData\Windmill.tks">
-      <Filter>ソース ファイル\Assets\modelData</Filter>
-    </None>
-    <None Include="Assets\modelData\windmill.tka">
-      <Filter>ソース ファイル\Assets\modelData</Filter>
-    </None>
   </ItemGroup>
 </Project>
