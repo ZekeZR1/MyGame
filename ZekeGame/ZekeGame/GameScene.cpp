@@ -12,6 +12,7 @@
 #include "Item/Hover.h"
 #include "Item/MiningMachine.h"
 #include "Item/IBase.h"
+#include "Item/Windmill.h"
 
 GameScene* g_game = nullptr;
 extern GameCamera* camera;
@@ -54,17 +55,6 @@ GameScene::GameScene()
 	m_mask.Init(L"sprite/testmask.dds", 500.0f, 500.0f);
 	m_maskPos = m_ratePos;
 	m_mask.Update(m_maskPos, CQuaternion::Identity(), CVector3::One(), { 0.5,0.5 });
-	/*
-	smodel = new SkinModel;
-	smodel->Init(L"Assets/modelData/testbox.cmo");
-	aniclip[0].Load(L"Assets/modelData/testbox.tka");
-	aniclip[0].SetLoopFlag(true);
-	modelanimation.Init(
-		*smodel,
-		aniclip,
-		1
-	);
-	*/
 }
 
 GameScene::~GameScene()
@@ -108,7 +98,7 @@ void GameScene::Update() {
 		}
 	}
 	if (m_pConstructor != nullptr) {
-		m_pConstructor->Update(m_inventory);
+		m_pConstructor->Update();
 	}
 }
 
@@ -271,7 +261,7 @@ void GameScene::Craft() {
 	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_CRAFT) {
 		if (g_pad[0].IsTrigger(enButtonB)) {
 			if (m_pConstructor == nullptr) {
-				m_pConstructor = new IConstructor(m_player);
+				m_pConstructor = new IConstructor(m_player,m_inventory);
 				m_player->m_enPState = m_player->PSTATE_WALK;
 				m_ActMenu->m_enAction = m_ActMenu->ASTATE_INVENTORY;
 				char message[256];
@@ -313,6 +303,12 @@ void GameScene::ItemOrder() {
 			m_settingOrderedItem = true;
 			SetItem();
 		}
+		if (m_pConstructor->isOrder[ITEM::en_WINDMILL]) {
+			m_ordered = ITEM::en_WINDMILL;
+			mS_SettingItem->Init(L"sprite/Windmill.dds", 250.0f, 250.0f);
+			m_settingOrderedItem = true;
+			SetItem();
+		}
 }
 
 void GameScene::CreateItem() {
@@ -344,6 +340,12 @@ void GameScene::CreateItem() {
 		m_items[m_nItem] = reinterpret_cast<Item*>(new IBase(m_player));
 		m_pConstructor->isOrder[ITEM::en_BASE] = false;
 		m_inventory->UseMaterial(ITEM::en_BASE);
+		m_nItem++;
+		break;
+	case ITEM::en_WINDMILL:
+		m_items[m_nItem] = reinterpret_cast<Item*>(new Windmill(m_player));
+		m_pConstructor->isOrder[ITEM::en_WINDMILL] = false;
+		m_inventory->UseMaterial(ITEM::en_WINDMILL);
 		m_nItem++;
 		break;
 	}

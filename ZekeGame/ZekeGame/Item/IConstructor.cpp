@@ -2,9 +2,12 @@
 #include "IConstructor.h"
 #include "Item.h"
 #include "Inventory.h"
-IConstructor::IConstructor(Player* player)
+
+IConstructor::IConstructor(Player* player, Inventory* inventory)
 {
 	mp_player = player;
+	mp_inventory = inventory;
+
 	m_skinModel = new SkinModel;
 	m_skinModel->Init(L"Assets/modelData/Constructor.cmo", enFbxUpAxisZ);
 	m_pos.y += 100.0f;
@@ -27,9 +30,9 @@ IConstructor::IConstructor(Player* player)
 	//Font
 	m_bFontpos = { 730.0f, 400.0f,0.0f };
 	m_aFontpos = { 850.0f, 400.0f,0.0f };
-
+	m_iNamePos = { 750.0f, 300.0f, 0.0f};
+	m_mNamePos = { 750.0f, 350.0f, 0.0 };
 }
-
 
 IConstructor::~IConstructor()
 {
@@ -39,10 +42,10 @@ IConstructor::~IConstructor()
 	delete m_physicsStaticObject;
 }
 
-void IConstructor::Update(Inventory* m_inventory){
+void IConstructor::Update(){
 	Menu();
 	PutAway();
-	Crafting(m_inventory);
+	Crafting();
 }
 
 void IConstructor::Menu() {
@@ -61,11 +64,6 @@ void IConstructor::Menu() {
 
 }
 
-void IConstructor::SetPosition(CVector3 pos) {
-	m_pos = pos;
-	m_skinModel->UpdateWorldMatrix(pos, CQuaternion::Identity(), CVector3::One());
-}
-
 void IConstructor::PutAway() {
 	if (!isOpenMenu)
 		return;
@@ -78,108 +76,25 @@ void IConstructor::PutAway() {
 	}
 }
 
-void IConstructor::Crafting(Inventory* m_inventory) {
+void IConstructor::Crafting() {
 	if (!isOpenMenu)
 		return;
-	if (g_pad[0].IsTrigger(enButtonDown)) {
-		if(ItemNumber!=NUMITEM)
-			ItemNumber++;
-	}
-	if (g_pad[0].IsTrigger(enButtonUp)) {
-		if(ItemNumber != 0)
-			ItemNumber--;
-	}
+	Choise();
 	switch (ItemNumber) {
 	case 0:
-		isDrawFont = true;
-		mS_ItemPre->Init(L"sprite/ExRocket.dds", 500.0f, 500.0f);
-		_itow_s(m_inventory->m_nIron, mw_bCraft, 10);
-		_itow_s(m_inventory->m_nIron - 5, mw_aCraft, 10);
-		//if(m_inventory->CanCreate(ExRocket)
-		if (m_inventory->m_nIron >= 5) {
-			mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
-			mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos);
-			if (isOpenNow) {
-				isOpenNow = false;
-				return;
-			}
-			if (g_pad[0].IsTrigger(enButtonB)) {
-				isOrder[Item::en_ROCKET] = true;
-				CloseMenu();
-			}
-		}
-		else {
-			mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
-			mf_aMaterial.Init((L"%d", mw_aCraft),m_aFontpos,CVector3::One(), CVector4::Red);
-		}
+		SetRocket();
 		break;
 	case 1:
-		isDrawFont = true;
-		mS_ItemPre->Init(L"sprite/Hover.dds", 500.0f, 500.0f);
-		_itow_s(m_inventory->m_nSilicon, mw_bCraft, 10);
-		_itow_s(m_inventory->m_nSilicon - 5, mw_aCraft, 10);
-		//if(m_inventory->CanCreate(ExRocket)
-		if (m_inventory->m_nSilicon >= 5) {
-			mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
-			mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos);
-			if (isOpenNow) {
-				isOpenNow = false;
-				return;
-			}
-			if (g_pad[0].IsTrigger(enButtonB)) {
-				isOrder[Item::en_HOVER] = true;
-				CloseMenu();
-			}
-		}
-		else {
-			mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
-			mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos, CVector3::One(), CVector4::Red);
-		}
+		SetHover();
 		break;
 	case 2:
-		isDrawFont = true;
-		mS_ItemPre->Init(L"sprite/ItemMining.dds", 500.0f, 500.0f);
-		_itow_s(m_inventory->m_nIron, mw_bCraft, 10);
-		_itow_s(m_inventory->m_nIron - 5, mw_aCraft, 10);
-		//if(m_inventory->CanCreate(ExRocket)
-		if (m_inventory->m_nIron >= 5) {
-			mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
-			mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos);
-			if (isOpenNow) {
-				isOpenNow = false;
-				return;
-			}
-			if (g_pad[0].IsTrigger(enButtonB)) {
-				isOrder[Item::en_MINING] = true;
-				CloseMenu();
-			}
-		}
-		else {
-			mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
-			mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos, CVector3::One(), CVector4::Red);
-		}
+		SetMining();
 		break;
 	case 3:
-		isDrawFont = true;
-		mS_ItemPre->Init(L"sprite/Base.dds", 500.0f, 500.0f);
-		_itow_s(m_inventory->m_nIron, mw_bCraft, 10);
-		_itow_s(m_inventory->m_nIron - 10, mw_aCraft, 10);
-		if (m_inventory->m_nIron >= 10) {
-			mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
-			mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos);
-			if (isOpenNow) {
-				isOpenNow = false;
-				return;
-			}
-			if (g_pad[0].IsTrigger(enButtonB)) {
-				isOrder[Item::en_BASE] = true;
-				CloseMenu();
-			}
-		}
-		else {
-			mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
-			mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos, CVector3::One(), CVector4::Red);
-		}
+		SetBase();
+		break;
+	case 4:
+		SetWindmill();
 		break;
 	}
 }
@@ -220,7 +135,155 @@ void IConstructor::DrawSprite() {
 	mS_ItemMenu->Draw();
 	mS_ItemPre->Draw();
 	if (isDrawFont) {
+		mf_itemName.Draw();
+		mf_materialName.Draw();
 		mf_bMaterial.Draw();
 		mf_aMaterial.Draw();
+	}
+}
+
+void IConstructor::Choise() {
+	if (g_pad[0].IsTrigger(enButtonDown)) {
+		if (ItemNumber != NUMITEM)
+			ItemNumber++;
+	}
+	if (g_pad[0].IsTrigger(enButtonUp)) {
+		if (ItemNumber != 0)
+			ItemNumber--;
+	}
+}
+
+void IConstructor::SetRocket() {
+	isDrawFont = true;
+	wchar_t text[256] = L"Rocket";
+	mf_itemName.Init(text,m_iNamePos);
+	wchar_t material[256] = L"Iron";
+	mf_materialName.Init(material, m_mNamePos);
+	mS_ItemPre->Init(L"sprite/ExRocket.dds", 500.0f, 500.0f);
+	_itow_s(mp_inventory->m_nIron, mw_bCraft, 10);
+	_itow_s(mp_inventory->m_nIron - 5, mw_aCraft, 10);
+	if (mp_inventory->m_nIron >= 5) {
+		mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
+		mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos);
+		if (isOpenNow) {
+			isOpenNow = false;
+			return;
+		}
+		if (g_pad[0].IsTrigger(enButtonB)) {
+			isOrder[Item::en_ROCKET] = true;
+			CloseMenu();
+		}
+	}
+	else {
+		mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
+		mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos, CVector3::One(), CVector4::Red);
+	}
+}
+
+void IConstructor::SetHover() {
+	isDrawFont = true;
+	wchar_t text[256] = L"Hover";
+	mf_itemName.Init(text, m_iNamePos);
+	wchar_t material[256] = L"Silicon";
+	mf_materialName.Init(material, m_mNamePos);
+	mS_ItemPre->Init(L"sprite/Hover.dds", 500.0f, 500.0f);
+	_itow_s(mp_inventory->m_nSilicon, mw_bCraft, 10);
+	_itow_s(mp_inventory->m_nSilicon - 5, mw_aCraft, 10);
+	if (mp_inventory->m_nSilicon >= 5) {
+		mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
+		mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos);
+		if (isOpenNow) {
+			isOpenNow = false;
+			return;
+		}
+		if (g_pad[0].IsTrigger(enButtonB)) {
+			isOrder[Item::en_HOVER] = true;
+			CloseMenu();
+		}
+	}
+	else {
+		mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
+		mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos, CVector3::One(), CVector4::Red);
+	}
+}
+
+void IConstructor::SetMining() {
+	isDrawFont = true;
+	wchar_t text[256] = L"ÌŒ@‹@";
+	mf_itemName.Init(text, m_iNamePos);
+	wchar_t material[256] = L"Iron";
+	mf_materialName.Init(material, m_mNamePos);
+	mS_ItemPre->Init(L"sprite/ItemMining.dds", 500.0f, 500.0f);
+	_itow_s(mp_inventory->m_nIron, mw_bCraft, 10);
+	_itow_s(mp_inventory->m_nIron - 5, mw_aCraft, 10);
+	if (mp_inventory->m_nIron >= 5) {
+		mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
+		mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos);
+		if (isOpenNow) {
+			isOpenNow = false;
+			return;
+		}
+		if (g_pad[0].IsTrigger(enButtonB)) {
+			isOrder[Item::en_MINING] = true;
+			CloseMenu();
+		}
+	}
+	else {
+		mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
+		mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos, CVector3::One(), CVector4::Red);
+	}
+}
+
+void IConstructor::SetBase() {
+	isDrawFont = true;
+	wchar_t text[256] = L"Base";
+	mf_itemName.Init(text, m_iNamePos);
+	wchar_t material[256] = L"Iron";
+	mf_materialName.Init(material, m_mNamePos);
+	mS_ItemPre->Init(L"sprite/Base.dds", 500.0f, 500.0f);
+	_itow_s(mp_inventory->m_nIron, mw_bCraft, 10);
+	_itow_s(mp_inventory->m_nIron - 10, mw_aCraft, 10);
+	if (mp_inventory->m_nIron >= 10) {
+		mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
+		mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos);
+		if (isOpenNow) {
+			isOpenNow = false;
+			return;
+		}
+		if (g_pad[0].IsTrigger(enButtonB)) {
+			isOrder[Item::en_BASE] = true;
+			CloseMenu();
+		}
+	}
+	else {
+		mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
+		mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos, CVector3::One(), CVector4::Red);
+	}
+}
+
+void IConstructor::SetWindmill() {
+	isDrawFont = true;
+	wchar_t text[256] = L"•—ŽÔ";
+	mf_itemName.Init(text, m_iNamePos);
+	wchar_t material[256] = L"Iron";
+	mf_materialName.Init(material, m_mNamePos);
+	mS_ItemPre->Init(L"sprite/Windmill.dds", 500.0f, 500.0f);
+	_itow_s(mp_inventory->m_nIron, mw_bCraft, 10);
+	_itow_s(mp_inventory->m_nIron - 10, mw_aCraft, 10);
+	if (mp_inventory->m_nIron >= 10) {
+		mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
+		mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos);
+		if (isOpenNow) {
+			isOpenNow = false;
+			return;
+		}
+		if (g_pad[0].IsTrigger(enButtonB)) {
+			isOrder[Item::en_WINDMILL] = true;
+			CloseMenu();
+		}
+	}
+	else {
+		mf_bMaterial.Init((L"%d", mw_bCraft), m_bFontpos);
+		mf_aMaterial.Init((L"%d", mw_aCraft), m_aFontpos, CVector3::One(), CVector4::Red);
 	}
 }

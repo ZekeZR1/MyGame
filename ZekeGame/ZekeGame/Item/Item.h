@@ -15,6 +15,7 @@ public:
 		en_HOVER,
 		en_MINING,
 		en_BASE,
+		en_WINDMILL,
 	};
 };
 

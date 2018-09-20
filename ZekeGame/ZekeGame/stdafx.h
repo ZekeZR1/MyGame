@@ -29,6 +29,8 @@
 #include "math/Matrix.h"
 #include "graphics/GraphicsEngine.h"
 #include "graphics/Sprite/Sprite.h"
+#include "graphics\animation\Animation.h"
+#include "graphics/animation/AnimationClip.h"
 
 #include "window\Window.h"
 #include "physics/Physics.h"

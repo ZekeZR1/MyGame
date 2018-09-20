@@ -212,6 +212,9 @@
     <ClCompile Include="Item\IBase.cpp">
       <Filter>ソース ファイル\Game\Item</Filter>
     </ClCompile>
+    <ClCompile Include="Item\Windmill.cpp">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window\Window.h">
@@ -368,6 +371,9 @@
       <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClInclude>
     <ClInclude Include="Item\IBase.h">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Item\Windmill.h">
       <Filter>ソース ファイル\Game\Item</Filter>
     </ClInclude>
   </ItemGroup>
@@ -549,6 +555,9 @@
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\Base.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Windmill.FBX">
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
   </ItemGroup>
@@ -750,5 +759,16 @@
     <Image Include="Assets\modelData\door018.jpg">
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </Image>
+    <Image Include="Assets\Sprite\Windmill.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\modelData\Windmill.tks">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </None>
+    <None Include="Assets\modelData\windmill.tka">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -181,6 +181,7 @@
     <ClCompile Include="Item\IConstructor.cpp" />
     <ClCompile Include="Item\Item.cpp" />
     <ClCompile Include="Item\MiningMachine.cpp" />
+    <ClCompile Include="Item\Windmill.cpp" />
     <ClCompile Include="level\Level.cpp" />
     <ClCompile Include="level\MapChip.cpp" />
     <ClCompile Include="main.cpp" />
@@ -234,6 +235,7 @@
     <ClInclude Include="Item\IConstructor.h" />
     <ClInclude Include="Item\Item.h" />
     <ClInclude Include="Item\MiningMachine.h" />
+    <ClInclude Include="Item\Windmill.h" />
     <ClInclude Include="level\Level.h" />
     <ClInclude Include="level\MapChip.h" />
     <ClInclude Include="Materials\Iron.h" />
@@ -270,6 +272,7 @@
     <MeshContentTask Include="Assets\modelData\Space.FBX" />
     <MeshContentTask Include="Assets\modelData\testbox.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
+    <MeshContentTask Include="Assets\modelData\Windmill.FBX" />
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\modelData\test.png" />
@@ -440,6 +443,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\door018.jpg" />
+    <ImageContentTask Include="Assets\Sprite\Windmill.png" />
     <ImageContentTask Include="Assets\Sprite\Base.png" />
     <ImageContentTask Include="Assets\Sprite\testgauge.png" />
     <ImageContentTask Include="Assets\Sprite\testmask.png" />
@@ -449,6 +453,16 @@
     <ImageContentTask Include="Assets\Sprite\MiningMachineStandby.png" />
     <ImageContentTask Include="Assets\Sprite\MiningMachineMenu.png" />
     <ImageContentTask Include="Assets\Sprite\ItemMining.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Assets\modelData\Windmill.tks">
+      <FileType>Document</FileType>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Assets\modelData\windmill.tka">
+      <FileType>Document</FileType>
+    </CustomBuild>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
