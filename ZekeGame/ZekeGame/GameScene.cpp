@@ -13,6 +13,7 @@
 #include "Item/MiningMachine.h"
 #include "Item/IBase.h"
 #include "Item/Windmill.h"
+#include "SearchRate.h"
 
 GameScene* g_game = nullptr;
 extern GameCamera* camera;
@@ -47,14 +48,6 @@ GameScene::GameScene()
 	for (int i = 0; i < IRONS; i++) {
 		m_irons[i] = new ArrangeIron(m_player, m_inventory);
 	}
-	//Rate
-	m_SearchRate.Init(L"sprite/testgauge.dds", 150.0f, 150.0f);
-	m_ratePos.x -= 550.0f;
-	m_ratePos.y += 270.0f;
-	m_SearchRate.Update(m_ratePos, CQuaternion::Identity(), CVector3::One(), { 0.5,0.5 });
-	m_mask.Init(L"sprite/testmask.dds", 500.0f, 500.0f);
-	m_maskPos = m_ratePos;
-	m_mask.Update(m_maskPos, CQuaternion::Identity(), CVector3::One(), { 0.5,0.5 });
 }
 
 GameScene::~GameScene()
@@ -87,6 +80,19 @@ void GameScene::Update() {
 	Ground();
 	Menu();
 	m_player->Update();
+	m_searchRate.Update();
+	if (m_inventory->m_nIron >= 20) {
+		if (!isSearchedIron) {
+			m_searchRate.addMaterialRate();
+			isSearchedIron = true;
+		}
+	}
+	if (m_inventory->m_nSilicon >= 20) {
+		if (!isSearchedSilicon) {
+			m_searchRate.addMaterialRate();
+			isSearchedSilicon = true;
+		}
+	}
 	camera->Update(m_player);
 	for (int i = 0; i < IRONS; i++) {
 		m_irons[i]->Update();
@@ -121,9 +127,8 @@ void GameScene::Draw() {
 		m_drilmodel->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
 	}
 	//Žè‘O‚É•`‰æ‚µ‚½‚¢•¨
+	m_searchRate.DrawSprite();
 	m_player->DrawSprite();
-	m_SearchRate.Draw();
-	m_mask.Draw();
 	for (int i = 0; i < m_nItem; i++) {
 		if (m_items[i] != nullptr) {
 			m_items[i]->DrawSprite();
@@ -147,6 +152,7 @@ void GameScene::Ground() {
 			m_player->UseBattery();
 			bg->m_converting = true;
 			bg->Update(forward, m_ActMenu->m_flatPos, m_player);
+			m_searchRate.addGroundRate();
 		}
 	}
 	else {
@@ -346,6 +352,7 @@ void GameScene::CreateItem() {
 		m_items[m_nItem] = reinterpret_cast<Item*>(new Windmill(m_player));
 		m_pConstructor->isOrder[ITEM::en_WINDMILL] = false;
 		m_inventory->UseMaterial(ITEM::en_WINDMILL);
+		m_searchRate.addSearchRate(Item::en_WINDMILL);
 		m_nItem++;
 		break;
 	}

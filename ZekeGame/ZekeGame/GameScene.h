@@ -2,6 +2,7 @@
 #include "IScene.h"
 #include "BackGround.h"
 #include "Player.h"
+#include "SearchRate.h"
 
 #define MAXITEM 100
 #define IRONS 20
@@ -13,6 +14,7 @@ class ArrangeIron;
 class IConstructor;
 class Inventory;
 class ExplorationRocket;
+class SearchRate;
 
 class GameScene : public IScene
 {
@@ -29,16 +31,13 @@ public:
 	void DrilRange();
 	ActionMenu* m_ActMenu = nullptr;
 	Player* m_player = nullptr;
-	//void addSearchRate();
 private:
 	void ItemOrder();
 	void CreateItem();
 	void SetItem();
-	int SearchRate = 0;
-	Sprite m_SearchRate;
-	Sprite m_mask;
-	CVector3 m_ratePos = CVector3::Zero();
-	CVector3 m_maskPos = CVector3::Zero();
+	bool isSearchedIron = false;
+	bool isSearchedSilicon = false;
+	SearchRate m_searchRate;
 	IConstructor* m_pConstructor;
 	ArrangeIron* m_irons[50];
 	ExplorationRocket* m_rocket = nullptr;

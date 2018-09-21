@@ -215,6 +215,9 @@
     <ClCompile Include="Item\Windmill.cpp">
       <Filter>ソース ファイル\Game\Item</Filter>
     </ClCompile>
+    <ClCompile Include="SearchRate.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window\Window.h">
@@ -376,6 +379,9 @@
     <ClInclude Include="Item\Windmill.h">
       <Filter>ソース ファイル\Game\Item</Filter>
     </ClInclude>
+    <ClInclude Include="SearchRate.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\modelData\test.png">
@@ -512,6 +518,18 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\Windmill.png">
       <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\rateGaugeMaterial.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\rateGaugeAir.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\RateGaugeFrame.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\rateGaugeGround.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
@@ -757,8 +775,6 @@
     <CustomBuild Include="Assets\texture\wind02.png">
       <Filter>リソース ファイル</Filter>
     </CustomBuild>
-    <CustomBuild Include="Assets\modelData\Windmill.tks" />
-    <CustomBuild Include="Assets\modelData\windmill.tka" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\door018.jpg">

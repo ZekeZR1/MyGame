@@ -145,13 +145,13 @@ bool Player::CanOpenMenu() {
 		//m_player->isOpenMenuNow = true;
 		char message[256];
 		sprintf_s(message, "NOOOOOOO NOW %d\n",m_nMenu);
-		OutputDebugStringA(message);
+		//OutputDebugStringA(message);
 		return false;
 	}
 	else {
 		//m_player->isOpenMenuNow = false;
 		char message[256];
-		sprintf_s(message, "YEEEEEEEEEES %d\n", m_nMenu);
+		//sprintf_s(message, "YEEEEEEEEEES %d\n", m_nMenu);
 		OutputDebugStringA(message);
 		return true;
 	}
@@ -171,7 +171,7 @@ void Player::CharaconUpdate() {
 	if (isRiding && !isCharaConRide) {
 		delete m_charaCon;
 		m_charaCon = new CharacterController;
-		m_charaCon->Init(500.0f, 60.0f, m_position);
+		m_charaCon->Init(500.0f, 40.0f, m_position);
 		isCharaConRide = true;
 	}
 	else {

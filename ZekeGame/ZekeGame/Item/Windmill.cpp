@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "GameScene.h"
 #include "Windmill.h"
 
 Windmill::Windmill(Player* player)

@@ -189,12 +189,12 @@ void ExplorationRocket::CloseMenu() {
 void ExplorationRocket::AddMaterial() {
 	switch (gotMaterial) {
 	case en_Iron:
-		mp_inventory->m_nIron += 100.0f;
+		mp_inventory->m_nIron += 10.0f;
 		m_popup->Notify(0);
 		isGotMaterial = false;
 		break;
 	case en_Silicon:
-		mp_inventory->m_nSilicon += 100.0f;
+		mp_inventory->m_nSilicon += 10.0f;
 		m_popup->Notify(0);
 		isGotMaterial = false;
 		break;

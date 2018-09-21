@@ -197,6 +197,7 @@
     <ClCompile Include="physics\RigitBody.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Popup.cpp" />
+    <ClCompile Include="SearchRate.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="window\Window.cpp" />
@@ -252,6 +253,7 @@
     <ClInclude Include="physics\RigitBody.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Popup.h" />
+    <ClInclude Include="SearchRate.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Title.h" />
     <ClInclude Include="window\Window.h" />
@@ -443,6 +445,10 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\door018.jpg" />
+    <ImageContentTask Include="Assets\Sprite\rateGaugeAir.png" />
+    <ImageContentTask Include="Assets\Sprite\RateGaugeFrame.png" />
+    <ImageContentTask Include="Assets\Sprite\rateGaugeGround.png" />
+    <ImageContentTask Include="Assets\Sprite\rateGaugeMaterial.png" />
     <ImageContentTask Include="Assets\Sprite\Windmill.png" />
     <ImageContentTask Include="Assets\Sprite\Base.png" />
     <ImageContentTask Include="Assets\Sprite\testgauge.png" />
