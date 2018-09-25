@@ -218,6 +218,15 @@
     <ClCompile Include="SearchRate.cpp">
       <Filter>ソース ファイル\Game</Filter>
     </ClCompile>
+    <ClCompile Include="graphics\SpringCamera.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\CCameraCollisionSlover.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="physics\CSphereCollider.cpp">
+      <Filter>ソース ファイル\Engine\physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window\Window.h">
@@ -381,6 +390,15 @@
     </ClInclude>
     <ClInclude Include="SearchRate.h">
       <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\SpringCamera.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CCameraCollisionSlover.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="physics\CSphereCollider.h">
+      <Filter>ソース ファイル\Engine\physics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
