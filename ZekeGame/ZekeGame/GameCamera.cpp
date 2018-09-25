@@ -38,7 +38,7 @@ GameCamera::~GameCamera()
 }
 
 void GameCamera::Update(Player* player) {
-	
+	/*
 	CVector3 toCameraPos = camera3d->GetPosition() - camera3d->GetTarget();
 	camera3d->SetTarget(player->GetPosition());
 	CMatrix mRot = CMatrix::Identity();
@@ -53,10 +53,10 @@ void GameCamera::Update(Player* player) {
 	mRot.Mul(toCameraPos);
 	camera3d->SetPosition(camera3d->GetTarget() + toCameraPos);
 	camera3d->Update();
+	*/
 	
 	camera2d->Update();
 
-	/*
 	CVector3 target = player->GetPosition();
 	target.y += 50.0f;
 	target.z += 100.0f;
@@ -64,14 +64,14 @@ void GameCamera::Update(Player* player) {
 	float x = g_pad[0].GetRStickXF();
 	float y = g_pad[0].GetRStickYF();
 	CQuaternion qRot;
-	qRot.SetRotationDeg(CVector3::AxisY(), 2.0f * x);
+	qRot.SetRotationDeg(CVector3::AxisY(), 7.0f * x);
 
 	qRot.Multiply(m_toCameraPos);
 
 	CVector3 axisX;
 	axisX.Cross(CVector3::AxisY(), m_toCameraPos);
 	axisX.Normalize();
-	qRot.SetRotationDeg(axisX, 2.0f * y);
+	qRot.SetRotationDeg(axisX, 7.0f * y);
 	qRot.Multiply(m_toCameraPos);
 
 	CVector3 toPosDir = m_toCameraPos;
@@ -86,6 +86,5 @@ void GameCamera::Update(Player* player) {
 
 	m_springCamera.SetTarget(target);
 	m_springCamera.SetPosition(pos);
-	//m_springCamera.Update();
-	*/
+	m_springCamera.Update();
 }

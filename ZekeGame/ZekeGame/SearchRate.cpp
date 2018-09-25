@@ -66,7 +66,7 @@ void SearchRate::addGroundRate() {
 }
 
 void SearchRate::addMaterialRate() {
-		m_rateMaterial += 10;
+		m_rateMaterial += 50;
 }
 
 void SearchRate::addSearchRate(Item::EnItem item) {

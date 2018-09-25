@@ -2,6 +2,7 @@
 #include "Title.h"
 #include "GameScene.h"
 
+extern GameCamera* camera;
 
 Title::Title()
 {
@@ -24,5 +25,5 @@ void Title::Update() {
 }
 
 void Title::Draw() {
-	m_sprite->Draw();
+	//m_sprite->Draw();
 }

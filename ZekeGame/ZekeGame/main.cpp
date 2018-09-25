@@ -4,12 +4,7 @@
 //Global
 IScene* currentScene = nullptr;
 GameCamera* camera = nullptr;
-/*
-CVector3 modelPos = CVector3::Zero();
-SkinModel smodel;
-Animation modelanimation;
-AnimationClip aniclip[1];
-*/
+
 
 void ReleaseDirectX() {
 	delete g_graphicsEngine;
@@ -35,16 +30,6 @@ int WINAPI wWinMain(
 	LPWSTR lpCmdLine,
 	int nCmdShow) {
 	InitWindow(hInstance, hPrevInstance, lpCmdLine, nCmdShow, "Game");
-	/*
-	smodel.Init(L"Assets/modelData/testbox.cmo");
-	aniclip[0].Load(L"Assets/modelData/testbox.tka");
-	aniclip[0].SetLoopFlag(true);
-	modelanimation.Init(
-		smodel,
-		aniclip,
-		1
-		);
-	*/
 	currentScene = new Title;
 	camera = new GameCamera;
 	while (DispatchWindowMessage()) {

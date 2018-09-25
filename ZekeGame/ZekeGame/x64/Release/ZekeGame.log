@@ -63,11 +63,12 @@
   Assets\modelData\Space.FBX
   Assets\modelData\testbox.FBX
   Assets\modelData\unityChan.fbx
+  Assets\modelData\Wall.FBX
   Assets\modelData\Windmill.FBX
-  SearchRate.cpp
+  GameCamera.cpp
   コード生成しています。
-  22 of 2031 functions ( 1.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    24 functions had inline decision re-evaluated but remain unchanged
+  67 of 2044 functions ( 3.3%) were compiled, the rest were copied from previous compilation.
+    4 functions were new in current compilation
+    88 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
   ZekeGame.vcxproj -> C:\Users\Taiki.W\git\MyGame\ZekeGame\x64\Release\ZekeGame.exe
