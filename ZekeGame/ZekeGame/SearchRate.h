@@ -16,6 +16,8 @@ private:
 	int m_searchingBase = 0;
 	int m_neko = 0;
 	int m_groundSearchingTime = 0;
+	Sprite m_frame;
+	CVector3 m_framePos = CVector3::Zero();
 	//Air
 	int m_rateAir = 0;
 	int m_searchingWindmill = 0;
@@ -35,6 +37,5 @@ private:
 	Sprite ms_frameMaterial;
 	CVector3 m_materialPos;
 	CVector3 m_materialScale = CVector3::One();
-
 };
 

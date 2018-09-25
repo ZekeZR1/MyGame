@@ -34,6 +34,7 @@ void Player::Update() {
 	ChangeState();
 	CharaconUpdate();
 	Gauge();
+	Respawn();
 }
 
 void Player::Move() {
@@ -216,4 +217,10 @@ void Player::ChargeBattery() {
 	if(!isMaxBattery)
 		m_batteryScale.x += 0.005f;
 	ms_battery.Update(m_batteryPos, CQuaternion::Identity(), m_batteryScale, { 0.0f,0.0f });
+}
+
+void Player::Respawn() {
+	if (m_position.y <= -500.0f) {
+		SetPosition(RespawnPos);
+	}
 }

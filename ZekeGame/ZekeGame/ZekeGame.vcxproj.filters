@@ -599,6 +599,9 @@
     <MeshContentTask Include="Assets\modelData\Windmill.FBX">
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Wall.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Assets\modelData\unityChan.tks">
@@ -797,6 +800,9 @@
   <ItemGroup>
     <Image Include="Assets\modelData\door018.jpg">
       <Filter>ソース ファイル\Assets\modelData</Filter>
+    </Image>
+    <Image Include="Assets\Sprite\SearchRateFrame.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
     </Image>
   </ItemGroup>
 </Project>

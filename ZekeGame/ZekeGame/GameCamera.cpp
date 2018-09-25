@@ -56,6 +56,7 @@ void GameCamera::Update(Player* player) {
 	
 	camera2d->Update();
 
+	/*
 	CVector3 target = player->GetPosition();
 	target.y += 50.0f;
 	target.z += 100.0f;
@@ -72,7 +73,7 @@ void GameCamera::Update(Player* player) {
 	axisX.Normalize();
 	qRot.SetRotationDeg(axisX, 2.0f * y);
 	qRot.Multiply(m_toCameraPos);
-	
+
 	CVector3 toPosDir = m_toCameraPos;
 	toPosDir.Normalize();
 	if (toPosDir.y < -0.5f) {
@@ -81,10 +82,10 @@ void GameCamera::Update(Player* player) {
 	else if (toPosDir.y > 0.8f) {
 		m_toCameraPos = toCameraPosOld;
 	}
-
 	CVector3 pos = target + m_toCameraPos;
+
 	m_springCamera.SetTarget(target);
 	m_springCamera.SetPosition(pos);
-
-	m_springCamera.Update();
+	//m_springCamera.Update();
+	*/
 }

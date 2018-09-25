@@ -5,7 +5,11 @@
 
 SearchRate::SearchRate()
 {
-	m_rateAir = 0;
+	//Frame
+	m_frame.Init(L"sprite/SearchRateFrame.dds", 700.0f, 500.0f);
+	m_framePos.x -= 300.0f;
+	m_framePos.y += 160.0f;
+	m_frame.Update(m_framePos, CQuaternion::Identity(),CVector3::One(), { 0.5f, 0.5f });
 	//Air
 	ms_rateAir.Init(L"sprite/rateGaugeAir.dds", 300.0f, 30.0f);
 	m_airPos.x -= 590.0f;
@@ -44,6 +48,7 @@ void SearchRate::Update() {
 }
 
 void SearchRate::DrawSprite() {
+	m_frame.Draw();
 	ms_frameAir.Draw();
 	ms_rateAir.Draw();
 	ms_frameGround.Draw();

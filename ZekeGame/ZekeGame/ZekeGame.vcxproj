@@ -280,6 +280,7 @@
     <MeshContentTask Include="Assets\modelData\Space.FBX" />
     <MeshContentTask Include="Assets\modelData\testbox.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
+    <MeshContentTask Include="Assets\modelData\Wall.FBX" />
     <MeshContentTask Include="Assets\modelData\Windmill.FBX" />
   </ItemGroup>
   <ItemGroup>
@@ -451,6 +452,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\door018.jpg" />
+    <ImageContentTask Include="Assets\Sprite\SearchRateFrame.png" />
     <ImageContentTask Include="Assets\Sprite\rateGaugeAir.png" />
     <ImageContentTask Include="Assets\Sprite\RateGaugeFrame.png" />
     <ImageContentTask Include="Assets\Sprite\rateGaugeGround.png" />

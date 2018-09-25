@@ -132,8 +132,6 @@ void SpringCamera::UpdateSpringCamera()
 		return;
 	}
 	if (m_isRefresh) {
-		//リフレッシュが必要なら、カメラの座標を一気に目標座標にする。
-		//シーンの切り替わり時など、一気にカメラを変更する必要があるときに使用してください。
 		m_camera->SetTarget(m_target);
 		m_camera->SetPosition(m_position);
 		m_isRefresh = false;

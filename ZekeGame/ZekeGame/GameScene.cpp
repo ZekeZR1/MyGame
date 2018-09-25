@@ -28,6 +28,10 @@ GameScene::GameScene()
 	m_model = new SkinModel;
 	m_model->Init(L"Assets/modelData/Space.cmo");
 	m_model->UpdateWorldMatrix(CVector3::Zero(), CQuaternion::Identity(), CVector3::One());
+	//Wall
+	m_wall.Init(L"Assets/modelData/Wall.cmo");
+	m_wall.UpdateWorldMatrix(CVector3::Zero(), CQuaternion::Identity(), CVector3::One());
+	m_wallPhysics.CreateMeshObject(m_wall, CVector3::Zero(), CQuaternion::Identity());
 	//DrilPos
 	m_drilmodel = new SkinModel;
 	m_drilmodel->Init(L"Assets/modelData/DrilPos.cmo",enFbxUpAxisY);

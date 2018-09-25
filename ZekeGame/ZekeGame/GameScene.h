@@ -44,6 +44,8 @@ private:
 	CVector3 forward = CVector3::Zero();
 	Inventory* m_inventory;
 	SkinModel * m_model;
+	SkinModel m_wall;
+	PhysicsStaticObject m_wallPhysics;
 	CVector3 m_spritePos = CVector3::Zero();
 	float spweight = 100.0f, sphight = 100.0f;
 	CVector3 m_spscale = { 1.0f,1.0f,1.0f };
