@@ -9,7 +9,7 @@ public:
 	SpringCamera();
 	~SpringCamera();
 	void Init(
-		Camera& camera,
+		Camera* camera,
 		float maxMoveSpeed,
 		bool isEnableCollisionSolver,
 		float sphereCollisionRadius

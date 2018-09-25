@@ -109,13 +109,13 @@ SpringCamera::~SpringCamera()
 }
 
 void SpringCamera::Init(
-	Camera& camera,
+	Camera* camera,
 	float maxMoveSpeed,
 	bool isEnableCollisionSolver,
 	float sphereCollisionRadius
 )
 {
-	m_camera = &camera;
+	m_camera = camera;
 	SetTarget(m_camera->GetTarget());
 	SetPosition(m_camera->GetPosition());
 	m_isEnableCollisionSolver = isEnableCollisionSolver;
