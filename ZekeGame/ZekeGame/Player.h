@@ -32,6 +32,16 @@ public:
 		forward += m_position;
 		return forward;
 	}
+
+	CVector3 GetBack(float param) {
+		CVector3 forward = camera3d->GetForward();
+		forward.y = 0;
+		forward.Normalize();
+		forward *= param;
+		CVector3 back;
+		back = m_position - forward;
+		return back;
+	}
 	void SetPosition(CVector3 pos) {
 		m_position = pos;
 		m_charaCon->SetPosition(m_position);

@@ -452,6 +452,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\door018.jpg" />
+    <ImageContentTask Include="Assets\Sprite\Title.png" />
     <ImageContentTask Include="Assets\Sprite\SearchRateFrame.png" />
     <ImageContentTask Include="Assets\Sprite\rateGaugeAir.png" />
     <ImageContentTask Include="Assets\Sprite\RateGaugeFrame.png" />

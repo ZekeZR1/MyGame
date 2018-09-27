@@ -549,6 +549,12 @@
     <ImageContentTask Include="Assets\Sprite\rateGaugeGround.png">
       <Filter>ソース ファイル\Assets\sprite</Filter>
     </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\SearchRateFrame.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Title.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\testbox.FBX">
@@ -800,9 +806,6 @@
   <ItemGroup>
     <Image Include="Assets\modelData\door018.jpg">
       <Filter>ソース ファイル\Assets\modelData</Filter>
-    </Image>
-    <Image Include="Assets\Sprite\SearchRateFrame.png">
-      <Filter>ソース ファイル\Assets\sprite</Filter>
     </Image>
   </ItemGroup>
 </Project>

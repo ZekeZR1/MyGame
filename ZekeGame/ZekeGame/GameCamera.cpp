@@ -21,10 +21,10 @@ GameCamera::GameCamera()
 	camera3d->SetFar(50000.0f);
 	camera3d->Update();
 
-	m_toCameraPos.Set(0.0f, 50.0f, 100.0f);
+	m_toCameraPos.Set(0.0f, 50.0f, 300.0f);
 	m_springCamera.Init(
 		camera3d,		
-		1000.0f,			
+		7000.0f,			
 		true,				
 		5.0f				
 	);
@@ -58,8 +58,8 @@ void GameCamera::Update(Player* player) {
 	camera2d->Update();
 
 	CVector3 target = player->GetPosition();
-	target.y += 50.0f;
-	target.z += 100.0f;
+	target = player->GetBack(200.0f);
+	target.y += 150.0f;
 	CVector3 toCameraPosOld = m_toCameraPos;
 	float x = g_pad[0].GetRStickXF();
 	float y = g_pad[0].GetRStickYF();
