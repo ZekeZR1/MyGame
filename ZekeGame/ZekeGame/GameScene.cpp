@@ -14,13 +14,15 @@
 #include "Item/IBase.h"
 #include "Item/Windmill.h"
 #include "SearchRate.h"
-
+#include "TheShip.h"
+#include "Title.h"
 GameScene* g_game = nullptr;
 extern GameCamera* camera;
 
 GameScene::GameScene()
 {
 	g_game = this;
+	
 	m_inventory = new Inventory;
 	m_ActMenu = new ActionMenu;
 	bg = new BackGround;
@@ -28,6 +30,7 @@ GameScene::GameScene()
 	m_model = new SkinModel;
 	m_model->Init(L"Assets/modelData/Space.cmo");
 	m_model->UpdateWorldMatrix(CVector3::Zero(), CQuaternion::Identity(), CVector3::One());
+	m_ship = new TheShip;
 	//Wall
 	m_wall.Init(L"Assets/modelData/Wall.cmo");
 	m_wall.UpdateWorldMatrix(CVector3::Zero(), CQuaternion::Identity(), CVector3::One());
@@ -56,7 +59,6 @@ GameScene::GameScene()
 
 GameScene::~GameScene()
 {
-	g_game = nullptr;
 	delete m_inventory;
 	for (int i = 0; i < IRONS; i++) {
 		delete m_irons[i];
@@ -68,13 +70,16 @@ GameScene::~GameScene()
 	delete m_ActMenu;
 	delete m_drilmodel;
 	delete m_rocket;
-	if (m_pConstructor != nullptr)
+	if (m_pConstructor != nullptr) {
 		delete m_pConstructor;
+		m_pConstructor = nullptr;
+	}
 	for (int i = 0; i < MAXITEM; i++) {
 		if (m_items[i] != nullptr) {
 			delete m_items[i];
 		}
 	}
+	g_game = nullptr;
 }
 
 void GameScene::Update() {
@@ -110,6 +115,10 @@ void GameScene::Update() {
 	if (m_pConstructor != nullptr) {
 		m_pConstructor->Update();
 	}
+	if (g_pad[0].IsTrigger(enButtonLB1)) {
+		currentScene = new Title;
+		delete this;
+	}
 }
 
 void GameScene::Draw() {
@@ -130,6 +139,8 @@ void GameScene::Draw() {
 	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_MAKEGROUND) {
 		m_drilmodel->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
 	}
+	m_ship->Draw();
+
 	//Žè‘O‚É•`‰æ‚µ‚½‚¢•¨
 	m_searchRate.DrawSprite();
 	m_player->DrawSprite();

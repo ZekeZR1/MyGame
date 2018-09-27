@@ -202,6 +202,7 @@
     <ClCompile Include="Popup.cpp" />
     <ClCompile Include="SearchRate.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="TheShip.cpp" />
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="window\Window.cpp" />
   </ItemGroup>
@@ -261,6 +262,7 @@
     <ClInclude Include="Popup.h" />
     <ClInclude Include="SearchRate.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TheShip.h" />
     <ClInclude Include="Title.h" />
     <ClInclude Include="window\Window.h" />
   </ItemGroup>
@@ -277,6 +279,7 @@
     <MeshContentTask Include="Assets\modelData\ItemBox.FBX" />
     <MeshContentTask Include="Assets\modelData\MiningItem.FBX" />
     <MeshContentTask Include="Assets\modelData\Player.FBX" />
+    <MeshContentTask Include="Assets\modelData\Ship.FBX" />
     <MeshContentTask Include="Assets\modelData\Space.FBX" />
     <MeshContentTask Include="Assets\modelData\testbox.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />

@@ -227,6 +227,9 @@
     <ClCompile Include="physics\CSphereCollider.cpp">
       <Filter>ソース ファイル\Engine\physics</Filter>
     </ClCompile>
+    <ClCompile Include="TheShip.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window\Window.h">
@@ -399,6 +402,9 @@
     </ClInclude>
     <ClInclude Include="physics\CSphereCollider.h">
       <Filter>ソース ファイル\Engine\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="TheShip.h">
+      <Filter>ソース ファイル\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -606,6 +612,9 @@
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\Wall.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Ship.FBX">
       <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
   </ItemGroup>

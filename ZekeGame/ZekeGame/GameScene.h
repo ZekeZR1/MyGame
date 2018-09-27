@@ -15,6 +15,7 @@ class IConstructor;
 class Inventory;
 class ExplorationRocket;
 class SearchRate;
+class TheShip;
 
 class GameScene : public IScene
 {
@@ -32,13 +33,14 @@ public:
 	ActionMenu* m_ActMenu = nullptr;
 	Player* m_player = nullptr;
 private:
+	TheShip* m_ship;
 	void ItemOrder();
 	void CreateItem();
 	void SetItem();
 	bool isSearchedIron = false;
 	bool isSearchedSilicon = false;
 	SearchRate m_searchRate;
-	IConstructor* m_pConstructor;
+	IConstructor* m_pConstructor = nullptr;
 	ArrangeIron* m_irons[50];
 	ExplorationRocket* m_rocket = nullptr;
 	CVector3 forward = CVector3::Zero();

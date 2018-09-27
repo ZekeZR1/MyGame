@@ -221,6 +221,8 @@ void Player::ChargeBattery() {
 
 void Player::Respawn() {
 	if (m_position.y <= -500.0f) {
+		RespawnPos = m_position;
+		RespawnPos.y = 250.0f;
 		SetPosition(RespawnPos);
 	}
 }
