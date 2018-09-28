@@ -16,6 +16,8 @@
 #include "SearchRate.h"
 #include "TheShip.h"
 #include "Title.h"
+#include "ClearScene.h"
+
 GameScene* g_game = nullptr;
 extern GameCamera* camera;
 
@@ -59,6 +61,7 @@ GameScene::GameScene()
 
 GameScene::~GameScene()
 {
+	delete m_ship;
 	delete m_inventory;
 	for (int i = 0; i < IRONS; i++) {
 		delete m_irons[i];
@@ -115,10 +118,12 @@ void GameScene::Update() {
 	if (m_pConstructor != nullptr) {
 		m_pConstructor->Update();
 	}
+	m_ship->Update(m_player);
 	if (g_pad[0].IsTrigger(enButtonLB1)) {
-		currentScene = new Title;
-		delete this;
+		isGameClear = true;
+		m_ship->GoDown();
 	}
+	Clear();
 }
 
 void GameScene::Draw() {
@@ -379,5 +384,12 @@ void GameScene::SetItem() {
 		m_settingOrderedItem = false;
 		m_isOrderedItemSet = true;
 		mS_SettingItem->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
+	}
+}
+
+void GameScene::Clear() {
+	if (m_ship->isInSpace) {
+		currentScene = new ClearScene;
+		delete this;
 	}
 }

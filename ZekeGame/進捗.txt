@@ -4,6 +4,7 @@
 
 
 追加予定機能
+	jump limitter
 	サウンド再生
 	Fade
 	Effect

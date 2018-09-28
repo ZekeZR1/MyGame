@@ -15,7 +15,7 @@ GameCamera::GameCamera()
 	
 	camera3d = new Camera;
 	camera3d->SetTarget({ 0.0f, 20.0f, 0.0f });
-	camera3d->SetPosition({ 0.0f, 350.0f, 500.0f });
+	camera3d->SetPosition({ 0.0f, 350.0f, 1000.0f });
 	camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Perspective);
 	camera3d->SetNear(0.1f);
 	camera3d->SetFar(50000.0f);
@@ -24,7 +24,7 @@ GameCamera::GameCamera()
 	m_toCameraPos.Set(0.0f, 50.0f, 300.0f);
 	m_springCamera.Init(
 		camera3d,		
-		7000.0f,			
+		4000.0f,			
 		true,				
 		5.0f				
 	);
@@ -58,11 +58,16 @@ void GameCamera::Update(Player* player) {
 	camera2d->Update();
 
 	CVector3 target = player->GetPosition();
-	target = player->GetBack(200.0f);
+	if (player->isGoUp) {
+		m_toCameraPos.Set(3000.0f, 2000.0f, -4000.0f);
+	}
+	else {
+		target = player->GetBack(200.0f);
+	}
 	target.y += 150.0f;
 	CVector3 toCameraPosOld = m_toCameraPos;
-	float x = g_pad[0].GetRStickXF();
-	float y = g_pad[0].GetRStickYF();
+	x = g_pad[0].GetRStickXF();
+	y = g_pad[0].GetRStickYF();
 	CQuaternion qRot;
 	qRot.SetRotationDeg(CVector3::AxisY(), 7.0f * x);
 
@@ -76,6 +81,7 @@ void GameCamera::Update(Player* player) {
 
 	CVector3 toPosDir = m_toCameraPos;
 	toPosDir.Normalize();
+	
 	if (toPosDir.y < -0.5f) {
 		m_toCameraPos = toCameraPosOld;
 	}
@@ -83,7 +89,6 @@ void GameCamera::Update(Player* player) {
 		m_toCameraPos = toCameraPosOld;
 	}
 	CVector3 pos = target + m_toCameraPos;
-
 	m_springCamera.SetTarget(target);
 	m_springCamera.SetPosition(pos);
 	m_springCamera.Update();

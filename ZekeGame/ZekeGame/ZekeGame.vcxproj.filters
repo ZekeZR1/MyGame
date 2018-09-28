@@ -230,6 +230,9 @@
     <ClCompile Include="TheShip.cpp">
       <Filter>ソース ファイル\Game</Filter>
     </ClCompile>
+    <ClCompile Include="ClearScene.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window\Window.h">
@@ -406,6 +409,9 @@
     <ClInclude Include="TheShip.h">
       <Filter>ソース ファイル\Game</Filter>
     </ClInclude>
+    <ClInclude Include="ClearScene.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\modelData\test.png">
@@ -559,6 +565,9 @@
       <Filter>リソース ファイル</Filter>
     </ImageContentTask>
     <ImageContentTask Include="Assets\Sprite\Title.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Clear.png">
       <Filter>ソース ファイル\Assets\sprite</Filter>
     </ImageContentTask>
   </ItemGroup>

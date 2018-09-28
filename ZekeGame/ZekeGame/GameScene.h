@@ -37,8 +37,10 @@ private:
 	void ItemOrder();
 	void CreateItem();
 	void SetItem();
+	void Clear();
 	bool isSearchedIron = false;
 	bool isSearchedSilicon = false;
+	bool isGameClear = false;
 	SearchRate m_searchRate;
 	IConstructor* m_pConstructor = nullptr;
 	ArrangeIron* m_irons[50];

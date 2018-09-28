@@ -70,6 +70,7 @@ public:
 	CVector3 GetMoveSpeed() {
 		return m_moveSpeed;
 	}
+	bool isGoUp = false;
 private:
 	int mi_state = 0;
 	int m_battery = 1000;

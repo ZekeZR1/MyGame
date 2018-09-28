@@ -155,6 +155,7 @@
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="CFONT.cpp" />
     <ClCompile Include="character\CharacterController.cpp" />
+    <ClCompile Include="ClearScene.cpp" />
     <ClCompile Include="GameCamera.cpp" />
     <ClCompile Include="gameObject\GameObject.cpp" />
     <ClCompile Include="GameScene.cpp" />
@@ -212,6 +213,7 @@
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="CFONT.h" />
     <ClInclude Include="character\CharacterController.h" />
+    <ClInclude Include="ClearScene.h" />
     <ClInclude Include="GameCamera.h" />
     <ClInclude Include="gameObject\GameObject.h" />
     <ClInclude Include="GameScene.h" />
@@ -455,6 +457,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\door018.jpg" />
+    <ImageContentTask Include="Assets\Sprite\Clear.png" />
     <ImageContentTask Include="Assets\Sprite\Title.png" />
     <ImageContentTask Include="Assets\Sprite\SearchRateFrame.png" />
     <ImageContentTask Include="Assets\Sprite\rateGaugeAir.png" />
