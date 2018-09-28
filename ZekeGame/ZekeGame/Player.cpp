@@ -40,8 +40,8 @@ void Player::Update() {
 void Player::Move() {
 	if (m_enPState == PSTATE_WALK) {
 		if (g_pad[0].IsPress(enButtonRB2)) {
-			//m_moveSpeedParam = 1300.0f;
-			m_moveSpeedParam = 7000.0f;
+			UseBattery();
+			m_moveSpeedParam = 1500.0f;
 		}else
 			m_moveSpeedParam = 750.0f;
 	}

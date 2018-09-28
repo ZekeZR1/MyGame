@@ -37,6 +37,16 @@ GameCamera::~GameCamera()
 	delete camera3d;
 }
 
+void GameCamera::Reset() {
+	camera3d->SetTarget({ 0.0f, 20.0f, 0.0f });
+	camera3d->SetPosition({ 0.0f, 350.0f, 1000.0f });
+	camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Perspective);
+	camera3d->SetNear(0.1f);
+	camera3d->SetFar(50000.0f);
+	camera3d->Update();
+	m_toCameraPos.Set(0.0f, 50.0f, 300.0f);
+}
+
 void GameCamera::Update(Player* player) {
 	/*
 	CVector3 toCameraPos = camera3d->GetPosition() - camera3d->GetTarget();

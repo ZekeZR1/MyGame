@@ -32,7 +32,7 @@ GameScene::GameScene()
 	m_model = new SkinModel;
 	m_model->Init(L"Assets/modelData/Space.cmo");
 	m_model->UpdateWorldMatrix(CVector3::Zero(), CQuaternion::Identity(), CVector3::One());
-	m_ship = new TheShip;
+	m_ship = new TheShip(m_player);
 	//Wall
 	m_wall.Init(L"Assets/modelData/Wall.cmo");
 	m_wall.UpdateWorldMatrix(CVector3::Zero(), CQuaternion::Identity(), CVector3::One());
@@ -118,7 +118,7 @@ void GameScene::Update() {
 	if (m_pConstructor != nullptr) {
 		m_pConstructor->Update();
 	}
-	m_ship->Update(m_player);
+	m_ship->Update();
 	if (g_pad[0].IsTrigger(enButtonLB1)) {
 		isGameClear = true;
 		m_ship->GoDown();
@@ -389,6 +389,7 @@ void GameScene::SetItem() {
 
 void GameScene::Clear() {
 	if (m_ship->isInSpace) {
+		camera->Reset();
 		currentScene = new ClearScene;
 		delete this;
 	}

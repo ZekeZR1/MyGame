@@ -3,20 +3,26 @@
 #include "Player.h"
 
 
-TheShip::TheShip()
+TheShip::TheShip(Player* player)
 {
+	mp_player = player;
 	m_model.Init(L"Assets/modelData/Ship.cmo", enFbxUpAxisY);
-	m_pos.y = 2000.0f;
+	m_pos.y = 50000.0f;
 	m_model.UpdateWorldMatrix(m_pos, CQuaternion::Identity(), CVector3::One());
 }
 
 
 TheShip::~TheShip()
 {
+	delete m_physics;
+	m_physics = nullptr;
 }
 
 void TheShip::GoDown() {
 	isGoDown = true;
+	m_pos = mp_player->GetForward(3000);
+	m_pos.y = 2000.0f;
+	m_model.UpdateWorldMatrix(m_pos, CQuaternion::Identity(), CVector3::One());
 }
 
 void TheShip::GoUp() {
@@ -24,11 +30,11 @@ void TheShip::GoUp() {
 	isGoUp = true;
 }
 
-void TheShip::Update(Player* player) {
-	if (g_pad[0].IsTrigger(enButtonB) && player->isNear(m_pos,1000.0f)) {
+void TheShip::Update() {
+	if (g_pad[0].IsTrigger(enButtonB) && mp_player->isNear(m_pos,1000.0f)) {
 		isRiding = true;
 		isGoUp = true;
-		player->isGoUp = true;
+		mp_player->isGoUp = true;
 	}
 	if (isGoDown) {
 		if (m_pos.y >= 300.0f) {
@@ -39,6 +45,10 @@ void TheShip::Update(Player* player) {
 		}
 		if (m_pos.y <= 0.0f) {
 			m_moveSpeed.y = 0.0f;
+			m_physics = new PhysicsStaticObject;
+			CQuaternion rot = CQuaternion::Identity();
+			rot.SetRotationDeg(CVector3::AxisX(), 90.0f);
+			m_physics->CreateMeshObject(m_model, m_pos, rot);
 		}
 	}
 	if (isGoUp) {
@@ -52,7 +62,7 @@ void TheShip::Update(Player* player) {
 	if (isRiding) {
 		CVector3 playerpos = m_pos;
 		playerpos.y = m_pos.y + 100.0f;
-		player->SetPosition(playerpos);
+		mp_player->SetPosition(playerpos);
 	}
 }
 

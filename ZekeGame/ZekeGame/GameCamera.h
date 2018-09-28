@@ -8,6 +8,7 @@ class GameCamera
 public:
 	GameCamera();
 	~GameCamera();
+	void Reset();
 	void Update(Player* player);
 	float x = 0.0f;
 	float y = 0.0f;
