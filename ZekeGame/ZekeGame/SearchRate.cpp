@@ -60,7 +60,7 @@ void SearchRate::DrawSprite() {
 void SearchRate::addGroundRate() {
 	m_groundSearchingTime++;
 	if (m_groundSearchingTime == 10) {
-		m_rateGround += 1;
+		m_rateGround += 2;
 		m_groundSearchingTime = 0;
 	}
 }
@@ -83,6 +83,14 @@ void SearchRate::addSearchRate(Item::EnItem item) {
 	}
 }
 
+void SearchRate::ClearCheck() {
+	if (m_airScale.x >= 1.0f &&
+		m_groundScale.x >= 1.0f &&
+		m_materialScale.x >= 1.0f) {
+		isAllMax = true;
+	}
+}
+
 void SearchRate::GaugeUpdate() {
 	//Air
 	float x = (float)m_rateAir;
@@ -99,4 +107,6 @@ void SearchRate::GaugeUpdate() {
 	x /= 100.0f;
 	m_materialScale.x = (x > 1.0f) ? 1.0f : x;
 	ms_rateMaterial.Update(m_materialPos, m_rot, m_materialScale, { 0.0f,0.0f });
+
+	ClearCheck();
 }

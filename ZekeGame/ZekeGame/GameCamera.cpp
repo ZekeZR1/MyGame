@@ -71,7 +71,9 @@ void GameCamera::Update(Player* player) {
 	if (player->isGoUp) {
 		m_toCameraPos.Set(3000.0f, 2000.0f, -4000.0f);
 	}
-	else {
+	else if (player->isInBase) {
+		target = player->GetBack(500.0f);
+	}else{
 		target = player->GetBack(200.0f);
 	}
 	target.y += 150.0f;

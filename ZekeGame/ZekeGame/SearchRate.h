@@ -9,8 +9,10 @@ public:
 	void addMaterialRate();
 	void Update();
 	void DrawSprite();
+	bool isAllMax = false;
 private:
 	void GaugeUpdate();
+	void ClearCheck();
 	CQuaternion m_rot = CQuaternion::Identity();
 	int m_searchRate = 0;
 	int m_searchingBase = 0;

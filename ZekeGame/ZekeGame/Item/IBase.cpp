@@ -37,7 +37,7 @@ void IBase::DrawSprite() {
 }
 
 void IBase::InOut() {
-	if (!mp_player->isNear(m_pos, 300.0f))
+	if (!mp_player->isNear(m_pos, 400.0f))
 		return;
 	if (g_pad[0].IsTrigger(enButtonB)) {
 		if (isIn) {

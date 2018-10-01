@@ -80,6 +80,7 @@ GameScene::~GameScene()
 	for (int i = 0; i < MAXITEM; i++) {
 		if (m_items[i] != nullptr) {
 			delete m_items[i];
+			m_items[i] = nullptr;
 		}
 	}
 	g_game = nullptr;
@@ -119,10 +120,6 @@ void GameScene::Update() {
 		m_pConstructor->Update();
 	}
 	m_ship->Update();
-	if (g_pad[0].IsTrigger(enButtonLB1)) {
-		isGameClear = true;
-		m_ship->GoDown();
-	}
 	Clear();
 }
 
@@ -388,6 +385,11 @@ void GameScene::SetItem() {
 }
 
 void GameScene::Clear() {
+	//if (m_searchRate.isAllMax && !isGameClear) {
+	if(g_pad[0].IsTrigger(enButtonLB1)){
+		isGameClear = true;
+		m_ship->GoDown();
+	}
 	if (m_ship->isInSpace) {
 		camera->Reset();
 		currentScene = new ClearScene;

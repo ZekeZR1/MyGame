@@ -15,5 +15,7 @@ public:
 	Player* m_player;	
 	CVector3 m_toCameraPos;	
 	SpringCamera m_springCamera;
+private:
+	bool neko = false;
 };
 
