@@ -68,10 +68,9 @@
   Assets\modelData\unityChan.fbx
   Assets\modelData\Wall.FBX
   Assets\modelData\Windmill.FBX
-  GameCamera.cpp
+  CShader.cpp
+  ShaderResources.cpp
   コード生成しています。
-  3 of 2062 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    7 functions had inline decision re-evaluated but remain unchanged
+  All 2239 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   コード生成が終了しました。
   ZekeGame.vcxproj -> C:\Users\Taiki.W\git\MyGame\ZekeGame\x64\Release\ZekeGame.exe

@@ -153,9 +153,21 @@
     <ClCompile Include="ActionMenu.cpp" />
     <ClCompile Include="ArrangeIron.cpp" />
     <ClCompile Include="BackGround.cpp" />
+    <ClCompile Include="CConstantBuffer.cpp" />
     <ClCompile Include="CFONT.cpp" />
+    <ClCompile Include="CGPUBuffer.cpp" />
     <ClCompile Include="character\CharacterController.cpp" />
+    <ClCompile Include="CIndexBuffer.cpp" />
     <ClCompile Include="ClearScene.cpp" />
+    <ClCompile Include="CPrimitive.cpp" />
+    <ClCompile Include="CRenderContext.cpp" />
+    <ClCompile Include="CSamplerState.cpp" />
+    <ClCompile Include="CShader.cpp" />
+    <ClCompile Include="CShaderResource.cpp" />
+    <ClCompile Include="CUnorderedAccessView.cpp" />
+    <ClCompile Include="CUtil.cpp" />
+    <ClCompile Include="CVertexBuffer.cpp" />
+    <ClCompile Include="Fade.cpp" />
     <ClCompile Include="GameCamera.cpp" />
     <ClCompile Include="gameObject\GameObject.cpp" />
     <ClCompile Include="GameScene.cpp" />
@@ -201,19 +213,35 @@
     <ClCompile Include="physics\RigitBody.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Popup.cpp" />
+    <ClCompile Include="RenderTarget.cpp" />
     <ClCompile Include="SearchRate.cpp" />
+    <ClCompile Include="ShaderResouceView.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="StructedBuffer.cpp" />
     <ClCompile Include="TheShip.cpp" />
     <ClCompile Include="Title.cpp" />
+    <ClCompile Include="TScopedResource.cpp" />
     <ClCompile Include="window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionMenu.h" />
     <ClInclude Include="ArrangeIron.h" />
     <ClInclude Include="BackGround.h" />
+    <ClInclude Include="CConstantBuffer.h" />
     <ClInclude Include="CFONT.h" />
+    <ClInclude Include="CGPUBuffer.h" />
     <ClInclude Include="character\CharacterController.h" />
+    <ClInclude Include="CIndexBuffer.h" />
     <ClInclude Include="ClearScene.h" />
+    <ClInclude Include="CPrimitive.h" />
+    <ClInclude Include="CRenderContext.h" />
+    <ClInclude Include="CSamplerState.h" />
+    <ClInclude Include="CShader.h" />
+    <ClInclude Include="CShaderResource.h" />
+    <ClInclude Include="CUnorderedAccessView.h" />
+    <ClInclude Include="CUtil.h" />
+    <ClInclude Include="CVertexBuffer.h" />
+    <ClInclude Include="Fade.h" />
     <ClInclude Include="GameCamera.h" />
     <ClInclude Include="gameObject\GameObject.h" />
     <ClInclude Include="GameScene.h" />
@@ -252,6 +280,7 @@
     <ClInclude Include="math\kMath.h" />
     <ClInclude Include="math\Matrix.h" />
     <ClInclude Include="math\Vector.h" />
+    <ClInclude Include="Noncopyable.h" />
     <ClInclude Include="physics\CapsuleCollider.h" />
     <ClInclude Include="physics\CollisionAttr.h" />
     <ClInclude Include="physics\CSphereCollider.h" />
@@ -262,10 +291,14 @@
     <ClInclude Include="physics\RigitBody.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Popup.h" />
+    <ClInclude Include="RenderTarget.h" />
     <ClInclude Include="SearchRate.h" />
+    <ClInclude Include="ShaderResouceView.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StructedBuffer.h" />
     <ClInclude Include="TheShip.h" />
     <ClInclude Include="Title.h" />
+    <ClInclude Include="TScopedResource.h" />
     <ClInclude Include="window\Window.h" />
   </ItemGroup>
   <ItemGroup>
