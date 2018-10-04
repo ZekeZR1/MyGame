@@ -219,6 +219,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Popup.cpp" />
     <ClCompile Include="SearchRate.cpp" />
+    <ClCompile Include="sound\SoundEngine.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="TheShip.cpp" />
     <ClCompile Include="Title.cpp" />
@@ -296,6 +297,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Popup.h" />
     <ClInclude Include="SearchRate.h" />
+    <ClInclude Include="sound\SoundEngine.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TheShip.h" />
     <ClInclude Include="Title.h" />
@@ -507,6 +509,16 @@
     <ImageContentTask Include="Assets\Sprite\MiningMachineStandby.png" />
     <ImageContentTask Include="Assets\Sprite\MiningMachineMenu.png" />
     <ImageContentTask Include="Assets\Sprite\ItemMining.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Assets\sound\stage00.wav">
+      <FileType>Document</FileType>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Assets\sound\Buff.wav">
+      <FileType>Document</FileType>
+    </CustomBuild>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

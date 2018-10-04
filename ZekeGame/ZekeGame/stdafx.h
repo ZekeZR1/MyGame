@@ -21,6 +21,7 @@
 #include "DirectXTK/Inc/SpriteFont.h"
 #include "DirectXTK/Inc/DDSTextureLoader.h"
 #include "DirectXTK/Inc/SpriteBatch.h"
+#include "DirectXTK\Inc\Audio.h"
 
 #include "btBulletDynamicsCommon.h"
 #include "BulletCollision\CollisionDispatch\btGhostObject.h"

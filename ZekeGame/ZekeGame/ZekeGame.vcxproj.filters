@@ -66,6 +66,12 @@
     <Filter Include="ソース ファイル\Engine\graphics\GPUBuffer">
       <UniqueIdentifier>{ff12ee8b-a048-407a-a932-2c62f7acd652}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Engine\sound">
+      <UniqueIdentifier>{5cc7b7cc-a27c-4c6a-a8db-1b7cbf75402a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Assets\sound">
+      <UniqueIdentifier>{c4762449-3258-4eff-87dc-0b1ac2f581ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="window\Window.cpp">
@@ -286,6 +292,9 @@
     </ClCompile>
     <ClCompile Include="graphics\GPUBuffer\CGPUBuffer.cpp">
       <Filter>ソース ファイル\Engine\graphics\GPUBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="sound\SoundEngine.cpp">
+      <Filter>ソース ファイル\Engine\sound</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -513,6 +522,9 @@
     </ClInclude>
     <ClInclude Include="graphics\GPUBuffer\CGPUBuffer.h">
       <Filter>ソース ファイル\Engine\graphics\GPUBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="sound\SoundEngine.h">
+      <Filter>ソース ファイル\Engine\sound</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -921,6 +933,12 @@
     </CustomBuild>
     <CustomBuild Include="Assets\texture\wind02.png">
       <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\sound\stage00.wav">
+      <Filter>ソース ファイル\Assets\sound</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\sound\Buff.wav">
+      <Filter>ソース ファイル\Assets\sound</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

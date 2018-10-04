@@ -17,6 +17,7 @@
 #include "TheShip.h"
 #include "Title.h"
 #include "ClearScene.h"
+#include "sound/SoundEngine.h"
 
 GameScene* g_game = nullptr;
 extern GameCamera* camera;
@@ -57,6 +58,8 @@ GameScene::GameScene()
 	for (int i = 0; i < IRONS; i++) {
 		m_irons[i] = new ArrangeIron(m_player, m_inventory);
 	}
+
+	m_sound.Init(L"Assets/sound/Buff.wav",true);
 }
 
 GameScene::~GameScene()
@@ -87,6 +90,10 @@ GameScene::~GameScene()
 }
 
 void GameScene::Update() {
+	if (g_pad[0].IsTrigger(enButtonA)) {
+		m_sound.Play();
+	}
+	m_sound.Update();
 	ItemOrder();
 	CreateItem();
 	Craft();

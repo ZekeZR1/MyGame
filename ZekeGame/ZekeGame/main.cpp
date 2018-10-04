@@ -5,7 +5,6 @@
 IScene* currentScene = nullptr;
 GameCamera* camera = nullptr;
 
-
 void ReleaseDirectX() {
 	delete g_graphicsEngine;
 	delete camera;

@@ -3,6 +3,7 @@
 #include "BackGround.h"
 #include "Player.h"
 #include "SearchRate.h"
+#include "sound\SoundEngine.h"
 
 #define MAXITEM 100
 #define IRONS 20
@@ -16,6 +17,7 @@ class Inventory;
 class ExplorationRocket;
 class SearchRate;
 class TheShip;
+class SoundEngine;
 
 class GameScene : public IScene
 {
@@ -70,9 +72,9 @@ private:
 	bool m_settingOrderedItem = false;
 	bool m_isOrderedItemSet = false;
 	Item* m_items[MAXITEM];
-	
 	ITEM::EnItem m_ordered = ITEM::en_NONE;
+
+	Sound m_sound;
 };
 
 extern GameScene* g_game;
-
