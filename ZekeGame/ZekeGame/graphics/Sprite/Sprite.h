@@ -1,9 +1,9 @@
 #pragma once
 #include "Effect.h"
-#include "ShaderResouceView.h"
-#include "CRenderContext.h"
-#include "CPrimitive.h"
-#include "CShader.h"
+#include "graphics/ShaderResouceView.h"
+#include "graphics/CRenderContext.h"
+#include "graphics/CPrimitive.h"
+#include "graphics/CShader.h"
 class Sprite : Noncopyable
 {
 public:

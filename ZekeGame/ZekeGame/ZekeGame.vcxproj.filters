@@ -63,6 +63,9 @@
     <Filter Include="ソース ファイル\Assets\texture">
       <UniqueIdentifier>{ff6ad720-0aef-4baf-88a9-c428acafd9e2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Engine\graphics\GPUBuffer">
+      <UniqueIdentifier>{ff12ee8b-a048-407a-a932-2c62f7acd652}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="window\Window.cpp">
@@ -191,9 +194,6 @@
     <ClCompile Include="Inventory.cpp">
       <Filter>ソース ファイル\Game\Materials</Filter>
     </ClCompile>
-    <ClCompile Include="Popup.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="ArrangeIron.cpp">
       <Filter>ソース ファイル\Game\Materials</Filter>
     </ClCompile>
@@ -234,52 +234,58 @@
       <Filter>ソース ファイル\Game</Filter>
     </ClCompile>
     <ClCompile Include="Fade.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Game</Filter>
     </ClCompile>
-    <ClCompile Include="CRenderContext.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="Popup.cpp">
+      <Filter>ソース ファイル\Game</Filter>
     </ClCompile>
-    <ClCompile Include="RenderTarget.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="graphics\CRenderContext.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="ShaderResouceView.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="graphics\CSamplerState.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="StructedBuffer.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="graphics\CShader.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="CUnorderedAccessView.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="graphics\CShaderResource.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="CIndexBuffer.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="graphics\CUnorderedAccessView.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="CVertexBuffer.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="graphics\CUtil.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="CConstantBuffer.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="graphics\CVertexBuffer.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="CGPUBuffer.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="graphics\RenderTarget.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="CSamplerState.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="graphics\ShaderResouceView.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="CShader.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="graphics\SkinModelShaderConst.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="CShaderResource.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="graphics\StructedBuffer.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="CUtil.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="graphics\TScopedResource.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="TScopedResource.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="graphics\CConstantBuffer.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="CPrimitive.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="graphics\CIndexBuffer.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\CPrimitive.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\GPUBuffer\CGPUBuffer.cpp">
+      <Filter>ソース ファイル\Engine\graphics\GPUBuffer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -418,9 +424,6 @@
     <ClInclude Include="Inventory.h">
       <Filter>ソース ファイル\Game\Materials</Filter>
     </ClInclude>
-    <ClInclude Include="Popup.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="ArrangeIron.h">
       <Filter>ソース ファイル\Game\Materials</Filter>
     </ClInclude>
@@ -461,24 +464,56 @@
       <Filter>ソース ファイル\Game</Filter>
     </ClInclude>
     <ClInclude Include="Fade.h">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Game</Filter>
     </ClInclude>
-    <ClInclude Include="CRenderContext.h" />
-    <ClInclude Include="Noncopyable.h" />
-    <ClInclude Include="RenderTarget.h" />
-    <ClInclude Include="ShaderResouceView.h" />
-    <ClInclude Include="StructedBuffer.h" />
-    <ClInclude Include="CUnorderedAccessView.h" />
-    <ClInclude Include="CIndexBuffer.h" />
-    <ClInclude Include="CVertexBuffer.h" />
-    <ClInclude Include="CConstantBuffer.h" />
-    <ClInclude Include="CGPUBuffer.h" />
-    <ClInclude Include="CSamplerState.h" />
-    <ClInclude Include="CShader.h" />
-    <ClInclude Include="CShaderResource.h" />
-    <ClInclude Include="CUtil.h" />
-    <ClInclude Include="TScopedResource.h" />
-    <ClInclude Include="CPrimitive.h" />
+    <ClInclude Include="Popup.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CPrimitive.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CRenderContext.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CSamplerState.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CShader.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CShaderResource.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CUnorderedAccessView.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CUtil.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CVertexBuffer.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\RenderTarget.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\ShaderResouceView.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\StructedBuffer.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\TScopedResource.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CConstantBuffer.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CIndexBuffer.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\GPUBuffer\CGPUBuffer.h">
+      <Filter>ソース ファイル\Engine\graphics\GPUBuffer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\modelData\test.png">

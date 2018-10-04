@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Fade.h"
-#include "ShaderResouceView.h"
-#include "CRenderContext.h"
+#include "graphics/ShaderResouceView.h"
+#include "graphics/CRenderContext.h"
 	
 Fade::Fade()
 {
