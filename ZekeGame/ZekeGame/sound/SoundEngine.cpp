@@ -44,3 +44,26 @@ void Sound::Play(bool roopflag) {
 	if(roopflag)
 		effect->Play(true);
 }
+
+void Sound::Stop() {
+	effect->Stop();
+}
+
+bool Sound::isPlaying() {
+	if (soundEffect->IsInUse()) {
+		return true;
+		/*
+		char message[256];
+		sprintf_s(message, "Playing sound\n");
+		OutputDebugStringA(message);
+		*/
+	}
+	else {
+		return false;
+		/*
+		char message[256];
+		sprintf_s(message, "Not playing sound\n");
+		OutputDebugStringA(message);
+		*/
+	}
+}

@@ -74,7 +74,9 @@ private:
 	Item* m_items[MAXITEM];
 	ITEM::EnItem m_ordered = ITEM::en_NONE;
 
-	Sound m_sound;
+	Sound m_bgm;
+	Sound m_se;
+	Sound m_convertingSe;
 };
 
 extern GameScene* g_game;

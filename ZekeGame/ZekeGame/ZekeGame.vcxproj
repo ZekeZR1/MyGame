@@ -157,6 +157,7 @@
     <ClCompile Include="character\CharacterController.cpp" />
     <ClCompile Include="ClearScene.cpp" />
     <ClCompile Include="Fade.cpp" />
+    <ClCompile Include="FPSCounter.cpp" />
     <ClCompile Include="GameCamera.cpp" />
     <ClCompile Include="gameObject\GameObject.cpp" />
     <ClCompile Include="GameScene.cpp" />
@@ -233,6 +234,7 @@
     <ClInclude Include="character\CharacterController.h" />
     <ClInclude Include="ClearScene.h" />
     <ClInclude Include="Fade.h" />
+    <ClInclude Include="FPSCounter.h" />
     <ClInclude Include="GameCamera.h" />
     <ClInclude Include="gameObject\GameObject.h" />
     <ClInclude Include="GameScene.h" />
@@ -517,6 +519,23 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Assets\sound\Buff.wav">
+      <FileType>Document</FileType>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Assets\sound\title.wav">
+      <FileType>Document</FileType>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Assets\sound\converting.wav">
+      <FileType>Document</FileType>
+    </CustomBuild>
+    <Media Include="Assets\sound\game.wav" />
+    <CustomBuild Include="Assets\sound\start.wav">
+      <FileType>Document</FileType>
+    </CustomBuild>
+    <CustomBuild Include="Assets\sound\se.wav">
       <FileType>Document</FileType>
     </CustomBuild>
   </ItemGroup>

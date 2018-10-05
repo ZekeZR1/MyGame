@@ -3,6 +3,7 @@
 #include "ActionMenu.h"
 #include "Player.h"
 #include "Inventory.h"
+#include "sound\SoundEngine.h"
 
 Player* player;
 
@@ -12,6 +13,7 @@ ActionMenu::ActionMenu()
 	ms_menu.Init(L"sprite/ActMenuCraft.dds", 896.0f, 504.0f);
 	pSpriteBatch = new DirectX::SpriteBatch(g_graphicsEngine->GetD3DDeviceContext());
 	pSpriteFont = new DirectX::SpriteFont(g_graphicsEngine->GetD3DDevice(), L"Assets/font/myfile.spritefont");
+	m_se.Init(L"Assets/sound/se.wav", false);
 }
 
 
@@ -42,14 +44,14 @@ void ActionMenu::Update(Player* m_player) {
 		}
 	}
 	if (g_pad[0].IsTrigger(enButtonRight)) {
-		m_mode = (m_mode + 1) % 3;
-		/*
+		m_se.Play();
+		//m_mode = (m_mode + 1) % 3;
 		if (m_mode != 2) {
 			m_mode++;
 		}
-		*/
 	}
 	if (g_pad[0].IsTrigger(enButtonLeft)) {
+		m_se.Play();
 		if (m_mode != 0) {
 			m_mode--;
 		}

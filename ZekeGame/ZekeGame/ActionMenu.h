@@ -30,5 +30,6 @@ private:
 	Sprite ms_menu;
 	CVector3 m_ActPos = CVector3::Zero();
 	Inventory* mp_inventory = nullptr;
+	Sound m_se;
 };
 

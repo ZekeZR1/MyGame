@@ -5,21 +5,11 @@
 
 追加予定機能
 	jump limitter
-	サウンド再生
 	Fade
 	Effect
 	ライト
-
-一応クリア条件
-	探索率100%達成
-		Iron get
-		Silicon get
-		fuel get
-		空気分析
-
-
 作業中
-Fade
+	Fade
 	ゲームカメラが船に乗ると荒ぶるやつの修正
 	
 

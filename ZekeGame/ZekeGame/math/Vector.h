@@ -332,6 +332,7 @@ public:
 	static const CVector4 Red;
 	static const CVector4 Black;
 	static const CVector4 Yellow;
+	static const CVector4 Green;
 public:
 	operator DirectX::XMVECTOR() const
 	{

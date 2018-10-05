@@ -18,10 +18,11 @@
 #include "Title.h"
 #include "ClearScene.h"
 #include "sound/SoundEngine.h"
+#include "FPSCounter.h"
 
 GameScene* g_game = nullptr;
 extern GameCamera* camera;
-
+extern CFPSCounter* FPS;
 GameScene::GameScene()
 {
 	g_game = this;
@@ -59,7 +60,9 @@ GameScene::GameScene()
 		m_irons[i] = new ArrangeIron(m_player, m_inventory);
 	}
 
-	m_sound.Init(L"Assets/sound/Buff.wav",true);
+	m_bgm.Init(L"Assets/sound/game.wav",true);
+	m_se.Init(L"Assets/sound/se.wav",false);
+	m_convertingSe.Init(L"Assets/sound/converting.wav", true);
 }
 
 GameScene::~GameScene()
@@ -90,10 +93,7 @@ GameScene::~GameScene()
 }
 
 void GameScene::Update() {
-	if (g_pad[0].IsTrigger(enButtonA)) {
-		m_sound.Play();
-	}
-	m_sound.Update();
+	m_bgm.Play(true);
 	ItemOrder();
 	CreateItem();
 	Craft();
@@ -165,6 +165,7 @@ void GameScene::Draw() {
 	if (m_pConstructor != nullptr)
 		m_pConstructor->DrawSprite();
 	mS_ActState->Draw();
+	FPS->Draw();
 }
 
 void GameScene::Ground() {
@@ -175,12 +176,14 @@ void GameScene::Ground() {
 				return;
 			m_player->UseBattery();
 			bg->m_converting = true;
+			m_convertingSe.Play(true);
 			bg->Update(forward, m_ActMenu->m_flatPos, m_player);
 			m_searchRate.addGroundRate();
 		}
 	}
 	else {
 		deep = 0.0f;
+		m_convertingSe.Stop();
 	}
 
 }
@@ -192,6 +195,7 @@ void GameScene::Menu() {
 		return;
 	}
 	if (g_pad[0].IsTrigger(enButtonX)) {
+		m_se.Play();
 		if (m_ActMenu->isOpenAct) {
 			//m_player->m_enPState = m_player->PSTATE_WALK;
 			m_ActMenu->isOpenAct = false;
@@ -235,6 +239,7 @@ void GameScene::Menu() {
 	}
 	mS_ActState->Update(mv_ActSpos, CQuaternion::Identity(), { 0.5f,0.5f,0.5f }, { 0.5,0.5 });
 	if (g_pad[0].IsTrigger(enButtonY)) {
+		m_se.Play();
 		m_player->m_enPState = m_player->PSTATE_WALK;
 		m_ActMenu->m_enAction = m_ActMenu->ASTATE_INVENTORY;
 		m_ActMenu->m_mode = 1;
