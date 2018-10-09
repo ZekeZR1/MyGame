@@ -3,6 +3,7 @@
 
 #include <mmsystem.h>
 #include <list>
+#include "CFONT.h"
 
 using namespace std;
 

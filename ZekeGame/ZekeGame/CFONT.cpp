@@ -17,6 +17,19 @@ CFONT::~CFONT()
 }
 
 void CFONT::Init(
+	const wchar_t* text,
+	CVector3 pos,
+	CVector3 scale,
+	CVector4 color
+) {
+	wcscpy(m_text, text);
+	m_pos = pos;
+	m_scale = scale;
+	m_color = color;
+}
+
+
+void CFONT::Init(
 	wchar_t text[256],
 	CVector3 pos,
 	CVector3 scale,

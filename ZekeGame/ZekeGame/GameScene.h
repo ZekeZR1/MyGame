@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "SearchRate.h"
 #include "sound\SoundEngine.h"
+#include "FPSCounter.h"
 
 #define MAXITEM 100
 #define IRONS 20
@@ -18,6 +19,7 @@ class ExplorationRocket;
 class SearchRate;
 class TheShip;
 class SoundEngine;
+class CFPSCounter;
 
 class GameScene : public IScene
 {
@@ -77,6 +79,7 @@ private:
 	Sound m_bgm;
 	Sound m_se;
 	Sound m_convertingSe;
+	CFPSCounter* m_fps;
 };
 
 extern GameScene* g_game;

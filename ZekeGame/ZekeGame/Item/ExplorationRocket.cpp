@@ -30,7 +30,8 @@ ExplorationRocket::ExplorationRocket(Player* m_player, Inventory* m_inventory)
 ExplorationRocket::~ExplorationRocket(){
 	delete m_skinModel;
 	delete m_sMenu;
-	delete m_physicsStaticObject;
+	if(m_physicsStaticObject != nullptr)
+		delete m_physicsStaticObject;
 	delete m_popup;
 }
 
@@ -151,6 +152,7 @@ void ExplorationRocket::Launch() {
 	//m_sprite->Init(L"sprite/ExRocketMenu.dds", 1280.0f, 720.0f);
 	if (g_pad[0].IsTrigger(enButtonB)) {
 		delete m_physicsStaticObject;
+		m_physicsStaticObject = nullptr;
 		setting = en_Searching;
 		isOpenMenu = false;
 		mp_player->CloseMenu();

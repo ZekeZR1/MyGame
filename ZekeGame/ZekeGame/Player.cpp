@@ -42,7 +42,8 @@ void Player::Move() {
 		if (g_pad[0].IsPress(enButtonRB2)) {
 			UseBattery();
 			m_moveSpeedParam = 1500.0f;
-		}else
+		}
+		else
 			m_moveSpeedParam = 750.0f;
 	}
 	else {
@@ -73,12 +74,16 @@ void Player::Move() {
 	cameraRight.Normalize();
 	m_moveSpeed += cameraRight * m_moveSpeedParam * g_pad[0].GetLStickXF();
 	if (g_pad[0].IsTrigger(enButtonA)) {
-		if(!isRiding)
-			m_moveSpeed.y += 700.0f;
+		if (!isRiding) {
+			if (!m_charaCon->IsJump())
+				m_moveSpeed.y += 700.0f;
+		}
 	}
+
 	if (!isRiding) {
 		m_moveSpeed.y -= 50.0f;
 	}
+
 	CQuaternion qRot;
 	qRot.SetRotationDeg(CVector3::AxisX(), 180.0f);
 	qRot.Multiply(m_rotation, qRot);
@@ -100,6 +105,8 @@ void Player::Draw() {
 }
 
 void Player::DrawSprite() {
+	if (isGoUp)
+		return;
 	ms_bFrame.Draw();
 	ms_battery.Draw();
 }

@@ -2,10 +2,11 @@
 #include "Title.h"
 #include "GameScene.h"
 #include "sound/SoundEngine.h"
-#include "FPSCounter.h"
+#include "CFONT.h"
+//#include "FPSCounter.h"
 
 extern GameCamera* camera;
-extern CFPSCounter* FPS;
+//extern CFPSCounter* FPS;
 
 Title::Title()
 {
@@ -34,5 +35,4 @@ void Title::Update() {
 
 void Title::Draw() {
 	m_sprite->Draw();
-	//FPS->Draw();
 }

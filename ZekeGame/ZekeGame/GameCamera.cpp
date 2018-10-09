@@ -69,13 +69,15 @@ void GameCamera::Update(Player* player) {
 
 	CVector3 target = player->GetPosition();
 	if (player->isGoUp) {
-		m_toCameraPos.Set(3000.0f, 2000.0f, -4000.0f);
+		//
 	}
 	else if (player->isInBase) {
 		target = player->GetBack(500.0f);
-	}else{
+	}
+	else {
 		target = player->GetBack(200.0f);
 	}
+
 	target.y += 150.0f;
 	CVector3 toCameraPosOld = m_toCameraPos;
 	x = g_pad[0].GetRStickXF();
@@ -101,7 +103,15 @@ void GameCamera::Update(Player* player) {
 		m_toCameraPos = toCameraPosOld;
 	}
 	CVector3 pos = target + m_toCameraPos;
-	m_springCamera.SetTarget(target);
-	m_springCamera.SetPosition(pos);
-	m_springCamera.Update();
+	if (player->isGoUp) {
+		m_springCamera.SetPosition({ 3000.0f,3000.0f,-6000.0f });
+		//qRot.SetRotationDeg(axisX, 7.0f * y);
+		//m_toCameraPos.Set(2000.0f, 10000.0f, -8000.0f);
+		m_springCamera.Update();
+	}
+	else {
+		m_springCamera.SetTarget(target);
+		m_springCamera.SetPosition(pos);
+		m_springCamera.Update();
+	}
 }

@@ -53,7 +53,7 @@ void TheShip::Update() {
 	}
 	if (isGoUp) {
 		m_moveSpeed.y = 25.0f;
-		if (m_pos.y >= 5000.0f) {
+		if (m_pos.y >= 4000.0f) {
 			isInSpace = true;
 		}
 	}

@@ -5,6 +5,7 @@ public:
 	CFONT();
 	~CFONT();
 	void Init(wchar_t text[256], CVector3 pos = CVector3::Zero(), CVector3 Scale = CVector3::One(), CVector4 color = CVector4::White);
+	void Init(const wchar_t* text, CVector3 pos = CVector3::Zero(), CVector3 Scale = CVector3::One(), CVector4 color = CVector4::White);
 	void Update();
 	void Draw();
 private:

@@ -2,9 +2,11 @@
 #include "IScene.h"
 #include "sound\SoundEngine.h"
 #include "FPSCounter.h"
+#include "CFONT.h"
 
 class Sound;
-class CFPSCounter;
+class CFONT;
+//class CFPSCounter;
 
 class Title : public IScene
 {

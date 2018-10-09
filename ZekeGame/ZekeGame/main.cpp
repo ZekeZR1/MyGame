@@ -18,6 +18,11 @@ void GameUpdate() {
 		pad.Update();
 	}
 	currentScene->Update();
+
+	char message[256];
+	float fps = FPS->GetFPS();
+	sprintf_s(message, "%f\n", fps);
+	OutputDebugStringA(message);
 }
 
 void Render() {

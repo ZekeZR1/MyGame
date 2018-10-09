@@ -4,6 +4,10 @@
 // コンストラクタ
 CFPSCounter::CFPSCounter(unsigned int smp)
 {
+
+	//
+	//pSpriteBatch = new DirectX::SpriteBatch(g_graphicsEngine->GetD3DDeviceContext());
+	//pSpriteFont = new DirectX::SpriteFont(g_graphicsEngine->GetD3DDevice(), L"Assets/font/myfile.spritefont");
 	// サンプル数の設定
 	SetSampleNum(smp);
 
@@ -29,9 +33,6 @@ CFPSCounter::CFPSCounter(unsigned int smp)
 		m_dwTGTOldCount = timeGetTime();
 	}
 
-	pSpriteBatch = new DirectX::SpriteBatch(g_graphicsEngine->GetD3DDeviceContext());
-	pSpriteFont = new DirectX::SpriteFont(g_graphicsEngine->GetD3DDevice(), L"Assets/font/myfile.spritefont");
-
 	// 計測
 	GetFPS();
 }
@@ -40,8 +41,8 @@ CFPSCounter::CFPSCounter(unsigned int smp)
 // デストラクタ
 CFPSCounter::~CFPSCounter(void)
 {
-	delete pSpriteBatch;
-	delete pSpriteFont;
+	//delete pSpriteBatch;
+	//delete pSpriteFont;
 	if (m_iCounterFlag == FPSCOUNTER_TIMEGETTIME)
 		timeEndPeriod(1);    // タイマーの精度を戻す
 }
@@ -113,9 +114,11 @@ void CFPSCounter::SetSampleNum(unsigned int smp)
 }
 
 void CFPSCounter::Draw() {
+	/*
 	pSpriteBatch->Begin();
 	fps = GetFPS();
 	_itow_s(fps, wfps, 10);
 	pSpriteFont->DrawString(pSpriteBatch, (L"%d", wfps), DirectX::XMFLOAT2(1220.0f, 0.0f), CVector4::Green, 0.0f, DirectX::XMFLOAT2(0.0, 0.0), 1.0f);
 	pSpriteBatch->End();
+	*/
 }

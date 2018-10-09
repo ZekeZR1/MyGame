@@ -22,7 +22,7 @@
 
 GameScene* g_game = nullptr;
 extern GameCamera* camera;
-extern CFPSCounter* FPS;
+
 GameScene::GameScene()
 {
 	g_game = this;
@@ -67,6 +67,7 @@ GameScene::GameScene()
 
 GameScene::~GameScene()
 {
+	//delete m_fps;
 	delete m_ship;
 	delete m_inventory;
 	for (int i = 0; i < IRONS; i++) {
@@ -165,7 +166,6 @@ void GameScene::Draw() {
 	if (m_pConstructor != nullptr)
 		m_pConstructor->DrawSprite();
 	mS_ActState->Draw();
-	FPS->Draw();
 }
 
 void GameScene::Ground() {
