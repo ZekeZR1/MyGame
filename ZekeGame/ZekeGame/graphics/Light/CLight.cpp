@@ -6,8 +6,8 @@ using namespace DirectX;
 
 CLight::CLight()
 {
-	m_psShader.Load("shader/Light.fx", "ps_main", Shader::EnType::PS);
-	m_vsShader.Load("shader/Light.fx", "vs_main",Shader::EnType::VS);
+	m_psShader.Load("Assets/shader/Light.fx", "ps_main", Shader::EnType::PS);
+	m_vsShader.Load("Assets/shader/Light.fx", "vs_main",Shader::EnType::VS);
 }
 
 CLight::~CLight()
@@ -17,10 +17,12 @@ CLight::~CLight()
 		m_cb->Release();
 	}
 
-	//サンプラステートを解放。
-	if (m_samplerState != nullptr) {
-		m_samplerState->Release();
-	}
+}
+
+
+void CLight::Init() {
+	//定数バッファを初期化。
+	InitConstantBuffer();
 }
 
 void __cdecl CLight::Apply(ID3D11DeviceContext* deviceContext) 
@@ -57,14 +59,12 @@ void CLight::Draw() {
 	g_graphicsEngine->GetD3DDeviceContext()->VSSetConstantBuffers(0, 1, &m_cb);
 	//定数バッファを更新。
 	lightSRV lightsrv;
-	lightsrv.light = { 0.f,0.f,0.f,0.f };
+	lightsrv.light = { 0.0f,500.0f,0.0f,0.0f };
 	lightsrv.attenuation = { 0.f,0.f,0.f,0.f };
 	g_graphicsEngine->GetD3DDeviceContext()->UpdateSubresource(m_psCb, 0, nullptr, &lightsrv, 0, 0);
 	g_graphicsEngine->GetD3DDeviceContext()->PSSetConstantBuffers(0, 1, &m_psCb);
 	//定数バッファをGPUに転送。
 	g_graphicsEngine->GetD3DDeviceContext()->VSSetConstantBuffers(0, 1, &m_cb);
-	//サンプラステートを設定する。
-	g_graphicsEngine->GetD3DDeviceContext()->PSSetSamplers(0, 1, &m_samplerState);
 }
 
 //定数バッファの初期化。
@@ -89,18 +89,4 @@ void CLight::InitConstantBuffer()
 	//ピクセルシェーダー用の定数バッファを作成する。
 	bufferDesc.ByteWidth = 256;		
 	d3dDevice->CreateBuffer(&bufferDesc, NULL, &m_psCb);
-}
-
-void CLight::InitSamplerState()
-{
-	//サンプラステートはテクスチャをサンプリングする方法を指定する。
-	CD3D11_DEFAULT defDesc;
-	CD3D11_SAMPLER_DESC desc(defDesc);
-	//
-	desc.AddressU = D3D11_TEXTURE_ADDRESS_WRAP;		//U方向はラップ
-	desc.AddressV = D3D11_TEXTURE_ADDRESS_WRAP;		//V方向はラップ
-	desc.AddressW = D3D11_TEXTURE_ADDRESS_WRAP;		//W方向はラップ(W方向は3次元テクスチャの時に使用される。)
-	desc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;	//テクスチャフィルタはバイリニアフィルタ
-													//サンプラステートを作成。
-	g_graphicsEngine->GetD3DDevice()->CreateSamplerState(&desc, &m_samplerState);
 }

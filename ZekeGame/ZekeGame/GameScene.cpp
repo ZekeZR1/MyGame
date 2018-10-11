@@ -19,7 +19,7 @@
 #include "ClearScene.h"
 #include "sound/SoundEngine.h"
 #include "FPSCounter.h"
-
+#include "graphics\Light\CLight.h"
 GameScene* g_game = nullptr;
 extern GameCamera* camera;
 
@@ -27,6 +27,8 @@ GameScene::GameScene()
 {
 	g_game = this;
 	
+	m_light.Init();
+
 	m_inventory = new Inventory;
 	m_ActMenu = new ActionMenu;
 	bg = new BackGround;
@@ -166,6 +168,8 @@ void GameScene::Draw() {
 	if (m_pConstructor != nullptr)
 		m_pConstructor->DrawSprite();
 	mS_ActState->Draw();
+
+	m_light.Draw();
 }
 
 void GameScene::Ground() {

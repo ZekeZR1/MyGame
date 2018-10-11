@@ -5,11 +5,13 @@
 #include "SearchRate.h"
 #include "sound\SoundEngine.h"
 #include "FPSCounter.h"
+#include "graphics\Light\CLight.h"
 
 #define MAXITEM 100
 #define IRONS 20
 #define ITEM Item
 
+class CLight;
 class ActionMenu;
 class Iron;
 class ArrangeIron;
@@ -80,6 +82,7 @@ private:
 	Sound m_se;
 	Sound m_convertingSe;
 	CFPSCounter* m_fps;
+	CLight m_light;
 };
 
 extern GameScene* g_game;

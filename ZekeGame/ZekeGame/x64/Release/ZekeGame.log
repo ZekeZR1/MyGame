@@ -68,10 +68,18 @@
   Assets\modelData\unityChan.fbx
   Assets\modelData\Wall.FBX
   Assets\modelData\Windmill.FBX
+  ActionMenu.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\actionmenu.cpp(85): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\actionmenu.cpp(93): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+  BackGround.cpp
+  GameScene.cpp
+  Windmill.cpp
   CLight.cpp
+  main.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\main.cpp(23): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
   コード生成しています。
-  17 of 2390 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    47 functions had inline decision re-evaluated but remain unchanged
+  7 of 2400 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+    3 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
   ZekeGame.vcxproj -> C:\Users\Taiki.W\git\MyGame\ZekeGame\x64\Release\ZekeGame.exe
