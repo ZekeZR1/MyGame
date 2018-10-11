@@ -179,6 +179,7 @@
     <ClCompile Include="graphics\CVertexBuffer.cpp" />
     <ClCompile Include="graphics\GPUBuffer\CGPUBuffer.cpp" />
     <ClCompile Include="graphics\GraphicsEngine.cpp" />
+    <ClCompile Include="graphics\Light\CLight.cpp" />
     <ClCompile Include="graphics\RenderTarget.cpp" />
     <ClCompile Include="graphics\Shader.cpp" />
     <ClCompile Include="graphics\ShaderResouceView.cpp" />
@@ -256,6 +257,7 @@
     <ClInclude Include="graphics\CVertexBuffer.h" />
     <ClInclude Include="graphics\GPUBuffer\CGPUBuffer.h" />
     <ClInclude Include="graphics\GraphicsEngine.h" />
+    <ClInclude Include="graphics\Light\CLight.h" />
     <ClInclude Include="graphics\RenderTarget.h" />
     <ClInclude Include="graphics\Shader.h" />
     <ClInclude Include="graphics\ShaderResouceView.h" />
