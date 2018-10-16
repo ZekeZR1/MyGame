@@ -94,6 +94,7 @@ PSInput VSMain( VSInputNmTxVcTangent In )
 	psInput.TexCoord = In.TexCoord;
 	psInput.Normal = normalize(mul(mWorld, In.Normal));
 	psInput.Tangent = normalize(mul(mWorld, In.Tangent));
+
 	return psInput;
 }
 
@@ -142,5 +143,7 @@ PSInput VSMainSkin( VSInputNmTxWeights In )
 //--------------------------------------------------------------------------------------
 float4 PSMain( PSInput In ) : SV_Target0
 {
-	return albedoTexture.Sample(Sampler, In.TexCoord);
+	//return albedoTexture.Sample(Sampler, In.TexCoord);
+	float4 col = {1.0f,0.0f,0.0f,0.0f};
+	return col;
 }
