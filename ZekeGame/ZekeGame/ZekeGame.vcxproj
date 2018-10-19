@@ -176,6 +176,7 @@
     <ClCompile Include="graphics\CUnorderedAccessView.cpp" />
     <ClCompile Include="graphics\CUtil.cpp" />
     <ClCompile Include="graphics\CVertexBuffer.cpp" />
+    <ClCompile Include="graphics\Effect\CEffectEngine.cpp" />
     <ClCompile Include="graphics\GPUBuffer\CGPUBuffer.cpp" />
     <ClCompile Include="graphics\GraphicsEngine.cpp" />
     <ClCompile Include="graphics\Light\CLight.cpp" />
@@ -253,6 +254,7 @@
     <ClInclude Include="graphics\CUnorderedAccessView.h" />
     <ClInclude Include="graphics\CUtil.h" />
     <ClInclude Include="graphics\CVertexBuffer.h" />
+    <ClInclude Include="graphics\Effect\CEffectEngine.h" />
     <ClInclude Include="graphics\GPUBuffer\CGPUBuffer.h" />
     <ClInclude Include="graphics\GraphicsEngine.h" />
     <ClInclude Include="graphics\Light\CLight.h" />

@@ -75,6 +75,9 @@
     <Filter Include="ソース ファイル\Engine\graphics\Light">
       <UniqueIdentifier>{95c2c4ab-16ce-45c4-a3ce-af8c245c5b73}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Engine\graphics\effect">
+      <UniqueIdentifier>{a25c91af-0993-4934-8472-26bd70577078}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="window\Window.cpp">
@@ -301,6 +304,9 @@
     </ClCompile>
     <ClCompile Include="graphics\Light\CLight.cpp">
       <Filter>ソース ファイル\Engine\graphics\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\Effect\CEffectEngine.cpp">
+      <Filter>ソース ファイル\Engine\graphics\effect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -534,6 +540,9 @@
     </ClInclude>
     <ClInclude Include="graphics\Light\CLight.h">
       <Filter>ソース ファイル\Engine\graphics\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\Effect\CEffectEngine.h">
+      <Filter>ソース ファイル\Engine\graphics\effect</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
