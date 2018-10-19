@@ -167,7 +167,6 @@
     <ClCompile Include="graphics\Camera.cpp" />
     <ClCompile Include="graphics\CCameraCollisionSlover.cpp" />
     <ClCompile Include="graphics\CConstantBuffer.cpp" />
-    <ClCompile Include="graphics\CEffect.cpp" />
     <ClCompile Include="graphics\CIndexBuffer.cpp" />
     <ClCompile Include="graphics\CPrimitive.cpp" />
     <ClCompile Include="graphics\CRenderContext.cpp" />
@@ -245,7 +244,6 @@
     <ClInclude Include="graphics\Camera.h" />
     <ClInclude Include="graphics\CCameraCollisionSlover.h" />
     <ClInclude Include="graphics\CConstantBuffer.h" />
-    <ClInclude Include="graphics\CEffect.h" />
     <ClInclude Include="graphics\CIndexBuffer.h" />
     <ClInclude Include="graphics\CPrimitive.h" />
     <ClInclude Include="graphics\CRenderContext.h" />

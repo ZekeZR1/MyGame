@@ -215,9 +215,6 @@
     <ClCompile Include="Item\MiningMachine.cpp">
       <Filter>ソース ファイル\Game\Item</Filter>
     </ClCompile>
-    <ClCompile Include="graphics\CEffect.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
     <ClCompile Include="Item\IBase.cpp">
       <Filter>ソース ファイル\Game\Item</Filter>
     </ClCompile>
@@ -453,9 +450,6 @@
     </ClInclude>
     <ClInclude Include="Item\MiningMachine.h">
       <Filter>ソース ファイル\Game\Item</Filter>
-    </ClInclude>
-    <ClInclude Include="graphics\CEffect.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClInclude>
     <ClInclude Include="Item\IBase.h">
       <Filter>ソース ファイル\Game\Item</Filter>
