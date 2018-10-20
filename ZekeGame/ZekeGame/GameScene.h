@@ -5,13 +5,12 @@
 #include "SearchRate.h"
 #include "sound\SoundEngine.h"
 #include "FPSCounter.h"
-#include "graphics\Light\CLight.h"
+#include "graphics/Effect/CEffectEngine.h"
 
 #define MAXITEM 100
 #define IRONS 20
 #define ITEM Item
 
-class CLight;
 class ActionMenu;
 class Iron;
 class ArrangeIron;
@@ -22,6 +21,8 @@ class SearchRate;
 class TheShip;
 class SoundEngine;
 class CFPSCounter;
+class DirectionLight;
+class CEffectEngine;
 
 class GameScene : public IScene
 {
@@ -39,6 +40,7 @@ public:
 	ActionMenu* m_ActMenu = nullptr;
 	Player* m_player = nullptr;
 private:
+	CEffectEngine m_efk;
 	TheShip* m_ship;
 	void ItemOrder();
 	void CreateItem();
@@ -53,7 +55,7 @@ private:
 	ExplorationRocket* m_rocket = nullptr;
 	CVector3 forward = CVector3::Zero();
 	Inventory* m_inventory;
-	SkinModel * m_model;
+	//SkinModel * m_model;
 	SkinModel m_wall;
 	PhysicsStaticObject m_wallPhysics;
 	CVector3 m_spritePos = CVector3::Zero();
@@ -82,7 +84,6 @@ private:
 	Sound m_se;
 	Sound m_convertingSe;
 	CFPSCounter* m_fps;
-	CLight m_light;
 };
 
 extern GameScene* g_game;

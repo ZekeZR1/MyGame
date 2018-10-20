@@ -76,7 +76,7 @@
     <TargetName>$(ProjectName).$(Configuration)</TargetName>
     <IncludePath>$(IncludePath)</IncludePath>
     <LibraryPath>$(LibraryPath)</LibraryPath>
-    <OutDir>..\lib</OutDir>
+    <OutDir>..\..\..\..\exlib\Debug</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>..\lib\x86\</OutDir>
@@ -88,7 +88,7 @@
     <TargetName>$(ProjectName).$(Configuration)</TargetName>
     <IncludePath>$(IncludePath)</IncludePath>
     <LibraryPath>$(LibraryPath)</LibraryPath>
-    <OutDir>..\lib\x64\</OutDir>
+    <OutDir>..\..\..\..\exlib\Release</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

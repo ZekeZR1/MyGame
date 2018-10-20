@@ -78,6 +78,9 @@
     <Filter Include="ソース ファイル\Engine\graphics\effect">
       <UniqueIdentifier>{a25c91af-0993-4934-8472-26bd70577078}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Assets\effect">
+      <UniqueIdentifier>{92706c44-6105-4a7e-9b96-11714346819f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="window\Window.cpp">
@@ -980,5 +983,10 @@
     <Media Include="Assets\sound\game.wav">
       <Filter>ソース ファイル\Assets\sound</Filter>
     </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\effect\Laser01.efk">
+      <Filter>ソース ファイル\Assets\effect</Filter>
+    </None>
   </ItemGroup>
 </Project>

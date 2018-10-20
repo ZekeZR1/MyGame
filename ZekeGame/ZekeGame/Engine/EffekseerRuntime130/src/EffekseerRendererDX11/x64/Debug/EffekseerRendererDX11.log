@@ -3,16 +3,16 @@
   EffekseerRenderer.DXTK.DDSTextureLoader.cpp
   EffekseerRenderer.IndexBufferBase.cpp
   EffekseerRenderer.ModelRendererBase.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\engine\effekseerruntime130\src\effekseerrenderercommon\effekseerrenderer.dxtk.ddstextureloader.cpp(1609): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
   EffekseerRenderer.PngTextureLoader.cpp
   EffekseerRenderer.Renderer.cpp
   EffekseerRenderer.RenderStateBase.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\engine\effekseerruntime130\src\effekseerrenderercommon\effekseerrenderer.dxtk.ddstextureloader.cpp(1609): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
   EffekseerRenderer.RibbonRendererBase.cpp
+  EffekseerRenderer.RingRendererBase.cpp
 c:\users\taiki.w\git\mygame\zekegame\zekegame\engine\effekseerruntime130\src\effekseerrenderercommon\effekseerrenderer.pngtextureloader.cpp(14): warning C4005: 'WINVER': マクロが再定義されました。
   c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\sdkddkver.h(236): note: 'WINVER' の以前の定義を確認してください (ソース ファイルをコンパイルしています ..\EffekseerRendererCommon\EffekseerRenderer.PngTextureLoader.cpp)
 c:\users\taiki.w\git\mygame\zekegame\zekegame\engine\effekseerruntime130\src\effekseerrenderercommon\effekseerrenderer.pngtextureloader.cpp(15): warning C4005: '_WIN32_WINNT': マクロが再定義されました。
   c:\program files (x86)\windows kits\10\include\10.0.16299.0\shared\sdkddkver.h(215): note: '_WIN32_WINNT' の以前の定義を確認してください (ソース ファイルをコンパイルしています ..\EffekseerRendererCommon\EffekseerRenderer.PngTextureLoader.cpp)
-  EffekseerRenderer.RingRendererBase.cpp
   EffekseerRenderer.SpriteRendererBase.cpp
   EffekseerRenderer.TrackRendererBase.cpp
   EffekseerRenderer.VertexBufferBase.cpp
@@ -20,9 +20,11 @@ c:\users\taiki.w\git\mygame\zekegame\zekegame\engine\effekseerruntime130\src\eff
   EffekseerRendererDX11.IndexBuffer.cpp
   EffekseerRendererDX11.ModelLoader.cpp
   EffekseerRendererDX11.ModelRenderer.cpp
+  EffekseerRendererDX11.Renderer.cpp
+  EffekseerRendererDX11.RenderState.cpp
 c:\users\taiki.w\git\mygame\zekegame\zekegame\engine\effekseerruntime130\src\effekseerrendererdx11\effekseerrenderer\effekseerrendererdx11.modelloader.cpp(56): warning C4267: '引数': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\engine\effekseerruntime130\src\effekseerrendererdx11\effekseerrenderer\effekseerrendererdx11.modelloader.cpp(50): warning C4101: 'hr': ローカル変数は 1 度も使われていません。
-  EffekseerRendererDX11.Renderer.cpp
+  EffekseerRendererDX11.Shader.cpp
 c:\users\taiki.w\git\mygame\zekegame\zekegame\engine\effekseerruntime130\src\effekseerrenderercommon\effekseerrenderer.modelrendererbase.h(264): warning C4267: '初期化中': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています EffekseerRenderer\EffekseerRendererDX11.ModelRenderer.cpp)
   c:\users\taiki.w\git\mygame\zekegame\zekegame\engine\effekseerruntime130\src\effekseerrendererdx11\effekseerrenderer\effekseerrendererdx11.modelrenderer.cpp(332): note: コンパイル対象の関数 テンプレート インスタンス化 'void EffekseerRenderer::ModelRendererBase::EndRendering_<EffekseerRendererDX11::RendererImplemented,EffekseerRendererDX11::Shader,EffekseerRendererDX11::Model,true,40>(RENDERER *,SHADER *,SHADER *,SHADER *,SHADER *,SHADER *,SHADER *,SHADER *,SHADER *,const EffekseerRenderer::efkModelNodeParam &)' のリファレンスを確認してください
           with
@@ -41,8 +43,6 @@ c:\users\taiki.w\git\mygame\zekegame\zekegame\engine\effekseerruntime130\src\eff
           ]
 c:\users\taiki.w\git\mygame\zekegame\zekegame\engine\effekseerruntime130\src\effekseerrenderercommon\effekseerrenderer.standardrenderer.h(183): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています EffekseerRenderer\EffekseerRendererDX11.ModelRenderer.cpp)
 c:\users\taiki.w\git\mygame\zekegame\zekegame\engine\effekseerruntime130\src\effekseerrenderercommon\effekseerrenderer.standardrenderer.h(192): warning C4267: '引数': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています EffekseerRenderer\EffekseerRendererDX11.ModelRenderer.cpp)
-  EffekseerRendererDX11.RenderState.cpp
-  EffekseerRendererDX11.Shader.cpp
   EffekseerRendererDX11.TextureLoader.cpp
 c:\users\taiki.w\git\mygame\zekegame\zekegame\engine\effekseerruntime130\src\effekseerrenderercommon\effekseerrenderer.standardrenderer.h(172): warning C4267: '初期化中': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています EffekseerRenderer\EffekseerRendererDX11.Renderer.cpp)
   c:\users\taiki.w\git\mygame\zekegame\zekegame\engine\effekseerruntime130\src\effekseerrenderercommon\effekseerrenderer.standardrenderer.h(150): note: クラス テンプレート のメンバー関数 'void EffekseerRenderer::StandardRenderer<EffekseerRendererDX11::RendererImplemented,EffekseerRendererDX11::Shader,EffekseerRendererDX11::Vertex,EffekseerRendererDX11::VertexDistortion>::Rendering(const Effekseer::Matrix44 &,const Effekseer::Matrix44 &)' のコンパイル中 (ソース ファイルをコンパイルしています EffekseerRenderer\EffekseerRendererDX11.Renderer.cpp)
@@ -54,12 +54,12 @@ c:\users\taiki.w\git\mygame\zekegame\zekegame\engine\effekseerruntime130\src\eff
   c:\users\taiki.w\git\mygame\zekegame\zekegame\engine\effekseerruntime130\src\effekseerrenderercommon\effekseerrenderer.standardrenderer.h(114): note: クラス テンプレート のメンバー関数 'void EffekseerRenderer::StandardRenderer<EffekseerRendererDX11::RendererImplemented,EffekseerRendererDX11::Shader,EffekseerRendererDX11::Vertex,EffekseerRendererDX11::VertexDistortion>::BeginRenderingAndRenderingIfRequired(int32_t,int32_t &,void *&)' のコンパイル中 (ソース ファイルをコンパイルしています EffekseerRenderer\EffekseerRendererDX11.Renderer.cpp)
   c:\users\taiki.w\git\mygame\zekegame\zekegame\engine\effekseerruntime130\src\effekseerrenderercommon\effekseerrenderer.trackrendererbase.h(105): note: コンパイル対象の関数 テンプレート インスタンス化 'void EffekseerRenderer::StandardRenderer<EffekseerRendererDX11::RendererImplemented,EffekseerRendererDX11::Shader,EffekseerRendererDX11::Vertex,EffekseerRendererDX11::VertexDistortion>::BeginRenderingAndRenderingIfRequired(int32_t,int32_t &,void *&)' のリファレンスを確認してください (ソース ファイルをコンパイルしています EffekseerRenderer\EffekseerRendererDX11.Renderer.cpp)
 c:\users\taiki.w\git\mygame\zekegame\zekegame\engine\effekseerruntime130\src\effekseerrenderercommon\effekseerrenderer.standardrenderer.h(136): warning C4267: '=': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。 (ソース ファイルをコンパイルしています EffekseerRenderer\EffekseerRendererDX11.Renderer.cpp)
+  EffekseerRendererDX11.VertexBuffer.cpp
 c:\users\taiki.w\git\mygame\zekegame\zekegame\engine\effekseerruntime130\src\effekseerrendererdx11\effekseerrenderer\effekseerrendererdx11.textureloader.cpp(73): warning C4267: '引数': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\engine\effekseerruntime130\src\effekseerrendererdx11\effekseerrenderer\effekseerrendererdx11.textureloader.cpp(142): warning C4267: '引数': 'size_t' から 'int32_t' に変換しました。データが失われているかもしれません。
-  EffekseerRendererDX11.VertexBuffer.cpp
 EffekseerRenderer.TrackRendererBase.obj : warning LNK4221: このオブジェクト ファイルは、以前に未定義であったパブリック シンボルを定義していないため、このライブラリを使用するリンク操作では使用されません
 EffekseerRenderer.SpriteRendererBase.obj : warning LNK4221: このオブジェクト ファイルは、以前に未定義であったパブリック シンボルを定義していないため、このライブラリを使用するリンク操作では使用されません
 EffekseerRenderer.RingRendererBase.obj : warning LNK4221: このオブジェクト ファイルは、以前に未定義であったパブリック シンボルを定義していないため、このライブラリを使用するリンク操作では使用されません
 EffekseerRenderer.RibbonRendererBase.obj : warning LNK4221: このオブジェクト ファイルは、以前に未定義であったパブリック シンボルを定義していないため、このライブラリを使用するリンク操作では使用されません
 EffekseerRenderer.Renderer.obj : warning LNK4221: このオブジェクト ファイルは、以前に未定義であったパブリック シンボルを定義していないため、このライブラリを使用するリンク操作では使用されません
-  EffekseerRendererDX11.vcxproj -> C:\Users\Taiki.W\git\MyGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\EffekseerRendererDX11\..\lib\EffekseerRendererDX11.Debug.lib
+  EffekseerRendererDX11.vcxproj -> C:\Users\Taiki.W\git\MyGame\ZekeGame\ZekeGame\Engine\EffekseerRuntime130\src\EffekseerRendererDX11\..\..\..\..\exlib\Debug\EffekseerRendererDX11.Debug.lib

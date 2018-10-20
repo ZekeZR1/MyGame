@@ -4,8 +4,8 @@
 
 Player::Player()
 {
-	//m_model.Init(L"Assets/modelData/unityChan.cmo");
 	m_model.Init(L"Assets/modelData/Player.cmo", enFbxUpAxisY);
+	//m_model.Init(L"Assets/modelData/TestSphere.cmo", enFbxUpAxisY);
 	m_position.y += 500.0f;
 	m_charaCon = new CharacterController;
 	m_charaCon->Init(30.0f, 50.0f, m_position);
@@ -101,7 +101,16 @@ void Player::Turn() {
 }
 
 void Player::Draw() {
-	m_model.Draw(camera3d->GetViewMatrix(),camera3d->GetProjectionMatrix());
+	if (isLowBattery) {
+		CVector4 color = { 1.0f,0.5f,0.5f,1.0f };
+		static float neko = 0.0f;
+		neko += 0.5f;
+		color.x = sin(neko);
+		color.x = color.x * 0.5 + 0.5;
+		m_model.SetDirColor(color);
+	}
+	m_model.Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
+	m_model.SetDirColor({ 1.0f,1.0f,1.0f,1.0f });
 }
 
 void Player::DrawSprite() {
@@ -115,11 +124,11 @@ void Player::ChangeState() {
 	if (m_enPState != PSTATE_MAKEGROUND)
 		return;
 	if (g_pad[0].IsTrigger(enButtonRB1)) {
-		if(mi_state != 2)
+		if (mi_state != 2)
 			mi_state++;
 	}
 	if (g_pad[0].IsTrigger(enButtonLB1)) {
-		if(mi_state != 0)
+		if (mi_state != 0)
 			mi_state--;
 	}
 	switch (mi_state) {
@@ -152,7 +161,7 @@ bool Player::CanOpenMenu() {
 	if (m_nMenu > 0) {
 		//m_player->isOpenMenuNow = true;
 		char message[256];
-		sprintf_s(message, "NOOOOOOO NOW %d\n",m_nMenu);
+		sprintf_s(message, "NOOOOOOO NOW %d\n", m_nMenu);
 		//OutputDebugStringA(message);
 		return false;
 	}
@@ -205,7 +214,7 @@ void Player::Gauge() {
 	else {
 		isLowBattery = false;
 	}
-	if(!isMaxBattery)
+	if (!isMaxBattery)
 		m_batteryScale.x += 0.0002f;
 
 	if (m_moveSpeed.x != 0.0f || m_moveSpeed.z != 0.0f) {
@@ -216,12 +225,13 @@ void Player::Gauge() {
 }
 
 void Player::UseBattery() {
-	if(!isLowBattery)
-	m_batteryScale.x -= 0.002f;
+	if (!isLowBattery)
+		//m_batteryScale.x -= 0.002f;
+		m_batteryScale.x -= 0.04f;
 }
 
 void Player::ChargeBattery() {
-	if(!isMaxBattery)
+	if (!isMaxBattery)
 		m_batteryScale.x += 0.005f;
 	ms_battery.Update(m_batteryPos, CQuaternion::Identity(), m_batteryScale, { 0.0f,0.0f });
 }

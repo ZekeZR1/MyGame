@@ -4,7 +4,6 @@
 CEffectEngine::CEffectEngine()
 {
 	g_renderer = ::EffekseerRendererDX11::Renderer::Create(g_graphicsEngine->GetD3DDevice(), g_graphicsEngine->GetD3DDeviceContext(), 2000);
-	//nekonyan
 	// エフェクト管理用インスタンスの生成
 	g_manager = ::Effekseer::Manager::Create(2000);
 	g_manager->SetCoordinateSystem(::Effekseer::CoordinateSystem::LH);
@@ -37,7 +36,6 @@ CEffectEngine::~CEffectEngine()
 
 void CEffectEngine::Init(const wchar_t* filepath) {
 	g_effect = Effekseer::Effect::Create(g_manager, (const EFK_CHAR*)filepath);
-	//g_effect = Effekseer::Effect::Create(g_manager, (const EFK_CHAR*)L"Assets/effect/mytest.efk");
 }
 
 void CEffectEngine::Play() {

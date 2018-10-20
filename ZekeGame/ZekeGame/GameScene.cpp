@@ -19,23 +19,21 @@
 #include "ClearScene.h"
 #include "sound/SoundEngine.h"
 #include "FPSCounter.h"
-#include "graphics\Light\CLight.h"
+#include "graphics/Effect/CEffectEngine.h"
+
 GameScene* g_game = nullptr;
 extern GameCamera* camera;
 
 GameScene::GameScene()
 {
 	g_game = this;
-	
-	m_light.Init();
-
 	m_inventory = new Inventory;
 	m_ActMenu = new ActionMenu;
 	bg = new BackGround;
 	m_player = new Player;
-	m_model = new SkinModel;
-	m_model->Init(L"Assets/modelData/Space.cmo");
-	m_model->UpdateWorldMatrix(CVector3::Zero(), CQuaternion::Identity(), CVector3::One());
+	//m_model = new SkinModel;
+	//m_model->Init(L"Assets/modelData/Space.cmo");
+	//m_model->UpdateWorldMatrix(CVector3::Zero(), CQuaternion::Identity(), CVector3::One());
 	m_ship = new TheShip(m_player);
 	//Wall
 	m_wall.Init(L"Assets/modelData/Wall.cmo");
@@ -43,7 +41,7 @@ GameScene::GameScene()
 	m_wallPhysics.CreateMeshObject(m_wall, CVector3::Zero(), CQuaternion::Identity());
 	//DrilPos
 	m_drilmodel = new SkinModel;
-	m_drilmodel->Init(L"Assets/modelData/DrilPos.cmo",enFbxUpAxisY);
+	m_drilmodel->Init(L"Assets/modelData/DrilPos.cmo", enFbxUpAxisY);
 	//Sprite
 	mS_ActState = new Sprite;
 	mS_ActState->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
@@ -51,7 +49,7 @@ GameScene::GameScene()
 	mv_ActSpos.y -= 250.0f;
 	mS_ActState->Update(mv_ActSpos, CQuaternion::Identity(), CVector3::One(), { 0.5,0.5 });
 	mS_SettingItem = new Sprite;
-	mS_SettingItem->Init(L"sprite/None_Sprite.dds",500.0f, 500.0f);
+	mS_SettingItem->Init(L"sprite/None_Sprite.dds", 500.0f, 500.0f);
 	mS_SettingItem->Update(mv_ActSpos, CQuaternion::Identity(), CVector3::One(), { 0.5f,0.5f });
 	//Items
 	for (int i = 0; i < MAXITEM; i++) {
@@ -62,9 +60,11 @@ GameScene::GameScene()
 		m_irons[i] = new ArrangeIron(m_player, m_inventory);
 	}
 
-	m_bgm.Init(L"Assets/sound/game.wav",true);
-	m_se.Init(L"Assets/sound/se.wav",false);
+	m_bgm.Init(L"Assets/sound/game.wav", true);
+	m_se.Init(L"Assets/sound/se.wav", false);
 	m_convertingSe.Init(L"Assets/sound/converting.wav", true);
+
+	m_efk.Init(L"Assets/effect/Laser01.efk");
 }
 
 GameScene::~GameScene()
@@ -77,11 +77,12 @@ GameScene::~GameScene()
 	}
 	delete m_player;
 	delete bg;
-	delete m_model;
+	//delete m_model;
 	delete mS_ActState;
 	delete m_ActMenu;
 	delete m_drilmodel;
 	delete m_rocket;
+
 	if (m_pConstructor != nullptr) {
 		delete m_pConstructor;
 		m_pConstructor = nullptr;
@@ -96,6 +97,13 @@ GameScene::~GameScene()
 }
 
 void GameScene::Update() {
+	m_efk.Update();
+	if (g_pad[0].IsTrigger(enButtonA)) {
+		m_efk.Play();
+	}
+	if (g_pad[0].IsTrigger(enButtonB)) {
+		m_efk.Stop();
+	}
 	m_bgm.Play(true);
 	ItemOrder();
 	CreateItem();
@@ -136,7 +144,7 @@ void GameScene::Update() {
 void GameScene::Draw() {
 	bg->Draw();
 	m_player->Draw();
-	m_model->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
+	//m_model->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
 	for (int i = 0; i < IRONS; i++) {
 		m_irons[i]->Draw();
 	}
@@ -145,13 +153,15 @@ void GameScene::Draw() {
 			m_items[i]->Draw();
 		}
 	}
-	
+
 	if (m_pConstructor != nullptr)
 		m_pConstructor->Draw();
 	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_MAKEGROUND) {
 		m_drilmodel->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
 	}
 	m_ship->Draw();
+
+	m_efk.Draw();
 
 	//Žè‘O‚É•`‰æ‚µ‚½‚¢•¨
 	m_searchRate.DrawSprite();
@@ -163,13 +173,11 @@ void GameScene::Draw() {
 	}
 	mS_SettingItem->Draw();
 	if (m_ActMenu->isOpenAct) {
-			m_ActMenu->Draw(m_inventory);
+		m_ActMenu->Draw(m_inventory);
 	}
 	if (m_pConstructor != nullptr)
 		m_pConstructor->DrawSprite();
 	mS_ActState->Draw();
-
-	m_light.Draw();
 }
 
 void GameScene::Ground() {
@@ -300,7 +308,7 @@ void GameScene::Craft() {
 	if (m_ActMenu->m_enAction == m_ActMenu->ASTATE_CRAFT) {
 		if (g_pad[0].IsTrigger(enButtonB)) {
 			if (m_pConstructor == nullptr) {
-				m_pConstructor = new IConstructor(m_player,m_inventory);
+				m_pConstructor = new IConstructor(m_player, m_inventory);
 				m_player->m_enPState = m_player->PSTATE_WALK;
 				m_ActMenu->m_enAction = m_ActMenu->ASTATE_INVENTORY;
 				char message[256];
@@ -316,38 +324,38 @@ void GameScene::Craft() {
 }
 
 void GameScene::ItemOrder() {
-		if (m_pConstructor == nullptr)
-			return;
-		if (m_pConstructor->isOrder[ITEM::en_ROCKET]) {
-			m_ordered = ITEM::en_ROCKET;
-			mS_SettingItem->Init(L"sprite/ExRocket.dds", 250.0f, 250.0f);
-			m_settingOrderedItem = true;
-			SetItem();
-		}
-		if (m_pConstructor->isOrder[ITEM::en_HOVER]) {
-			m_ordered = ITEM::en_HOVER;
-			mS_SettingItem->Init(L"sprite/Hover.dds", 250.0f, 250.0f);
-			m_settingOrderedItem = true;
-			SetItem();
-		}
-		if (m_pConstructor->isOrder[ITEM::en_MINING]) {
-			m_ordered = ITEM::en_MINING;
-			mS_SettingItem->Init(L"sprite/ItemMining.dds", 250.0f, 250.0f);
-			m_settingOrderedItem = true;
-			SetItem();
-		}
-		if (m_pConstructor->isOrder[ITEM::en_BASE]) {
-			m_ordered = ITEM::en_BASE;
-			mS_SettingItem->Init(L"sprite/Base.dds", 250.0f, 250.0f);
-			m_settingOrderedItem = true;
-			SetItem();
-		}
-		if (m_pConstructor->isOrder[ITEM::en_WINDMILL]) {
-			m_ordered = ITEM::en_WINDMILL;
-			mS_SettingItem->Init(L"sprite/Windmill.dds", 250.0f, 250.0f);
-			m_settingOrderedItem = true;
-			SetItem();
-		}
+	if (m_pConstructor == nullptr)
+		return;
+	if (m_pConstructor->isOrder[ITEM::en_ROCKET]) {
+		m_ordered = ITEM::en_ROCKET;
+		mS_SettingItem->Init(L"sprite/ExRocket.dds", 250.0f, 250.0f);
+		m_settingOrderedItem = true;
+		SetItem();
+	}
+	if (m_pConstructor->isOrder[ITEM::en_HOVER]) {
+		m_ordered = ITEM::en_HOVER;
+		mS_SettingItem->Init(L"sprite/Hover.dds", 250.0f, 250.0f);
+		m_settingOrderedItem = true;
+		SetItem();
+	}
+	if (m_pConstructor->isOrder[ITEM::en_MINING]) {
+		m_ordered = ITEM::en_MINING;
+		mS_SettingItem->Init(L"sprite/ItemMining.dds", 250.0f, 250.0f);
+		m_settingOrderedItem = true;
+		SetItem();
+	}
+	if (m_pConstructor->isOrder[ITEM::en_BASE]) {
+		m_ordered = ITEM::en_BASE;
+		mS_SettingItem->Init(L"sprite/Base.dds", 250.0f, 250.0f);
+		m_settingOrderedItem = true;
+		SetItem();
+	}
+	if (m_pConstructor->isOrder[ITEM::en_WINDMILL]) {
+		m_ordered = ITEM::en_WINDMILL;
+		mS_SettingItem->Init(L"sprite/Windmill.dds", 250.0f, 250.0f);
+		m_settingOrderedItem = true;
+		SetItem();
+	}
 }
 
 void GameScene::CreateItem() {
@@ -402,7 +410,7 @@ void GameScene::SetItem() {
 
 void GameScene::Clear() {
 	//if (m_searchRate.isAllMax && !isGameClear) {
-	if(g_pad[0].IsTrigger(enButtonLB1)){
+	if (g_pad[0].IsTrigger(enButtonLB1)) {
 		isGameClear = true;
 		m_ship->GoDown();
 	}
