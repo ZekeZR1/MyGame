@@ -11,6 +11,7 @@ CFPSCounter* FPS = nullptr;
 void ReleaseDirectX() {
 	delete g_graphicsEngine;
 	delete camera;
+	delete FPS;
 }
 
 void GameUpdate() {
@@ -19,6 +20,7 @@ void GameUpdate() {
 	}
 	currentScene->Update();
 
+	//output frame late to debug message
 	char message[256];
 	float fps = FPS->GetFPS();
 	sprintf_s(message, "%f\n", fps);
