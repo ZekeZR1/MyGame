@@ -226,8 +226,8 @@ void Player::Gauge() {
 
 void Player::UseBattery() {
 	if (!isLowBattery)
-		//m_batteryScale.x -= 0.002f;
-		m_batteryScale.x -= 0.04f;
+		m_batteryScale.x -= 0.002f;
+		//m_batteryScale.x -= 0.04f;
 }
 
 void Player::ChargeBattery() {

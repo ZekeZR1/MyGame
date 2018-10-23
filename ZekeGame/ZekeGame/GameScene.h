@@ -55,7 +55,7 @@ private:
 	ExplorationRocket* m_rocket = nullptr;
 	CVector3 forward = CVector3::Zero();
 	Inventory* m_inventory;
-	//SkinModel * m_model;
+	SkinModel * m_model;
 	SkinModel m_wall;
 	PhysicsStaticObject m_wallPhysics;
 	CVector3 m_spritePos = CVector3::Zero();

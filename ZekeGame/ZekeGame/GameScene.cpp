@@ -31,9 +31,9 @@ GameScene::GameScene()
 	m_ActMenu = new ActionMenu;
 	bg = new BackGround;
 	m_player = new Player;
-	//m_model = new SkinModel;
-	//m_model->Init(L"Assets/modelData/Space.cmo");
-	//m_model->UpdateWorldMatrix(CVector3::Zero(), CQuaternion::Identity(), CVector3::One());
+	m_model = new SkinModel;
+	m_model->Init(L"Assets/modelData/Space.cmo");
+	m_model->UpdateWorldMatrix(CVector3::Zero(), CQuaternion::Identity(), CVector3::One());
 	m_ship = new TheShip(m_player);
 	//Wall
 	m_wall.Init(L"Assets/modelData/Wall.cmo");
@@ -77,7 +77,7 @@ GameScene::~GameScene()
 	}
 	delete m_player;
 	delete bg;
-	//delete m_model;
+	delete m_model;
 	delete mS_ActState;
 	delete m_ActMenu;
 	delete m_drilmodel;
@@ -101,9 +101,7 @@ void GameScene::Update() {
 	if (g_pad[0].IsTrigger(enButtonA)) {
 		m_efk.Play();
 	}
-	if (g_pad[0].IsTrigger(enButtonB)) {
-		m_efk.Stop();
-	}
+
 	m_bgm.Play(true);
 	ItemOrder();
 	CreateItem();
@@ -144,7 +142,7 @@ void GameScene::Update() {
 void GameScene::Draw() {
 	bg->Draw();
 	m_player->Draw();
-	//m_model->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
+	m_model->Draw(camera3d->GetViewMatrix(), camera3d->GetProjectionMatrix());
 	for (int i = 0; i < IRONS; i++) {
 		m_irons[i]->Draw();
 	}
@@ -161,7 +159,7 @@ void GameScene::Draw() {
 	}
 	m_ship->Draw();
 
-	m_efk.Draw();
+	//m_efk.Draw();
 
 	//Žè‘O‚É•`‰æ‚µ‚½‚¢•¨
 	m_searchRate.DrawSprite();
@@ -410,7 +408,7 @@ void GameScene::SetItem() {
 
 void GameScene::Clear() {
 	//if (m_searchRate.isAllMax && !isGameClear) {
-	if (g_pad[0].IsTrigger(enButtonLB1)) {
+	if (g_pad[0].IsTrigger(enButtonStart)) {
 		isGameClear = true;
 		m_ship->GoDown();
 	}
