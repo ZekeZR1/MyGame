@@ -159,7 +159,9 @@
     <ClCompile Include="Fade.cpp" />
     <ClCompile Include="FPSCounter.cpp" />
     <ClCompile Include="GameCamera.cpp" />
+    <ClCompile Include="gameObject\CTransform.cpp" />
     <ClCompile Include="gameObject\GameObject.cpp" />
+    <ClCompile Include="gameObject\GameObjectManager.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="graphics\animation\Animation.cpp" />
     <ClCompile Include="graphics\animation\AnimationClip.cpp" />
@@ -237,7 +239,9 @@
     <ClInclude Include="Fade.h" />
     <ClInclude Include="FPSCounter.h" />
     <ClInclude Include="GameCamera.h" />
+    <ClInclude Include="gameObject\CTransform.h" />
     <ClInclude Include="gameObject\GameObject.h" />
+    <ClInclude Include="gameObject\GameObjectManager.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="graphics\animation\Animation.h" />
     <ClInclude Include="graphics\animation\AnimationClip.h" />

@@ -311,6 +311,12 @@
     <ClCompile Include="graphics\Effect\CEffectEngine.cpp">
       <Filter>ソース ファイル\Engine\graphics\effect</Filter>
     </ClCompile>
+    <ClCompile Include="gameObject\GameObjectManager.cpp">
+      <Filter>ソース ファイル\Engine\gameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="gameObject\CTransform.cpp">
+      <Filter>ソース ファイル\Engine\gameObject</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window\Window.h">
@@ -546,6 +552,12 @@
     </ClInclude>
     <ClInclude Include="graphics\Effect\CEffectEngine.h">
       <Filter>ソース ファイル\Engine\graphics\effect</Filter>
+    </ClInclude>
+    <ClInclude Include="gameObject\GameObjectManager.h">
+      <Filter>ソース ファイル\Engine\gameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="gameObject\CTransform.h">
+      <Filter>ソース ファイル\Engine\gameObject</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -973,6 +985,7 @@
     <CustomBuild Include="Assets\sound\converting.wav">
       <Filter>ソース ファイル\Assets\sound</Filter>
     </CustomBuild>
+    <CustomBuild Include="Assets\effect\Laser01.efk" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\modelData\door018.jpg">
@@ -983,10 +996,5 @@
     <Media Include="Assets\sound\game.wav">
       <Filter>ソース ファイル\Assets\sound</Filter>
     </Media>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\effect\Laser01.efk">
-      <Filter>ソース ファイル\Assets\effect</Filter>
-    </None>
   </ItemGroup>
 </Project>

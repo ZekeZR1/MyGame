@@ -48,6 +48,11 @@ public:
 	{
 		return m_2dSpaceScreenHeight;
 	}
+
+	ID3D11RenderTargetView* GetTarget() {
+		return m_backBuffer;
+	}
+
 	void BegineRender();
 	void EndRender();
 private: 
