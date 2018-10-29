@@ -60,6 +60,8 @@ void InitWindow(
 	//DirectX
 	g_graphicsEngine = new GraphicsEngine();
 	g_graphicsEngine->InitDirectX(g_hwnd);
+	//GameObject Manager
+	GameObjectManager().Init(32);
 	//Bullet
 	g_physics.Init();
 	//Pad

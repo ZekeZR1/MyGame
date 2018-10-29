@@ -132,6 +132,41 @@ void SkinModel::Draw(CMatrix viewMatrix, CMatrix projMatrix)
 	);
 }
 
+void SkinModel::Draw()
+{
+
+	CMatrix viewMatrix = camera3d->GetViewMatrix(); 
+	CMatrix projMatrix = camera3d->GetProjectionMatrix();
+
+	DirectX::CommonStates state(g_graphicsEngine->GetD3DDevice());
+
+	ID3D11DeviceContext* d3dDeviceContext = g_graphicsEngine->GetD3DDeviceContext();
+
+	//定数バッファの内容を更新。
+	SVSConstantBuffer vsCb;
+	vsCb.mWorld = m_worldMatrix;
+	vsCb.mProj = projMatrix;
+	vsCb.mView = viewMatrix;
+	vsCb.mCol = m_DirCol;
+	vsCb.mDir = m_DirLight;
+	d3dDeviceContext->UpdateSubresource(m_cb, 0, nullptr, &vsCb, 0, 0);
+	//定数バッファをGPUに転送。
+	d3dDeviceContext->VSSetConstantBuffers(0, 1, &m_cb);
+	d3dDeviceContext->PSSetConstantBuffers(0, 1, &m_cb);
+	//サンプラステートを設定。
+	d3dDeviceContext->PSSetSamplers(0, 1, &m_samplerState);
+	//ボーン行列をGPUに転送。
+	m_skeleton.SendBoneMatrixArrayToGPU();
+	//描画。
+	m_modelDx->Draw(
+		d3dDeviceContext,
+		state,
+		m_worldMatrix,
+		viewMatrix,
+		projMatrix
+	);
+}
+
 void SkinModel::FindVertexPosition(std::function<void(CVector3* pos)> func) {
 	FindMesh([&](const auto& mesh) {
 		ID3D11DeviceContext* deviceContext = g_graphicsEngine->GetD3DDeviceContext();

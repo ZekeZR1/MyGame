@@ -264,4 +264,4 @@ static inline void QueryGOs(const char* objectName, std::function<bool(T* go)> f
 	return GameObjectManager().FindGameObjects<T>(objectName, func);
 }
 
-#endif // _CGAMEOBJECTMANAGER_H_
+#endif // _CGAMEOBJECTMANAGER_H

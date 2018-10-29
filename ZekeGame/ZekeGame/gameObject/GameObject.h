@@ -19,7 +19,7 @@ public:
 		m_isNewFromGameObjectManager(false) 
 	{
 	}
-	virtual ~GameObject();
+	virtual ~GameObject() {};
 public:
 	virtual bool Start() { return true; }
 	virtual void Update() {}

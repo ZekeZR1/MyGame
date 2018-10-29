@@ -317,6 +317,9 @@
     <ClCompile Include="gameObject\CTransform.cpp">
       <Filter>ソース ファイル\Engine\gameObject</Filter>
     </ClCompile>
+    <ClCompile Include="TestScene.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window\Window.h">
@@ -558,6 +561,9 @@
     </ClInclude>
     <ClInclude Include="gameObject\CTransform.h">
       <Filter>ソース ファイル\Engine\gameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="TestScene.h">
+      <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

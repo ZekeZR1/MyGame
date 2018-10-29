@@ -5,7 +5,7 @@
 
 void GameObjectManager::Execute()
 {
-	ExecuteDeleteGameObjects();
+	//ExecuteDeleteGameObjects();
 
 	for (GameObjectList objList : m_gameObjectListArray) {
 		for (GameObject* obj : objList) {
@@ -17,7 +17,7 @@ void GameObjectManager::Execute()
 			obj->PreUpdateWrapper();
 		}
 	}
-	//プリレンダリング。
+
 	//g_graphicsEngine->GetPreRender().Update();
 	for (GameObjectList objList : m_gameObjectListArray) {
 		for (GameObject* obj : objList) {
@@ -31,7 +31,7 @@ void GameObjectManager::Execute()
 	}
 
 	//シーングラフを更新。
-	UpdateSceneGraph();
+	//UpdateSceneGraph();
 	//ライトを更新。
 	//LightManager().Update();
 	//エフェクトを更新。
@@ -103,6 +103,8 @@ void GameObjectManager::Execute()
 		}
 	}
 	//EndGPUEvent();
+	g_graphicsEngine->EndRender();
+
 }
 void GameObjectManager::UpdateSceneGraph()
 {

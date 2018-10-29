@@ -59,6 +59,7 @@ public:
 	*  カメラ座標系の3Dモデルをスクリーン座標系に変換する行列です。
 	*/
 	void Draw(CMatrix viewMatrix, CMatrix projMatrix);
+	void Draw();
 	/*!
 	*@brief	スケルトンの取得。
 	*/

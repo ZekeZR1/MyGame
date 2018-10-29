@@ -225,6 +225,7 @@
     <ClCompile Include="SearchRate.cpp" />
     <ClCompile Include="sound\SoundEngine.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="TheShip.cpp" />
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="window\Window.cpp" />
@@ -307,6 +308,7 @@
     <ClInclude Include="SearchRate.h" />
     <ClInclude Include="sound\SoundEngine.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TestScene.h" />
     <ClInclude Include="TheShip.h" />
     <ClInclude Include="Title.h" />
     <ClInclude Include="window\Window.h" />

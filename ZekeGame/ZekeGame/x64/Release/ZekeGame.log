@@ -68,13 +68,12 @@
   Assets\modelData\unityChan.fbx
   Assets\modelData\Wall.FBX
   Assets\modelData\Windmill.FBX
-  GameObject.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(131): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  GameObjectManager.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(131): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  main.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\main.cpp(29): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
   コード生成しています。
-  13 of 5365 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+  4 of 5592 functions (<0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    260 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
   ZekeGame.vcxproj -> C:\Users\Taiki.W\git\MyGame\ZekeGame\x64\Release\ZekeGame.exe

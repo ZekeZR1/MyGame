@@ -2,6 +2,7 @@
 #include "GameScene.h"
 #include "Title.h"
 #include "FPSCounter.h"
+#include "TestScene.h"
 
 //Global
 IScene* currentScene = nullptr;
@@ -18,7 +19,10 @@ void GameUpdate() {
 	for (auto& pad : g_pad) {
 		pad.Update();
 	}
-	currentScene->Update();
+
+	//currentScene->Update();
+
+	GameObjectManager().Execute();
 
 	//output frame late to debug message
 	char message[256];
@@ -28,9 +32,9 @@ void GameUpdate() {
 }
 
 void Render() {
-	g_graphicsEngine->BegineRender();
-	currentScene->Draw();
-	g_graphicsEngine->EndRender();
+	//g_graphicsEngine->BegineRender();
+	//currentScene->Draw();
+	//g_graphicsEngine->EndRender();
 }
 
 int WINAPI wWinMain(
@@ -39,7 +43,8 @@ int WINAPI wWinMain(
 	LPWSTR lpCmdLine,
 	int nCmdShow) {
 	InitWindow(hInstance, hPrevInstance, lpCmdLine, nCmdShow, "Game");
-	currentScene = new Title;
+	//currentScene = new Title;
+	NewGO<TestScene>(0,nullptr);
 	camera = new GameCamera;
 	FPS = new CFPSCounter(10);
 	while (DispatchWindowMessage()) {

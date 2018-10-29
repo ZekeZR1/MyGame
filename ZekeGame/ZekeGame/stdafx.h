@@ -42,6 +42,8 @@
 
 #include "graphics/SkinModel.h"
 #include "graphics/Skelton.h"
+#include "gameObject/GameObject.h"
+#include "GameObject/GameObjectManager.h"
 #include "CFONT.h"
 
 
