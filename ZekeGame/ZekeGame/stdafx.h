@@ -40,10 +40,11 @@
 #include "physics/Physics.h"
 #include "HID/Pad.h"
 
-#include "graphics/SkinModel.h"
-#include "graphics/Skelton.h"
 #include "gameObject/GameObject.h"
 #include "GameObject/GameObjectManager.h"
+#include "graphics/Skelton.h"
+#include "graphics/SkinModel.h"
+#include "graphics/SkinModelRender.h"
 #include "CFONT.h"
 
 

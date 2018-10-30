@@ -320,6 +320,9 @@
     <ClCompile Include="TestScene.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="graphics\SkinModelRender.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window\Window.h">
@@ -564,6 +567,9 @@
     </ClInclude>
     <ClInclude Include="TestScene.h">
       <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\SkinModelRender.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

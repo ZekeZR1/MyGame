@@ -46,6 +46,10 @@ public:
 		struct { float x, y, z; };
 	};
 
+	enum EnFbxUpAxis {
+		enFbxUpAxisY,		//Y-up
+		enFbxUpAxisZ,		//Z-up
+	};
 public:
 	//XMVECTOR�ւ̈Öق̕ϊ��B
 	operator DirectX::XMVECTOR() const

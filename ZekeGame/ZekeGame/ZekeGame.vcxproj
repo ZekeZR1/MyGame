@@ -190,6 +190,7 @@
     <ClCompile Include="graphics\SkinModel.cpp" />
     <ClCompile Include="graphics\SkinModelDataManager.cpp" />
     <ClCompile Include="graphics\SkinModelEffect.cpp" />
+    <ClCompile Include="graphics\SkinModelRender.cpp" />
     <ClCompile Include="graphics\SkinModelShaderConst.cpp" />
     <ClCompile Include="graphics\SpringCamera.cpp" />
     <ClCompile Include="graphics\Sprite\Effect.cpp" />
@@ -271,6 +272,7 @@
     <ClInclude Include="graphics\SkinModel.h" />
     <ClInclude Include="graphics\SkinModelDataManager.h" />
     <ClInclude Include="graphics\SkinModelEffect.h" />
+    <ClInclude Include="graphics\SkinModelRender.h" />
     <ClInclude Include="graphics\SkinModelShaderConst.h" />
     <ClInclude Include="graphics\SpringCamera.h" />
     <ClInclude Include="graphics\Sprite\Effect.h" />
