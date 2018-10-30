@@ -8,6 +8,6 @@ public:
 	void Update() override;
 	void Render() override;
 private:
-	Sprite neko;
+	SkinModel neko;
 };
 

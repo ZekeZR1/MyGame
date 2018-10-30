@@ -55,6 +55,8 @@ public:
 	virtual void PreRender(CRenderContext& renderContext) {
 		(void)renderContext;
 	}
+	virtual void PreRender() {
+	}
 	/*!
 	 *@brief	RenderŠÖ”‚ªÀs‚³‚ê‚½Œã‚ÅŒÄ‚Î‚ê‚é•`‰æˆ—
 	 *@details
@@ -130,10 +132,11 @@ public:
 			Render();
 		}
 	}
-	void PreRenderWrapper(CRenderContext& renderContext)
+	//void PreRenderWrapper(CRenderContext& renderContext)
+	void PreRenderWrapper()
 	{
 		if (m_isActive && m_isStart && !m_isDead && !m_isRegistDeadList) {
-			PreRender(renderContext);
+			PreRender();
 		}
 	}
 	void PostUpdateWrapper()

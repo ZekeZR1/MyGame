@@ -5,7 +5,7 @@
 
 void GameObjectManager::Execute()
 {
-	//ExecuteDeleteGameObjects();
+	ExecuteDeleteGameObjects();
 
 	for (GameObjectList objList : m_gameObjectListArray) {
 		for (GameObject* obj : objList) {
@@ -66,13 +66,11 @@ void GameObjectManager::Execute()
 	//GraphicsEngine().GetShadowMap().SendShadowReceiveParamToGPU(renderContext);
 	//GraphicsEngine().GetGBufferRender().SendGBufferParamToGPU(renderContext);
 
-	/*
 	for (GameObjectList objList : m_gameObjectListArray) {
 		for (GameObject* obj : objList) {
-			obj->PreRenderWrapper(renderContext);
+			obj->PreRenderWrapper();
 		}
 	}
-	*/
 
 	for (GameObjectList objList : m_gameObjectListArray) {
 		for (GameObject* obj : objList) {
@@ -137,7 +135,8 @@ void GameObjectManager::ExecuteDeleteGameObjects()
 }
 void GameObjectManager::Init(int gameObjectPrioMax)
 {
-	//TK_ASSERT(gameObjectPrioMax <= GAME_OBJECT_PRIO_MAX, "ゲームオブジェクトの優先度の最大数が大きすぎます。");
+	//assert(gameObjectPrioMax <= GAME_OBJECT_PRIO_MAX);// && "ゲームオブジェクトの優先度の最大数が大きすぎます。");
+	assert(gameObjectPrioMax <= GAME_OBJECT_PRIO_MAX && "ゲームオブジェクトの優先度の最大数が大きすぎます。");
 	m_gameObjectPriorityMax = static_cast<GameObjectPrio>(gameObjectPrioMax);
 	m_gameObjectListArray.resize(gameObjectPrioMax);
 	m_deleteObjectArray[0].resize(gameObjectPrioMax);
