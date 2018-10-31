@@ -156,6 +156,8 @@
     <ClCompile Include="CFONT.cpp" />
     <ClCompile Include="character\CharacterController.cpp" />
     <ClCompile Include="ClearScene.cpp" />
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="EngineStruct.cpp" />
     <ClCompile Include="Fade.cpp" />
     <ClCompile Include="FPSCounter.cpp" />
     <ClCompile Include="GameCamera.cpp" />
@@ -239,6 +241,8 @@
     <ClInclude Include="CFONT.h" />
     <ClInclude Include="character\CharacterController.h" />
     <ClInclude Include="ClearScene.h" />
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="EngineStruct.h" />
     <ClInclude Include="Fade.h" />
     <ClInclude Include="FPSCounter.h" />
     <ClInclude Include="GameCamera.h" />

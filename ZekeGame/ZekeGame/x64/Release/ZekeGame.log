@@ -91,11 +91,20 @@ c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): wa
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  CharacterController.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
   ClearScene.cpp
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  FPSCounter.cpp
+  Engine.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\engine.cpp(42): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+  EngineStruct.cpp
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
@@ -103,11 +112,171 @@ c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): wa
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  FPSCounter.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
   GameCamera.cpp
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  CTransform.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  GameObject.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  GameObjectManager.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
   GameScene.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  Animation.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  AnimationClip.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  AnimationPlayController.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  Camera.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  CCameraCollisionSlover.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  コンパイル中...
+  CConstantBuffer.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  CIndexBuffer.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  CPrimitive.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  CRenderContext.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  CSamplerState.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  CShader.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  CShaderResource.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  CUnorderedAccessView.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\structedbuffer.h(6): warning C4099: 'ID3D11Buffer': タイプ名は最初 'struct' として使われていましたが 'class' として使われています。
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\um\d3d11.h(2408): note: 'ID3D11Buffer' の宣言を確認してください
+  CUtil.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  CVertexBuffer.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  CEffectEngine.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  CGPUBuffer.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  GraphicsEngine.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  CLight.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  RenderTarget.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  Shader.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  ShaderResouceView.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\structedbuffer.h(6): warning C4099: 'ID3D11Buffer': タイプ名は最初 'struct' として使われていましたが 'class' として使われています。
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\um\d3d11.h(2408): note: 'ID3D11Buffer' の宣言を確認してください
+  ShaderResources.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  Skelton.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  SkinModel.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  コンパイル中...
+  SkinModelDataManager.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  SkinModelEffect.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  SkinModelRender.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  SpringCamera.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  Effect.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  SpBuffer.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  Sprite.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  StructedBuffer.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\structedbuffer.h(6): warning C4099: 'ID3D11Buffer': タイプ名は最初 'struct' として使われていましたが 'class' として使われています。
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\um\d3d11.h(2408): note: 'ID3D11Buffer' の宣言を確認してください
+  TScopedResource.cpp
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
@@ -154,197 +323,6 @@ c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): wa
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  Iron.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  Player.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\player.cpp(109): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
-  コンパイル中...
-  Popup.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  PreCompile.cpp
-  SearchRate.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  TestScene.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  TheShip.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  Title.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  CharacterController.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  CTransform.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  GameObject.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  GameObjectManager.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  CCameraCollisionSlover.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  CConstantBuffer.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  CIndexBuffer.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  CPrimitive.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  CRenderContext.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  CSamplerState.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  CShader.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  CShaderResource.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  CUnorderedAccessView.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\structedbuffer.h(6): warning C4099: 'ID3D11Buffer': タイプ名は最初 'struct' として使われていましたが 'class' として使われています。
-  c:\program files (x86)\windows kits\10\include\10.0.16299.0\um\d3d11.h(2408): note: 'ID3D11Buffer' の宣言を確認してください
-  CUtil.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  コンパイル中...
-  CVertexBuffer.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  Camera.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  CEffectEngine.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  CGPUBuffer.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  GraphicsEngine.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  CLight.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  RenderTarget.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  Shader.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  ShaderResouceView.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\structedbuffer.h(6): warning C4099: 'ID3D11Buffer': タイプ名は最初 'struct' として使われていましたが 'class' として使われています。
-  c:\program files (x86)\windows kits\10\include\10.0.16299.0\um\d3d11.h(2408): note: 'ID3D11Buffer' の宣言を確認してください
-  ShaderResources.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  Skelton.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  SkinModel.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  SkinModelDataManager.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  SkinModelEffect.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  SkinModelRender.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  SpringCamera.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  Effect.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  SpBuffer.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  Sprite.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  StructedBuffer.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\structedbuffer.h(6): warning C4099: 'ID3D11Buffer': タイプ名は最初 'struct' として使われていましたが 'class' として使われています。
-  c:\program files (x86)\windows kits\10\include\10.0.16299.0\um\d3d11.h(2408): note: 'ID3D11Buffer' の宣言を確認してください
-  コンパイル中...
-  TScopedResource.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  Animation.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  AnimationClip.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  AnimationPlayController.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
   Level.cpp
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
@@ -353,11 +331,19 @@ c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): wa
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  コンパイル中...
   main.cpp
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\main.cpp(29): warning C4244: '初期化中': 'double' から 'float' への変換です。データが失われる可能性があります。
+  Iron.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  kMath.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
   Matrix.cpp
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
@@ -366,15 +352,11 @@ c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): wa
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  kMath.cpp
+  CapsuleCollider.cpp
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
   CSphereCollider.cpp
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  CapsuleCollider.cpp
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
@@ -394,6 +376,19 @@ c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): wa
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  Player.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\player.cpp(109): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+  Popup.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  SearchRate.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
   SoundEngine.cpp
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
@@ -402,13 +397,25 @@ c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): wa
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  TestScene.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  TheShip.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  Title.cpp
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
   Window.cpp
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
   コード生成しています。
-  7 of 5676 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    5 functions had inline decision re-evaluated but remain unchanged
+  66 of 5689 functions ( 1.2%) were compiled, the rest were copied from previous compilation.
+    5 functions were new in current compilation
+    9 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
   ZekeGame.vcxproj -> C:\Users\Taiki.W\git\MyGame\ZekeGame\x64\Release\ZekeGame.exe

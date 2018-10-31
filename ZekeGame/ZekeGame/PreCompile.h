@@ -23,6 +23,7 @@
 #include "physics/Physics.h"
 #include "HID/Pad.h"
 
+#include "Engine.h"
 #include "gameObject/GameObject.h"
 #include "GameObject/GameObjectManager.h"
 #include "graphics/Skelton.h"

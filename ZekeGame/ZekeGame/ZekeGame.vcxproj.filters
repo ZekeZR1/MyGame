@@ -326,6 +326,12 @@
     <ClCompile Include="TestScene.cpp">
       <Filter>ソース ファイル\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>ソース ファイル\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineStruct.cpp">
+      <Filter>ソース ファイル\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="window\Window.h">
@@ -575,6 +581,12 @@
       <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClInclude>
     <ClInclude Include="PreCompile.h">
+      <Filter>ソース ファイル\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>ソース ファイル\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineStruct.h">
       <Filter>ソース ファイル\Engine</Filter>
     </ClInclude>
   </ItemGroup>

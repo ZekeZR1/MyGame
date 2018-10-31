@@ -24,7 +24,6 @@ void TestScene::Update() {
 	static CVector3 nnn = CVector3::Zero();
 	if (g_pad[0].IsPress(enButtonA)) {
 		nnn.z += 10.f;
-
 	}
 	neko->SetPosition(nnn);
 }
