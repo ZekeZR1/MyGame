@@ -317,11 +317,14 @@
     <ClCompile Include="gameObject\CTransform.cpp">
       <Filter>ソース ファイル\Engine\gameObject</Filter>
     </ClCompile>
-    <ClCompile Include="TestScene.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="graphics\SkinModelRender.cpp">
       <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="PreCompile.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="TestScene.cpp">
+      <Filter>ソース ファイル\Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -570,6 +573,9 @@
     </ClInclude>
     <ClInclude Include="graphics\SkinModelRender.h">
       <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="PreCompile.h">
+      <Filter>ソース ファイル\Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

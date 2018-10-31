@@ -223,6 +223,7 @@
     <ClCompile Include="physics\RigitBody.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Popup.cpp" />
+    <ClCompile Include="PreCompile.cpp" />
     <ClCompile Include="SearchRate.cpp" />
     <ClCompile Include="sound\SoundEngine.cpp" />
     <ClCompile Include="stdafx.cpp" />
@@ -307,6 +308,7 @@
     <ClInclude Include="physics\RigitBody.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Popup.h" />
+    <ClInclude Include="PreCompile.h" />
     <ClInclude Include="SearchRate.h" />
     <ClInclude Include="sound\SoundEngine.h" />
     <ClInclude Include="stdafx.h" />
