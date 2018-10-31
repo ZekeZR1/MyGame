@@ -73,7 +73,7 @@ c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodel.h(132): warning
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(85): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
 c:\users\taiki.w\git\mygame\zekegame\zekegame\graphics\skinmodelrender.h(87): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
   コード生成しています。
-  1 of 5621 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+  4 of 5676 functions (<0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。

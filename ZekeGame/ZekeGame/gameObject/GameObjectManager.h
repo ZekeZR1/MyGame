@@ -84,7 +84,7 @@ public:
 	T* NewGameObject(GameObjectPrio prio, const char* objectName, TArgs... ctorArgs)
 	{
 		(void*)objectName;
-		//TK_ASSERT(prio <= m_gameObjectPriorityMax, "ゲームオブジェクトの優先度の最大数が大きすぎます。");
+		assert(prio <= m_gameObjectPriorityMax && "ゲームオブジェクトの優先度の最大数が大きすぎます。");
 		T* newObject = new T(ctorArgs...);
 		newObject->Awake();
 		newObject->SetMarkNewFromGameObjectManager();

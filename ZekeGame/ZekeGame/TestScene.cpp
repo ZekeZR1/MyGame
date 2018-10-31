@@ -10,27 +10,24 @@ TestScene::TestScene()
 
 TestScene::~TestScene()
 {
+	DeleteGO(neko);
 }
 
 
 bool TestScene::Start() {
-	neko.Init(L"Assets/modelData/Player.cmo");
-	//neko.SetFbxUpAxis(enFbxUpAxisY);
+	neko = NewGO<SkinModelRender>(0, "neko");
+	neko->Init(L"Assets/modelData/Player.cmo",nullptr,0,enFbxUpAxisY);
 	return true;
 }
 
 void TestScene::Update() {
 	static CVector3 nnn = CVector3::Zero();
-
 	if (g_pad[0].IsPress(enButtonA)) {
 		nnn.z += 10.f;
 
-		//neko.SetPosition(nnn);
 	}
-	neko.UpdateWorldMatrix(nnn, CQuaternion::Identity(), CVector3::One());
-
+	neko->SetPosition(nnn);
 }
 
 void TestScene::Render() {
-	neko.Draw();
 }

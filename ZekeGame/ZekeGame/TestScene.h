@@ -8,6 +8,6 @@ public:
 	void Update() override;
 	void Render() override;
 private:
-	SkinModel neko;
+	SkinModelRender* neko;
 };
 
