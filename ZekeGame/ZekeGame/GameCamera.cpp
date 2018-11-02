@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "GameCamera.h"
+#include "Player.h"
 
 GameCamera::GameCamera()
 {
@@ -13,12 +14,20 @@ GameCamera::GameCamera()
 	camera2d->Update();
 	
 	camera3d = new Camera;
-	camera3d->SetTarget(m_target);
-	camera3d->SetPosition(m_pos);
+	camera3d->SetTarget({ 0.0f, 20.0f, 0.0f });
+	camera3d->SetPosition({ 0.0f, 350.0f, 1000.0f });
 	camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Perspective);
 	camera3d->SetNear(0.1f);
 	camera3d->SetFar(50000.0f);
 	camera3d->Update();
+
+	m_toCameraPos.Set(0.0f, 50.0f, 300.0f);
+	m_springCamera.Init(
+		camera3d,		
+		4000.0f,			
+		true,				
+		5.0f				
+	);
 }
 
 
@@ -28,43 +37,81 @@ GameCamera::~GameCamera()
 	delete camera3d;
 }
 
-/*
-	毎フレーム呼ばれるゲームカメラの更新
-*/
-void GameCamera::Update() {
+void GameCamera::Reset() {
+	camera3d->SetTarget({ 0.0f, 20.0f, 0.0f });
+	camera3d->SetPosition({ 0.0f, 350.0f, 1000.0f });
+	camera3d->SetUpdateProjMatrixFunc(Camera::enUpdateProjMatrixFunc_Perspective);
+	camera3d->SetNear(0.1f);
+	camera3d->SetFar(50000.0f);
+	camera3d->Update();
+	m_toCameraPos.Set(0.0f, 50.0f, 300.0f);
+}
+
+void GameCamera::Update(Player* player) {
+	/*
+	CVector3 toCameraPos = camera3d->GetPosition() - camera3d->GetTarget();
+	camera3d->SetTarget(player->GetPosition());
+	CMatrix mRot = CMatrix::Identity();
+	mRot.MakeRotationY(CMath::DegToRad(7.0f) * g_pad[0].GetRStickXF());
+	mRot.Mul(toCameraPos);
+	CVector3 rotAxis;
+	CVector3 upAxis(0.0f, 1.0f, 0.0f);
+	rotAxis.Cross(upAxis, toCameraPos);
+	rotAxis.Normalize();
+	mRot = CMatrix::Identity();
+	mRot.MakeRotationAxis(rotAxis, CMath::DegToRad(7.0f) * g_pad[0].GetRStickYF());
+	mRot.Mul(toCameraPos);
+	camera3d->SetPosition(camera3d->GetTarget() + toCameraPos);
+	camera3d->Update();
+	*/
+	
 	camera2d->Update();
 
-	SkinModelRender* i_model = nullptr;
-	i_model = FindGO<SkinModelRender>("model");
-	m_target = i_model->GetPosition();
+	CVector3 target = player->GetPosition();
+	if (player->isGoUp) {
+		//
+	}
+	else if (player->isInBase) {
+		target = player->GetBack(500.0f);
+	}
+	else {
+		target = player->GetBack(200.0f);
+	}
 
+	target.y += 150.0f;
 	CVector3 toCameraPosOld = m_toCameraPos;
-	float x = g_pad[0].GetRStickXF();
-	float y = g_pad[0].GetRStickYF();
-	//Y軸周りの回転
+	x = g_pad[0].GetRStickXF();
+	y = g_pad[0].GetRStickYF();
 	CQuaternion qRot;
-	qRot.SetRotationDeg(CVector3::AxisY(), 2.0f * x);
+	qRot.SetRotationDeg(CVector3::AxisY(), 7.0f * x);
+
 	qRot.Multiply(m_toCameraPos);
-	//X軸周りの回転。
+
 	CVector3 axisX;
 	axisX.Cross(CVector3::AxisY(), m_toCameraPos);
 	axisX.Normalize();
-	qRot.SetRotationDeg(axisX, 2.0f * y);
+	qRot.SetRotationDeg(axisX, 7.0f * y);
 	qRot.Multiply(m_toCameraPos);
+
 	CVector3 toPosDir = m_toCameraPos;
 	toPosDir.Normalize();
+	
 	if (toPosDir.y < -0.5f) {
-		//カメラが上向きすぎ。
 		m_toCameraPos = toCameraPosOld;
 	}
 	else if (toPosDir.y > 0.8f) {
-		//カメラが下向きすぎ。
 		m_toCameraPos = toCameraPosOld;
 	}
-
-	CVector3 pos = m_target + m_toCameraPos;
-
-	camera3d->SetTarget(m_target);
-	camera3d->SetPosition(pos);
-	camera3d->Update();
+	CVector3 pos = target + m_toCameraPos;
+	if (player->isGoUp) {
+		m_springCamera.SetPosition({ 3000.0f,3000.0f,-6000.0f });
+		//qRot.SetRotationDeg(axisX, 7.0f * y);
+		//m_toCameraPos.Set(2000.0f, 10000.0f, -8000.0f);
+		m_springCamera.Update();
+	}
+	else {
+		m_springCamera.SetTarget(target);
+		m_springCamera.SetPosition(pos);
+		m_springCamera.Update();
+	}
 }

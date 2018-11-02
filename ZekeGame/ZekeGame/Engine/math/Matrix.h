@@ -37,14 +37,6 @@ public:
 	{
 		mat = m;
 	}
-
-
-	operator Effekseer::Matrix44() const
-	{
-		Effekseer::Matrix44 eMat = *((Effekseer::Matrix44*)&mat);
-		return eMat;
-	}
-
 	CMatrix& operator=(const CMatrix& _m)
 	{
 		mat = _m.mat;

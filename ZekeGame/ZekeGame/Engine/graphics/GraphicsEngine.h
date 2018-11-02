@@ -1,9 +1,5 @@
 #pragma once
 
-#include "CShaderResource.h"
-
-class CShaderResource;
-
 class GraphicsEngine
 {
 public:
@@ -12,11 +8,6 @@ public:
 
 	void InitDirectX(HWND hwnd);
 	void Release();
-	CShaderResource &GetShaderResources()
-	{
-		return m_shaderResources;
-	}
-
 	ID3D11Device* GetD3DDevice() {
 		return m_pd3dDevice;
 	}
@@ -48,15 +39,9 @@ public:
 	{
 		return m_2dSpaceScreenHeight;
 	}
-
-	ID3D11RenderTargetView* GetTarget() {
-		return m_backBuffer;
-	}
-
 	void BegineRender();
 	void EndRender();
-private: 
-	CShaderResource m_shaderResources;
+private:
 	ID3D11Device* m_pd3dDevice = NULL;
 	ID3D11DeviceContext* m_pd3dDeviceContext = NULL;
 	D3D_FEATURE_LEVEL m_featureLevel;

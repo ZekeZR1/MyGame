@@ -1,21 +1,11 @@
 #pragma once
 #include "Effect.h"
-#include "graphics/ShaderResouceView.h"
-#include "graphics/CRenderContext.h"
-#include "graphics/CPrimitive.h"
-#include "graphics/CShader.h"
-class Sprite : Noncopyable
+class Sprite
 {
 public:
-	static const CVector2	DEFAULT_PIVOT;					//!<ピボット。
-
 	Sprite();
 	~Sprite();
 
-	void SetMulColor(const CVector4& mulColor)
-	{
-		m_mulColor = mulColor;
-	}
 	/*
 	*@brief	初期化。
 	*@param	texFilePath		テクスチャのファイルパス。
@@ -23,14 +13,6 @@ public:
 	*@param	h				画像の高さ。
 	*/
 	void Init(const wchar_t* texFilePath, float w, float h);
-
-	/*!
-	* @brief	初期化。
-	*@param[in]	tex		テクスチャ。
-	*@param[in]	w		幅。
-	*@param[in]	h		高さ。
-	*/
-	void Init(ShaderResouceView& tex, float w, float h);
 	/*
 	*@brief	更新。
 	*@param[in]	trans		平行移動。
@@ -47,9 +29,6 @@ public:
 	*@brief	描画。
 	*/
 	void Draw();
-
-	void Draw(CRenderContext& renderContext, const CMatrix& viewMatrix, const CMatrix& projMatrix);
-
 	struct ConstantBuffer {
 		CMatrix WVP;		//ワールドビュープロジェクション行列。
 	};
@@ -63,27 +42,11 @@ public:
 	CVector3					m_scale = CVector3::One();
 	CMatrix						m_world = CMatrix::Identity();			//ワールド行列。
 	CVector2					m_size = CVector2::Zero();				//画像のサイズ。
-	ID3D11Buffer*				m__cb = nullptr;							//定数バッファ。
+	ID3D11Buffer*				m_cb = nullptr;							//定数バッファ。
 private:
 	/*!
 	*@brief	定数バッファの初期化。
 	*/
 	void InitConstantBuffer();
-
-	struct SSpriteCB {
-		CMatrix WVP;		//ワールドビュープロジェクション行列。
-		CVector4 mulColor;	//乗算カラー。
-	};
-	//CVector3				m_position = CVector3::Zero();	//!<座標。
-	//CQuaternion				m_rotation = CQuaternion::Identity();		//!<回転
-	//CVector3				m_scale = CVector3::One();
-	//CMatrix					m_world = CMatrix::Identity();	//!<ワールド行列。
-	CShader					m_ps;							//!<ピクセルシェーダー。
-	CShader					m_vs;							//!<頂点シェーダー。
-	CVector4				m_mulColor = CVector4::White;	//!<乗算カラー。
-	CPrimitive				m_primitive;					//!<プリミティブ。
-	ShaderResouceView*	m_textureSRV = nullptr;			//!<テクスチャ。
-	CConstantBuffer			m_cb;
-
-	//	CVector2				m_size = CVector2::Zero();		//!<サイズ。
 };
+

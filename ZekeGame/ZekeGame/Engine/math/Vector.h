@@ -14,13 +14,6 @@ public:
 		this->x = x;
 		this->y = y;
 	}
-
-	CVector2& operator=(const CVector2& _v)
-	{
-		vec = _v.vec;
-		return *this;
-	}
-
 	union {
 		DirectX::XMFLOAT2 vec;
 		struct { float x, y; };
@@ -53,10 +46,6 @@ public:
 		struct { float x, y, z; };
 	};
 
-	enum EnFbxUpAxis {
-		enFbxUpAxisY,		//Y-up
-		enFbxUpAxisZ,		//Z-up
-	};
 public:
 	//XMVECTOR�ւ̈Öق̕ϊ��B
 	operator DirectX::XMVECTOR() const
@@ -343,7 +332,6 @@ public:
 	static const CVector4 Red;
 	static const CVector4 Black;
 	static const CVector4 Yellow;
-	static const CVector4 Green;
 public:
 	operator DirectX::XMVECTOR() const
 	{

@@ -9,6 +9,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ソース ファイル\Assets">
+      <UniqueIdentifier>{095baad6-e590-4e7d-acaa-0cb9a3cbc92d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Assets\sprite">
+      <UniqueIdentifier>{c748d000-c927-4210-b1cc-6b235fd1792f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Assets\modelData">
+      <UniqueIdentifier>{768c9265-731d-4ad8-8239-c74483875076}</UniqueIdentifier>
+    </Filter>
     <Filter Include="ソース ファイル\Engine">
       <UniqueIdentifier>{9ca0a6f5-7607-4b9e-af6a-3f8267675eb4}</UniqueIdentifier>
     </Filter>
@@ -45,11 +54,23 @@
     <Filter Include="ソース ファイル\Game">
       <UniqueIdentifier>{61a6f82e-73ec-4b69-ade6-6676728c32b8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Game\Item">
+      <UniqueIdentifier>{8bf2357e-4be5-47b1-9959-8da5e6b95686}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Game\Materials">
+      <UniqueIdentifier>{ed401d2a-042d-44fe-8472-8b243c58f0d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Assets\texture">
+      <UniqueIdentifier>{ff6ad720-0aef-4baf-88a9-c428acafd9e2}</UniqueIdentifier>
+    </Filter>
     <Filter Include="ソース ファイル\Engine\graphics\GPUBuffer">
       <UniqueIdentifier>{ff12ee8b-a048-407a-a932-2c62f7acd652}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Engine\sound">
       <UniqueIdentifier>{5cc7b7cc-a27c-4c6a-a8db-1b7cbf75402a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Assets\sound">
+      <UniqueIdentifier>{c4762449-3258-4eff-87dc-0b1ac2f581ab}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Engine\graphics\Light">
       <UniqueIdentifier>{95c2c4ab-16ce-45c4-a3ce-af8c245c5b73}</UniqueIdentifier>
@@ -57,438 +78,953 @@
     <Filter Include="ソース ファイル\Engine\graphics\effect">
       <UniqueIdentifier>{a25c91af-0993-4934-8472-26bd70577078}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Engine\util">
-      <UniqueIdentifier>{a3dcc699-b078-4f96-9f74-c36c6bff7161}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Engine\graphics\Font">
-      <UniqueIdentifier>{1bfadabf-f4f1-4668-921e-6a06ef9912c8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Game\Assets">
-      <UniqueIdentifier>{095baad6-e590-4e7d-acaa-0cb9a3cbc92d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Game\Assets\sprite">
-      <UniqueIdentifier>{c748d000-c927-4210-b1cc-6b235fd1792f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Game\Assets\modelData">
-      <UniqueIdentifier>{768c9265-731d-4ad8-8239-c74483875076}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Game\Assets\texture">
-      <UniqueIdentifier>{ff6ad720-0aef-4baf-88a9-c428acafd9e2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Game\Assets\sound">
-      <UniqueIdentifier>{c4762449-3258-4eff-87dc-0b1ac2f581ab}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Game\Assets\effect">
+    <Filter Include="ソース ファイル\Assets\effect">
       <UniqueIdentifier>{92706c44-6105-4a7e-9b96-11714346819f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Engine\graphics\2D">
-      <UniqueIdentifier>{59ee64ef-89d5-42ab-a58b-ff00fc1859a7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Engine\character\CharacterController.cpp">
-      <Filter>ソース ファイル\Engine\character</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\gameObject\GameObject.cpp">
-      <Filter>ソース ファイル\Engine\gameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\gameObject\GameObjectManager.cpp">
-      <Filter>ソース ファイル\Engine\gameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\gameObject\CTransform.cpp">
-      <Filter>ソース ファイル\Engine\gameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\FPSCounter.cpp">
-      <Filter>ソース ファイル\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\PreCompile.cpp">
-      <Filter>ソース ファイル\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Engine.cpp">
-      <Filter>ソース ファイル\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\EngineStruct.cpp">
-      <Filter>ソース ファイル\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\window\Window.cpp">
+    <ClCompile Include="window\Window.cpp">
       <Filter>ソース ファイル\Engine\window</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\sound\SoundEngine.cpp">
-      <Filter>ソース ファイル\Engine\sound</Filter>
+    <ClCompile Include="graphics\Sprite\Sprite.cpp">
+      <Filter>ソース ファイル\Engine\graphics\sprite</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\physics\CSphereCollider.cpp">
-      <Filter>ソース ファイル\Engine\physics</Filter>
+    <ClCompile Include="graphics\Sprite\Effect.cpp">
+      <Filter>ソース ファイル\Engine\graphics\sprite</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\physics\MeshCollider.cpp">
-      <Filter>ソース ファイル\Engine\physics</Filter>
+    <ClCompile Include="graphics\Sprite\SpBuffer.cpp">
+      <Filter>ソース ファイル\Engine\graphics\sprite</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\physics\Physics.cpp">
-      <Filter>ソース ファイル\Engine\physics</Filter>
+    <ClCompile Include="graphics\GraphicsEngine.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\physics\PhysicsStaticObject.cpp">
-      <Filter>ソース ファイル\Engine\physics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\physics\RigitBody.cpp">
-      <Filter>ソース ファイル\Engine\physics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\physics\CapsuleCollider.cpp">
-      <Filter>ソース ファイル\Engine\physics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\math\Vector.cpp">
+    <ClCompile Include="math\Vector.cpp">
       <Filter>ソース ファイル\Engine\math</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\math\kMath.cpp">
+    <ClCompile Include="math\kMath.cpp">
       <Filter>ソース ファイル\Engine\math</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\math\Matrix.cpp">
+    <ClCompile Include="math\Matrix.cpp">
       <Filter>ソース ファイル\Engine\math</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\level\MapChip.cpp">
-      <Filter>ソース ファイル\Engine\level</Filter>
+    <ClCompile Include="graphics\Camera.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\level\Level.cpp">
-      <Filter>ソース ファイル\Engine\level</Filter>
+    <ClCompile Include="graphics\SkinModel.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\HID\Pad.cpp">
+    <ClCompile Include="graphics\SkinModelDataManager.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\Skelton.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\Shader.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\ShaderResources.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\SkinModelEffect.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="gameObject\GameObject.cpp">
+      <Filter>ソース ファイル\Engine\gameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\animation\AnimationPlayController.cpp">
+      <Filter>ソース ファイル\Engine\graphics\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\animation\Animation.cpp">
+      <Filter>ソース ファイル\Engine\graphics\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\animation\AnimationClip.cpp">
+      <Filter>ソース ファイル\Engine\graphics\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="HID\Pad.cpp">
       <Filter>ソース ファイル\Engine\HID</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\graphics\animation\AnimationPlayController.cpp">
-      <Filter>ソース ファイル\Engine\graphics\animation</Filter>
+    <ClCompile Include="physics\Physics.cpp">
+      <Filter>ソース ファイル\Engine\physics</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\graphics\animation\Animation.cpp">
-      <Filter>ソース ファイル\Engine\graphics\animation</Filter>
+    <ClCompile Include="physics\RigitBody.cpp">
+      <Filter>ソース ファイル\Engine\physics</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\graphics\animation\AnimationClip.cpp">
-      <Filter>ソース ファイル\Engine\graphics\animation</Filter>
+    <ClCompile Include="physics\MeshCollider.cpp">
+      <Filter>ソース ファイル\Engine\physics</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\graphics\Effect\CEffectEngine.cpp">
-      <Filter>ソース ファイル\Engine\graphics\effect</Filter>
+    <ClCompile Include="physics\PhysicsStaticObject.cpp">
+      <Filter>ソース ファイル\Engine\physics</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\graphics\Effect\CEffect.cpp">
-      <Filter>ソース ファイル\Engine\graphics\effect</Filter>
+    <ClCompile Include="character\CharacterController.cpp">
+      <Filter>ソース ファイル\Engine\character</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\graphics\GPUBuffer\CGPUBuffer.cpp">
-      <Filter>ソース ファイル\Engine\graphics\GPUBuffer</Filter>
+    <ClCompile Include="physics\CapsuleCollider.cpp">
+      <Filter>ソース ファイル\Engine\physics</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\graphics\Sprite\Sprite.cpp">
-      <Filter>ソース ファイル\Engine\graphics\sprite</Filter>
+    <ClCompile Include="level\Level.cpp">
+      <Filter>ソース ファイル\Engine\level</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\graphics\Sprite\Effect.cpp">
-      <Filter>ソース ファイル\Engine\graphics\sprite</Filter>
+    <ClCompile Include="level\MapChip.cpp">
+      <Filter>ソース ファイル\Engine\level</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\graphics\Sprite\SpBuffer.cpp">
-      <Filter>ソース ファイル\Engine\graphics\sprite</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\font\CFONT.cpp">
-      <Filter>ソース ファイル\Engine\graphics\Font</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\CConstantBuffer.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\CIndexBuffer.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\CPrimitive.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\CRenderContext.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\CSamplerState.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\CShader.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\CShaderResource.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\CUnorderedAccessView.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\CUtil.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\CVertexBuffer.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\GraphicsEngine.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\RenderTarget.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\Shader.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\ShaderResouceView.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\ShaderResources.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\Skelton.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\SkinModel.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\SkinModelDataManager.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\SkinModelEffect.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\SkinModelRender.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\SkinModelShaderConst.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\SpringCamera.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\StructedBuffer.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\TScopedResource.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\Camera.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\graphics\CCameraCollisionSlover.cpp">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>ソース ファイル\Game</Filter>
     </ClCompile>
     <ClCompile Include="GameCamera.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene.cpp">
       <Filter>ソース ファイル\Game</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>ソース ファイル\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
+    <ClCompile Include="Title.cpp">
       <Filter>ソース ファイル\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\graphics\SpriteRender.cpp">
-      <Filter>ソース ファイル\Engine\graphics\2D</Filter>
+    <ClCompile Include="ActionMenu.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Materials\Iron.cpp">
+      <Filter>ソース ファイル\Game\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="Materials\Mineral.cpp">
+      <Filter>ソース ファイル\Game\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="Item\IConstructor.cpp">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Item\ExplorationRocket.cpp">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Item\Item.cpp">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>ソース ファイル\Game\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrangeIron.cpp">
+      <Filter>ソース ファイル\Game\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="CFONT.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Item\Hover.cpp">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Item\MiningMachine.cpp">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Item\IBase.cpp">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Item\Windmill.cpp">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchRate.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\SpringCamera.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\CCameraCollisionSlover.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="physics\CSphereCollider.cpp">
+      <Filter>ソース ファイル\Engine\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="TheShip.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="ClearScene.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Fade.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Popup.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\CRenderContext.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\CSamplerState.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\CShader.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\CShaderResource.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\CUnorderedAccessView.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\CUtil.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\CVertexBuffer.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\RenderTarget.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\ShaderResouceView.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\SkinModelShaderConst.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\StructedBuffer.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\TScopedResource.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\CConstantBuffer.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\CIndexBuffer.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\CPrimitive.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\GPUBuffer\CGPUBuffer.cpp">
+      <Filter>ソース ファイル\Engine\graphics\GPUBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="sound\SoundEngine.cpp">
+      <Filter>ソース ファイル\Engine\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="FPSCounter.cpp">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\Light\CLight.cpp">
+      <Filter>ソース ファイル\Engine\graphics\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\Effect\CEffectEngine.cpp">
+      <Filter>ソース ファイル\Engine\graphics\effect</Filter>
+    </ClCompile>
+    <ClCompile Include="gameObject\GameObjectManager.cpp">
+      <Filter>ソース ファイル\Engine\gameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="gameObject\CTransform.cpp">
+      <Filter>ソース ファイル\Engine\gameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="graphics\SkinModelRender.cpp">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="PreCompile.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="TestScene.cpp">
+      <Filter>ソース ファイル\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>ソース ファイル\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineStruct.cpp">
+      <Filter>ソース ファイル\Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\character\CharacterController.h">
-      <Filter>ソース ファイル\Engine\character</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\gameObject\GameObject.h">
-      <Filter>ソース ファイル\Engine\gameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\gameObject\GameObjectManager.h">
-      <Filter>ソース ファイル\Engine\gameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\gameObject\CTransform.h">
-      <Filter>ソース ファイル\Engine\gameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\FPSCounter.h">
-      <Filter>ソース ファイル\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\PreCompile.h">
-      <Filter>ソース ファイル\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Engine.h">
-      <Filter>ソース ファイル\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\EngineStruct.h">
-      <Filter>ソース ファイル\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\window\Window.h">
+    <ClInclude Include="window\Window.h">
       <Filter>ソース ファイル\Engine\window</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\sound\SoundEngine.h">
-      <Filter>ソース ファイル\Engine\sound</Filter>
+    <ClInclude Include="graphics\Sprite\Sprite.h">
+      <Filter>ソース ファイル\Engine\graphics\sprite</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\util\Util.h">
-      <Filter>ソース ファイル\Engine\util</Filter>
+    <ClInclude Include="graphics\Sprite\Effect.h">
+      <Filter>ソース ファイル\Engine\graphics\sprite</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\physics\CSphereCollider.h">
-      <Filter>ソース ファイル\Engine\physics</Filter>
+    <ClInclude Include="graphics\Sprite\SpBuffer.h">
+      <Filter>ソース ファイル\Engine\graphics\sprite</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\physics\ICollider.h">
-      <Filter>ソース ファイル\Engine\physics</Filter>
+    <ClInclude Include="graphics\GraphicsEngine.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\physics\MeshCollider.h">
-      <Filter>ソース ファイル\Engine\physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\physics\Physics.h">
-      <Filter>ソース ファイル\Engine\physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\physics\PhysicsStaticObject.h">
-      <Filter>ソース ファイル\Engine\physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\physics\RigitBody.h">
-      <Filter>ソース ファイル\Engine\physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\physics\CapsuleCollider.h">
-      <Filter>ソース ファイル\Engine\physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\physics\CollisionAttr.h">
-      <Filter>ソース ファイル\Engine\physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\math\Matrix.h">
+    <ClInclude Include="math\Matrix.h">
       <Filter>ソース ファイル\Engine\math</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\math\Vector.h">
+    <ClInclude Include="math\Vector.h">
       <Filter>ソース ファイル\Engine\math</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\math\kMath.h">
+    <ClInclude Include="math\kMath.h">
       <Filter>ソース ファイル\Engine\math</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\level\MapChip.h">
-      <Filter>ソース ファイル\Engine\level</Filter>
+    <ClInclude Include="graphics\Camera.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\level\Level.h">
-      <Filter>ソース ファイル\Engine\level</Filter>
+    <ClInclude Include="graphics\SkinModel.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\HID\Pad.h">
+    <ClInclude Include="graphics\Skelton.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\SkinModelDataManager.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\Shader.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\ShaderResources.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\SkinModelEffect.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\SkinModelShaderConst.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="gameObject\GameObject.h">
+      <Filter>ソース ファイル\Engine\gameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\animation\AnimationClip.h">
+      <Filter>ソース ファイル\Engine\graphics\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\animation\AnimationPlayController.h">
+      <Filter>ソース ファイル\Engine\graphics\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\animation\Animation.h">
+      <Filter>ソース ファイル\Engine\graphics\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="HID\Pad.h">
       <Filter>ソース ファイル\Engine\HID</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\graphics\animation\AnimationClip.h">
-      <Filter>ソース ファイル\Engine\graphics\animation</Filter>
+    <ClInclude Include="physics\Physics.h">
+      <Filter>ソース ファイル\Engine\physics</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\graphics\animation\AnimationPlayController.h">
-      <Filter>ソース ファイル\Engine\graphics\animation</Filter>
+    <ClInclude Include="physics\RigitBody.h">
+      <Filter>ソース ファイル\Engine\physics</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\graphics\animation\Animation.h">
-      <Filter>ソース ファイル\Engine\graphics\animation</Filter>
+    <ClInclude Include="physics\ICollider.h">
+      <Filter>ソース ファイル\Engine\physics</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\graphics\Effect\CEffectEngine.h">
-      <Filter>ソース ファイル\Engine\graphics\effect</Filter>
+    <ClInclude Include="physics\PhysicsStaticObject.h">
+      <Filter>ソース ファイル\Engine\physics</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\graphics\Effect\CEffect.h">
-      <Filter>ソース ファイル\Engine\graphics\effect</Filter>
+    <ClInclude Include="physics\MeshCollider.h">
+      <Filter>ソース ファイル\Engine\physics</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\graphics\GPUBuffer\CGPUBuffer.h">
-      <Filter>ソース ファイル\Engine\graphics\GPUBuffer</Filter>
+    <ClInclude Include="character\CharacterController.h">
+      <Filter>ソース ファイル\Engine\character</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\graphics\Sprite\SpBuffer.h">
-      <Filter>ソース ファイル\Engine\graphics\sprite</Filter>
+    <ClInclude Include="physics\CollisionAttr.h">
+      <Filter>ソース ファイル\Engine\physics</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\graphics\Sprite\Sprite.h">
-      <Filter>ソース ファイル\Engine\graphics\sprite</Filter>
+    <ClInclude Include="physics\CapsuleCollider.h">
+      <Filter>ソース ファイル\Engine\physics</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\graphics\Sprite\Effect.h">
-      <Filter>ソース ファイル\Engine\graphics\sprite</Filter>
+    <ClInclude Include="level\Level.h">
+      <Filter>ソース ファイル\Engine\level</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\graphics\font\CFONT.h">
-      <Filter>ソース ファイル\Engine\graphics\Font</Filter>
+    <ClInclude Include="level\MapChip.h">
+      <Filter>ソース ファイル\Engine\level</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\graphics\CCameraCollisionSlover.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
+    <ClInclude Include="IScene.h">
+      <Filter>ソース ファイル\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\graphics\CConstantBuffer.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
+    <ClInclude Include="Title.h">
+      <Filter>ソース ファイル\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\graphics\CIndexBuffer.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
+    <ClInclude Include="ActionMenu.h">
+      <Filter>ソース ファイル\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\graphics\CPrimitive.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\CRenderContext.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\CSamplerState.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\CShader.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\CShaderResource.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\CUnorderedAccessView.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\CUtil.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\CVertexBuffer.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\GraphicsEngine.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\Noncopyable.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\RenderTarget.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\Shader.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\ShaderResouceView.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\ShaderResources.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\Skelton.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\SkinModel.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\SkinModelDataManager.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\SkinModelEffect.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\SkinModelRender.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\SkinModelShaderConst.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\SpringCamera.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\StructedBuffer.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\TScopedResource.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\graphics\Camera.h">
-      <Filter>ソース ファイル\Engine\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
+    <ClInclude Include="BackGround.h">
       <Filter>ソース ファイル\Game</Filter>
     </ClInclude>
     <ClInclude Include="GameCamera.h">
       <Filter>ソース ファイル\Game</Filter>
     </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>ソース ファイル\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\graphics\SpriteRender.h">
-      <Filter>ソース ファイル\Engine\graphics\2D</Filter>
+    <ClInclude Include="Materials\Mineral.h">
+      <Filter>ソース ファイル\Game\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="Materials\Iron.h">
+      <Filter>ソース ファイル\Game\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="Item\IConstructor.h">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Item\Item.h">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Item\ExplorationRocket.h">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>ソース ファイル\Game\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrangeIron.h">
+      <Filter>ソース ファイル\Game\Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="CFONT.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Item\Hover.h">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Item\MiningMachine.h">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Item\IBase.h">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Item\Windmill.h">
+      <Filter>ソース ファイル\Game\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchRate.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\SpringCamera.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CCameraCollisionSlover.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="physics\CSphereCollider.h">
+      <Filter>ソース ファイル\Engine\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="TheShip.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="ClearScene.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Fade.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Popup.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CPrimitive.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CRenderContext.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CSamplerState.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CShader.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CShaderResource.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CUnorderedAccessView.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CUtil.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CVertexBuffer.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\RenderTarget.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\ShaderResouceView.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\StructedBuffer.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\TScopedResource.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CConstantBuffer.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\CIndexBuffer.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\GPUBuffer\CGPUBuffer.h">
+      <Filter>ソース ファイル\Engine\graphics\GPUBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="sound\SoundEngine.h">
+      <Filter>ソース ファイル\Engine\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="FPSCounter.h">
+      <Filter>ソース ファイル\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\Light\CLight.h">
+      <Filter>ソース ファイル\Engine\graphics\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\Effect\CEffectEngine.h">
+      <Filter>ソース ファイル\Engine\graphics\effect</Filter>
+    </ClInclude>
+    <ClInclude Include="gameObject\GameObjectManager.h">
+      <Filter>ソース ファイル\Engine\gameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="gameObject\CTransform.h">
+      <Filter>ソース ファイル\Engine\gameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="TestScene.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="graphics\SkinModelRender.h">
+      <Filter>ソース ファイル\Engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="PreCompile.h">
+      <Filter>ソース ファイル\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>ソース ファイル\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineStruct.h">
+      <Filter>ソース ファイル\Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\Test.FBX">
-      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
+    <ImageContentTask Include="Assets\modelData\test.png">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\utc_all2.tga">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\mikyan.jpg">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ActMenu.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\TitleSprite.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ActMenu1.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ActState_Fill.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ActState_Flat.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ActState_Mining.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\None_Sprite.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ItemBoxSprite.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Inventory.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Constructor.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ItemBoxUsing.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ItemRocket.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\RocketMenu.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ExRocket.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ExRocketClose.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ExRocketLaunch.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\ceiling022.jpg">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\alien010.jpg">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\modelData\control004.jpg">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ActMenuFlatSet.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ActMenuCraft.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ActMenuInventory.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ExRocketMenu.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ExRocketMenuArrow.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\NotiGotMaterial.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Hover.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\BatteryGauge.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\BatteryFrame.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\HoverMenu.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\HoverFrame.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\HoverGauge.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\HoverFuelMenu.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\MiningFrame.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\MiningGauge.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\MiningMachineMining.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\MiningMachineStandby.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\MiningMachineMenu.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\ItemMining.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\testmask.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\testgauge.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Base.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Windmill.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\rateGaugeMaterial.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\rateGaugeAir.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\RateGaugeFrame.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\rateGaugeGround.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\SearchRateFrame.png">
+      <Filter>リソース ファイル</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Title.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\Sprite\Clear.png">
+      <Filter>ソース ファイル\Assets\sprite</Filter>
+    </ImageContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <MeshContentTask Include="Assets\modelData\testbox.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\unityChan.fbx">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\BackWorld.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Space.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\ItemBox.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\IronOre.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\DrilPos.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\FlatRange.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\ExplorationRocket.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\ExRocketDL.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Constructor.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Hover.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Player.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\MiningItem.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Base.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Windmill.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Wall.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Ship.FBX">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
     </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Assets\modelData\boxTex.png">
-      <Filter>ソース ファイル\Game\Assets\modelData</Filter>
+    <CustomBuild Include="Assets\modelData\unityChan.tks">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\actionlines.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\aurora01.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Burst01.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\burst02_red.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Burst_1.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Burst_2.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\clockHand.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Cloud01.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\double-shockwave.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\drillshi.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\eggzero.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\ExperimentalBlur.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\ExperimentalNoise.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Fire.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Fire_Blur.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Fire_Single.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\fire_tex.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Flame01.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Glass.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\glow.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Halo.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\IntensiveLine.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\LaserMain01.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\LaserMain02.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\NoiseAnimation.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\orb_colored.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle01.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle02.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle03.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle04_bokashistrong_hard.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle04_bokashistrong_soft.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle04_bokashi_hard.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle04_bokashi_soft.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle04_clear_hard.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle04_clear_soft.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle_Hard.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Particle_Soft.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\ribbon01_trans.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\ShadowEye.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Shockwave.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Shock_wave004.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Shock_wave_ring001.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Shock_wave_ring001_long.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Shock_wave_ring002.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Smoke.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\smoke_tex.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Splash.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Splash01.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\squareWave.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\squareWave03_192.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\squareWave03_384.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Star.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\starpart.PNG">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\SwordLine01.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\t0002.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Tentacle.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Thunder01.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Thunder10.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Thunder_Bold.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Thunder_Thin.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Wind.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\Wind01.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\texture\wind02.png">
+      <Filter>リソース ファイル</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\sound\stage00.wav">
+      <Filter>ソース ファイル\Assets\sound</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\sound\Buff.wav">
+      <Filter>ソース ファイル\Assets\sound</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\sound\title.wav">
+      <Filter>ソース ファイル\Assets\sound</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\sound\start.wav">
+      <Filter>ソース ファイル\Assets\sound</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\sound\se.wav">
+      <Filter>ソース ファイル\Assets\sound</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\sound\converting.wav">
+      <Filter>ソース ファイル\Assets\sound</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Assets\effect\Laser01.efk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\modelData\door018.jpg">
+      <Filter>ソース ファイル\Assets\modelData</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\Test.png">
-      <Filter>ソース ファイル\Game\Assets\sprite</Filter>
-    </ImageContentTask>
+    <Media Include="Assets\sound\game.wav">
+      <Filter>ソース ファイル\Assets\sound</Filter>
+    </Media>
   </ItemGroup>
 </Project>

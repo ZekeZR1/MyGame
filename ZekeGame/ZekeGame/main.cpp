@@ -1,5 +1,10 @@
 #include "stdafx.h"
-#include "Game.h"
+#include "GameScene.h"
+#include "Title.h"
+#include "TestScene.h"
+
+//Global
+IScene* currentScene = nullptr;
 
 int WINAPI wWinMain(
 	HINSTANCE hInstance,
@@ -7,8 +12,10 @@ int WINAPI wWinMain(
 	LPWSTR lpCmdLine,
 	int nCmdShow) {
 	//Initialize
+	//InitWindow(hInstance, hPrevInstance, lpCmdLine, nCmdShow, "Game");
 	Engine::IEngine().Init(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
-	NewGO<Game>(0,"Game");
+	currentScene = new Title;
+	//NewGO<TestScene>(0,nullptr);
 	//MainRoop
 	Engine::IEngine().GameRoop();
 	//Release
