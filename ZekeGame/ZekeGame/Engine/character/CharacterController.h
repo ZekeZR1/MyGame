@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include "Physics/CapsuleCollider.h"
-#include "physics/RigitBody.h"
+#include "Engine/Physics/CapsuleCollider.h"
+#include "Engine/physics/RigitBody.h"
 /*!
 * @brief	キャラクタコントローラー。
 */

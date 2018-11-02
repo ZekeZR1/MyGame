@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "GraphicsEngine.h"
+#include "ShaderResources.h"
+#include "CShaderResource.h"
 
 GraphicsEngine::GraphicsEngine()
 {

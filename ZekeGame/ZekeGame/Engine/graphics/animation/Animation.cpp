@@ -4,9 +4,9 @@
 
 
 #include "stdafx.h"
-#include "graphics/animation/Animation.h"
-#include "graphics/skelton.h"
-#include "graphics/skinModel.h"
+#include "Engine/graphics/animation/Animation.h"
+#include "Engine/graphics/skelton.h"
+#include "Engine/graphics/skinModel.h"
 
 Animation::Animation()
 {

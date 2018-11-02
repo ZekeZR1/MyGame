@@ -57,6 +57,8 @@ void Camera::Update(){
 	toPos.Subtract(m_position, m_target);
 	m_targetToPositionLen = toPos.Length();
 }
+
+
 void Camera::CalcScreenPositionFromWorldPosition(CVector2& screenPos, const CVector3& worldPos) const
 {
 	float half_w = FRAME_BUFFER_W * 0.5f;

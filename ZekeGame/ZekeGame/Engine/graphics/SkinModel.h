@@ -2,6 +2,7 @@
 
 #include "Skelton.h"
 
+class DirectionLight;
 /*!
 *@brief	FBXの上方向。
 */
@@ -58,6 +59,7 @@ public:
 	*  カメラ座標系の3Dモデルをスクリーン座標系に変換する行列です。
 	*/
 	void Draw(CMatrix viewMatrix, CMatrix projMatrix);
+	void Draw();
 	/*!
 	*@brief	スケルトンの取得。
 	*/
@@ -84,6 +86,14 @@ public:
 		enSkinModelSRVReg_DiffuseTexture = 0,		//!<ディフューズテクスチャ。
 		enSkinModelSRVReg_BoneMatrix,				//!<ボーン行列。
 	};
+
+	void SetDirColor(CVector4 col) {
+		m_DirCol = col;
+	}
+
+	void SetDirLight(CVector4 dir) {
+		m_DirLight = dir;
+	}
 private:
 	/*!
 	*@brief	サンプラステートの初期化。
@@ -105,12 +115,22 @@ private:
 		CMatrix mWorld;
 		CMatrix mView;
 		CMatrix mProj;
+		CVector4 mCol;
+		CVector4 mDir;
+	};
+	struct DirLightConstantBuffer {
+		CVector4 mCol;
+		CVector4 mDir;
 	};
 	EnFbxUpAxis			m_enFbxUpAxis = enFbxUpAxisZ;	//!<FBXの上方向。
 	ID3D11Buffer*		m_cb = nullptr;					//!<定数バッファ。
+	ID3D11Buffer*		m_cb1 = nullptr;					//!<定数バッファ。
 	Skeleton			m_skeleton;						//!<スケルトン。
 	CMatrix				m_worldMatrix;					//!<ワールド行列。
 	DirectX::Model*		m_modelDx;						//!<DirectXTKが提供するモデルクラス。
 	ID3D11SamplerState* m_samplerState = nullptr;		//!<サンプラステート。
+	CVector4 m_DirLight = { 0.707,-0.707,0.0f,0.0f };
+	CVector4 m_DirCol = { 1.0f,1.0f,1.0f,1.0f };
+	//DirectionLight m_light;
 };
 

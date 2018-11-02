@@ -1,6 +1,6 @@
 #pragma once
 
-#include "physics/PhysicsStaticObject.h"
+#include "Engine/physics/PhysicsStaticObject.h"
 
 class Level;
 struct LevelObjectData;

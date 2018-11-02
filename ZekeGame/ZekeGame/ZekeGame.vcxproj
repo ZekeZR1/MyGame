@@ -107,7 +107,7 @@
       <SubSystem>Windows</SubSystem>
     </Link>
     <ImageContentTask>
-      <ContentOutput>$(ProjectDir)\Resource\sprite\%(Filename).dds</ContentOutput>
+      <ContentOutput>$(ProjectDir)\Assets\Sprite\%(Filename).dds</ContentOutput>
       <GenerateMips>
       </GenerateMips>
     </ImageContentTask>
@@ -146,419 +146,151 @@
       <AdditionalDependencies>DirectXTK.lib;kernel32.Lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;d3d11.lib;d3dcompiler.lib;%(AdditionalDependencies);xinput.lib;BulletCollision.lib;BulletDynamics.lib;LinearMath.lib;dxguid.lib;Effekseer.Release.lib;EffekseerRendererDX11.Release.lib</AdditionalDependencies>
     </Link>
     <ImageContentTask>
-      <ContentOutput>$(ProjectDir)\Resource\sprite\%(Filename).dds</ContentOutput>
+      <ContentOutput>$(ProjectDir)\Assets\Sprite\%(Filename).dds</ContentOutput>
     </ImageContentTask>
+    <MeshContentTask>
+      <ContentOutput>$(ProjectDir)\Assets\modelData\%(Filename).cmo</ContentOutput>
+    </MeshContentTask>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ActionMenu.cpp" />
-    <ClCompile Include="ArrangeIron.cpp" />
-    <ClCompile Include="BackGround.cpp" />
-    <ClCompile Include="CFONT.cpp" />
-    <ClCompile Include="character\CharacterController.cpp" />
-    <ClCompile Include="ClearScene.cpp" />
-    <ClCompile Include="Engine.cpp" />
-    <ClCompile Include="EngineStruct.cpp" />
-    <ClCompile Include="Fade.cpp" />
-    <ClCompile Include="FPSCounter.cpp" />
+    <ClCompile Include="Engine\character\CharacterController.cpp" />
+    <ClCompile Include="Engine\Engine.cpp" />
+    <ClCompile Include="Engine\EngineStruct.cpp" />
+    <ClCompile Include="Engine\FPSCounter.cpp" />
+    <ClCompile Include="Engine\gameObject\CTransform.cpp" />
+    <ClCompile Include="Engine\gameObject\GameObject.cpp" />
+    <ClCompile Include="Engine\gameObject\GameObjectManager.cpp" />
+    <ClCompile Include="Engine\graphics\animation\Animation.cpp" />
+    <ClCompile Include="Engine\graphics\animation\AnimationClip.cpp" />
+    <ClCompile Include="Engine\graphics\animation\AnimationPlayController.cpp" />
+    <ClCompile Include="Engine\graphics\Camera.cpp" />
+    <ClCompile Include="Engine\graphics\CCameraCollisionSlover.cpp" />
+    <ClCompile Include="Engine\graphics\CConstantBuffer.cpp" />
+    <ClCompile Include="Engine\graphics\CIndexBuffer.cpp" />
+    <ClCompile Include="Engine\graphics\CPrimitive.cpp" />
+    <ClCompile Include="Engine\graphics\CRenderContext.cpp" />
+    <ClCompile Include="Engine\graphics\CSamplerState.cpp" />
+    <ClCompile Include="Engine\graphics\CShader.cpp" />
+    <ClCompile Include="Engine\graphics\CShaderResource.cpp" />
+    <ClCompile Include="Engine\graphics\CUnorderedAccessView.cpp" />
+    <ClCompile Include="Engine\graphics\CUtil.cpp" />
+    <ClCompile Include="Engine\graphics\CVertexBuffer.cpp" />
+    <ClCompile Include="Engine\graphics\Effect\CEffect.cpp" />
+    <ClCompile Include="Engine\graphics\Effect\CEffectEngine.cpp" />
+    <ClCompile Include="Engine\graphics\font\CFONT.cpp" />
+    <ClCompile Include="Engine\graphics\GPUBuffer\CGPUBuffer.cpp" />
+    <ClCompile Include="Engine\graphics\GraphicsEngine.cpp" />
+    <ClCompile Include="Engine\graphics\RenderTarget.cpp" />
+    <ClCompile Include="Engine\graphics\Shader.cpp" />
+    <ClCompile Include="Engine\graphics\ShaderResouceView.cpp" />
+    <ClCompile Include="Engine\graphics\ShaderResources.cpp" />
+    <ClCompile Include="Engine\graphics\Skelton.cpp" />
+    <ClCompile Include="Engine\graphics\SkinModel.cpp" />
+    <ClCompile Include="Engine\graphics\SkinModelDataManager.cpp" />
+    <ClCompile Include="Engine\graphics\SkinModelEffect.cpp" />
+    <ClCompile Include="Engine\graphics\SkinModelRender.cpp" />
+    <ClCompile Include="Engine\graphics\SkinModelShaderConst.cpp" />
+    <ClCompile Include="Engine\graphics\SpringCamera.cpp" />
+    <ClCompile Include="Engine\graphics\SpriteRender.cpp" />
+    <ClCompile Include="Engine\graphics\Sprite\Effect.cpp" />
+    <ClCompile Include="Engine\graphics\Sprite\SpBuffer.cpp" />
+    <ClCompile Include="Engine\graphics\Sprite\Sprite.cpp" />
+    <ClCompile Include="Engine\graphics\StructedBuffer.cpp" />
+    <ClCompile Include="Engine\graphics\TScopedResource.cpp" />
+    <ClCompile Include="Engine\HID\Pad.cpp" />
+    <ClCompile Include="Engine\level\Level.cpp" />
+    <ClCompile Include="Engine\level\MapChip.cpp" />
+    <ClCompile Include="Engine\math\kMath.cpp" />
+    <ClCompile Include="Engine\math\Matrix.cpp" />
+    <ClCompile Include="Engine\math\Vector.cpp" />
+    <ClCompile Include="Engine\physics\CapsuleCollider.cpp" />
+    <ClCompile Include="Engine\physics\CSphereCollider.cpp" />
+    <ClCompile Include="Engine\physics\MeshCollider.cpp" />
+    <ClCompile Include="Engine\physics\Physics.cpp" />
+    <ClCompile Include="Engine\physics\PhysicsStaticObject.cpp" />
+    <ClCompile Include="Engine\physics\RigitBody.cpp" />
+    <ClCompile Include="Engine\PreCompile.cpp" />
+    <ClCompile Include="Engine\sound\SoundEngine.cpp" />
+    <ClCompile Include="Engine\window\Window.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameCamera.cpp" />
-    <ClCompile Include="gameObject\CTransform.cpp" />
-    <ClCompile Include="gameObject\GameObject.cpp" />
-    <ClCompile Include="gameObject\GameObjectManager.cpp" />
-    <ClCompile Include="GameScene.cpp" />
-    <ClCompile Include="graphics\animation\Animation.cpp" />
-    <ClCompile Include="graphics\animation\AnimationClip.cpp" />
-    <ClCompile Include="graphics\animation\AnimationPlayController.cpp" />
-    <ClCompile Include="graphics\Camera.cpp" />
-    <ClCompile Include="graphics\CCameraCollisionSlover.cpp" />
-    <ClCompile Include="graphics\CConstantBuffer.cpp" />
-    <ClCompile Include="graphics\CIndexBuffer.cpp" />
-    <ClCompile Include="graphics\CPrimitive.cpp" />
-    <ClCompile Include="graphics\CRenderContext.cpp" />
-    <ClCompile Include="graphics\CSamplerState.cpp" />
-    <ClCompile Include="graphics\CShader.cpp" />
-    <ClCompile Include="graphics\CShaderResource.cpp" />
-    <ClCompile Include="graphics\CUnorderedAccessView.cpp" />
-    <ClCompile Include="graphics\CUtil.cpp" />
-    <ClCompile Include="graphics\CVertexBuffer.cpp" />
-    <ClCompile Include="graphics\Effect\CEffectEngine.cpp" />
-    <ClCompile Include="graphics\GPUBuffer\CGPUBuffer.cpp" />
-    <ClCompile Include="graphics\GraphicsEngine.cpp" />
-    <ClCompile Include="graphics\Light\CLight.cpp" />
-    <ClCompile Include="graphics\RenderTarget.cpp" />
-    <ClCompile Include="graphics\Shader.cpp" />
-    <ClCompile Include="graphics\ShaderResouceView.cpp" />
-    <ClCompile Include="graphics\ShaderResources.cpp" />
-    <ClCompile Include="graphics\Skelton.cpp" />
-    <ClCompile Include="graphics\SkinModel.cpp" />
-    <ClCompile Include="graphics\SkinModelDataManager.cpp" />
-    <ClCompile Include="graphics\SkinModelEffect.cpp" />
-    <ClCompile Include="graphics\SkinModelRender.cpp" />
-    <ClCompile Include="graphics\SkinModelShaderConst.cpp" />
-    <ClCompile Include="graphics\SpringCamera.cpp" />
-    <ClCompile Include="graphics\Sprite\Effect.cpp" />
-    <ClCompile Include="graphics\Sprite\SpBuffer.cpp" />
-    <ClCompile Include="graphics\Sprite\Sprite.cpp" />
-    <ClCompile Include="graphics\StructedBuffer.cpp" />
-    <ClCompile Include="graphics\TScopedResource.cpp" />
-    <ClCompile Include="HID\Pad.cpp" />
-    <ClCompile Include="Inventory.cpp" />
-    <ClCompile Include="Item\ExplorationRocket.cpp" />
-    <ClCompile Include="Item\Hover.cpp" />
-    <ClCompile Include="Item\IBase.cpp" />
-    <ClCompile Include="Item\IConstructor.cpp" />
-    <ClCompile Include="Item\Item.cpp" />
-    <ClCompile Include="Item\MiningMachine.cpp" />
-    <ClCompile Include="Item\Windmill.cpp" />
-    <ClCompile Include="level\Level.cpp" />
-    <ClCompile Include="level\MapChip.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Materials\Iron.cpp" />
-    <ClCompile Include="Materials\Mineral.cpp" />
-    <ClCompile Include="math\kMath.cpp" />
-    <ClCompile Include="math\Matrix.cpp" />
-    <ClCompile Include="math\Vector.cpp" />
-    <ClCompile Include="physics\CapsuleCollider.cpp" />
-    <ClCompile Include="physics\CSphereCollider.cpp" />
-    <ClCompile Include="physics\MeshCollider.cpp" />
-    <ClCompile Include="physics\Physics.cpp" />
-    <ClCompile Include="physics\PhysicsStaticObject.cpp" />
-    <ClCompile Include="physics\RigitBody.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Popup.cpp" />
-    <ClCompile Include="PreCompile.cpp" />
-    <ClCompile Include="SearchRate.cpp" />
-    <ClCompile Include="sound\SoundEngine.cpp" />
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="TestScene.cpp" />
-    <ClCompile Include="TheShip.cpp" />
-    <ClCompile Include="Title.cpp" />
-    <ClCompile Include="window\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ActionMenu.h" />
-    <ClInclude Include="ArrangeIron.h" />
-    <ClInclude Include="BackGround.h" />
-    <ClInclude Include="CFONT.h" />
-    <ClInclude Include="character\CharacterController.h" />
-    <ClInclude Include="ClearScene.h" />
-    <ClInclude Include="Engine.h" />
-    <ClInclude Include="EngineStruct.h" />
-    <ClInclude Include="Fade.h" />
-    <ClInclude Include="FPSCounter.h" />
+    <ClInclude Include="Engine\character\CharacterController.h" />
+    <ClInclude Include="Engine\Engine.h" />
+    <ClInclude Include="Engine\EngineStruct.h" />
+    <ClInclude Include="Engine\FPSCounter.h" />
+    <ClInclude Include="Engine\gameObject\CTransform.h" />
+    <ClInclude Include="Engine\gameObject\GameObject.h" />
+    <ClInclude Include="Engine\gameObject\GameObjectManager.h" />
+    <ClInclude Include="Engine\graphics\animation\Animation.h" />
+    <ClInclude Include="Engine\graphics\animation\AnimationClip.h" />
+    <ClInclude Include="Engine\graphics\animation\AnimationPlayController.h" />
+    <ClInclude Include="Engine\graphics\Camera.h" />
+    <ClInclude Include="Engine\graphics\CCameraCollisionSlover.h" />
+    <ClInclude Include="Engine\graphics\CConstantBuffer.h" />
+    <ClInclude Include="Engine\graphics\CIndexBuffer.h" />
+    <ClInclude Include="Engine\graphics\CPrimitive.h" />
+    <ClInclude Include="Engine\graphics\CRenderContext.h" />
+    <ClInclude Include="Engine\graphics\CSamplerState.h" />
+    <ClInclude Include="Engine\graphics\CShader.h" />
+    <ClInclude Include="Engine\graphics\CShaderResource.h" />
+    <ClInclude Include="Engine\graphics\CUnorderedAccessView.h" />
+    <ClInclude Include="Engine\graphics\CUtil.h" />
+    <ClInclude Include="Engine\graphics\CVertexBuffer.h" />
+    <ClInclude Include="Engine\graphics\Effect\CEffect.h" />
+    <ClInclude Include="Engine\graphics\Effect\CEffectEngine.h" />
+    <ClInclude Include="Engine\graphics\font\CFONT.h" />
+    <ClInclude Include="Engine\graphics\GPUBuffer\CGPUBuffer.h" />
+    <ClInclude Include="Engine\graphics\GraphicsEngine.h" />
+    <ClInclude Include="Engine\graphics\Noncopyable.h" />
+    <ClInclude Include="Engine\graphics\RenderTarget.h" />
+    <ClInclude Include="Engine\graphics\Shader.h" />
+    <ClInclude Include="Engine\graphics\ShaderResouceView.h" />
+    <ClInclude Include="Engine\graphics\ShaderResources.h" />
+    <ClInclude Include="Engine\graphics\Skelton.h" />
+    <ClInclude Include="Engine\graphics\SkinModel.h" />
+    <ClInclude Include="Engine\graphics\SkinModelDataManager.h" />
+    <ClInclude Include="Engine\graphics\SkinModelEffect.h" />
+    <ClInclude Include="Engine\graphics\SkinModelRender.h" />
+    <ClInclude Include="Engine\graphics\SkinModelShaderConst.h" />
+    <ClInclude Include="Engine\graphics\SpringCamera.h" />
+    <ClInclude Include="Engine\graphics\SpriteRender.h" />
+    <ClInclude Include="Engine\graphics\Sprite\Effect.h" />
+    <ClInclude Include="Engine\graphics\Sprite\SpBuffer.h" />
+    <ClInclude Include="Engine\graphics\Sprite\Sprite.h" />
+    <ClInclude Include="Engine\graphics\StructedBuffer.h" />
+    <ClInclude Include="Engine\graphics\TScopedResource.h" />
+    <ClInclude Include="Engine\HID\Pad.h" />
+    <ClInclude Include="Engine\level\Level.h" />
+    <ClInclude Include="Engine\level\MapChip.h" />
+    <ClInclude Include="Engine\math\kMath.h" />
+    <ClInclude Include="Engine\math\Matrix.h" />
+    <ClInclude Include="Engine\math\Vector.h" />
+    <ClInclude Include="Engine\physics\CapsuleCollider.h" />
+    <ClInclude Include="Engine\physics\CollisionAttr.h" />
+    <ClInclude Include="Engine\physics\CSphereCollider.h" />
+    <ClInclude Include="Engine\physics\ICollider.h" />
+    <ClInclude Include="Engine\physics\MeshCollider.h" />
+    <ClInclude Include="Engine\physics\Physics.h" />
+    <ClInclude Include="Engine\physics\PhysicsStaticObject.h" />
+    <ClInclude Include="Engine\physics\RigitBody.h" />
+    <ClInclude Include="Engine\PreCompile.h" />
+    <ClInclude Include="Engine\sound\SoundEngine.h" />
+    <ClInclude Include="Engine\util\Util.h" />
+    <ClInclude Include="Engine\window\Window.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="GameCamera.h" />
-    <ClInclude Include="gameObject\CTransform.h" />
-    <ClInclude Include="gameObject\GameObject.h" />
-    <ClInclude Include="gameObject\GameObjectManager.h" />
-    <ClInclude Include="GameScene.h" />
-    <ClInclude Include="graphics\animation\Animation.h" />
-    <ClInclude Include="graphics\animation\AnimationClip.h" />
-    <ClInclude Include="graphics\animation\AnimationPlayController.h" />
-    <ClInclude Include="graphics\Camera.h" />
-    <ClInclude Include="graphics\CCameraCollisionSlover.h" />
-    <ClInclude Include="graphics\CConstantBuffer.h" />
-    <ClInclude Include="graphics\CIndexBuffer.h" />
-    <ClInclude Include="graphics\CPrimitive.h" />
-    <ClInclude Include="graphics\CRenderContext.h" />
-    <ClInclude Include="graphics\CSamplerState.h" />
-    <ClInclude Include="graphics\CShader.h" />
-    <ClInclude Include="graphics\CShaderResource.h" />
-    <ClInclude Include="graphics\CUnorderedAccessView.h" />
-    <ClInclude Include="graphics\CUtil.h" />
-    <ClInclude Include="graphics\CVertexBuffer.h" />
-    <ClInclude Include="graphics\Effect\CEffectEngine.h" />
-    <ClInclude Include="graphics\GPUBuffer\CGPUBuffer.h" />
-    <ClInclude Include="graphics\GraphicsEngine.h" />
-    <ClInclude Include="graphics\Light\CLight.h" />
-    <ClInclude Include="graphics\RenderTarget.h" />
-    <ClInclude Include="graphics\Shader.h" />
-    <ClInclude Include="graphics\ShaderResouceView.h" />
-    <ClInclude Include="graphics\ShaderResources.h" />
-    <ClInclude Include="graphics\Skelton.h" />
-    <ClInclude Include="graphics\SkinModel.h" />
-    <ClInclude Include="graphics\SkinModelDataManager.h" />
-    <ClInclude Include="graphics\SkinModelEffect.h" />
-    <ClInclude Include="graphics\SkinModelRender.h" />
-    <ClInclude Include="graphics\SkinModelShaderConst.h" />
-    <ClInclude Include="graphics\SpringCamera.h" />
-    <ClInclude Include="graphics\Sprite\Effect.h" />
-    <ClInclude Include="graphics\Sprite\SpBuffer.h" />
-    <ClInclude Include="graphics\Sprite\Sprite.h" />
-    <ClInclude Include="graphics\StructedBuffer.h" />
-    <ClInclude Include="graphics\TScopedResource.h" />
-    <ClInclude Include="HID\Pad.h" />
-    <ClInclude Include="Inventory.h" />
-    <ClInclude Include="IScene.h" />
-    <ClInclude Include="Item\ExplorationRocket.h" />
-    <ClInclude Include="Item\Hover.h" />
-    <ClInclude Include="Item\IBase.h" />
-    <ClInclude Include="Item\IConstructor.h" />
-    <ClInclude Include="Item\Item.h" />
-    <ClInclude Include="Item\MiningMachine.h" />
-    <ClInclude Include="Item\Windmill.h" />
-    <ClInclude Include="level\Level.h" />
-    <ClInclude Include="level\MapChip.h" />
-    <ClInclude Include="Materials\Iron.h" />
-    <ClInclude Include="Materials\Mineral.h" />
-    <ClInclude Include="math\kMath.h" />
-    <ClInclude Include="math\Matrix.h" />
-    <ClInclude Include="math\Vector.h" />
-    <ClInclude Include="physics\CapsuleCollider.h" />
-    <ClInclude Include="physics\CollisionAttr.h" />
-    <ClInclude Include="physics\CSphereCollider.h" />
-    <ClInclude Include="physics\ICollider.h" />
-    <ClInclude Include="physics\MeshCollider.h" />
-    <ClInclude Include="physics\Physics.h" />
-    <ClInclude Include="physics\PhysicsStaticObject.h" />
-    <ClInclude Include="physics\RigitBody.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Popup.h" />
-    <ClInclude Include="PreCompile.h" />
-    <ClInclude Include="SearchRate.h" />
-    <ClInclude Include="sound\SoundEngine.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="TestScene.h" />
-    <ClInclude Include="TheShip.h" />
-    <ClInclude Include="Title.h" />
-    <ClInclude Include="window\Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\BackWorld.FBX" />
-    <MeshContentTask Include="Assets\modelData\Base.FBX" />
-    <MeshContentTask Include="Assets\modelData\Constructor.FBX" />
-    <MeshContentTask Include="Assets\modelData\DrilPos.FBX" />
-    <MeshContentTask Include="Assets\modelData\ExplorationRocket.FBX" />
-    <MeshContentTask Include="Assets\modelData\ExRocketDL.FBX" />
-    <MeshContentTask Include="Assets\modelData\FlatRange.FBX" />
-    <MeshContentTask Include="Assets\modelData\Hover.FBX" />
-    <MeshContentTask Include="Assets\modelData\IronOre.FBX" />
-    <MeshContentTask Include="Assets\modelData\ItemBox.FBX" />
-    <MeshContentTask Include="Assets\modelData\MiningItem.FBX" />
-    <MeshContentTask Include="Assets\modelData\Player.FBX" />
-    <MeshContentTask Include="Assets\modelData\Ship.FBX" />
-    <MeshContentTask Include="Assets\modelData\Space.FBX" />
-    <MeshContentTask Include="Assets\modelData\testbox.FBX" />
-    <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
-    <MeshContentTask Include="Assets\modelData\Wall.FBX" />
-    <MeshContentTask Include="Assets\modelData\Windmill.FBX" />
+    <MeshContentTask Include="Assets\modelData\Test.FBX" />
   </ItemGroup>
   <ItemGroup>
-    <ImageContentTask Include="Assets\modelData\test.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="Assets\modelData\unityChan.tks">
-      <FileType>Document</FileType>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\modelData\utc_all2.tga" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\mikyan.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\TitleSprite.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\ActMenu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\ActMenu1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\ActState_Fill.png" />
-    <ImageContentTask Include="Assets\Sprite\ActState_Flat.png" />
-    <ImageContentTask Include="Assets\Sprite\ActState_Mining.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\None_Sprite.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\ItemBoxSprite.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\Inventory.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\Constructor.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\ItemBoxUsing.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="Assets\texture\actionlines.png" />
-    <CustomBuild Include="Assets\texture\aurora01.png" />
-    <CustomBuild Include="Assets\texture\Burst01.png" />
-    <CustomBuild Include="Assets\texture\burst02_red.png" />
-    <CustomBuild Include="Assets\texture\Burst_1.png" />
-    <CustomBuild Include="Assets\texture\Burst_2.png" />
-    <CustomBuild Include="Assets\texture\clockHand.png" />
-    <CustomBuild Include="Assets\texture\Cloud01.png" />
-    <CustomBuild Include="Assets\texture\double-shockwave.png" />
-    <CustomBuild Include="Assets\texture\drillshi.png" />
-    <CustomBuild Include="Assets\texture\eggzero.png" />
-    <CustomBuild Include="Assets\texture\ExperimentalBlur.png" />
-    <CustomBuild Include="Assets\texture\ExperimentalNoise.png" />
-    <CustomBuild Include="Assets\texture\Fire.png" />
-    <CustomBuild Include="Assets\texture\Fire_Blur.png" />
-    <CustomBuild Include="Assets\texture\Fire_Single.png" />
-    <CustomBuild Include="Assets\texture\fire_tex.png" />
-    <CustomBuild Include="Assets\texture\Flame01.png" />
-    <CustomBuild Include="Assets\texture\Glass.png" />
-    <CustomBuild Include="Assets\texture\glow.png" />
-    <CustomBuild Include="Assets\texture\Halo.png" />
-    <CustomBuild Include="Assets\texture\IntensiveLine.png" />
-    <CustomBuild Include="Assets\texture\LaserMain01.png" />
-    <CustomBuild Include="Assets\texture\LaserMain02.png" />
-    <CustomBuild Include="Assets\texture\NoiseAnimation.png" />
-    <CustomBuild Include="Assets\texture\orb_colored.png" />
-    <CustomBuild Include="Assets\texture\Particle01.png" />
-    <CustomBuild Include="Assets\texture\Particle02.png" />
-    <CustomBuild Include="Assets\texture\Particle03.png" />
-    <CustomBuild Include="Assets\texture\Particle04_bokashistrong_hard.png" />
-    <CustomBuild Include="Assets\texture\Particle04_bokashistrong_soft.png" />
-    <CustomBuild Include="Assets\texture\Particle04_bokashi_hard.png" />
-    <CustomBuild Include="Assets\texture\Particle04_bokashi_soft.png" />
-    <CustomBuild Include="Assets\texture\Particle04_clear_hard.png" />
-    <CustomBuild Include="Assets\texture\Particle04_clear_soft.png" />
-    <CustomBuild Include="Assets\texture\Particle_Hard.png" />
-    <CustomBuild Include="Assets\texture\Particle_Soft.png" />
-    <CustomBuild Include="Assets\texture\ribbon01_trans.png" />
-    <CustomBuild Include="Assets\texture\ShadowEye.png" />
-    <CustomBuild Include="Assets\texture\Shockwave.png" />
-    <CustomBuild Include="Assets\texture\Shock_wave004.png" />
-    <CustomBuild Include="Assets\texture\Shock_wave_ring001.png" />
-    <CustomBuild Include="Assets\texture\Shock_wave_ring001_long.png" />
-    <CustomBuild Include="Assets\texture\Shock_wave_ring002.png" />
-    <CustomBuild Include="Assets\texture\Smoke.png" />
-    <CustomBuild Include="Assets\texture\smoke_tex.png" />
-    <CustomBuild Include="Assets\texture\Splash.png" />
-    <CustomBuild Include="Assets\texture\Splash01.png" />
-    <CustomBuild Include="Assets\texture\squareWave.png" />
-    <CustomBuild Include="Assets\texture\squareWave03_192.png" />
-    <CustomBuild Include="Assets\texture\squareWave03_384.png" />
-    <CustomBuild Include="Assets\texture\Star.png" />
-    <CustomBuild Include="Assets\texture\starpart.PNG" />
-    <CustomBuild Include="Assets\texture\SwordLine01.png" />
-    <CustomBuild Include="Assets\texture\t0002.png" />
-    <CustomBuild Include="Assets\texture\Tentacle.png" />
-    <CustomBuild Include="Assets\texture\Thunder01.png" />
-    <CustomBuild Include="Assets\texture\Thunder10.png" />
-    <CustomBuild Include="Assets\texture\Thunder_Bold.png" />
-    <CustomBuild Include="Assets\texture\Thunder_Thin.png" />
-    <CustomBuild Include="Assets\texture\Wind.png" />
-    <CustomBuild Include="Assets\texture\Wind01.png" />
-    <CustomBuild Include="Assets\texture\wind02.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\ItemRocket.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\RocketMenu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\ExRocket.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\ExRocketClose.png" />
-    <ImageContentTask Include="Assets\Sprite\ExRocketLaunch.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\modelData\ceiling022.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\modelData\alien010.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\modelData\control004.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\ActMenuFlatSet.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\ActMenuCraft.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\ActMenuInventory.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\ExRocketMenu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\ExRocketMenuArrow.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\NotiGotMaterial.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\Hover.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\BatteryGauge.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\BatteryFrame.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\HoverMenu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\HoverFrame.png" />
-    <ImageContentTask Include="Assets\Sprite\HoverGauge.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\Sprite\HoverFuelMenu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Assets\modelData\door018.jpg" />
-    <ImageContentTask Include="Assets\Sprite\Clear.png" />
-    <ImageContentTask Include="Assets\Sprite\Title.png" />
-    <ImageContentTask Include="Assets\Sprite\SearchRateFrame.png" />
-    <ImageContentTask Include="Assets\Sprite\rateGaugeAir.png" />
-    <ImageContentTask Include="Assets\Sprite\RateGaugeFrame.png" />
-    <ImageContentTask Include="Assets\Sprite\rateGaugeGround.png" />
-    <ImageContentTask Include="Assets\Sprite\rateGaugeMaterial.png" />
-    <ImageContentTask Include="Assets\Sprite\Windmill.png" />
-    <ImageContentTask Include="Assets\Sprite\Base.png" />
-    <ImageContentTask Include="Assets\Sprite\testgauge.png" />
-    <ImageContentTask Include="Assets\Sprite\testmask.png" />
-    <ImageContentTask Include="Assets\Sprite\MiningFrame.png" />
-    <ImageContentTask Include="Assets\Sprite\MiningGauge.png" />
-    <ImageContentTask Include="Assets\Sprite\MiningMachineMining.png" />
-    <ImageContentTask Include="Assets\Sprite\MiningMachineStandby.png" />
-    <ImageContentTask Include="Assets\Sprite\MiningMachineMenu.png" />
-    <ImageContentTask Include="Assets\Sprite\ItemMining.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="Assets\sound\stage00.wav">
-      <FileType>Document</FileType>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="Assets\sound\Buff.wav">
-      <FileType>Document</FileType>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="Assets\sound\title.wav">
-      <FileType>Document</FileType>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="Assets\sound\converting.wav">
-      <FileType>Document</FileType>
-    </CustomBuild>
-    <Media Include="Assets\sound\game.wav" />
-    <CustomBuild Include="Assets\sound\start.wav">
-      <FileType>Document</FileType>
-    </CustomBuild>
-    <CustomBuild Include="Assets\sound\se.wav">
-      <FileType>Document</FileType>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="Assets\effect\Laser01.efk">
-      <FileType>Document</FileType>
-    </CustomBuild>
+    <Image Include="Assets\modelData\boxTex.png" />
+    <ImageContentTask Include="Assets\Sprite\Test.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

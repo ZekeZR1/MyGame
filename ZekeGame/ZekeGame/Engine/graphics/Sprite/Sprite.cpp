@@ -2,6 +2,13 @@
 #include "Sprite.h"
 #include "SpBuffer.h"
 
+struct SSimpleVertex {
+	CVector4 pos;
+	CVector2 tex;
+};
+
+const CVector2	Sprite::DEFAULT_PIVOT = { 0.5f, 0.5f };
+
 Sprite::Sprite()
 {
 }
@@ -44,6 +51,7 @@ void Sprite::Update(const CVector3& trans, const CQuaternion& rot, const CVector
 	m_world.Mul(m_world, mRot);
 	m_world.Mul(m_world, mTrans);
 }
+
 void Sprite::InitConstantBuffer()
 {
 	D3D11_BUFFER_DESC desc;
@@ -53,7 +61,7 @@ void Sprite::InitConstantBuffer()
 	desc.ByteWidth = (((sizeof(ConstantBuffer) - 1) / 16) + 1) * 16;
 	desc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
 	desc.CPUAccessFlags = 0;
-	g_graphicsEngine->GetD3DDevice()->CreateBuffer(&desc, NULL, &m_cb);
+	g_graphicsEngine->GetD3DDevice()->CreateBuffer(&desc, NULL, &m__cb);
 }
 
 void Sprite::Init(const wchar_t* texFilePath, float w, float h)
@@ -65,10 +73,9 @@ void Sprite::Init(const wchar_t* texFilePath, float w, float h)
 	InitSamplerState(m_samplerState);
 	m_effect.Load("Assets/shader/sprite.fx");
 	wchar_t filePath[256];
-	swprintf_s(filePath, L"Resource/%s", texFilePath);
 	DirectX::CreateDDSTextureFromFileEx(
 		g_graphicsEngine->GetD3DDevice(),	
-		filePath,					
+		texFilePath,
 		0,
 		D3D11_USAGE_DEFAULT,	
 		D3D11_BIND_SHADER_RESOURCE,	
@@ -79,9 +86,55 @@ void Sprite::Init(const wchar_t* texFilePath, float w, float h)
 		&m_texture				
 									
 	);
-
 	InitConstantBuffer();
 }
+
+void Sprite::Init(ShaderResouceView& tex, float w, float h)
+{
+	//シェーダーロード。
+	m_ps.Load("shader/sprite.fx", "PSMain", CShader::EnType::PS);
+	m_vs.Load("shader/sprite.fx", "VSMain", CShader::EnType::VS);
+	m_size.x = w;
+	m_size.y = h;
+	float halfW = w * 0.5f;
+	float halfH = h * 0.5f;
+	//頂点バッファのソースデータ。
+	SSimpleVertex vertices[] =
+	{
+		{
+			CVector4(-halfW, -halfH, 0.0f, 1.0f),
+			CVector2(0.0f, 1.0f),
+		},
+			{
+				CVector4(halfW, -halfH, 0.0f, 1.0f),
+				CVector2(1.0f, 1.0f),
+			},
+			{
+				CVector4(-halfW, halfH, 0.0f, 1.0f),
+				CVector2(0.0f, 0.0f)
+			},
+			{
+				CVector4(halfW, halfH, 0.0f, 1.0f),
+				CVector2(1.0f, 0.0f)
+			}
+
+	};
+	short indices[] = { 0,1,2,3 };
+
+	m_primitive.Create(
+		D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP,
+		4,
+		sizeof(SSimpleVertex),
+		vertices,
+		4,
+		CIndexBuffer::enIndexType_16,
+		indices
+	);
+	m_textureSRV = &tex;
+	m_cb.Create(nullptr, sizeof(SSpriteCB));
+}
+
+
 void Sprite::Draw()
 {
 	m_effect.BeginRender();
@@ -107,8 +160,8 @@ void Sprite::Draw()
 	cb.WVP = m_world;
 	cb.WVP.Mul(cb.WVP, camera2d->GetViewMatrix());
 	cb.WVP.Mul(cb.WVP, camera2d->GetProjectionMatrix());
-	ge->GetD3DDeviceContext()->UpdateSubresource(m_cb, 0, NULL, &cb, 0, 0);
-	ge->GetD3DDeviceContext()->VSSetConstantBuffers(0, 1, &m_cb);
+	ge->GetD3DDeviceContext()->UpdateSubresource(m__cb, 0, NULL, &cb, 0, 0);
+	ge->GetD3DDeviceContext()->VSSetConstantBuffers(0, 1, &m__cb);
 	ge->GetD3DDeviceContext()->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 	ge->GetD3DDeviceContext()->DrawIndexed(	
 		6,				
@@ -116,3 +169,5 @@ void Sprite::Draw()
 		0				
 	);
 }
+
+

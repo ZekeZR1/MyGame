@@ -3,10 +3,10 @@
 */
 
 #include "stdafx.h"
-#include "graphics/animation/AnimationPlayController.h"
-#include "graphics/animation/Animation.h"
-#include "graphics/animation/AnimationClip.h"
-#include "graphics/skelton.h"
+#include "Engine/graphics/animation/AnimationPlayController.h"
+#include "Engine/graphics/animation/Animation.h"
+#include "Engine/graphics/animation/AnimationClip.h"
+#include "Engine/graphics/skelton.h"
 
 
 

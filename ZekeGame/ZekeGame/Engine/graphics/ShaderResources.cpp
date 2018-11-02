@@ -4,9 +4,9 @@
 */
 
 #include "stdafx.h"
-#include "graphics/ShaderResources.h"
-#include "graphics/Shader.h"
-#include "util/Util.h"
+#include "Engine/graphics/ShaderResources.h"
+#include "Engine/graphics/Shader.h"
+#include "Engine/util/Util.h"
 
 namespace {
 	std::unique_ptr<char[]> ReadFile(const char* filePath, int& fileSize)

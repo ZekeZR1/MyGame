@@ -3,8 +3,8 @@
 */
 
 #include "stdafx.h"
-#include "graphics/animation/AnimationClip.h"
-#include "graphics/skelton.h"
+#include "Engine/graphics/animation/AnimationClip.h"
+#include "Engine/graphics/skelton.h"
 
 
 AnimationClip::~AnimationClip()
